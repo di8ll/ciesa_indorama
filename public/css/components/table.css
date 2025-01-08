@@ -1,0 +1,6 @@
+@charset "UTF-8";
+
+.table th,
+.table td {
+    padding: 10px;
+}

@@ -1,0 +1,28 @@
+ .custom-tabs .nav-item {
+     margin-right: 3px;
+ }
+
+ .custom-tabs .nav-link {
+     width: 100%;
+     font-weight: bold;
+     background-color: #0b5a38;
+ }
+
+ .custom-tabs .nav-link:hover {
+     background-color: #25c450;
+     color: #ffffff;
+ }
+
+ .custom-tabs .nav-link.active {
+     color: #000000;
+     background: linear-gradient(135deg, #25c450, #25c450);
+     border-color: #000000;
+ }
+
+ .text-active {
+     color: #313131;
+ }
+
+ .text-inactive {
+     color: #313131;
+ }

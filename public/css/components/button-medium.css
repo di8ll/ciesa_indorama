@@ -1,0 +1,32 @@
+.btn-custom {
+    background-color: var(--custom-bg-color, #4CAF50);
+    /* Default Green background */
+    color: var(--custom-text-color, white);
+    /* Default White text */
+    border: 2px solid var(--custom-border-color, #4CAF50);
+    /* Default Green border */
+    border-radius: 4px;
+    /* Rounded corners */
+    padding: 8px 30px;
+    /* Padding */
+    font-size: 14px;
+    /* Font size */
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    /* Smooth transition */
+}
+
+.btn-custom:hover {
+    background-color: var(--custom-hover-bg-color, white);
+    /* Default White background on hover */
+    color: var(--custom-hover-text-color, #4CAF50);
+    /* Default Green text on hover */
+    border-color: var(--custom-hover-border-color, #4CAF50);
+    /* Default Green border on hover */
+}
+
+.btn-custom:active {
+    background-color: var(--custom-active-bg-color, #45a049);
+    /* Default Darker green background when clicked */
+    border-color: var(--custom-active-border-color, #45a049);
+    /* Default Darker green border when clicked */
+}

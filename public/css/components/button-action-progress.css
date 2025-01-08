@@ -1,0 +1,57 @@
+.buttons {
+    --bg: #506dee;
+    --text-color: #fff;
+    position: relative;
+    width: 60px;
+    border: none;
+    background: var(--bg);
+    color: var(--text-color);
+    padding: 1em;
+    font-size: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.2s;
+    border-radius: 5px;
+    opacity: 0.8;
+    letter-spacing: 1px;
+    /* text-shadow: -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000; */
+    box-shadow: #112380 0px 7px 2px, #000 0px 8px 5px;
+}
+
+.buttons:hover {
+    opacity: 1;
+}
+
+.buttons:active {
+    top: 4px;
+    box-shadow: #7b8ff6 0px 3px 2px, #615896 0px 3px 5px;
+}
+
+.buttons2 {
+    --bg: #e92828;
+    --text-color: #ffffff;
+    position: relative;
+    width: 60px;
+    border: none;
+    background: var(--bg);
+    color: var(--text-color);
+    padding: 1em;
+    font-size: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.2s;
+    border-radius: 5px;
+    opacity: 0.8;
+    letter-spacing: 1px;
+    /* text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff; */
+    box-shadow: #b8240d 0px 7px 2px, #000 0px 8px 5px;
+}
+
+.buttons2:hover {
+    opacity: 1;
+}
+
+.buttons2:active {
+    top: 4px;
+    box-shadow: #fe553b 0px 3px 2px, #000 0px 3px 5px;
+}

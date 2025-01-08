@@ -1,0 +1,30 @@
+.progress-bar-imp {
+    height: 100%;
+    transition: width 0.6s ease;
+}
+
+/* Color changes based on progress percentage */
+.progress-bar-imp[aria-valuenow="20"] {
+    background-color: red;
+}
+
+.progress-bar-imp[aria-valuenow="50"] {
+    background-color: yellow;
+}
+
+.progress-bar-imp[aria-valuenow="100"] {
+    background-color: green;
+}
+
+/* For ranges, using attribute selectors */
+.progress-bar-imp[aria-valuenow]:nth-child(n+1):nth-child(-n+19) {
+    background-color: red;
+}
+
+.progress-bar-imp[aria-valuenow]:nth-child(n+20):nth-child(-n+49) {
+    background-color: yellow;
+}
+
+.progress-bar-imp[aria-valuenow]:nth-child(n+50):nth-child(-n+100) {
+    background-color: green;
+}

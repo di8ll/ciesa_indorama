@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #a43b3b93;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.logo-container {
+    order: 2;
+}
+
+.logo-container img {
+    max-height: 50px;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.tds {
+    border: 2.2px solid #DDDDDD !important;
+}
