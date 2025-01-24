@@ -1,7 +1,7 @@
 <?php
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\DokumenController;
+use App\Http\Controllers\TpbBc25Controller;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -23,6 +23,6 @@ Route::middleware('auth')->get('/home', function () {
 
 
     //Dokumen Pabean
-    Route::get('/dokumen-baru', [DokumenController::class, 'index'])->name('dokumen-baru.index');
-    Route::post('/dokumen-baru', [DokumenController::class, 'store'])->name('dokumen-baru.store');
-    Route::get('/dokumen_pabean/data', [DokumenController::class, 'index']);
+    Route::get('/dokumen_baru', [TpbBc25Controller::class, 'index'])->name('dokumen_baru');
+    Route::post('/dokumen_create', [TpbBc25Controller::class, 'store'])->name('dokumen_create.store');
+    Route::get('/dokumen_pabean', [TpbBc25Controller::class, 'create'])->name('dokumen_pabean');;
