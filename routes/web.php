@@ -24,5 +24,5 @@ Route::middleware('auth')->get('/home', function () {
 
     //Dokumen Pabean
     Route::get('/dokumen_baru', [TpbBc25Controller::class, 'index'])->name('dokumen_baru');
-    Route::post('/dokumen_create', [TpbBc25Controller::class, 'store'])->name('dokumen_create.store');
-    Route::get('/dokumen_pabean', [TpbBc25Controller::class, 'create'])->name('dokumen_pabean');;
+    Route::get('/dokumen/create', [TpbBc25Controller::class, 'create'])->name('dokumen.create');
+    Route::post('/dokumen/store', [TpbBc25Controller::class, 'store'])->name('dokumen.store');

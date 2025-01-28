@@ -3,48 +3,16 @@
     <!-- Navbar -->
     <nav class="navbar-custom" id="navbar-custom" style="background-color: #125D72;">
         <ul class="list-unstyled topbar-nav float-end mb-0">
-            <li class="dropdown notification-list">
-                <a class="dropdown-toggle arrow-none nav-icon" data-bs-toggle="dropdown" href="#" role="button">
-                    <img src="{{ asset('template/img/bells.svg') }}" height="21"
-                        style="margin-right: 10px; border-radius: 5px;">
-                    {{-- <span class="alert-badge"></span> --}}
-                </a>
-                <div class="dropdown-menu dropdown-menu-end dropdown-lg pt-0">
-                    <h6
-                        class="dropdown-item-text font-15 m-0 py-3 border-bottom d-flex justify-content-between align-items-center">
-                        Notifications
-                        {{-- @if (auth()->user()->unreadNotifications->count() == '0')
-                        @else
-                            <span
-                                class="badge bg-soft-primary badge-pill">{{ auth()->user()->unreadNotifications->count() }}</span>
-                        @endif --}}
-                    </h6>
-
-                    <!-- All-->
-                    {{-- <form action="{{ route('notifications.mark-all-as-read') }}" method="POST"
-                        class="dropdown-item text-center text-primary">
-                        @csrf
-                        <button type="submit" class="btn btn-sm btn-link font-size-14 text-center">Already
-                            read</button>
-                    </form> --}}
-                </div>
-            </li>
 
             <li class="dropdown">
                 <a class="nav-link dropdown-toggle nav-user" data-bs-toggle="dropdown" href="#" role="button"
                     aria-haspopup="false" aria-expanded="false">
                     <div class="d-flex align-items-center">
-                        @if (Auth::user()->jk == 'Man')
-                            <img src="{{ asset(Auth::user()->photo ? Auth::user()->photo : 'template/assets/images/users/user-1.png') }}"
-                                class="rounded me-2 thumb-sm" alt="profile-user"
-                                style="border: 1px solid rgb(196, 196, 196); border-radius: 4px;">
-                        @else
-                            <img src="{{ asset(Auth::user()->photo ? Auth::user()->photo : 'template/assets/images/users/user-12.jpg') }}"
-                                class="rounded-circle me-2 thumb-sm" alt="profile-user"
-                               style="border: 1px solid rgb(196, 196, 196); border-radius: 4px;">
-                        @endif
+                        <img src="{{ asset('template/assets/images/users/user-1.png') }}"
+                        class="rounded me-2 thumb-sm" alt="profile-user"
+                        style="border: 1px solid rgb(196, 196, 196); border-radius: 4px;">
+                <div>
 
-                        <div>
                             {{-- <small class="d-none d-md-block font-11">
                                 @foreach (Auth::user()->getRoleNames() as $role)
                                     {{ $role }}
@@ -54,7 +22,8 @@
                                     @endif
                                 @endforeach
                             </small> --}}
-                            <span class="text-white d-none d-md-block fw-semibold font-12">{{ Auth::user()->name }}
+                            <span class="text-white d-none d-md-block fw-semibold font-12">
+                                {{-- {{ auth()->user()->username }} --}}
                                 <i class="mdi mdi-chevron-down"></i></span>
                         </div>
                     </div>

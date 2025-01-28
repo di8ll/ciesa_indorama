@@ -1,7 +1,7 @@
 @extends('layouts.dashboard.app')
 
 @section('title')
-    Companies | PLN ICON Plus
+    Dokumen Pabean | PT Indorama
 @endsection
 
 @section('content')
@@ -44,7 +44,7 @@
                         <div class="right_content">
                             <div class="col-lg-12 text-start mb-6">
                                 {{-- <form action="{{ route('device.index') }}" method="GET" class="d-flex align-items-center"> --}}
-                            <a href="{{ route('dokumen_pabean') }}" class="btn btn-primary mb-3">
+                            <a href="{{ route('dokumen.create') }}" class="btn btn-primary mb-3">
                                     <span data-feather="plus"></span>
                                     Tambah Dokumen Baru
                                 </a>

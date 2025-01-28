@@ -54,7 +54,7 @@
 
     <style>
         body {
-            background-image: url('{{ asset('template/img/pattern_background_main.svg') }}');
+            /* background-image: url('{{ asset('template/img/pattern_background_main.svg') }}'); */
             background-color: #14A2BA;
             background-repeat: no-repeat;
             background-position: top left;
