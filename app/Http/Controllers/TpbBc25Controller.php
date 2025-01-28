@@ -23,44 +23,63 @@ class TpbBc25Controller extends Controller
 
     public function store(Request $request)
     {
+        // Validasi input untuk jumlahKontainer
+        $validated = $request->validate([
+            'jumlahKontainer' => 'required|integer|min:0',
+        ]);
+    
         // Ambil user yang sedang autentikasi
         $user = Auth::user();
-
+    
         if (!$user) {
             return response()->json([
                 'status' => 'error',
                 'message' => 'User not authenticated'
             ], 401);
         }
-
+    
         // Ambil access_token dari kolom 'access_token' di tabel 'users'
         $accessToken = $user->access_token;
-
+    
         if (!$accessToken) {
             return response()->json([
                 'status' => 'error',
                 'message' => 'Access token is required'
             ], 401);
         }
+    
+        // Ambil semua data request tanpa filter
+        $validated = $request->all();
 
-
-    // Ambil semua data request tanpa filter
-    $requestData = $request->all();
-
-
-
-        // Debugging: Cek semua data yang akan dikirim ke API dalam format JSON
-        // dd($requestData);
-
+    
+        // Convert data string ke integer untuk field tertentu
+        $fieldsToConvert = [
+            'jumlahKontainer', 'bruto', 'cif', 'dasarPengenaanPajak',
+            'hargaPenyerahan', 'ndpbm', 'netto', 'seri', 'volume',
+            'ppnPajak', 'ppnbmPajak', 'tarifPpnPajak', 'tarifPpnbmPajak'
+        ];
+        foreach ($fieldsToConvert as $field) {
+            if (isset($validated[$field])) {
+                $validated[$field] = intval($validated[$field]);
+            }
+        }
+    
+        // Tambahkan default value untuk field yang wajib jika hilang
+        $requiredFields = ['barang', 'dokumen', 'entitas', 'kemasan', 'kontainer', 'pengangkut'];
+        foreach ($requiredFields as $field) {
+            if (!isset($validated[$field])) {
+                $validated[$field] = []; // Default value sebagai array kosong
+            }
+        }
+    
         // URL API eksternal
         $apiUrl = 'https://apis-gw.beacukai.go.id/openapi/document';
-
-
+    
         try {
             // Kirim permintaan POST ke API eksternal menggunakan Http facade
             $response = Http::withToken($accessToken)
-                ->post($apiUrl, $requestData);
-
+                ->post($apiUrl, $validated);
+    
             // Debugging: Cek respons dari API
             if ($response->failed()) {
                 return response()->json([
@@ -72,9 +91,9 @@ class TpbBc25Controller extends Controller
                     ]
                 ], $response->status());
             }
-
+    
             $data = $response->json();
-
+    
             // Periksa apakah status respons adalah 'success'
             if (isset($data['status']) && $data['status'] === 'success') {
                 return response()->json([
@@ -83,12 +102,12 @@ class TpbBc25Controller extends Controller
                     'data' => $data
                 ]);
             }
-
+    
             return response()->json([
                 'status' => 'error',
                 'message' => $data['message'] ?? 'Gagal menyimpan data'
             ], 400);
-
+    
         } catch (\Exception $e) {
             return response()->json([
                 'status' => 'error',
@@ -97,6 +116,7 @@ class TpbBc25Controller extends Controller
             ], 500);
         }
     }
-
+    
+    
 }
 

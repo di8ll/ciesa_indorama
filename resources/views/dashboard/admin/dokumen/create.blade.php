@@ -122,9 +122,8 @@
                                             </div>
                                             <div class="col-md-3">
                                                 <label for="validationCustom01" class="form-label">Bruto</label>
-                                                <input type="text" class="form-control" id="bruto" name="bruto"
-                                                    value="{{ old('bruto') }}" >
-                                            </div>
+                                                <input class="form-control" type="text" name="bruto" id="bruto"  value="{{ old('bruto') }}" >
+                                           </div>
 
                                             <div class="col-md-3">
                                                 <label for="validationCustom01" class="form-label">Cif</label>
@@ -172,12 +171,13 @@
                                                     name="jabatanTtd" value="{{ old('jabatanTtd') }}" >
                                             </div>
 
+
                                             <div class="col-md-3">
-                                                <label for="validationCustom01" class="form-label">Jumlah
-                                                    Kontainer</label>
-                                                <input type="text" class="form-control" id="jumlahKontainer"
+                                                <label for="validationCustom01" class="form-label">Jumlah Kontainer</label>
+                                                <input type="text" class="form-control"  id="jumlahKontainer"
                                                     name="jumlahKontainer" value="{{ old('jumlahKontainer') }}">
                                             </div>
+
 
                                             <div class="col-md-3">
                                                 <label for="validationCustom01" class="form-label">kode Cara Bayar</label>
@@ -305,9 +305,10 @@
                                         <div class="row">
                                             <div class="col-md-3">
                                                 <label for="bruto2" class="form-label">Bruto</label>
-                                                <input type="text" class="form-control" id="bruto2" name="bruto2"
-                                                    value="{{ old('bruto') }}" >
+                                                <input class="form-control" type="text" name="bruto2" id="bruto2"  value="{{ old('bruto') }}" >
                                             </div>
+
+                                            
                                             <div class="col-md-3">
                                                 <label for="cif2" class="form-label">cif</label>
                                                 <input type="text" class="form-control" id="cif2" name="cif2"
