@@ -307,8 +307,6 @@
                                                 <label for="bruto2" class="form-label">Bruto</label>
                                                 <input class="form-control" type="text" name="bruto2" id="bruto2"  value="{{ old('bruto') }}" >
                                             </div>
-
-                                            
                                             <div class="col-md-3">
                                                 <label for="cif2" class="form-label">cif</label>
                                                 <input type="text" class="form-control" id="cif2" name="cif2"
@@ -700,8 +698,8 @@
                                     </div>
 
 
-                                         {{-- Tarif Barang --}}
-                                         <div class="tab-pane fade" id="Tarifbarang" role="tabpanel"
+                                         {{--Barang Tarif 1--}}
+                                         <div class="tab-pane fade" id="barangTarif" role="tabpanel"
                                          aria-labelledby="Tarifbarang-tab">
                                          <div class="row">
                                              <div class="col-md-3">
@@ -770,23 +768,11 @@
                                                      name="tarifFasilitas2" value="{{ old('tarifFasilitas') }}"
                                                      >
                                              </div>
-                                             <div class="col-md-3">
-                                                 <label for="jumlahSatuan5" class="form-label">jumlah Satuan</label>
-                                                 <input type="text" class="form-control" id="jumlahSatuan5"
-                                                     name="jumlahSatuan5" value="{{ old('jumlahSatuan') }}" autofocus
-                                                     required>
-                                             </div>
-                                             <div class="col-md-3">
-                                                 <label for="kodeFasilitasTarif" class="form-label">kode Fasilitas
-                                                     Tarif</label>
-                                                 <input type="text" class="form-control" id="kodeFasilitasTarif3"
-                                                     name="kodeFasilitasTarif3" value="{{ old('kodeFasilitasTarif') }}"
-                                                     >
-                                             </div>
+
                                          </div>
                                      </div>
 
-                                    {{-- Barang Tarif --}}
+                                    {{-- Barang Tarif 2 --}}
                                     <div class="tab-pane fade" id="barangTarif" role="tabpanel"
                                         aria-labelledby="barangTarif-tab">
                                         <div class="row">
@@ -801,15 +787,15 @@
                                                     name="kodeJenisTarif3" value="{{ old('kodeJenisTarif') }}">
                                             </div>
                                             <div class="col-md-3">
-                                                <label for="jumlahSatuan6" class="form-label">jumlah Satuan</label>
-                                                <input type="text" class="form-control" id="jumlahSatuan6"
-                                                    name="jumlahSatuan6" value="{{ old('jumlahSatuan') }}">
+                                                <label for="jumlahSatuan5" class="form-label">jumlah Satuan</label>
+                                                <input type="text" class="form-control" id="jumlahSatuan5"
+                                                    name="jumlahSatuan5" value="{{ old('jumlahSatuan') }}">
                                             </div>
                                             <div class="col-md-3">
                                                 <label for="kodeFasilitasTarif" class="form-label">kode Fasilitas
                                                     Tarif</label>
-                                                <input type="text" class="form-control" id="kodeFasilitasTarif4"
-                                                    name="kodeFasilitasTarif4" value="{{ old('kodeFasilitasTarif') }}"
+                                                <input type="text" class="form-control" id="kodeFasilitasTarif3"
+                                                    name="kodeFasilitasTarif3" value="{{ old('kodeFasilitasTarif') }}"
                                                     >
                                             </div>
                                             <div class="col-md-3">
@@ -855,6 +841,19 @@
                                                     name="tarifFasilitas3" value="{{ old('tarifFasilitas') }}"
                                                     >
                                             </div>
+                                                <div class="col-md-3">
+                                                 <label for="jumlahSatuan6" class="form-label">jumlah Satuan</label>
+                                                 <input type="text" class="form-control" id="jumlahSatuan6"
+                                                     name="jumlahSatuan6" value="{{ old('jumlahSatuan') }}" autofocus
+                                                     required>
+                                             </div>
+                                             <div class="col-md-3">
+                                                 <label for="kodeFasilitasTarif" class="form-label">kode Fasilitas
+                                                     Tarif</label>
+                                                 <input type="text" class="form-control" id="kodeFasilitasTarif4"
+                                                     name="kodeFasilitasTarif4" value="{{ old('kodeFasilitasTarif') }}"
+                                                     >
+                                             </div>
                                         </div>
                                     </div>
 
@@ -983,6 +982,7 @@
                                                 <input type="text" class="form-control" id="nilaiFasilitas5"
                                                     name="nilaiFasilitas5" value="{{ old('nilaiFasilitas') }}"
                                                     >
+
                                             </div>
                                             <div class="col-md-3">
                                                 <label for="nilaiSudahDilunasi" class="form-label">nilai Sudah
@@ -1101,7 +1101,7 @@
                                             <div class="col-md-3">
                                                 <label for="kodeJenisApi" class="form-label">kode Jenis Api</label>
                                                 <input type="text" class="form-control border-primary"
-                                                    id="kodeJenisApi" name="kodeJenisApi"
+                                                    id="kodeJenisApi2" name="kodeJenisApi2"
                                                     value="{{ old('kodeJenisApi') }}">
                                             </div>
                                             <div class="col-md-3">
@@ -1139,7 +1139,7 @@
                                         <div class="col-md-3">
                                             <label for="seriEntitas" class="form-label">seri Entitas</label>
                                             <input type="text" class="form-control border-primary"
-                                                id="seriEntitas2" name="seriEntitas"2
+                                                id="seriEntitas2" name="seriEntitas2"
                                                 value="{{ old('seriEntitas') }}" >
                                         </div>
                                         </div>
@@ -1161,7 +1161,7 @@
                                             <div class="col-md-3">
                                                 <label for="kodeJenisApi" class="form-label">kode Jenis Api</label>
                                                 <input type="text" class="form-control border-primary"
-                                                    id="kodeJenisApi" name="kodeJenisApi"
+                                                    id="kodeJenisApi3" name="kodeJenisApi3"
                                                     value="{{ old('kodeJenisApi') }}" >
                                             </div>
                                             <div class="col-md-3">
