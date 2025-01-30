@@ -62,23 +62,23 @@
                                     <li class="nav-item" role="presentation">
                                         <button class="nav-link" id="barangTarif-tab" data-bs-toggle="tab"
                                             data-bs-target="#barangTarif" type="button" role="tab"
-                                            aria-controls="barangTarif" aria-selected="false">Tarif Barang</button>
+                                            aria-controls="barangTarif" aria-selected="false">Barang Tarif</button>
                                     </li>
-                                    <li class="nav-item" role="presentation">
+                                    <!-- <li class="nav-item" role="presentation">
                                         <button class="nav-link" id="Tarifbarang-tab" data-bs-toggle="tab"
                                             data-bs-target="#Tarifbarang" type="button" role="tab"
                                             aria-controls="Tarifbarang" aria-selected="false">Barang Tarif</button>
-                                    </li>
+                                    </li> -->
                                     <li class="nav-item" role="presentation">
                                         <button class="nav-link" id="JenisPungutan-tab" data-bs-toggle="tab"
                                             data-bs-target="#JenisPungutan" type="button" role="tab"
                                             aria-controls="JenisPungutan" aria-selected="false">Kode Jenis Pungutan</button>
                                     </li>
-                                    <li class="nav-item" role="presentation">
+                                    <!-- <li class="nav-item" role="presentation">
                                         <button class="nav-link" id="DokumenBarang-tab" data-bs-toggle="tab"
                                             data-bs-target="#DokumenBarang" type="button" role="tab"
                                             aria-controls="DokumenBarang" aria-selected="false">Barang Dokumen</button>
-                                    </li>
+                                    </li> -->
                                     <li class="nav-item" role="presentation">
                                         <button class="nav-link" id="bakuTarif-tab" data-bs-toggle="tab"
                                             data-bs-target="#bakuTarif" type="button" role="tab"
@@ -488,14 +488,14 @@
                                                     value="{{ old('cif') }}" >
                                             </div>
                                             <div class="col-md-3">
-                                                <label for="validationCustom01" class="form-label">cif Rupiah</label>
+                                                <label for="cifRupiah2" class="form-label">cif Rupiah</label>
                                                 <input type="text" class="form-control " id="cifRupiah2"
                                                     name="cifRupiah2" value="{{ old('cifRupiah') }}" >
                                             </div>
                                             <div class="col-md-3">
                                                 <label for="hargaPenyerahan3" class="form-label">harga
                                                     Penyerahan</label>
-                                                <input type="text" class="form-control " id="hargaPenyerahan3"
+                                                <input type="text" class="form-control" id="hargaPenyerahan3"
                                                     name="hargaPenyerahan3" value="{{ old('hargaPenyerahan') }}">
                                             </div>
                                             <div class="col-md-3">
@@ -505,42 +505,42 @@
                                                     required>
                                             </div>
                                             <div class="col-md-3">
-                                                <label for="validationCustom01" class="form-label">kode Asal Bahan
+                                                <label for="kodeAsalBahanBaku" class="form-label">kode Asal Bahan
                                                     Baku</label>
                                                 <input type="text" class="form-control " id="kodeAsalBahanBaku"
                                                     name="kodeAsalBahanBaku" value="{{ old('kodeAsalBahanBaku') }}"
                                                     >
                                             </div>
                                             <div class="col-md-3">
-                                                <label for="validationCustom01" class="form-label">kode Barang</label>
+                                                <label for="kodeBarang2" class="form-label">kode Barang</label>
                                                 <input type="text" class="form-control " id="kodeBarang2"
                                                     name="kodeBarang2" value="{{ old('kodeBarang') }}" >
                                             </div>
                                             <div class="col-md-3">
-                                                <label for="validationCustom01" class="form-label">kode Dok Asal</label>
+                                                <label for="kodeDokAsal2" class="form-label">kode Dok Asal</label>
                                                 <input type="text" class="form-control " id="kodeDokAsal2"
                                                     name="kodeDokAsal2" value="{{ old('kodeDokAsal') }}" autofocus
                                                     required>
                                             </div>
                                             <div class="col-md-3">
-                                                <label for="validationCustom01" class="form-label">kode Kantor</label>
+                                                <label for="kodeKantor2" class="form-label">kode Kantor</label>
                                                 <input type="text" class="form-control " id="kodeKantor2"
                                                     name="kodeKantor2" value="{{ old('kodeKantor') }}" >
                                             </div>
                                             <div class="col-md-3">
-                                                <label for="validationCustom01" class="form-label">kode Satuan
+                                                <label for="kodeSatuanBarang2" class="form-label">kode Satuan
                                                     Barang</label>
                                                 <input type="text" class="form-control " id="kodeSatuanBarang2"
                                                     name="kodeSatuanBarang2" value="{{ old('kodeSatuanBarang') }}"
                                                     >
                                             </div>
                                             <div class="col-md-3">
-                                                <label for="validationCustom01" class="form-label">merk Barang</label>
+                                                <label for="merkBarang" class="form-label">merk Barang</label>
                                                 <input type="text" class="form-control " id="merkBarang"
                                                     name="merkBarang" value="{{ old('merkBarang') }}" >
                                             </div>
                                             <div class="col-md-3">
-                                                <label for="validationCustom01" class="form-label">ndpbm</label>
+                                                <label for="ndpbm3" class="form-label">ndpbm</label>
                                                 <input type="text" class="form-control " id="ndpbm3"
                                                     name="ndpbm3" value="{{ old('ndpbm') }}" >
                                             </div>
@@ -551,29 +551,29 @@
                                                     name="nomorAjuDokAsal" value="{{ old('nomorAjuDokAsal') }}">
                                             </div>
                                             <div class="col-md-3">
-                                                <label for="validationCustom01" class="form-label">nomor Daftar Dok
+                                                <label for="nomorDaftarDokAsal" class="form-label">nomor Daftar Dok
                                                     Asal</label>
-                                                <input type="text" class="form-control " id="nomorDaftarDokAsal"
+                                                <input type="text" class="form-control" id="nomorDaftarDokAsal"
                                                     name="nomorDaftarDokAsal" value="{{ old('nomorDaftarDokAsal') }}"
                                                     >
                                             </div>
                                             <div class="col-md-3">
-                                                <label for="validationCustom01" class="form-label">pos Tarif</label>
+                                                <label for="posTarif2" class="form-label">pos Tarif</label>
                                                 <input type="text" class="form-control " id="posTarif2"
                                                     name="posTarif2" value="{{ old('posTarif') }}" >
                                             </div>
                                             <div class="col-md-3">
-                                                <label for="validationCustom01" class="form-label">Seri Bahan Baku</label>
+                                                <label for="seriBahanBaku" class="form-label">Seri Bahan Baku</label>
                                                 <input type="text" class="form-control " id="seriBahanBaku"
                                                     name="seriBahanBaku" value="{{ old('seriBahanBaku') }}">
                                             </div>
                                             <div class="col-md-3">
-                                                <label for="validationCustom01" class="form-label">seri Barang</label>
+                                                <label for="seriBarang2" class="form-label">seri Barang</label>
                                                 <input type="text" class="form-control " id="seriBarang2"
                                                     name="seriBarang2" value="{{ old('seriBarang') }}" >
                                             </div>
                                             <div class="col-md-3">
-                                                <label for="validationCustom01" class="form-label">seri Barang Dok
+                                                <label for="seriBarangDokAsal" class="form-label">seri Barang Dok
                                                     Asal</label>
                                                 <input type="text" class="form-control " id="seriBarangDokAsal"
                                                     name="seriBarangDokAsal" value="{{ old('seriBarangDokAsal') }}" >
@@ -677,13 +677,6 @@
                                                 <input type="text" class="form-control" id="uraianBarang"
                                                     name="uraianBarang" value="{{ old('uraianBarang') }}">
                                             </div>
-                                        </div>
-                                    </div>
-
-                                    {{-- Barang Dokumen --}}
-                                    <div class="tab-pane fade" id="barangDokumen" role="tabpanel"
-                                        aria-labelledby="barangDokumen-tab">
-                                        <div class="row">
                                             <div class="col-md-3">
                                                 <label for="seriDokumen" class="form-label">seri Dokumen</label>
                                                 <input type="text" class="form-control" id="seriDokumen"
@@ -697,13 +690,32 @@
                                         </div>
                                     </div>
 
+                                    {{-- Barang Dokumen --}}
+                                    <!-- <div class="tab-pane fade" id="barangDokumen" role="tabpanel"
+                                        aria-labelledby="barangDokumen-tab">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <label for="seriDokumen" class="form-label">seri Dokumen</label>
+                                                <input type="text" class="form-control" id="seriDokumen"
+                                                    name="seriDokumen" value="{{ old('seriDokumen') }}" >
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label for="seriIjin" class="form-label">seri Ijin</label>
+                                                <input type="text" class="form-control" id="seriIjin2"
+                                                    name="seriIjin2" value="{{ old('seriIjin') }}" >
+                                            </div>
+                                        </div>
+                                    </div> -->
+
 
                                          {{--Barang Tarif 1--}}
                                          <div class="tab-pane fade" id="barangTarif" role="tabpanel"
-                                         aria-labelledby="Tarifbarang-tab">
+                                         aria-labelledby="barangTarif-tab">
+                                         <div class="row mb-4 p-3 border rounded shadow-sm bg-light">
+                                         <h5 class="text-primary">Inputan Ke 1</h5>
                                          <div class="row">
                                              <div class="col-md-3">
-                                                 <label for="seriBarang" class="form-label">seri Barang</label>
+                                                 <label for="seriBarang3" class="form-label">seri Barang</label>
                                                  <input type="text" class="form-control" id="seriBarang3"
                                                      name="seriBarang3" value="{{ old('seriBarang') }}" >
                                              </div>
@@ -741,8 +753,7 @@
                                              <div class="col-md-3">
                                                  <label for="nilaiBayar" class="form-label">nilai Bayar</label>
                                                  <input type="text" class="form-control" id="nilaiBayar2"
-                                                     name="nilaiBayar2" value="{{ old('nilaiBayar') }}" autofocus
-                                                     required>
+                                                     name="nilaiBayar2" value="{{ old('nilaiBayar') }}" >
                                              </div>
                                              <div class="col-md-3">
                                                  <label for="nilaiFasilitas" class="form-label">nilai Fasilitas</label>
@@ -771,11 +782,8 @@
 
                                          </div>
                                      </div>
-
-                                    {{-- Barang Tarif 2 --}}
-                                    <div class="tab-pane fade" id="barangTarif" role="tabpanel"
-                                        aria-labelledby="barangTarif-tab">
-                                        <div class="row">
+                                     <div class="row mb-4 p-3 border rounded shadow-sm bg-light">
+                                     <h5 class="text-primary">Inputan Ke 2</h5>
                                             <div class="col-md-3">
                                                 <label for="seriBarang" class="form-label">seri Barang</label>
                                                 <input type="text" class="form-control" id="seriBarang4"
@@ -833,7 +841,7 @@
                                             <div class="col-md-3">
                                                 <label for="tarif" class="form-label">tarif</label>
                                                 <input type="text" class="form-control" id="tarif3"
-                                                    name="tarif3" value="{{ old('tarif') }}" >
+                                                    name="tarif3" value="{{ old('tarif3') }}" >
                                             </div>
                                             <div class="col-md-3">
                                                 <label for="tarifFasilitas" class="form-label">tarif Fasilitas</label>
@@ -883,7 +891,7 @@
                                             <div class="col-md-3">
                                                 <label for="kodeJenisTarif" class="form-label">kode Jenis Tarif</label>
                                                 <input type="text" class="form-control" id="kodeJenisTarif4"
-                                                    name="kodeJenisTarif4" value="{{ old('kodeJenisPungutan') }}"
+                                                    name="kodeJenisTarif4" value="{{ old('kodeJenisTarif') }}"
                                                     >
                                             </div>
                                             <div class="col-md-3">
@@ -901,7 +909,7 @@
                                             <div class="col-md-3">
                                                 <label for="nilaiFasilitas" class="form-label">nilai Fasilitas</label>
                                                 <input type="text" class="form-control" id="nilaiFasilitas4"
-                                                    name="nilaiFasilitas4" value="{{ old('nilaiFasilitas4') }}"
+                                                    name="nilaiFasilitas4" value="{{ old('nilaiFasilitas') }}"
                                                     >
                                             </div>
                                             <div class="col-md-3">
@@ -922,11 +930,21 @@
                                                     name="tarifFasilitas4" value="{{ old('tarifFasilitas') }}"
                                                     >
                                             </div>
+                                            <div class="col-md-3">
+                                                <label for="seriDokumen" class="form-label">seri Dokumen</label>
+                                                <input type="text" class="form-control" id="seriDokumen2"
+                                                    name="seriDokumen2" value="{{ old('seriDokumen') }}" >
+                                            </div>
+                                            <div class="col-md-3">
+                                                <label for="seriIjin" class="form-label">seri Ijin</label>
+                                                <input type="text" class="form-control" id="seriIjin3"
+                                                    name="seriIjin3" value="{{ old('seriIjin') }}" >
+                                            </div>
                                         </div>
                                     </div>
 
                                     {{-- Barang Dokumen --}}
-                                    <div class="tab-pane fade" id="DokumenBarang" role="tabpanel"
+                                    <!-- <div class="tab-pane fade" id="DokumenBarang" role="tabpanel"
                                         aria-labelledby="DokumenBarang-tab">
                                         <div class="row">
                                             <div class="col-md-3">
@@ -940,7 +958,7 @@
                                                     name="seriIjin3" value="{{ old('seriIjin') }}" >
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
 
                                     {{-- Bahan Baku Tarif --}}
                                     <div class="tab-pane fade" id="bakuTarif" role="tabpanel"
