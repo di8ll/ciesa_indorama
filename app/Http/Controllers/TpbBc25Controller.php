@@ -10,6 +10,9 @@ use Illuminate\Support\Facades\Auth; // Add this import to access the authentica
 use App\Models\User;
 
 class TpbBc25Controller extends Controller
+
+
+
 {
     public function index(Request $request)
     {
@@ -48,8 +51,13 @@ class TpbBc25Controller extends Controller
             ], 401);
         }
 
-        // Ambil semua data request tanpa filter
+        // // Ambil semua data request tanpa filter
         $validated = $request->all();
+
+        dd(request()->all());
+
+        // dd($validated); // This will dump the validated data to check what values are coming through.
+
 
         // Fields to convert to integer
         $fieldsToConvertInteger = [
@@ -95,258 +103,325 @@ class TpbBc25Controller extends Controller
                 }
             }
         }
-
-
-    // Struktur JSON yang sesuai dengan API eksternal
-           $payload = [
-                        'asalData' => $validated['asalData'] ?? null,
-                        'bruto' => $validated['bruto'] ?? null,
-                        'cif' => $validated['cif'] ?? null,
-                        'dasarPengenaanPajak' => $validated['dasarPengenaanPajak'] ?? null,
-                        'disclaimer' => $validated['disclaimer'] ?? null,
-                        'kodeJenisTpb' => $validated['kodeJenisTpb'] ?? null,
-                        'hargaPenyerahan' => $validated['hargaPenyerahan'] ?? null,
-                        'idPengguna' => $validated['idPengguna'] ?? null,
-                        'jabatanTtd' => $validated['jabatanTtd'] ?? null,
-                        'jumlahKontainer' => $validated['jumlahKontainer'] ?? null,
-                        'kodeCaraBayar' => $validated['kodeCaraBayar'] ?? null,
-                        'kodeDokumen' => $validated['kodeDokumen'] ?? null,
-                        'kodeKantor' => $validated['kodeKantor'] ?? null,
-                        'kodeLokasiBayar' => $validated['kodeLokasiBayar'] ?? null,
-                        'kodeTujuanPengiriman' => $validated['kodeTujuanPengiriman'] ?? null,
-                        'kodeValuta' => $validated['kodeValuta'] ?? null,
-                        'kotaTtd' => $validated['kotaTtd'] ?? null,
-                        'namaTtd' => $validated['namaTtd'] ?? null,
-                        'ndpbm' => $validated['ndpbm'] ?? null,
-                        'netto' => $validated['netto'] ?? null,
-                        'nomorAju' => $validated['nomorAju'] ?? null,
-                        'seri' => $validated['seri'] ?? null,
-                        'tanggalAju' => $validated['tanggalAju'] ?? null,
-                        'tanggalTtd' => $validated['tanggalTtd'] ?? null,
-                        'volume' => $validated['volume'] ?? null,
-                        'ppnPajak' => $validated['ppnPajak'] ?? null,
-                        'ppnbmPajak' => $validated['ppnbmPajak'] ?? null,
-                        'tarifPpnPajak' => $validated['tarifPpnPajak'] ?? null,
-                        'tarifPpnbmPajak' => $validated['tarifPpnbmPajak'] ?? null,
-                        'barang' => isset($validated['barang']) ? $validated['barang'] : [[
-                                "bruto" => $validated['bruto2'] ?? null,
-                                "cif" => $validated['cif2'] ?? null,
-                                "diskon" => $validated['diskon'] ?? null,
-                                "fob" => $validated['fob'] ?? null,
-                                "freight" => $validated['freight'] ?? null,
-                                "hargaEkspor" => $validated['hargaEkspor'] ?? null,
-                                "hargaPenyerahan" => $validated['hargaPenyerahan2'] ?? null,
-                                "isiPerKemasan" => $validated['isiPerKemasan'] ?? null,
-                                "jumlahKemasan" => $validated['jumlahKemasan'] ?? null,
-                                "jumlahSatuan" => $validated['jumlahSatuan'] ?? null,
-                                "kodeBarang" => $validated['kodeBarang'] ?? null,
-                                "kodeGunaBarang" => $validated['kodeGunaBarang'] ?? null,
-                                "kodeKategoriBarang" => $validated['kodeKategoriBarang'] ?? null,
-                                "kodeJenisKemasan" => $validated['kodeJenisKemasan'] ?? null,
-                                "kodeKondisiBarang" => $validated['kodeKondisiBarang'] ?? null,
-                                "kodePerhitungan" => $validated['kodePerhitungan'] ?? null,
-                                "kodeSatuanBarang" => $validated['kodeSatuanBarang'] ?? null,
-                                "merk" => $validated['merk'] ?? null,
-                                "netto" => $validated['netto2'] ?? null,
-                                "nilaiBarang" => $validated['nilaiBarang'] ?? null,
-                                "posTarif" => $validated['posTarif'] ?? null,
-                                "seriBarang" => $validated['seriBarang'] ?? null,
-                                "spesifikasiLain" => $validated['spesifikasiLain'] ?? null,
-                                "tipe" => $validated['tipe'] ?? null,
-                                "ukuran" => $validated['ukuran'] ?? null,
-                                "uraian" => $validated['uraian'] ?? null,
-                                "ndpbm" => $validated['ndpbm2'] ?? null,
-                                "cifRupiah" => $validated['cifRupiah'] ?? null,
-                                "hargaPerolehan" => $validated['hargaPerolehan'] ?? null,
-                                "kodeDokAsal" => $validated['kodeDokAsal'] ?? null,
-                                "flag4tahun" => $validated['flag4tahun'] ?? null
-
-                        ]],
-                        'bahanBaku' => isset($validated['bahanBaku']) ? $validated['bahanBaku'] : [[
-                                "kodeBahanBaku" => $validated['kodeBahanBaku'] ?? null,
-                                "jumlah" => $validated['jumlah'] ?? null,
-                                "cif" => $validated['cif3'] ?? null,
-                                "cifRupiah" => $validated['cifRupiah2'] ?? null,
-                                "hargaPenyerahan" => $validated['hargaPenyerahan3'] ?? null,
-                                "jumlahSatuan" => $validated['jumlahSatuan2'] ?? null,
-                                "kodeAsalBahanBaku" => $validated['kodeAsalBahanBaku'] ?? null,
-                                "kodeBarang" => $validated['kodeBarang2'] ?? null,
-                                "kodeDokAsal" => $validated['kodeDokAsal2'] ?? null,
-                                "kodeKantor" => $validated['kodeKantor2'] ?? null,
-                                "kodeSatuanBarang" => $validated['kodeSatuanBarang2'] ?? null,
-                                "merkBarang" => $validated['merkBarang'] ?? null,
-                                "ndpbm" => $validated['ndpbm3'] ?? null,
-                                "nomorAjuDokAsal" => $validated['nomorAjuDokAsal'] ?? null,
-                                "nomorDaftarDokAsal" => $validated['nomorDaftarDokAsal'] ?? null,
-                                "posTarif" => $validated['posTarif2'] ?? null,
-                                "seriBahanBaku" => $validated['seriBahanBaku'] ?? null,
-                                "seriBarang" => $validated['seriBarang2'] ?? null,
-                                "seriBarangDokAsal" => $validated['seriBarangDokAsal'] ?? null,
-                                "seriIjin" => $validated['seriIjin'] ?? null,
-                                "spesifikasiLainBarang" => $validated['spesifikasiLainBarang'] ?? null,
-                                "tanggalDaftarDokAsal" => $validated['tanggalDaftarDokAsal'] ?? null,
-                                "tipeBarang" => $validated['tipeBarang'] ?? null,
-                        ]],
-                        'bahanBakuTarif' => isset($validated['bahanBakuTarif']) ? $validated['bahanBakuTarif'] : [[
-                                "kodeJenisTarif" => $validated['kodeJenisTarif'] ?? null,
-                                "jumlahSatuan" => $validated['jumlahSatuan3'] ?? null,
-                                "kodeFasilitasTarif" => $validated['kodeFasilitasTarif'] ?? null,
-                                "kodeJenisPungutan" => $validated['kodeJenisPungutan'] ?? null,
-                                "nilaiBayar" => $validated['nilaiBayar'] ?? null,
-                                "nilaiFasilitas" => $validated['nilaiFasilitas'] ?? null,
-                                "nilaiSudahDilunasi" => $validated['nilaiSudahDilunasi'] ?? null,
-                                "seriBahanBaku" => $validated['seriBahanBaku2'] ?? null,
-                                "tarif" => $validated['tarif'] ?? null,
-                                "tarifFasilitas" => $validated['tarifFasilitas'] ?? null,
-                                "ukuranBarang" => $validated['ukuranBarang'] ?? null,
-                                "uraianBarang" => $validated['uraianBarang'] ?? null,
-                        ]],
-                        'barangDokumen' => isset($validated['barangDokumen']) ? $validated['barangDokumen'] : [[
-                                "seriDokumen" => $validated['seriDokumen'] ?? null,
-                                "seriIjin" => $validated['seriIjin2'] ?? null,
-                        ]],
-                        'barangTarif' => isset($validated['barangTarif']) ? $validated['barangTarif'] : [
-                            [
-                                "seriBarang" => $validated['seriBarang3'] ?? 1,
-                                "kodeJenisTarif" => $validated['kodeJenisTarif2'] ?? "1",
-                                "jumlahSatuan" => $validated['jumlahSatuan4'] ?? 100,
-                                "kodeFasilitasTarif" => $validated['kodeFasilitasTarif2'] ?? "FT001",
-                                "kodeSatuanBarang" => $validated['kodeSatuanBarang3'] ?? "PCS",
-                                "kodeJenisPungutan" => $validated['kodeJenisPungutan2'] ?? "BM",
-                                "nilaiBayar" => $validated['nilaiBayar2'] ?? 5000.00,
-                                "nilaiFasilitas" => $validated['nilaiFasilitas2'] ?? 2000.00,
-                                "nilaiSudahDilunasi" => $validated['nilaiSudahDilunasi2'] ?? 3000,
-                                "tarif" => $validated['tarif2'] ?? 1,
-                                "tarifFasilitas" => $validated['tarifFasilitas2'] ?? 1,
-                            ]
-                        ],
-                        'barangTarif' => isset($validated['barangTarif']) ? $validated['barangTarif'] : [
-                            [
-                                "seriBarang" => $validated['seriBarang4'] ?? 1,
-                                "kodeJenisTarif" => $validated['kodeJenisTarif3'] ?? "1",
-                                "jumlahSatuan" => $validated['jumlahSatuan5'] ?? 100,
-                                "kodeFasilitasTarif" => $validated['kodeFasilitasTarif3'] ?? "FT001",
-                                "kodeSatuanBarang" => $validated['kodeSatuanBarang4'] ?? "PCS",
-                                "kodeJenisPungutan" => $validated['kodeJenisPungutan3'] ?? "BM",
-                                "nilaiBayar" => $validated['nilaiBayar3'] ?? 5000.00,
-                                "nilaiFasilitas" => $validated['nilaiFasilitas3'] ?? 2000.00,
-                                "nilaiSudahDilunasi" => $validated['nilaiSudahDilunasi3'] ?? 3000,
-                                "tarif" => $validated['tarif3'] ?? 1,
-                                "tarifFasilitas" => $validated['tarifFasilitas3'] ?? 1,
-                            ]
-                        ],
-
+        $payload = [
+            'asalData' => $validated['asalData'] ?? null,
+            'bruto' => $validated['bruto'] ?? null,
+            'cif' => $validated['cif'] ?? null,
+            'dasarPengenaanPajak' => $validated['dasarPengenaanPajak'] ?? null,
+            'disclaimer' => $validated['disclaimer'] ?? null,
+            'kodeJenisTpb' => $validated['kodeJenisTpb'] ?? null,
+            'hargaPenyerahan' => $validated['hargaPenyerahan'] ?? null,
+            'idPengguna' => $validated['idPengguna'] ?? null,
+            'jabatanTtd' => $validated['jabatanTtd'] ?? null,
+            'jumlahKontainer' => $validated['jumlahKontainer'] ?? null,
+            'kodeCaraBayar' => $validated['kodeCaraBayar'] ?? null,
+            'kodeDokumen' => $validated['kodeDokumen'] ?? null,
+            'kodeKantor' => $validated['kodeKantor'] ?? null,
+            'kodeLokasiBayar' => $validated['kodeLokasiBayar'] ?? null,
+            'kodeTujuanPengiriman' => $validated['kodeTujuanPengiriman'] ?? null,
+            'kodeValuta' => $validated['kodeValuta'] ?? null,
+            'kotaTtd' => $validated['kotaTtd'] ?? null,
+            'namaTtd' => $validated['namaTtd'] ?? null,
+            'ndpbm' => $validated['ndpbm'] ?? null,
+            'netto' => $validated['netto'] ?? null,
+            'nomorAju' => $validated['nomorAju'] ?? null,
+            'seri' => $validated['seri'] ?? null,
+            'tanggalAju' => $validated['tanggalAju'] ?? null,
+            'tanggalTtd' => $validated['tanggalTtd'] ?? null,
+            'volume' => $validated['volume'] ?? null,
+            'ppnPajak' => $validated['ppnPajak'] ?? null,
+            'ppnbmPajak' => $validated['ppnbmPajak'] ?? null,
+            'tarifPpnPajak' => $validated['tarifPpnPajak'] ?? null,
+            'tarifPpnbmPajak' => $validated['tarifPpnbmPajak'] ?? null,
+            'barang' => array_map(function ($barang) {
+                return [
+                    "bruto" => $barang["bruto"] ?? null,
+                    "cif" => $barang["cif2"] ?? null,
+                    "diskon" => $barang["diskon"] ?? null,
+                    "fob" => $barang["fob"] ?? null,
+                    "freight" => $barang["freight"] ?? null,
+                    "hargaEkspor" => $barang["hargaEkspor"] ?? null,
+                    "hargaPenyerahan" => $barang["hargaPenyerahan"] ?? null,
+                    "isiPerKemasan" => $barang["isiPerKemasan"] ?? null,
+                    "jumlahKemasan" => $barang["jumlahKemasan"] ?? null,
+                    "jumlahSatuan" => $barang["jumlahSatuan"] ?? null,
+                    "kodeBarang" => $barang["kodeBarang"] ?? null,
+                    "kodeGunaBarang" => $barang["kodeGunaBarang"] ?? null,
+                    "kodeKategoriBarang" => $barang["kodeKategoriBarang"] ?? null,
+                    "kodeJenisKemasan" => $barang["kodeJenisKemasan"] ?? null,
+                    "kodeKondisiBarang" => $barang["kodeKondisiBarang"] ?? null,
+                    "kodePerhitungan" => $barang["kodePerhitungan"] ?? null,
+                    "kodeSatuanBarang" => $barang["kodeSatuanBarang"] ?? null,
+                    "merk" => $barang["merk"] ?? null,
+                    "netto" => $barang["netto"] ?? null,
+                    "nilaiBarang" => $barang["nilaiBarang"] ?? null,
+                    "posTarif" => $barang["posTarif"] ?? null,
+                    "seriBarang" => $barang["seriBarang"] ?? null,
+                    "spesifikasiLain" => $barang["spesifikasiLain"] ?? null,
+                    "tipe" => $barang["tipe"] ?? null,
+                    "ukuran" => $barang["ukuran"] ?? null,
+                    "uraian" => $barang["uraian"] ?? null,
+                    "bahanBaku" => $barang['bahanBaku'] ?? [],
+                    "barangDokumen" => $barang["barangDokumen"] ?? [],
+                    "barangTarif" => $barang["barangTarif"] ?? []
+                ];
+            }, $validated['barang'] ?? []),
+            'bahanBaku' => array_map(function ($bahanBaku) {
+                return [
+                    "kodeBahanBaku" => $bahanBaku["kodeBahanBaku"] ?? null,
+                    "jumlah" => $bahanBaku["jumlah"] ?? null,
+                    "cif" => $bahanBaku["cif3"] ?? null,
+                    "cifRupiah" => $bahanBaku["cifRupiah2"] ?? null,
+                    "hargaPenyerahan" => $bahanBaku["hargaPenyerahan3"] ?? null,
+                    "jumlahSatuan" => $bahanBaku["jumlahSatuan2"] ?? null,
+                    "kodeAsalBahanBaku" => $bahanBaku["kodeAsalBahanBaku"] ?? null,
+                    "kodeBarang" => $bahanBaku["kodeBarang2"] ?? null,
+                    "kodeDokAsal" => $bahanBaku["kodeDokAsal2"] ?? null,
+                    "kodeKantor" => $bahanBaku["kodeKantor2"] ?? null,
+                    "kodeSatuanBarang" => $bahanBaku["kodeSatuanBarang2"] ?? null,
+                    "merkBarang" => $bahanBaku["merkBarang"] ?? null,
+                    "ndpbm" => $bahanBaku["ndpbm3"] ?? null,
+                    "nomorAjuDokAsal" => $bahanBaku["nomorAjuDokAsal"] ?? null,
+                    "nomorDaftarDokAsal" => $bahanBaku["nomorDaftarDokAsal"] ?? null,
+                    "posTarif" => $bahanBaku["posTarif2"] ?? null,
+                    "seriBahanBaku" => $bahanBaku["seriBahanBaku"] ?? null,
+                    "seriBarang2" => $bahanBaku["seriBarang2"] ?? null,
+                    "seriBarangDokAsal" => $bahanBaku["seriBarangDokAsal"] ?? null,
+                    "seriIjin" => $bahanBaku["seriIjin"] ?? null,
+                    "spesifikasiLainBarang" => $bahanBaku["spesifikasiLainBarang"] ?? null,
+                    "tanggalDaftarDokAsal" => $bahanBaku["tanggalDaftarDokAsal"] ?? null,
+                    "tipeBarang" => $bahanBaku["tipeBarang"] ?? null,
+                ];
+            }, $validated['bahanBaku'] ?? []),
+            'bahanBakuTarif' => array_map(function ($bahanBakuTarif) {
+                return [
+                    "kodeJenisTarif" => $bahanBakuTarif["kodeJenisTarif"] ?? null,
+                    "jumlahSatuan" => $bahanBakuTarif["jumlahSatuan3"] ?? null,
+                    "kodeFasilitasTarif" => $bahanBakuTarif["kodeFasilitasTarif"] ?? null,
+                    "kodeJenisPungutan" => $bahanBakuTarif["kodeJenisPungutan"] ?? null,
+                    "nilaiBayar" => $bahanBakuTarif["nilaiBayar"] ?? null,
+                    "nilaiFasilitas" => $bahanBakuTarif["nilaiFasilitas"] ?? null,
+                    "nilaiSudahDilunasi" => $bahanBakuTarif["nilaiSudahDilunasi"] ?? null,
+                    "seriBahanBaku" => $bahanBakuTarif["seriBahanBaku2"] ?? null,
+                    "tarif" => $bahanBakuTarif["tarif"] ?? null,
+                    "tarifFasilitas" => $bahanBakuTarif["tarifFasilitas"] ?? null,
+                    "ukuranBarang" => $validated["ukuranBarang"] ?? null,
+                    "uraianBarang" => $validated["uraianBarang"] ?? null,
+                ];
+                
+            }, $validated['bahanBakuTarif'] ?? []),
+            'barangDokumen' => array_map(function ($barangDokumen) {
+                return [
+                    "seriDokumen" => $barangDokumen["seriDokumen"] ?? null,
+                    "seriIjin" => $barangDokumen["seriIjin2"] ?? null,
+                ];
+            }, $validated['barangDokumen'] ?? []),
+            'barangTarif' => array_map(function ($barangTarif)  {
+                return [
+                    "seriBarang" => $barangTarif['seriBarang3'] ?? null,
+                    "kodeJenisTarif" => $barangTarif['kodeJenisTarif2'] ?? null,
+                    "jumlahSatuan" => $barangTarif['jumlahSatuan4'] ?? null,
+                    "kodeFasilitasTarif" => $barangTarif['kodeFasilitasTarif2'] ?? null,
+                    "kodeSatuanBarang" => $barangTarif['kodeSatuanBarang3'] ?? null,
+                    "kodeJenisPungutan" => $barangTarif['kodeJenisPungutan2'] ?? null,
+                    "nilaiBayar" => $barangTarif['nilaiBayar2'] ?? null,
+                    "nilaiFasilitas" => $barangTarif['nilaiFasilitas2'] ?? null,
+                    "nilaiSudahDilunasi" => $barangTarif['nilaiSudahDilunasi2'] ?? null,
+                    "tarif" => $barangTarif['tarif2'] ?? null,
+                    "tarifFasilitas" => $barangTarif['tarifFasilitas2'] ?? null,
+                    // Menambahkan array kedua sebagai elemen array pertama
+                    [
+                        "seriBarang" => $barangTarif['seriBarang4'] ?? null,
+                        "kodeJenisTarif" => $barangTarif['kodeJenisTarif3'] ?? null,
+                        "jumlahSatuan" => $barangTarif['jumlahSatuan5'] ?? null,
+                        "kodeFasilitasTarif" => $barangTarif['kodeFasilitasTarif3'] ?? null,
+                        "kodeSatuanBarang" => $barangTarif['kodeSatuanBarang4'] ?? null,
+                        "kodeJenisPungutan" => $barangTarif['kodeJenisPungutan3'] ?? null,
+                        "nilaiBayar" => $barangTarif['nilaiBayar3'] ?? null,
+                        "nilaiFasilitas" => $barangTarif['nilaiFasilitas3'] ?? null,
+                        "nilaiSudahDilunasi" => $barangTarif['nilaiSudahDilunasi3'] ?? null,
+                        "tarif" => $barangTarif['tarif3'] ?? null,
+                        "tarifFasilitas" => $barangTarif['tarifFasilitas3'] ?? null,
                         "jumlahSatuan" => $validated['jumlahSatuan6'] ?? null,
-                        "kodeFasilitasTarif" => $validated['kodeFasilitasTarif4'] ?? null,
-                        'kodeJenisPungutan' => isset($validated['kodeJenisPungutan']) ? $validated['kodeJenisPungutan'] : [[
-                                "jumlahSatuan" => $validated['jumlahSatuan7'] ?? null,
-                                "kodeFasilitasTarif" => $validated['kodeFasilitasTarif5'] ?? null,
-                                "kodeJenisPungutan" => $validated['kodeJenisPungutan4'] ?? null,
-                                "kodeJenisTarif" => $validated['kodeJenisTarif4'] ?? null,
-                                "kodeSatuanBarang" => $validated['kodeSatuanBarang5'] ?? null,
-                                "nilaiBayar" => $validated['nilaiBayar4'] ?? null,
-                                "nilaiFasilitas" => $validated['nilaiFasilitas4'] ?? null,
-                                "nilaiSudahDilunasi" => $validated['nilaiSudahDilunasi4'] ?? null,
-                                "tarif" => $validated['tarif4'] ?? null,
-                                "tarifFasilitas" => $validated['tarifFasilitas4'] ?? null,
-                        ]],
-                        'barangDokumen' => isset($validated['barangDokumen']) ? $validated['barangDokumen'] : [[
-                            "seriDokumen" => $validated['seriDokumen2'] ?? null,
-                            "seriIjin" => $validated['seriIjin3'] ?? null,
-                        ]],
-                        'bahanBakuTarif' => isset($validated['bahanBakuTarif']) ? $validated['bahanBakuTarif'] : [[
-                                "kodeJenisTarif" => $validated['kodeJenisTarif5'] ?? null,
-                                "jumlahSatuan" => $validated['jumlahSatuan8'] ?? null,
-                                "kodeFasilitasTarif" => $validated['kodeFasilitasTarif6'] ?? null,
-                                "kodeJenisPungutan" => $validated['kodeJenisPungutan5'] ?? null,
-                                "nilaiBayar" => $validated['nilaiBayar5'] ?? null,
-                                "nilaiFasilitas" => $validated['nilaiFasilitas5'] ?? null,
-                                "nilaiSudahDilunasi" => $validated['nilaiSudahDilunasi5'] ?? null,
-                                "seriBahanBaku" => $validated['seriBahanBaku3'] ?? null,
-                                "tarif" => $validated['tarif5'] ?? null,
-                                "tarifFasilitas" => $validated['tarifFasilitas5'] ?? null,
-                        ]],
-                        'entitas' => isset($validated['entitas']) ? $validated['entitas'] : [
-                            [
-                                "alamatEntitas" => $validated['alamatEntitas'] ?? null,
-                                "kodeEntitas" => $validated['kodeEntitas'] ?? null,
-                                "kodeJenisApi" => $validated['kodeJenisApi'] ?? null,
-                                "kodeJenisIdentitas" => $validated['kodeJenisIdentitas'] ?? null,
-                                "kodeStatus" => $validated['kodeStatus'] ?? null,
-                                "namaEntitas" => $validated['namaEntitas'] ?? null,
-                                "nibEntitas" => $validated['nibEntitas'] ?? null,
-                                "nomorIdentitas" => $validated['nomorIdentitas'] ?? null,
-                                "nomorIjinEntitas" => $validated['nomorIjinEntitas'] ?? null,
-                                "tanggalIjinEntitas" => $validated['tanggalIjinEntitas'] ?? null,
-                                "seriEntitas" => $validated['seriEntitas'] ?? null,
-                            ],
-                            [
-                                "alamatEntitas" => $validated['alamatEntitas2'] ?? null,
-                                "kodeEntitas" => $validated['kodeEntitas2'] ?? null,
-                                "kodeJenisApi" => $validated['kodeJenisApi2'] ?? null,
-                                "kodeJenisIdentitas" => $validated['kodeJenisIdentitas2'] ?? null,
-                                "kodeStatus" => $validated['kodeStatus2'] ?? null,
-                                "namaEntitas" => $validated['namaEntitas2'] ?? null,
-                                "niperEntitas" => $validated['niperEntitas'] ?? null,
-                                "nomorIdentitas" => $validated['nomorIdentitas2'] ?? null,
-                                "seriEntitas" => $validated['seriEntitas2'] ?? null,
-                            ],
-                            [
-                                "alamatEntitas" => $validated['alamatEntitas3'] ?? null,
-                                "kodeEntitas" => $validated['kodeEntitas3'] ?? null,
-                                "kodeJenisApi" => $validated['kodeJenisApi3'] ?? null,
-                                "kodeJenisIdentitas" => $validated['kodeJenisIdentitas3'] ?? null,
-                                "kodeStatus" => $validated['kodeStatus3'] ?? null,
-                                "namaEntitas" => $validated['namaEntitas3'] ?? null,
-                                "niperEntitas" => $validated['niperEntitas2'] ?? null,
-                                "nomorIdentitas" => $validated['nomorIdentitas3'] ?? null,
-                                "seriEntitas" => $validated['seriEntitas3'] ?? null,
-                        ]],
-                        'kemasan' => isset($validated['kemasan']) ? $validated['kemasan'] : [
-                            [
-                                "jumlahKemasan" => $validated['jumlahKemasan2'] ?? null,
-                                "kodeJenisKemasan" => $validated['kodeJenisKemasan2'] ?? null,
-                                "merkKemasan" => $validated['merkKemasan'] ?? null,
-                                "seriKemasan" => $validated['seriKemasan'] ?? null,
-                        ]],
-                        'kontainer' => isset($validated['kontainer']) ? $validated['kontainer'] : [
-                            [
-                                "kodeJenisKontainer" => $validated['kodeJenisKontainer'] ?? null,
-                                "kodeTipeKontainer" => $validated['kodeTipeKontainer'] ?? null,
-                                "kodeUkuranKontainer" => $validated['kodeUkuranKontainer'] ?? null,
-                                "nomorKontainer" => $validated['nomorKontainer'] ?? null,
-                                "seriKontainer" => $validated['seriKontainer'] ?? null,
-                        ]],
-                        'dokumen' => isset($validated['dokumen']) ? $validated['dokumen'] : [
-                            [
-                                "idDokumen" => $validated['idDokumen'] ?? null,
-                                "kodeDokumen" => $validated['kodeDokumen2'] ?? null,
-                                "nomorDokumen" => $validated['nomorDokumen'] ?? null,
-                                "seriDokumen" => $validated['seriDokumen3'] ?? null,
-                                "tanggalDokumen" => $validated['tanggalDokumen'] ?? null,
-                            ],
-                            [
-                                "idDokumen" => $validated['idDokumen2'] ?? null,
-                                "kodeDokumen" => $validated['kodeDokumen3'] ?? null,
-                                "nomorDokumen" => $validated['nomorDokumen2'] ?? null,
-                                "seriDokumen" => $validated['seriDokumen4'] ?? null,
-                                "tanggalDokumen" => $validated['tanggalDokumen2'] ?? null,
-                        ]],
+                        "kodeFasilitasTarif" => $validated['kodeFasilitasTarif'] ?? null,
+                    ]
+                ];
+            }, $validated['barangTarif'] ?? []),
+            'kodeJenisPungutan' => array_map(function ($kodeJenisPungutan) {
+                return [
+                    "jumlahSatuan" => $kodeJenisPungutan["jumlahSatuan7"] ?? null,
+                    "kodeFasilitasTarif" => $kodeJenisPungutan["kodeFasilitasTarif5"] ?? null,
+                    "kodeJenisPungutan" => $kodeJenisPungutan["kodeJenisPungutan4"] ?? null,
+                    "kodeJenisTarif" => $kodeJenisPungutan["kodeJenisTarif4"] ?? null,
+                    "kodeSatuanBarang" => $kodeJenisPungutan["kodeSatuanBarang5"] ?? null,
+                    "nilaiBayar" => $kodeJenisPungutan["nilaiBayar4"] ?? null,
+                    "nilaiFasilitas" => $kodeJenisPungutan["nilaiFasilitas4"] ?? null,
+                    "nilaiSudahDilunasi" => $kodeJenisPungutan["nilaiSudahDilunasi4"] ?? null,
+                    "tarif" => $kodeJenisPungutan["tarif4"] ?? null,
+                    "tarifFasilitas" => $kodeJenisPungutan["tarifFasilitas4"] ?? null,
+                ];
+            }, $validated['barangDokumen'] ?? []),
+            'barangDokumen' => array_map(function ($barangDokumen) {
+                return [
+                    "seriDokumen" => $barangDokumen["seriDokumen"] ?? null,
+                    "seriIjin" => $barangDokumen["seriIjin2"] ?? null,
+                ];
+            }, $validated['barangDokumen'] ?? []),
+            'bahanBakuTarif' => array_map(function ($bahanBakuTarif) {
+                return [
+                    "kodeJenisTarif" => $bahanBakuTarif['kodeJenisTarif5'] ?? null,
+                    "jumlahSatuan" => $bahanBakuTarif['jumlahSatuan8'] ?? null,
+                    "kodeFasilitasTarif" => $bahanBakuTarif['kodeFasilitasTarif6'] ?? null,
+                    "kodeJenisPungutan" => $bahanBakuTarif['kodeJenisPungutan5'] ?? null,
+                    "nilaiBayar" => $bahanBakuTarif['nilaiBayar5'] ?? null,
+                    "nilaiFasilitas" => $bahanBakuTarif['nilaiFasilitas5'] ?? null,
+                    "nilaiSudahDilunasi" => $bahanBakuTarif['nilaiSudahDilunasi5'] ?? null,
+                    "seriBahanBaku" => $bahanBakuTarif['seriBahanBaku3'] ?? null,
+                    "tarif" => $bahanBakuTarif['tarif5'] ?? null,
+                    "tarifFasilitas" => $bahanBakuTarif['tarifFasilitas5'] ?? null,
+                ];
+            }, $validated['bahanBakuTarif'] ?? []),
+            'entitas' => array_map(function ($entitas)  {
+                return [
+                        "alamatEntitas" => $entitas['alamatEntitas'] ?? null,
+                        "kodeEntitas" => $entitas['kodeEntitas'] ?? null,
+                        "kodeJenisApi" => $entitas['kodeJenisApi'] ?? null,
+                        "kodeJenisIdentitas" => $entitas['kodeJenisIdentitas'] ?? null,
+                        "kodeStatus" => $entitas['kodeStatus'] ?? null,
+                        "namaEntitas" => $entitas['namaEntitas'] ?? null,
+                        "nibEntitas" => $entitas['nibEntitas'] ?? null,
+                        "nomorIdentitas" => $entitas['nomorIdentitas'] ?? null,
+                        "nomorIjinEntitas" => $entitas['nomorIjinEntitas'] ?? null,
+                        "tanggalIjinEntitas" => $entitas['tanggalIjinEntitas'] ?? null,
+                        "seriEntitas" => $entitas['seriEntitas'] ?? null,
+                   [
+                        "alamatEntitas2" => $entitas['alamatEntitas2'] ?? null,
+                        "kodeEntitas" => $entitas['kodeEntitas2'] ?? null,
+                        "kodeJenisApi2" => $entitas['kodeJenisApi2'] ?? null,
+                        "kodeJenisIdentitas" => $entitas['kodeJenisIdentitas2'] ?? null,
+                        "kodeStatus2" => $entitas['kodeStatus2'] ?? null,
+                        "namaEntitas" => $entitas['namaEntitas2'] ?? null,
+                        "niperEntitas" => $entitas['niperEntitas'] ?? null,
+                        "nomorIdentitas" => $entitas['nomorIdentitas2'] ?? null,
+                   ],
+                   [
+                        "alamatEntitas" => $entitas['alamatEntitas3'] ?? null,
+                        "kodeEntitas" => $entitas['kodeEntitas3'] ?? null,
+                        "kodeJenisApi" => $entitas['kodeJenisApi3'] ?? null,
+                        "kodeJenisIdentitas" => $entitas['kodeJenisIdentitas3'] ?? null,
+                        "kodeStatus" => $entitas['kodeStatus3'] ?? null,
+                        "kodeStatus3" => $entitas['namaEntitas3'] ?? null,
+                        "niperEntitas2" => $entitas['niperEntitas2'] ?? null,
+                        "nomorIdentitas3" => $entitas['nomorIdentitas3'] ?? null,
+                        "seriEntitas" => $entitas['seriEntitas3'] ?? null,
+                    ]
+                ];
+            }, $validated['entitas'] ?? []),
+            'kemasan' => array_map(function ($kemasan) {
+                return [
+                                "jumlahKemasan" => $kemasan['jumlahKemasan2'] ?? null,
+                                "kodeJenisKemasan" => $kemasan['kodeJenisKemasan2'] ?? null,
+                                "merkKemasan" => $kemasan['merkKemasan'] ?? null,
+                                "seriKemasan" => $kemasan['seriKemasan'] ?? null,
+                ];
+            }, $validated['kemasan'] ?? []),
+            'kontainer' => array_map(function ($kontainer) {
+                return [
+                            "kodeJenisKontainer" => $validated['kodeJenisKontainer'] ?? null,
+                            "kodeTipeKontainer" => $validated['kodeTipeKontainer'] ?? null,
+                            "kodeUkuranKontainer" => $validated['kodeUkuranKontainer'] ?? null,
+                            "nomorKontainer" => $validated['nomorKontainer'] ?? null,
+                            "seriKontainer" => $validated['seriKontainer'] ?? null,
+                ];
+            }, $validated['kontainer'] ?? []),
+            'dokumen' => array_map(function ($dokumen)  {
+                return [
+                                   "idDokumen" => $validated['idDokumen'] ?? null,
+                                    "kodeDokumen" => $validated['kodeDokumen2'] ?? null,
+                                    "nomorDokumen" => $validated['nomorDokumen'] ?? null,
+                                    "seriDokumen" => $validated['seriDokumen3'] ?? null,
+                                    "tanggalDokumen" => $validated['tanggalDokumen'] ?? null,
+                    // Menambahkan array kedua sebagai elemen array pertama
+                    [
+                                    "idDokumen" => $validated['idDokumen2'] ?? null,
+                                    "kodeDokumen" => $validated['kodeDokumen3'] ?? null,
+                                    "nomorDokumen" => $validated['nomorDokumen2'] ?? null,
+                                    "seriDokumen" => $validated['seriDokumen4'] ?? null,
+                                    "tanggalDokumen" => $validated['tanggalDokumen2'] ?? null,
+                    ]
+                ];
+            }, $validated['dokumen'] ?? []),
+            'pengangkut' => array_map(function ($pengangkut)  {
+                return [
+                                "kodeCaraAngkut" => $pengangkut['kodeCaraAngkut'] ?? null,
+                                "namaPengangkut" => $pengangkut['namaPengangkut'] ?? null,
+                                "nomorPengangkut" => $pengangkut['nomorPengangkut'] ?? null,
+                                "seriPengangkut" => $pengangkut['seriPengangkut'] ?? null,
+                            ];
+             }, $validated['pengangkut'] ?? []),
+   
+        ];
+        
 
-                        'pengangkut' => isset($validated['pengangkut']) ? $validated['pengangkut'] : [
-                            [
-                                "kodeCaraAngkut" => $validated['kodeCaraAngkut'] ?? null,
-                                "namaPengangkut" => $validated['namaPengangkut'] ?? null,
-                                "kodeUkuranKontainer" => $validated['kodeUkuranKontainer'] ?? null,
-                                "nomorPengangkut" => $validated['nomorPengangkut'] ?? null,
-                                "seriPengangkut" => $validated['seriPengangkut'] ?? null,
-                        ]],
 
-                        ];
+            
+    
+                        
+                        // $kemasan = array_map(function ($kemasan) use ($validated) {
+                        //     return [
+                        //         "jumlahKemasan" => $validated['jumlahKemasan2'] ?? null,
+                        //         "kodeJenisKemasan" => $validated['kodeJenisKemasan2'] ?? null,
+                        //         "merkKemasan" => $validated['merkKemasan'] ?? null,
+                        //         "seriKemasan" => $validated['seriKemasan'] ?? null,
+                        //     ];
+                        // }, $validated['kemasan'] ?? []);
+
+                        // $kontainer = array_map(function ($kontainer) use ($validated) {
+                        //     return [
+                        //         "kodeJenisKontainer" => $validated['kodeJenisKontainer'] ?? null,
+                        //         "kodeTipeKontainer" => $validated['kodeTipeKontainer'] ?? null,
+                        //         "kodeUkuranKontainer" => $validated['kodeUkuranKontainer'] ?? null,
+                        //         "nomorKontainer" => $validated['nomorKontainer'] ?? null,
+                        //         "seriKontainer" => $validated['seriKontainer'] ?? null,
+                        //     ];
+                        // }, $validated['kontainer'] ?? []);
+
+                        // 'dokumen' => [
+                        //     array_map(function () use ($validated) {
+                        //         return [
+                        //             "idDokumen" => $validated['idDokumen'] ?? null,
+                        //             "kodeDokumen" => $validated['kodeDokumen2'] ?? null,
+                        //             "nomorDokumen" => $validated['nomorDokumen'] ?? null,
+                        //             "seriDokumen" => $validated['seriDokumen3'] ?? null,
+                        //             "tanggalDokumen" => $validated['tanggalDokumen'] ?? null,
+                        //         ];
+                        //     }, $validated['dokumen1'] ?? []),
+                            
+                        //     array_map(function () use ($validated) {
+                        //         return [
+                        //             "idDokumen" => $validated['idDokumen2'] ?? null,
+                        //             "kodeDokumen" => $validated['kodeDokumen3'] ?? null,
+                        //             "nomorDokumen" => $validated['nomorDokumen2'] ?? null,
+                        //             "seriDokumen" => $validated['seriDokumen4'] ?? null,
+                        //             "tanggalDokumen" => $validated['tanggalDokumen2'] ?? null,
+                        //         ];
+                        //     }, $validated['dokumen2'] ?? [])
+                        // ],
+
+                        // 'pengangkut' => array_map(function () use ($validated) {
+                        //     return [
+                        //         "kodeCaraAngkut" => $validated['kodeCaraAngkut'] ?? null,
+                        //         "namaPengangkut" => $validated['namaPengangkut'] ?? null,
+                        //         "nomorPengangkut" => $validated['nomorPengangkut'] ?? null,
+                        //         "seriPengangkut" => $validated['seriPengangkut'] ?? null,
+                        //     ];
+                        // }, $validated['pengangkut'] ?? [])
 
 
-    // URL API eksternal
-    $apiUrl = 'https://apis-gw.beacukai.go.id/openapi/document';
+                        
+
+// Ensure this is inside the correct context, for example within an array or a function
+$apiUrl = 'https://apis-gw.beacukai.go.id/openapi/document';
 
     try {
         // Kirim permintaan POST ke API eksternal menggunakan Http facade

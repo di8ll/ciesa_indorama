@@ -488,7 +488,7 @@
                                                     value="{{ old('cif') }}" >
                                             </div>
                                             <div class="col-md-3">
-                                                <label for="cifRupiah2" class="form-label">cif Rupiah</label>
+                                                <label for="validationCustom01" class="form-label">cif Rupiah</label>
                                                 <input type="text" class="form-control " id="cifRupiah2"
                                                     name="cifRupiah2" value="{{ old('cifRupiah') }}" >
                                             </div>
