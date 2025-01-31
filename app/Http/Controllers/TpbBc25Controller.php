@@ -295,11 +295,11 @@ class TpbBc25Controller extends Controller
                         "tanggalIjinEntitas" => $entitas['tanggalIjinEntitas'] ?? null,
                         "seriEntitas" => $entitas['seriEntitas'] ?? null,
                    [
-                        "alamatEntitas2" => $entitas['alamatEntitas2'] ?? null,
+                        "alamatEntitas" => $entitas['alamatEntitas'] ?? null,
                         "kodeEntitas" => $entitas['kodeEntitas2'] ?? null,
-                        "kodeJenisApi2" => $entitas['kodeJenisApi2'] ?? null,
+                        "kodeJenisApi" => $entitas['kodeJenisApi2'] ?? null,
                         "kodeJenisIdentitas" => $entitas['kodeJenisIdentitas2'] ?? null,
-                        "kodeStatus2" => $entitas['kodeStatus2'] ?? null,
+                        "kodeStatus" => $entitas['kodeStatus2'] ?? null,
                         "namaEntitas" => $entitas['namaEntitas2'] ?? null,
                         "niperEntitas" => $entitas['niperEntitas'] ?? null,
                         "nomorIdentitas" => $entitas['nomorIdentitas2'] ?? null,
@@ -362,63 +362,6 @@ class TpbBc25Controller extends Controller
    
         ];
         
-
-
-            
-    
-                        
-                        // $kemasan = array_map(function ($kemasan) use ($validated) {
-                        //     return [
-                        //         "jumlahKemasan" => $validated['jumlahKemasan2'] ?? null,
-                        //         "kodeJenisKemasan" => $validated['kodeJenisKemasan2'] ?? null,
-                        //         "merkKemasan" => $validated['merkKemasan'] ?? null,
-                        //         "seriKemasan" => $validated['seriKemasan'] ?? null,
-                        //     ];
-                        // }, $validated['kemasan'] ?? []);
-
-                        // $kontainer = array_map(function ($kontainer) use ($validated) {
-                        //     return [
-                        //         "kodeJenisKontainer" => $validated['kodeJenisKontainer'] ?? null,
-                        //         "kodeTipeKontainer" => $validated['kodeTipeKontainer'] ?? null,
-                        //         "kodeUkuranKontainer" => $validated['kodeUkuranKontainer'] ?? null,
-                        //         "nomorKontainer" => $validated['nomorKontainer'] ?? null,
-                        //         "seriKontainer" => $validated['seriKontainer'] ?? null,
-                        //     ];
-                        // }, $validated['kontainer'] ?? []);
-
-                        // 'dokumen' => [
-                        //     array_map(function () use ($validated) {
-                        //         return [
-                        //             "idDokumen" => $validated['idDokumen'] ?? null,
-                        //             "kodeDokumen" => $validated['kodeDokumen2'] ?? null,
-                        //             "nomorDokumen" => $validated['nomorDokumen'] ?? null,
-                        //             "seriDokumen" => $validated['seriDokumen3'] ?? null,
-                        //             "tanggalDokumen" => $validated['tanggalDokumen'] ?? null,
-                        //         ];
-                        //     }, $validated['dokumen1'] ?? []),
-                            
-                        //     array_map(function () use ($validated) {
-                        //         return [
-                        //             "idDokumen" => $validated['idDokumen2'] ?? null,
-                        //             "kodeDokumen" => $validated['kodeDokumen3'] ?? null,
-                        //             "nomorDokumen" => $validated['nomorDokumen2'] ?? null,
-                        //             "seriDokumen" => $validated['seriDokumen4'] ?? null,
-                        //             "tanggalDokumen" => $validated['tanggalDokumen2'] ?? null,
-                        //         ];
-                        //     }, $validated['dokumen2'] ?? [])
-                        // ],
-
-                        // 'pengangkut' => array_map(function () use ($validated) {
-                        //     return [
-                        //         "kodeCaraAngkut" => $validated['kodeCaraAngkut'] ?? null,
-                        //         "namaPengangkut" => $validated['namaPengangkut'] ?? null,
-                        //         "nomorPengangkut" => $validated['nomorPengangkut'] ?? null,
-                        //         "seriPengangkut" => $validated['seriPengangkut'] ?? null,
-                        //     ];
-                        // }, $validated['pengangkut'] ?? [])
-
-
-                        
 
 // Ensure this is inside the correct context, for example within an array or a function
 $apiUrl = 'https://apis-gw.beacukai.go.id/openapi/document';
