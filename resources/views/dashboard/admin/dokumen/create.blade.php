@@ -121,13 +121,13 @@
                                         <h5 class="text-primary">Penyelenggara/Pengusaha TPB/Pengusaha Kena Pajak</h5>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <label for="kode_jenis_tpb" class="form-label">Nomor Identitas</label>
+                                                <label for="kode_jenis_tpb" class="form-label"></label>
                                                 <input type="text" class="form-control" placeholder="6 - NPWP 16 DIGIT" readonly style="border: 1px solid #313131;">
                                             </div>
                                             <div class="col-md-6">
-                                            <label for="nomor_etintas" class="form-label">Nomor Entitas</label>
-                                            <input type="text" class="form-control" id="nomor_etintas" name="nomor_etintas" 
-                                                value="{{ old('nomor_etintas') }}" style="border: 1px solid #313131;" readonly>
+                                            <label for="nomor_identitas" class="form-label"></label>
+                                            <input type="text" class="form-control" id="nomor_identitas" name="nomor_identitas" 
+                                                value="{{ old('nomor_identitas') }}" style="border: 1px solid #313131;" readonly>
                                         </div>
                                         <div class="col-md-6 mt-3"> 
                                             <label for="nitku" class="form-label">Nitku</label>
@@ -164,18 +164,18 @@
                                     <div class="row mb-4 p-3 border rounded shadow-sm bg-light">
                                      <h5 class="text-primary">Pemilik Barang</h5>
                                      <div class="col-md-6">
-                                            <label for="kode_jenis_tpb" class="form-label">NPWP</label>
+                                            <label for="kode_jenis_tpb" class="form-label"></label>
                                             <input type="text" class="form-control" placeholder="6 - NPWP 16 DIGIT" readonly style="border: 1px solid #313131;">
                                             </div>
                                             <div class="col-md-6">
-                                            <label for="nomor_etintas" class="form-label">Nomor Entitas</label>
-                                            <input type="text" class="form-control" id="nomor_etintas" name="nomor_etintas" 
-                                                value="{{ old('nomor_etintas') }}" style="border: 1px solid #313131;" readonly>
+                                            <label for="nomor_npwp" class="form-label"></label>
+                                            <input type="text" class="form-control" id="nomor_npwp" name="nomor_npwp" 
+                                                value="{{ old('nomor_npwp') }}" style="border: 1px solid #313131;" readonly>
                                         </div>
                                         <div class="col-md-6 mt-3"> 
-                                            <label for="nitku" class="form-label">Nitku</label>
-                                            <input type="text" class="form-control" id="nitku" name="nitku" 
-                                                value="{{ old('nitku') }}" style="border: 1px solid #313131;" oninput="updateNomorEntitas()">
+                                            <label for="nitku2" class="form-label">Nitku</label>
+                                            <input type="text" class="form-control" id="nitku2" name="nitku2" 
+                                                value="{{ old('nitku2') }}" style="border: 1px solid #313131;" oninput="updateNomorEntitas2()">
                                         </div>
                                 </div>
 
@@ -1125,7 +1125,19 @@
 <script>
     function updateNomorEntitas() {
         const nitkuValue = document.getElementById('nitku').value;
-        const nomorEntitasInput = document.getElementById('nomor_etintas');
+        const nomorEntitasInput = document.getElementById('nomor_identitas');
+        
+        // Jika panjang Nitku mencapai 14, set Nomor Entitas menjadi 13 karakter pertama dari Nitku
+        if (nitkuValue.length === 22) {
+            nomorEntitasInput.value = nitkuValue.slice(0, 16); // Hanya ambil 13 karakter pertama
+        }
+    }
+</script>
+
+<script>
+    function updateNomorEntitas2() {
+        const nitkuValue = document.getElementById('nitku2').value;
+        const nomorEntitasInput = document.getElementById('nomor_npwp');
         
         // Jika panjang Nitku mencapai 14, set Nomor Entitas menjadi 13 karakter pertama dari Nitku
         if (nitkuValue.length === 22) {
