@@ -35,438 +35,150 @@
                             <div class="col-md-12">
                                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                                     <li class="nav-item" role="presentation">
-                                        <button class="nav-link active" id="home-tab" data-bs-toggle="tab"
-                                            data-bs-target="#home" type="button" role="tab" aria-controls="home"
-                                            aria-selected="true">Data Dokumen</button>
-                                    </li>
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="barang-tab" data-bs-toggle="tab"
-                                            data-bs-target="#barang" type="button" role="tab" aria-controls="barang"
-                                            aria-selected="false">Barang</button>
-                                    </li>
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="bahanBaku-tab" data-bs-toggle="tab"
-                                            data-bs-target="#bahanBaku" type="button" role="tab"
-                                            aria-controls="bahanBaku" aria-selected="false">Bahan Baku</button>
-                                    </li>
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="bahanBakuTarif-tab" data-bs-toggle="tab"
-                                            data-bs-target="#bahanBakuTarif" type="button" role="tab"
-                                            aria-controls="bahanBakuTarif" aria-selected="false">Bahan Baku Tarif</button>
-                                    </li>
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="barangDokumen-tab" data-bs-toggle="tab"
-                                            data-bs-target="#barangDokumen" type="button" role="tab"
-                                            aria-controls="barangDokumen" aria-selected="false">Barang Dokumen</button>
-                                    </li>
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="barangTarif-tab" data-bs-toggle="tab"
-                                            data-bs-target="#barangTarif" type="button" role="tab"
-                                            aria-controls="barangTarif" aria-selected="false">Barang Tarif</button>
-                                    </li>
-                                    <!-- <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="Tarifbarang-tab" data-bs-toggle="tab"
-                                            data-bs-target="#Tarifbarang" type="button" role="tab"
-                                            aria-controls="Tarifbarang" aria-selected="false">Barang Tarif</button>
-                                    </li> -->
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="JenisPungutan-tab" data-bs-toggle="tab"
-                                            data-bs-target="#JenisPungutan" type="button" role="tab"
-                                            aria-controls="JenisPungutan" aria-selected="false">Kode Jenis Pungutan</button>
-                                    </li>
-                                    <!-- <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="DokumenBarang-tab" data-bs-toggle="tab"
-                                            data-bs-target="#DokumenBarang" type="button" role="tab"
-                                            aria-controls="DokumenBarang" aria-selected="false">Barang Dokumen</button>
-                                    </li> -->
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="bakuTarif-tab" data-bs-toggle="tab"
-                                            data-bs-target="#bakuTarif" type="button" role="tab"
-                                            aria-controls="bakuTarif" aria-selected="false">Bahan Baku Tarif</button>
+                                        <button class="nav-link active" id="header-tab" data-bs-toggle="tab"
+                                            data-bs-target="#header" type="button" role="tab" aria-controls="header"
+                                            aria-selected="true">Header</button>
                                     </li>
                                     <li class="nav-item" role="presentation">
                                         <button class="nav-link" id="entitas-tab" data-bs-toggle="tab"
-                                            data-bs-target="#entitas" type="button" role="tab"
-                                            aria-controls="entitas" aria-selected="false">Entitas</button>
-                                    </li>
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="kemasan-tab" data-bs-toggle="tab"
-                                            data-bs-target="#kemasan" type="button" role="tab"
-                                            aria-controls="kemasan" aria-selected="false">Kemasan</button>
-                                    </li>
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="kontainer-tab" data-bs-toggle="tab"
-                                            data-bs-target="#kontainer" type="button" role="tab"
-                                            aria-controls="kontainer" aria-selected="false">kontainer</button>
+                                            data-bs-target="#entitas" type="button" role="tab" aria-controls="entitas"
+                                            aria-selected="false">Entitas</button>
                                     </li>
                                     <li class="nav-item" role="presentation">
                                         <button class="nav-link" id="dokumen-tab" data-bs-toggle="tab"
-                                            data-bs-target="#dokumen" type="button" role="tab"
-                                            aria-controls="dokumen" aria-selected="false">dokumen</button>
-                                    </li>
-                                    <li class="nav-item" role="presentation">
-                                        <button class="nav-link" id="pengangkut-tab" data-bs-toggle="tab"
-                                            data-bs-target="#pengangkut" type="button" role="tab"
-                                            aria-controls="pengangkut" aria-selected="false">Pengangkut</button>
+                                            data-bs-target="#dokumen" type="button" role="tab" aria-controls="dokumen"
+                                            aria-selected="false">Dokumen</button>
                                     </li>
                                 </ul>
                                 <br>
                                 <div class="tab-content" id="myTabContent">
-                                    <div class="tab-pane fade show active" id="home" role="tabpanel"
-                                        aria-labelledby="home-tab">
+                                    <div class="tab-pane fade show active" id="header" role="tabpanel"
+                                        aria-labelledby="header-tab">
                                         <div class="row">
-                                            <div class="col-md-3">
-                                                <label for="asalData" class="form-label">Asal Data</label>
-                                                <input type="text" class="form-control" id="asalData"
-                                                    name="asalData" value="{{ old('asalData') }}" >
+                                        <div class="col-md-3 d-none">
+                                            <label for="kode_jenis_tpb" class="form-label">Jenis Dokumen</label>
+                                            <input type="text" class="form-control" id="kodeDokumen" name="kode_jenis_tpb"
+                                                value="{{ old('kodeDokumen', '25') }}" readonly>
+                                        </div>
+                                        <div class="col-md-3 d-none">
+                                            <label for="kode_jenis_tpb" class="form-label">Entitas</label>
+                                            <input type="text" class="form-control" id="kode_jenis_tpb" name="kode_jenis_tpb"
+                                                value="{{ old('kode_jenis_tpb', 'TPB') }}" readonly>
+                                        </div>
+                                        <div class="col-md-3 d-none">
+                                            <label for="nomor_pengajuan" class="form-label">Nomor Pengajuan</label>
+                                            <input type="text" class="form-control" id="nomor_pengajuan" name="nomor_pengajuan"
+                                                value="{{ old('nomor_pengajuan', '700025-010016-20250131-000001') }}" readonly>
+                                        </div>
+                                        <div class="col-md-3 d-none">
+                                            <label for="kantor_pabean" class="form-label">Kantor Pabean</label>
+                                            <input type="text" class="form-control" id="kantor_pabean" name="kantor_pabean"
+                                                value="{{ old('kantor_pabean', '050800 - KPPBC TMP A PURWAKARTA') }}" readonly>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="nomor_pengajuan" class="form-label">Jenis TPB</label>
+                                            <select class="form-control" name="sub_bidang" id="select-field1"
+                                                onchange="applyClientFilter1()" required style="border: 1px solid #313131;">
+                                                <option selected disabled>Pilih Jenis TPB</option>
+                                                <option value="1" {{ old('jenis_tpb') == '1' ? 'selected' : '' }}>1 - KAWASAN BERIKAT</option>
+                                                <option value="10" {{ old('jenis_tpb') == '10' ? 'selected' : '' }}>10 - FTZ</option>
+                                                <option value="11" {{ old('jenis_tpb') == '11' ? 'selected' : '' }}>11 - BUKEK</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="nomor_pengajuan" class="form-label">Tujuan Pengiriman</label>
+                                            <select class="form-control" name="tujuan_pengiriman" id="select-field2"
+                                                onchange="applyClientFilter2()" required style="border: 1px solid #313131;">
+                                                <option selected disabled>Pilih Tujuan Pengiriman</option>
+                                                <option value="1" {{ old('tujuan_pengiriman') == '1' ? 'selected' : '' }}>1 - PENYERAHAN BKP</option>
+                                                <option value="2" {{ old('tujuan_pengiriman') == '2' ? 'selected' : '' }}>2 - PENYERAHAN JKP</option>
+                                                <option value="3" {{ old('tujuan_pengiriman') == '3' ? 'selected' : '' }}>3 - RETUR</option>
+                                                <option value="4" {{ old('tujuan_pengiriman') == '3' ? 'selected' : '' }}>4 - NON PENYERAHAN</option>
+                                                <option value="5" {{ old('tujuan_pengiriman') == '3' ? 'selected' : '' }}>5 - LAINNYA</option>
+                                            </select>
                                             </div>
-                                            <div class="col-md-3">
-                                                <label for="validationCustom01" class="form-label">Bruto</label>
-                                                <input class="form-control" type="text" name="bruto" id="bruto"  value="{{ old('bruto') }}" >
-                                           </div>
-
-                                            <div class="col-md-3">
-                                                <label for="validationCustom01" class="form-label">Cif</label>
-                                                <input type="text" class="form-control" id="cif" name="cif"
-                                                    value="{{ old('cif') }}" >
-                                            </div>
-
-                                            <div class="col-md-3">
-                                                <label for="validationCustom01" class="form-label">Dasar Pengenaan
-                                                    Pajak</label>
-                                                <input type="text" class="form-control" id="dasarPengenaanPajak"
-                                                    name="dasarPengenaanPajak" value="{{ old('dasarPengenaanPajak') }}"
-                                                    >
-                                            </div>
-
-                                            <div class="col-md-3">
-                                                <label for="validationCustom01" class="form-label">Disclaimer</label>
-                                                <input type="text" class="form-control" id="disclaimer"
-                                                    name="disclaimer" value="{{ old('disclaimer') }}" >
-                                            </div>
-
-                                            <div class="col-md-3">
-                                                <label for="validationCustom01" class="form-label">Kode Jenis TPB</label>
-                                                <input type="text" class="form-control" id="kodeJenisTpb"
-                                                    name="kodeJenisTpb" value="{{ old('kodeJenisTpb') }}" >
-                                            </div>
-
-                                            <div class="col-md-3">
-                                                <label for="validationCustom01" class="form-label">Harga
-                                                    Penyerahan</label>
-                                                <input type="text" class="form-control" id="hargaPenyerahan"
-                                                    name="hargaPenyerahan" value="{{ old('hargaPenyerahan') }}" >
-                                            </div>
-
-                                            <div class="col-md-3">
-                                                <label for="validationCustom01" class="form-label">Identitas
-                                                    Penggguna</label>
-                                                <input type="text" class="form-control" id="idPengguna"
-                                                    name="idPengguna" value="{{ old('idPengguna') }}" >
-                                            </div>
-
-                                            <div class="col-md-3">
-                                                <label for="validationCustom01" class="form-label">Jabatan TTD</label>
-                                                <input type="text" class="form-control" id="jabatanTtd"
-                                                    name="jabatanTtd" value="{{ old('jabatanTtd') }}" >
-                                            </div>
-
-
-                                            <div class="col-md-3">
-                                                <label for="validationCustom01" class="form-label">Jumlah Kontainer</label>
-                                                <input type="text" class="form-control"  id="jumlahKontainer"
-                                                    name="jumlahKontainer" value="{{ old('jumlahKontainer') }}">
-                                            </div>
-
-
-                                            <div class="col-md-3">
-                                                <label for="validationCustom01" class="form-label">kode Cara Bayar</label>
-                                                <input type="text" class="form-control" id="kodeCaraBayar"
-                                                    name="kodeCaraBayar" value="{{ old('kodeCaraBayar') }}">
-                                            </div>
-
-                                            <div class="col-md-3">
-                                                <label for="kodeDokumen" class="form-label">Kode Dokumen</label>
-                                                <input type="text"  class="form-control"
-                                                 id="kodeDokumen" name="kodeDokumen" value="{{ old('kodeDokumen') }}">
-                                            </div>
-
-                                            <div class="col-md-3">
-                                                <label for="validationCustom01" class="form-label">kode Kantor</label>
-                                                <input type="text" class="form-control" id="kodeKantor"
-                                                    name="kodeKantor" value="{{ old('kodeKantor') }}" >
-                                            </div>
-
-                                            <div class="col-md-3">
-                                                <label for="validationCustom01" class="form-label">kode Lokasi
-                                                    Bayar</label>
-                                                <input type="text" class="form-control" id="kodeLokasiBayar"
-                                                    name="kodeLokasiBayar" value="{{ old('kodeLokasiBayar') }}" >
-                                            </div>
-
-                                            <div class="col-md-3">
-                                                <label for="validationCustom01" class="form-label">kode Tujuan
-                                                    Pengiriman</label>
-                                                <input type="text" class="form-control" id="kodeTujuanPengiriman"
-                                                    name="kodeTujuanPengiriman" value="{{ old('kodeTujuanPengiriman') }}"
-                                                    >
-                                            </div>
-
-                                            <div class="col-md-3">
-                                                <label for="validationCustom01" class="form-label">kode Valuta</label>
-                                                <input type="text" class="form-control" id="kodeValuta"
-                                                    name="kodeValuta" value="{{ old('kodeValuta') }}" >
-                                            </div>
-
-                                            <div class="col-md-3">
-                                                <label for="validationCustom01" class="form-label">kota Ttd</label>
-                                                <input type="text" class="form-control" id="kotaTtd" name="kotaTtd"
-                                                    value="{{ old('kotaTtd') }}" >
-                                            </div>
-
-                                            <div class="col-md-3">
-                                                <label for="validationCustom01" class="form-label">nama Ttd</label>
-                                                <input type="text" class="form-control" id="namaTtd" name="namaTtd"
-                                                    value="{{ old('namaTtd') }}" >
-                                            </div>
-
-                                            <div class="col-md-3">
-                                                <label for="validationCustom01" class="form-label">ndpbm</label>
-                                                <input type="text" class="form-control" id="ndpbm" name="ndpbm"
-                                                    value="{{ old('ndpbm') }}" >
-                                            </div>
-
-                                            <div class="col-md-3">
-                                                <label for="validationCustom01" class="form-label">Netto</label>
-                                                <input type="text" class="form-control" id="netto" name="netto"
-                                                    value="{{ old('netto') }}" >
-                                            </div>
-
-                                            <div class="col-md-3">
-                                                <label for="validationCustom01" class="form-label">Nomor Aju</label>
-                                                <input type="text" class="form-control" id="nomorAju"
-                                                    name="nomorAju" value="{{ old('nomorAju') }}" >
-                                            </div>
-
-                                            <div class="col-md-3">
-                                                <label for="validationCustom01" class="form-label">Seri</label>
-                                                <input type="text" class="form-control" id="seri" name="seri"
-                                                    value="{{ old('seri') }}" >
-                                            </div>
-
-                                            <div class="col-md-3">
-                                                <label for="validationCustom01" class="form-label">Tanggal Aju</label>
-                                                <input type="text" class="form-control" id="tanggalAju"
-                                                    name="tanggalAju" value="{{ old('tanggalAju') }}" >
-                                            </div>
-
-                                            <div class="col-md-3">
-                                                <label for="validationCustom01" class="form-label">tanggal Ttd</label>
-                                                <input type="text" class="form-control" id="tanggalTtd"
-                                                    name="tanggalTtd" value="{{ old('tanggalTtd') }}" >
-                                            </div>
-
-                                            <div class="col-md-3">
-                                                <label for="validationCustom01" class="form-label">Volume</label>
-                                                <input type="text" class="form-control" id="volume" name="volume"
-                                                    value="{{ old('volume') }}" >
-                                            </div>
-
-                                            <div class="col-md-3">
-                                                <label for="validationCustom01" class="form-label">ppn Pajak</label>
-                                                <input type="text" class="form-control" id="ppnPajak"
-                                                    name="ppnPajak" value="{{ old('ppnPajak') }}" >
-                                            </div>
-
-                                            <div class="col-md-3">
-                                                <label for="validationCustom01" class="form-label">ppnbm Pajak</label>
-                                                <input type="text" class="form-control" id="ppnbmPajak"
-                                                    name="ppnbmPajak" value="{{ old('ppnbmPajak') }}" >
-                                            </div>
-
-                                            <div class="col-md-3">
-                                                <label for="validationCustom01" class="form-label">tarif Ppn Pajak</label>
-                                                <input type="text" class="form-control" id="tarifPpnPajak"
-                                                    name="tarifPpnPajak" value="{{ old('tarifPpnPajak') }}">
-                                            </div>
-
-                                            <div class="col-md-3">
-                                                <label for="tarifPpnbmPajak" class="form-label">tarif Ppnbm
-                                                    Pajak</label>
-                                                <input type="text" class="form-control " id="tarifPpnbmPajak"
-                                                    name="tarifPpnbmPajak" value="{{ old('tarifPpnbmPajak') }}">
+                                            <div class="col-md-4">
+                                            <label for="cara_bayar" class="form-label">Cara Bayar</label>
+                                            <select class="form-control" name="cara_bayar" id="select-field3"
+                                                onchange="applyClientFilter3()" required style="border: 1px solid #313131;">
+                                                <option selected disabled>Pilih Cara Bayar</option>
+                                                <option value="1" {{ old('cara_bayar') == '1' ? 'selected' : '' }}>1 - BIASA / TUNAI</option>
+                                                <option value="10" {{ old('cara_bayar') == '10' ? 'selected' : '' }}>10 - PEMBAYARAN KEMUDIAN (OPEN ACCOUNT SECARA BERTAHAP)</option>
+                                                <option value="11" {{ old('cara_bayar') == '11' ? 'selected' : '' }}>11 - PEMBAYARAN KEMUDIAN (OPEN ACCOUNT SECARA TUNAI)</option>
+                                                <option value="12" {{ old('cara_bayar') == '12' ? 'selected' : '' }}>12 - DILAKUKAN DI DN DENGAN PEMBAYARAN UANG TUNAI</option>
+                                                <option value="13" {{ old('cara_bayar') == '13' ? 'selected' : '' }}>13 - DILAKUKAN  DI DN DENGAN PEMBAYRAN MELALUI TELEGRAPH TRANSFER (T/T)</option>
+                                                <option value="14" {{ old('cara_bayar') == '14' ? 'selected' : '' }}>14 - DILAKUKAN  TANPA PEMBAYARAN</option>
+                                                <option value="15" {{ old('cara_bayar') == '15' ? 'selected' : '' }}>15 - PEMBAYARAN DI MUKA</option>
+                                                <option value="16" {{ old('cara_bayar') == '16' ? 'selected' : '' }}>16 - SIGHT LETTER OF CREDIT</option>
+                                            </select>
                                             </div>
                                         </div>
                                     </div>
 
-                                    {{-- Barang --}}
-                                    <div class="tab-pane fade" id="barang" role="tabpanel"
-                                        aria-labelledby="barang-tab">
+                                    {{-- Entitas --}}
+                                    <div class="tab-pane fade" id="entitas" role="tabpanel" aria-labelledby="entitas-tab">
+                                    <div class="row mb-4 p-3 border rounded shadow-sm bg-light">
+                                        <h5 class="text-primary">Penyelenggara/Pengusaha TPB/Pengusaha Kena Pajak</h5>
                                         <div class="row">
-                                            <div class="col-md-3">
-                                                <label for="bruto2" class="form-label">Bruto</label>
-                                                <input class="form-control" type="text" name="bruto2" id="bruto2"  value="{{ old('bruto') }}" >
+                                            <div class="col-md-6">
+                                                <label for="kode_jenis_tpb" class="form-label">Nomor Identitas</label>
+                                                <input type="text" class="form-control" placeholder="6 - NPWP 16 DIGIT" readonly style="border: 1px solid #313131;">
                                             </div>
-                                            <div class="col-md-3">
-                                                <label for="cif2" class="form-label">cif</label>
-                                                <input type="text" class="form-control" id="cif2" name="cif2"
-                                                    value="{{ old('cif') }}" >
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="diskon" class="form-label">diskon</label>
-                                                <input type="text" class="form-control" id="diskon" name="diskon"
-                                                    value="{{ old('diskon') }}" >
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="fob" class="form-label">fob</label>
-                                                <input type="text" class="form-control" id="fob" name="fob"
-                                                    value="{{ old('fob') }}" >
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="freight" class="form-label">freight</label>
-                                                <input type="text" class="form-control" id="freight" name="freight"
-                                                    value="{{ old('freight') }}" >
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="hargaEkspor" class="form-label">harga Ekspor</label>
-                                                <input type="text" class="form-control" id="hargaEkspor"
-                                                    name="hargaEkspor" value="{{ old('hargaEkspor') }}">
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="hargaPenyerahan2" class="form-label">harga Penyerahan</label>
-                                                <input type="text" class="form-control" id="hargaPenyerahan2"
-                                                    name="hargaPenyerahan2" value="{{ old('hargaPenyerahan') }}">
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="isiPerKemasan" class="form-label">isi PerKemasan</label>
-                                                <input type="text" class="form-control" id="isiPerKemasan"
-                                                    name="isiPerKemasan" value="{{ old('isiPerKemasan') }}" >
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="jumlahKemasan" class="form-label">jumlah Kemasan</label>
-                                                <input type="text" class="form-control" id="jumlahKemasan"
-                                                    name="jumlahKemasan" value="{{ old('jumlahKemasan') }}">
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="jumlahSatuan" class="form-label">jumlah Satuan</label>
-                                                <input type="text" class="form-control" id="jumlahSatuan"
-                                                    name="jumlahSatuan" value="{{ old('jumlahSatuan') }}">
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="kodeBarang" class="form-label">Kode Barang</label>
-                                                <input type="text" class="form-control" id="kodeBarang"
-                                                    name="kodeBarang" value="{{ old('kodeBarang') }}" >
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="kodeGunaBarang" class="form-label">kode Guna Barang</label>
-                                                <input type="text" class="form-control" id="kodeGunaBarang"
-                                                    name="kodeGunaBarang" value="{{ old('kodeGunaBarang') }}">
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="kodeKategoriBarang" class="form-label">kode Kategori
-                                                    Barang</label>
-                                                <input type="text" class="form-control" id="kodeKategoriBarang"
-                                                    name="kodeKategoriBarang" value="{{ old('kodeKategoriBarang') }}"
-                                                    >
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="kodeJenisKemasan" class="form-label">kode Jenis
-                                                    Kemasan</label>
-                                                <input type="text" class="form-control" id="kodeJenisKemasan"
-                                                    name="kodeJenisKemasan" value="{{ old('kodeJenisKemasan') }}"
-                                                    >
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="kodeKondisiBarang" class="form-label">kode Kondisi
-                                                    Barang</label>
-                                                <input type="text" class="form-control" id="kodeKondisiBarang"
-                                                    name="kodeKondisiBarang" value="{{ old('kodeKondisiBarang') }}"
-                                                    >
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="kodePerhitungan" class="form-label">kode Perhitungan</label>
-                                                <input type="text" class="form-control" id="kodePerhitungan"
-                                                    name="kodePerhitungan" value="{{ old('kodePerhitungan') }}" >
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="kodeSatuanBarang" class="form-label">kode Satuan
-                                                    Barang</label>
-                                                <input type="text" class="form-control" id="kodeSatuanBarang"
-                                                    name="kodeSatuanBarang" value="{{ old('kodeSatuanBarang') }}"
-                                                    >
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="merk" class="form-label">merk</label>
-                                                <input type="text" class="form-control" id="merk" name="merk"
-                                                    value="{{ old('merk') }}" >
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="netto" class="form-label">netto</label>
-                                                <input type="text" class="form-control" id="netto2" name="netto2"
-                                                    value="{{ old('netto') }}" >
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="nilaiBarang" class="form-label">nilai Barang</label>
-                                                <input type="text" class="form-control" id="nilaiBarang"
-                                                    name="nilaiBarang" value="{{ old('nilaiBarang') }}" >
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="posTarif" class="form-label">pos Tarif</label>
-                                                <input type="text" class="form-control" id="posTarif"
-                                                    name="posTarif" value="{{ old('posTarif') }}" >
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="seriBarang" class="form-label">seri Barang</label>
-                                                <input type="text" class="form-control" id="seriBarang"
-                                                    name="seriBarang" value="{{ old('seriBarang') }}" >
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="spesifikasiLain" class="form-label">spesifikasi Lain</label>
-                                                <input type="text" class="form-control" id="spesifikasiLain"
-                                                    name="spesifikasiLain" value="{{ old('spesifikasiLain') }}">
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="tipe" class="form-label">tipe</label>
-                                                <input type="text" class="form-control" id="tipe" name="tipe"
-                                                    value="{{ old('tipe') }}" >
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="ukuran" class="form-label">ukuran</label>
-                                                <input type="text" class="form-control" id="ukuran" name="ukuran"
-                                                    value="{{ old('ukuran') }}" >
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="uraian" class="form-label">uraian</label>
-                                                <input type="text" class="form-control" id="uraian" name="uraian"
-                                                    value="{{ old('uraian') }}" >
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="ndpbm" class="form-label">ndpbm</label>
-                                                <input type="text" class="form-control" id="ndpbm2" name="ndpbm2"
-                                                    value="{{ old('ndpbm') }}" >
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="cifRupiah" class="form-label">cif Rupiah</label>
-                                                <input type="text" class="form-control" id="cifRupiah"
-                                                    name="cifRupiah" value="{{ old('cifRupiah') }}" >
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="hargaPerolehan" class="form-label">harga Perolehan</label>
-                                                <input type="text" class="form-control" id="hargaPerolehan"
-                                                    name="hargaPerolehan" value="{{ old('hargaPerolehan') }}">
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="kodeDokAsal" class="form-label">kode Dok Asal</label>
-                                                <input type="text" class="form-control" id="kodeDokAsal"
-                                                    name="kodeDokAsal" value="{{ old('kodeDokAsal') }}" >
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="flag4tahun" class="form-label">flag4tahun</label>
-                                                <input type="text" class="form-control" id="flag4tahun"
-                                                    name="flag4tahun" value="{{ old('flag4tahun') }}" >
-                                            </div>
+                                            <div class="col-md-6">
+                                            <label for="nomor_etintas" class="form-label">Nomor Entitas</label>
+                                            <input type="text" class="form-control" id="nomor_etintas" name="nomor_etintas" 
+                                                value="{{ old('nomor_etintas') }}" style="border: 1px solid #313131;" readonly>
+                                        </div>
+                                        <div class="col-md-6 mt-3"> 
+                                            <label for="nitku" class="form-label">Nitku</label>
+                                            <input type="text" class="form-control" id="nitku" name="nitku" 
+                                                value="{{ old('nitku') }}" style="border: 1px solid #313131;" oninput="updateNomorEntitas()">
+                                        </div>
+                                        <div class="col-md-6 mt-3">
+                                            <label for="nama" class="form-label">Nama</label>
+                                            <input type="text" class="form-control" id="nama" name="nama" 
+                                                value="{{ old('nama') }}" style="border: 1px solid #313131;" >
+                                        </div>
+                                        <div class="col-md-6 mt-3">
+                                            <label for="no_izin_tpb" class="form-label">No Izin TPB</label>
+                                            <input type="text" class="form-control" id="no_izin_tpb" name="no_izin_tpb" 
+                                            value="{{ old('no_izin_tpb', 'KEP-724/WBC.09/2022') }}" readonly style="border: 1px solid #313131;" >
+                                        </div>
+                                        <div class="col-md-6 mt-3">
+                                            <label for="no_izin_tpb" class="form-label">Tanggal Izin TPB</label>
+                                            <input type="date" class="form-control" id="no_izin_tpb" name="no_izin_tpb" 
+                                                value="{{ old('no_izin_tpb') }}" style="border: 1px solid #313131;" >
+                                        </div>
+                                        <div class="col-md-6 mt-3">
+                                            <label for="nib" class="form-label">NIB</label>
+                                            <input type="text" class="form-control" id="nib" name="nib" 
+                                                value="{{ old('nib') }}" style="border: 1px solid #313131;" >
+                                        </div>
+                                        <div class="col-md-6 mt-3">
+                                            <label for="alamat" class="form-label">Alamat</label>
+                                            <textarea  type="text" class="form-control" id="alamat" name="alamat" 
+                                                value="{{ old('alamat') }}" style="border: 1px solid #313131;" ></textarea>
+                                        </div>
                                         </div>
                                     </div>
+                                    <div class="row mb-4 p-3 border rounded shadow-sm bg-light">
+                                     <h5 class="text-primary">Pemilik Barang</h5>
+                                     <div class="col-md-6">
+                                            <label for="kode_jenis_tpb" class="form-label">NPWP</label>
+                                            <input type="text" class="form-control" placeholder="6 - NPWP 16 DIGIT" readonly style="border: 1px solid #313131;">
+                                            </div>
+                                            <div class="col-md-6">
+                                            <label for="nomor_etintas" class="form-label">Nomor Entitas</label>
+                                            <input type="text" class="form-control" id="nomor_etintas" name="nomor_etintas" 
+                                                value="{{ old('nomor_etintas') }}" style="border: 1px solid #313131;" readonly>
+                                        </div>
+                                        <div class="col-md-6 mt-3"> 
+                                            <label for="nitku" class="form-label">Nitku</label>
+                                            <input type="text" class="form-control" id="nitku" name="nitku" 
+                                                value="{{ old('nitku') }}" style="border: 1px solid #313131;" oninput="updateNomorEntitas()">
+                                        </div>
+                                </div>
+
 
                                     {{-- Bahan Baku --}}
                                     <div class="tab-pane fade" id="bahanBaku" role="tabpanel"
@@ -1395,4 +1107,30 @@
             </div><!--end col-->
         </div><!--end row-->
     </div><!-- container -->
+        <script>
+        $('#select-field1').select2({
+            theme: 'bootstrap-5'
+        });
+    </script>
+        <script>
+        $('#select-field2').select2({
+            theme: 'bootstrap-5'
+        });
+    </script>
+    <script>
+        $('#select-field3').select2({
+            theme: 'bootstrap-5'
+        });
+    </script>
+<script>
+    function updateNomorEntitas() {
+        const nitkuValue = document.getElementById('nitku').value;
+        const nomorEntitasInput = document.getElementById('nomor_etintas');
+        
+        // Jika panjang Nitku mencapai 14, set Nomor Entitas menjadi 13 karakter pertama dari Nitku
+        if (nitkuValue.length === 22) {
+            nomorEntitasInput.value = nitkuValue.slice(0, 16); // Hanya ambil 13 karakter pertama
+        }
+    }
+</script>
 @endsection
