@@ -117,69 +117,88 @@
 
                                     {{-- Entitas --}}
                                     <div class="tab-pane fade" id="entitas" role="tabpanel" aria-labelledby="entitas-tab">
-                                    <div class="row mb-4 p-3 border rounded shadow-sm bg-light">
-                                        <h5 class="text-primary">Penyelenggara/Pengusaha TPB/Pengusaha Kena Pajak</h5>
-                                        <div class="row">
-                                            <div class="col-md-6">
+                                        <div class="row mb-4 p-3 border rounded shadow-sm bg-light">
+                                            <h5 class="text-primary">Penyelenggara/Pengusaha TPB/Pengusaha Kena Pajak</h5>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label for="kode_jenis_tpb" class="form-label"></label>
+                                                    <input type="text" class="form-control" placeholder="6 - NPWP 16 DIGIT" readonly style="border: 1px solid #313131;">
+                                                </div>
+                                                <div class="col-md-6">
+                                                <label for="nomor_identitas" class="form-label"></label>
+                                                <input type="text" class="form-control" id="nomor_identitas" name="nomor_identitas"
+                                                    value="{{ old('nomor_identitas') }}" style="border: 1px solid #313131;" readonly>
+                                            </div>
+                                            <div class="col-md-6 mt-3">
+                                                <label for="nitku" class="form-label">Nitku</label>
+                                                <input type="text" class="form-control" id="nitku" name="nitku"
+                                                    value="{{ old('nitku') }}" style="border: 1px solid #313131;" oninput="updateNomorEntitas()">
+                                            </div>
+                                            <div class="col-md-6 mt-3">
+                                                <label for="nama" class="form-label">Nama</label>
+                                                <input type="text" class="form-control" id="nama" name="nama"
+                                                value="{{ old('nama', 'INDO-RAMA SYNTHETICS TBK') }}"  style="border: 1px solid #313131;" >
+                                            </div>
+                                            <div class="col-md-6 mt-3">
+                                                <label for="no_izin_tpb" class="form-label">No Izin TPB</label>
+                                                <input type="text" class="form-control" id="no_izin_tpb" name="no_izin_tpb"
+                                                    value="{{ old('no_izin_tpb', 'KEP-724/WBC.09/2022') }}" style="border: 1px solid #313131;">
+                                            </div>
+                                            <div class="col-md-6 mt-3">
+                                                <label for="no_izin_tpb" class="form-label">Tanggal Izin TPB</label>
+                                                <input type="date" class="form-control" id="no_izin_tpb" name="no_izin_tpb"
+                                                    value="{{ old('no_izin_tpb') }}" style="border: 1px solid #313131;" >
+                                            </div>
+                                            <div class="col-md-6 mt-3">
+                                                <label for="nib" class="form-label">NIB</label>
+                                                <input type="text" class="form-control" id="nib" name="nib"
+                                                value="{{ old('nib', '8120302880325') }}" style="border: 1px solid #313131;" >
+                                            </div>
+                                            <div class="col-md-6 mt-3">
+                                                <label for="alamat" class="form-label">Alamat</label>
+                                                <textarea class="form-control" id="alamat" name="alamat" style="border: 1px solid #313131;">{{ old('alamat', 'JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101') }}</textarea>
+                                            </div>
+                                        </div>
+                                        <div class="row mb-4 p-3 border rounded shadow-sm bg-light">
+                                        <h5 class="text-primary">Pemilik Barang</h5>
+                                        <div class="col-md-6">
                                                 <label for="kode_jenis_tpb" class="form-label"></label>
                                                 <input type="text" class="form-control" placeholder="6 - NPWP 16 DIGIT" readonly style="border: 1px solid #313131;">
+                                                </div>
+                                                <div class="col-md-6">
+                                                <label for="nomor_npwp" class="form-label"></label>
+                                                <input type="text" class="form-control" id="nomor_npwp" name="nomor_npwp"
+                                                    value="{{ old('nomor_npwp') }}" style="border: 1px solid #313131;" readonly>
                                             </div>
-                                            <div class="col-md-6">
-                                            <label for="nomor_identitas" class="form-label"></label>
-                                            <input type="text" class="form-control" id="nomor_identitas" name="nomor_identitas" 
-                                                value="{{ old('nomor_identitas') }}" style="border: 1px solid #313131;" readonly>
+                                            <div class="col-md-6 mt-3">
+                                                <label for="nitku2" class="form-label">Nitku</label>
+                                                <input type="text" class="form-control" id="nitku2" name="nitku2"
+                                                    value="{{ old('nitku2') }}" style="border: 1px solid #313131;" oninput="updateNomorEntitas2()">
+                                            </div>
+                                            <div class="col-md-6 mt-3">
+                                                <label for="nama2" class="form-label">Nama</label>
+                                                <input type="text" class="form-control" id="nama2" name="nama2"
+                                                value="{{ old('nama2', 'INDO-RAMA SYNTHETICS TBK') }}"  style="border: 1px solid #313131;" >
+                                            </div>
+                                            <div class="col-md-12 mt-3">
+                                                <label for="alamat" class="form-label">Alamat</label>
+                                                <textarea class="form-control" id="alamat" name="alamat" style="border: 1px solid #313131;">{{ old('alamat', 'JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101') }}</textarea>
+                                            </div>
                                         </div>
-                                        <div class="col-md-6 mt-3"> 
-                                            <label for="nitku" class="form-label">Nitku</label>
-                                            <input type="text" class="form-control" id="nitku" name="nitku" 
-                                                value="{{ old('nitku') }}" style="border: 1px solid #313131;" oninput="updateNomorEntitas()">
-                                        </div>
-                                        <div class="col-md-6 mt-3">
-                                            <label for="nama" class="form-label">Nama</label>
-                                            <input type="text" class="form-control" id="nama" name="nama" 
-                                                value="{{ old('nama') }}" style="border: 1px solid #313131;" >
-                                        </div>
-                                        <div class="col-md-6 mt-3">
-                                            <label for="no_izin_tpb" class="form-label">No Izin TPB</label>
-                                            <input type="text" class="form-control" id="no_izin_tpb" name="no_izin_tpb" 
-                                            value="{{ old('no_izin_tpb', 'KEP-724/WBC.09/2022') }}" readonly style="border: 1px solid #313131;" >
-                                        </div>
-                                        <div class="col-md-6 mt-3">
-                                            <label for="no_izin_tpb" class="form-label">Tanggal Izin TPB</label>
-                                            <input type="date" class="form-control" id="no_izin_tpb" name="no_izin_tpb" 
-                                                value="{{ old('no_izin_tpb') }}" style="border: 1px solid #313131;" >
-                                        </div>
-                                        <div class="col-md-6 mt-3">
-                                            <label for="nib" class="form-label">NIB</label>
-                                            <input type="text" class="form-control" id="nib" name="nib" 
-                                                value="{{ old('nib') }}" style="border: 1px solid #313131;" >
-                                        </div>
-                                        <div class="col-md-6 mt-3">
-                                            <label for="alamat" class="form-label">Alamat</label>
-                                            <textarea  type="text" class="form-control" id="alamat" name="alamat" 
-                                                value="{{ old('alamat') }}" style="border: 1px solid #313131;" ></textarea>
-                                        </div>
-                                        </div>
+                                            <div class="row mb-4 p-3 border rounded shadow-sm bg-light">
+                                                <h5 class="text-primary">Penerima Barang/Pembeli Barang Kena Pajak/Penerima Jasa Kena Pajak</h5>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label for="kode_jenis_tpb" class="form-label"></label>
+                                                        <input type="text" class="form-control" placeholder="6 - NPWP 16 DIGIT" readonly style="border: 1px solid #313131;">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label for="kode_jenis_tpb" class="form-label"></label>
+                                                        <input type="text" class="form-control" placeholder="6 - NPWP 16 DIGIT" readonly style="border: 1px solid #313131;">
+                                                    </div>
                                     </div>
-                                    <div class="row mb-4 p-3 border rounded shadow-sm bg-light">
-                                     <h5 class="text-primary">Pemilik Barang</h5>
-                                     <div class="col-md-6">
-                                            <label for="kode_jenis_tpb" class="form-label"></label>
-                                            <input type="text" class="form-control" placeholder="6 - NPWP 16 DIGIT" readonly style="border: 1px solid #313131;">
-                                            </div>
-                                            <div class="col-md-6">
-                                            <label for="nomor_npwp" class="form-label"></label>
-                                            <input type="text" class="form-control" id="nomor_npwp" name="nomor_npwp" 
-                                                value="{{ old('nomor_npwp') }}" style="border: 1px solid #313131;" readonly>
-                                        </div>
-                                        <div class="col-md-6 mt-3"> 
-                                            <label for="nitku2" class="form-label">Nitku</label>
-                                            <input type="text" class="form-control" id="nitku2" name="nitku2" 
-                                                value="{{ old('nitku2') }}" style="border: 1px solid #313131;" oninput="updateNomorEntitas2()">
-                                        </div>
+
                                 </div>
-
-
                                     {{-- Bahan Baku --}}
                                     <div class="tab-pane fade" id="bahanBaku" role="tabpanel"
                                         aria-labelledby="bahanBaku-tab">
@@ -1126,7 +1145,7 @@
     function updateNomorEntitas() {
         const nitkuValue = document.getElementById('nitku').value;
         const nomorEntitasInput = document.getElementById('nomor_identitas');
-        
+
         // Jika panjang Nitku mencapai 14, set Nomor Entitas menjadi 13 karakter pertama dari Nitku
         if (nitkuValue.length === 22) {
             nomorEntitasInput.value = nitkuValue.slice(0, 16); // Hanya ambil 13 karakter pertama
@@ -1138,7 +1157,7 @@
     function updateNomorEntitas2() {
         const nitkuValue = document.getElementById('nitku2').value;
         const nomorEntitasInput = document.getElementById('nomor_npwp');
-        
+
         // Jika panjang Nitku mencapai 14, set Nomor Entitas menjadi 13 karakter pertama dari Nitku
         if (nitkuValue.length === 22) {
             nomorEntitasInput.value = nitkuValue.slice(0, 16); // Hanya ambil 13 karakter pertama
