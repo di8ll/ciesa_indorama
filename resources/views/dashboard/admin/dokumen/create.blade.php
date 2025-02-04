@@ -49,6 +49,11 @@
                                             data-bs-target="#dokumen" type="button" role="tab" aria-controls="dokumen"
                                             aria-selected="false">Dokumen</button>
                                     </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="pengangkut-tab" data-bs-toggle="tab"
+                                            data-bs-target="#pengangkut" type="button" role="tab" aria-controls="pengangkut"
+                                            aria-selected="false">Pengangkut</button>
+                                    </li>
                                 </ul>
                                 <br>
                                 <div class="tab-content" id="myTabContent">
@@ -117,309 +122,111 @@
 
                                     {{-- Entitas --}}
                                     <div class="tab-pane fade" id="entitas" role="tabpanel" aria-labelledby="entitas-tab">
-                                        <div class="row mb-4 p-3 border rounded shadow-sm bg-light">
-                                            <h5 class="text-primary">Penyelenggara/Pengusaha TPB/Pengusaha Kena Pajak</h5>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <label for="kode_jenis_tpb" class="form-label"></label>
-                                                    <input type="text" class="form-control" placeholder="6 - NPWP 16 DIGIT" readonly style="border: 1px solid #313131;">
-                                                </div>
-                                                <div class="col-md-6">
-                                                <label for="nomor_identitas" class="form-label"></label>
-                                                <input type="text" class="form-control" id="nomor_identitas" name="nomor_identitas"
-                                                    value="{{ old('nomor_identitas') }}" style="border: 1px solid #313131;" readonly>
+                                    <div class="container">
+                                    <!-- Penyelenggara/Pengusaha TPB/Pengusaha Kena Pajak -->
+                                    <div class="row mb-4 p-3 border rounded shadow-sm bg-light">
+                                        <h5 class="text-primary">Penyelenggara/Pengusaha TPB/Pengusaha Kena Pajak</h5>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                            <label for="kode_jenis_tpb" class="form-label">Nomor Identitas</label>
+                                                <input type="text" class="form-control" placeholder="6 - NPWP 16 DIGIT" readonly style="border: 1px solid #313131;">
+                                            </div>
+                                            <div class="col-md-6">
+                                            <label for="nomor_npwp" class="form-label ">Nomor NPWP</label>
+                                                <input type="text" class="form-control" id="nomor_identitas" name="nomor_identitas" value="{{ old('nomor_identitas') }}" readonly style="border: 1px solid #313131;">
                                             </div>
                                             <div class="col-md-6 mt-3">
                                                 <label for="nitku" class="form-label">Nitku</label>
-                                                <input type="text" class="form-control" id="nitku" name="nitku"
-                                                    value="{{ old('nitku') }}" style="border: 1px solid #313131;" oninput="updateNomorEntitas()">
+                                                <input type="text" class="form-control" id="nitku" name="nitku" value="{{ old('nitku') }}" style="border: 1px solid #313131;" oninput="updateNomorEntitas()">
                                             </div>
                                             <div class="col-md-6 mt-3">
                                                 <label for="nama" class="form-label">Nama</label>
-                                                <input type="text" class="form-control" id="nama" name="nama"
-                                                value="{{ old('nama', 'INDO-RAMA SYNTHETICS TBK') }}"  style="border: 1px solid #313131;" >
+                                                <input type="text" class="form-control" id="nama" name="nama" value="{{ old('nama', 'INDO-RAMA SYNTHETICS TBK') }}" style="border: 1px solid #313131;">
                                             </div>
                                             <div class="col-md-6 mt-3">
                                                 <label for="no_izin_tpb" class="form-label">No Izin TPB</label>
-                                                <input type="text" class="form-control" id="no_izin_tpb" name="no_izin_tpb"
-                                                    value="{{ old('no_izin_tpb', 'KEP-724/WBC.09/2022') }}" style="border: 1px solid #313131;">
+                                                <input type="text" class="form-control" id="no_izin_tpb" name="no_izin_tpb" value="{{ old('no_izin_tpb', 'KEP-724/WBC.09/2022') }}" style="border: 1px solid #313131;">
                                             </div>
                                             <div class="col-md-6 mt-3">
-                                                <label for="no_izin_tpb" class="form-label">Tanggal Izin TPB</label>
-                                                <input type="date" class="form-control" id="no_izin_tpb" name="no_izin_tpb"
-                                                    value="{{ old('no_izin_tpb') }}" style="border: 1px solid #313131;" >
+                                                <label for="tanggal_izin_tpb" class="form-label">Tanggal Izin TPB</label>
+                                                <input type="date" class="form-control" id="tanggal_izin_tpb" name="tanggal_izin_tpb" value="{{ old('tanggal_izin_tpb') }}" style="border: 1px solid #313131;">
                                             </div>
                                             <div class="col-md-6 mt-3">
                                                 <label for="nib" class="form-label">NIB</label>
-                                                <input type="text" class="form-control" id="nib" name="nib"
-                                                value="{{ old('nib', '8120302880325') }}" style="border: 1px solid #313131;" >
+                                                <input type="text" class="form-control" id="nib" name="nib" value="{{ old('nib', '8120302880325') }}" style="border: 1px solid #313131;">
                                             </div>
                                             <div class="col-md-6 mt-3">
                                                 <label for="alamat" class="form-label">Alamat</label>
                                                 <textarea class="form-control" id="alamat" name="alamat" style="border: 1px solid #313131;">{{ old('alamat', 'JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101') }}</textarea>
                                             </div>
                                         </div>
-                                        <div class="row mb-4 p-3 border rounded shadow-sm bg-light">
+                                    </div>
+
+                                    <!-- Pemilik Barang -->
+                                    <div class="row mb-4 p-3 border rounded shadow-sm bg-light">
                                         <h5 class="text-primary">Pemilik Barang</h5>
-                                        <div class="col-md-6">
-                                                <label for="kode_jenis_tpb" class="form-label"></label>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <label for="kode_jenis_tpb" class="form-label">Nomor Identitas</label>
                                                 <input type="text" class="form-control" placeholder="6 - NPWP 16 DIGIT" readonly style="border: 1px solid #313131;">
-                                                </div>
-                                                <div class="col-md-6">
-                                                <label for="nomor_npwp" class="form-label"></label>
-                                                <input type="text" class="form-control" id="nomor_npwp" name="nomor_npwp"
-                                                    value="{{ old('nomor_npwp') }}" style="border: 1px solid #313131;" readonly>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <label for="nomor_npwp" class="form-label ">Nomor NPWP</label>
+                                                <input type="text" class="form-control" id="nomor_npwp" name="nomor_npwp" value="{{ old('nomor_npwp') }}" readonly style="border: 1px solid #313131;">
                                             </div>
                                             <div class="col-md-6 mt-3">
                                                 <label for="nitku2" class="form-label">Nitku</label>
-                                                <input type="text" class="form-control" id="nitku2" name="nitku2"
-                                                    value="{{ old('nitku2') }}" style="border: 1px solid #313131;" oninput="updateNomorEntitas2()">
+                                                <input type="text" class="form-control" id="nitku2" name="nitku2" value="{{ old('nitku2') }}" style="border: 1px solid #313131;" oninput="updateNomorEntitas2()">
                                             </div>
                                             <div class="col-md-6 mt-3">
                                                 <label for="nama2" class="form-label">Nama</label>
-                                                <input type="text" class="form-control" id="nama2" name="nama2"
-                                                value="{{ old('nama2', 'INDO-RAMA SYNTHETICS TBK') }}"  style="border: 1px solid #313131;" >
+                                                <input type="text" class="form-control" id="nama2" name="nama2" value="{{ old('nama2', 'INDO-RAMA SYNTHETICS TBK') }}" style="border: 1px solid #313131;">
                                             </div>
-                                            <div class="col-md-12 mt-3">
-                                                <label for="alamat" class="form-label">Alamat</label>
-                                                <textarea class="form-control" id="alamat" name="alamat" style="border: 1px solid #313131;">{{ old('alamat', 'JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101') }}</textarea>
+                                            <div class="col-md-6 mt-3">
+                                                <label for="alamat2" class="form-label">Alamat</label>
+                                                <textarea class="form-control" id="alamat2" name="alamat2" style="border: 1px solid #313131;">{{ old('alamat2', 'JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101') }}</textarea>
                                             </div>
                                         </div>
-                                            <div class="row mb-4 p-3 border rounded shadow-sm bg-light">
-                                                <h5 class="text-primary">Penerima Barang/Pembeli Barang Kena Pajak/Penerima Jasa Kena Pajak</h5>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <label for="kode_jenis_tpb" class="form-label"></label>
-                                                        <input type="text" class="form-control" placeholder="6 - NPWP 16 DIGIT" readonly style="border: 1px solid #313131;">
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <label for="kode_jenis_tpb" class="form-label"></label>
-                                                        <input type="text" class="form-control" placeholder="6 - NPWP 16 DIGIT" readonly style="border: 1px solid #313131;">
-                                                    </div>
                                     </div>
 
-                                </div>
-                                    {{-- Bahan Baku --}}
-                                    <div class="tab-pane fade" id="bahanBaku" role="tabpanel"
-                                        aria-labelledby="bahanBaku-tab">
+                                    <!-- Penerima Barang/Pembeli Barang Kena Pajak/Penerima Jasa Kena Pajak -->
+                                    <div class="row mb-4 p-3 border rounded shadow-sm bg-light">
+                                        <h5 class="text-primary">Penerima Barang/Pembeli Barang Kena Pajak/Penerima Jasa Kena Pajak</h5>
                                         <div class="row">
-                                            <div class="col-md-3">
-                                                <label for="kodeBahanBaku" class="form-label">Kode Bahan Baku</label>
-                                                <input type="text" class="form-control" id="kodeBahanBaku"
-                                                    name="kodeBahanBaku" value="{{ old('kodeBahanBaku') }}" >
+                                            <div class="col-md-6">
+                                                <label for="kode_jenis_tpb" class="form-label">Nomor Identitas</label>
+                                                <input type="text" class="form-control" placeholder="6 - NPWP 16 DIGIT" readonly style="border: 1px solid #313131;">
                                             </div>
-                                            <div class="col-md-3">
-                                                <label for="jumlah" class="form-label">Jumlah</label>
-                                                <input type="text" class="form-control" id="jumlah" name="jumlah"
-                                                    value="{{ old('jumlah') }}" >
+                                            <div class="col-md-6">
+                                                <label for="nomor_npwp2" class="form-label ">Nomor NPWP</label>
+                                                <input type="text" class="form-control" id="nomor_npwp2" name="nomor_npwp2" value="{{ old('nomor_npwp2') }}" readonly style="border: 1px solid #313131;">
                                             </div>
-                                            <div class="col-md-3">
-                                                <label for="cif3" class="form-label">CIF</label>
-                                                <input type="text" class="form-control" id="cif3" name="cif3"
-                                                    value="{{ old('cif') }}" >
+                                            <div class="col-md-6 mt-3">
+                                                <label for="nitku3" class="form-label">Nitku</label>
+                                                <input type="text" class="form-control" id="nitku3" name="nitku3" value="{{ old('nitku3') }}" style="border: 1px solid #313131;" oninput="updateNomorEntitas3()">
                                             </div>
-                                            <div class="col-md-3">
-                                                <label for="validationCustom01" class="form-label">cif Rupiah</label>
-                                                <input type="text" class="form-control " id="cifRupiah2"
-                                                    name="cifRupiah2" value="{{ old('cifRupiah') }}" >
+                                            <div class="col-md-6 mt-3">
+                                                <label for="nama3" class="form-label">Nama</label>
+                                                <input type="text" class="form-control" id="nama3" name="nama3" value="{{ old('nama3', 'INDO-RAMA SYNTHETICS TBK') }}" style="border: 1px solid #313131;">
                                             </div>
-                                            <div class="col-md-3">
-                                                <label for="hargaPenyerahan3" class="form-label">harga
-                                                    Penyerahan</label>
-                                                <input type="text" class="form-control" id="hargaPenyerahan3"
-                                                    name="hargaPenyerahan3" value="{{ old('hargaPenyerahan') }}">
+                                            <div class="col-md-6 mt-3">
+                                                <label for="alamat3" class="form-label">Alamat</label>
+                                                <textarea class="form-control" id="alamat3" name="alamat3" style="border: 1px solid #313131;">{{ old('alamat3', 'JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101') }}</textarea>
+                                                </div>
+                                                </div>
                                             </div>
-                                            <div class="col-md-3">
-                                                <label for="jumlahSatuan2" class="form-label">jumlah Satuan</label>
-                                                <input type="text" class="form-control " id="jumlahSatuan2"
-                                                    name="jumlahSatuan2" value="{{ old('jumlahSatuan') }}" autofocus
-                                                    required>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="kodeAsalBahanBaku" class="form-label">kode Asal Bahan
-                                                    Baku</label>
-                                                <input type="text" class="form-control " id="kodeAsalBahanBaku"
-                                                    name="kodeAsalBahanBaku" value="{{ old('kodeAsalBahanBaku') }}"
-                                                    >
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="kodeBarang2" class="form-label">kode Barang</label>
-                                                <input type="text" class="form-control " id="kodeBarang2"
-                                                    name="kodeBarang2" value="{{ old('kodeBarang') }}" >
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="kodeDokAsal2" class="form-label">kode Dok Asal</label>
-                                                <input type="text" class="form-control " id="kodeDokAsal2"
-                                                    name="kodeDokAsal2" value="{{ old('kodeDokAsal') }}" autofocus
-                                                    required>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="kodeKantor2" class="form-label">kode Kantor</label>
-                                                <input type="text" class="form-control " id="kodeKantor2"
-                                                    name="kodeKantor2" value="{{ old('kodeKantor') }}" >
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="kodeSatuanBarang2" class="form-label">kode Satuan
-                                                    Barang</label>
-                                                <input type="text" class="form-control " id="kodeSatuanBarang2"
-                                                    name="kodeSatuanBarang2" value="{{ old('kodeSatuanBarang') }}"
-                                                    >
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="merkBarang" class="form-label">merk Barang</label>
-                                                <input type="text" class="form-control " id="merkBarang"
-                                                    name="merkBarang" value="{{ old('merkBarang') }}" >
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="ndpbm3" class="form-label">ndpbm</label>
-                                                <input type="text" class="form-control " id="ndpbm3"
-                                                    name="ndpbm3" value="{{ old('ndpbm') }}" >
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="validationCustom01" class="form-label">nomor Aju Dok
-                                                    Asal</label>
-                                                <input type="text" class="form-control " id="nomorAjuDokAsal"
-                                                    name="nomorAjuDokAsal" value="{{ old('nomorAjuDokAsal') }}">
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="nomorDaftarDokAsal" class="form-label">nomor Daftar Dok
-                                                    Asal</label>
-                                                <input type="text" class="form-control" id="nomorDaftarDokAsal"
-                                                    name="nomorDaftarDokAsal" value="{{ old('nomorDaftarDokAsal') }}"
-                                                    >
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="posTarif2" class="form-label">pos Tarif</label>
-                                                <input type="text" class="form-control " id="posTarif2"
-                                                    name="posTarif2" value="{{ old('posTarif') }}" >
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="seriBahanBaku" class="form-label">Seri Bahan Baku</label>
-                                                <input type="text" class="form-control " id="seriBahanBaku"
-                                                    name="seriBahanBaku" value="{{ old('seriBahanBaku') }}">
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="seriBarang2" class="form-label">seri Barang</label>
-                                                <input type="text" class="form-control " id="seriBarang2"
-                                                    name="seriBarang2" value="{{ old('seriBarang') }}" >
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="seriBarangDokAsal" class="form-label">seri Barang Dok
-                                                    Asal</label>
-                                                <input type="text" class="form-control " id="seriBarangDokAsal"
-                                                    name="seriBarangDokAsal" value="{{ old('seriBarangDokAsal') }}" >
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="validationCustom01" class="form-label">seri Ijin</label>
-                                                <input type="text" class="form-control " id="seriIjin"
-                                                    name="seriIjin" value="{{ old('seriIjin') }}" >
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="validationCustom01" class="form-label">spesifikasi Lain
-                                                    Barang</label>
-                                                <input type="text" class="form-control " id="spesifikasiLainBarang"
-                                                    name="spesifikasiLainBarang"
-                                                    value="{{ old('spesifikasiLainBarang') }}" >
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="validationCustom01" class="form-label">tanggal Daftar Dok
-                                                    Asal</label>
-                                                <input type="text" class="form-control " id="tanggalDaftarDokAsal"
-                                                    name="tanggalDaftarDokAsal" value="{{ old('tanggalDaftarDokAsal') }}"
-                                                    >
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="validationCustom01" class="form-label">tipe Barang</label>
-                                                <input type="text" class="form-control " id="tipeBarang"
-                                                    name="tipeBarang" value="{{ old('tipeBarang') }}" >
-                                            </div>
-
                                         </div>
                                     </div>
-
-                                    {{-- bahan Baku Tarif --}}
-                                    <div class="tab-pane fade" id="bahanBakuTarif" role="tabpanel"
-                                        aria-labelledby="bahanBakuTarif-tab">
+                                    {{-- Dokumen --}}
+                                    <div class="tab-pane fade" id="dokumen" role="tabpanel" aria-labelledby="dokumen-tab">
                                         <div class="row">
-                                            <div class="col-md-3">
-                                                <label for="kodeJenisTarif" class="form-label">kode Jenis Tarif</label>
-                                                <input type="text" class="form-control" id="kodeJenisTarif"
-                                                    name="kodeJenisTarif" value="{{ old('kodeJenisTarif') }}" >
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="jumlahSatuan3" class="form-label">jumlah Satuan</label>
-                                                <input type="text" class="form-control" id="jumlahSatuan3"
-                                                    name="jumlahSatuan3" value="{{ old('jumlahSatuan') }}" >
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="kodeFasilitasTarif" class="form-label">kode Fasilitas
-                                                    Tarif</label>
-                                                <input type="text" class="form-control" id="kodeFasilitasTarif"
-                                                    name="kodeFasilitasTarif" value="{{ old('kodeFasilitasTarif') }}"
-                                                    >
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="kodeJenisPungutan" class="form-label">kode Jenis
-                                                    Pungutan</label>
-                                                <input type="text" class="form-control" id="kodeJenisPungutan"
-                                                    name="kodeJenisPungutan" value="{{ old('kodeJenisPungutan') }}"
-                                                    >
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="nilaiBayar" class="form-label">nilai Bayar</label>
-                                                <input type="text" class="form-control" id="nilaiBayar"
-                                                    name="nilaiBayar" value="{{ old('nilaiBayar') }}" >
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="nilaiFasilitas" class="form-label">nilai Fasilitas</label>
-                                                <input type="text" class="form-control" id="nilaiFasilitas"
-                                                    name="nilaiFasilitas" value="{{ old('nilaiFasilitas') }}" autofocus
-                                                    required>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="nilaiSudahDilunasi" class="form-label">nilai Sudah
-                                                    Dilunasi</label>
-                                                <input type="text" class="form-control" id="nilaiSudahDilunasi"
-                                                    name="nilaiSudahDilunasi" value="{{ old('nilaiSudahDilunasi') }}"
-                                                    >
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="seriBahanBaku" class="form-label">seri Bahan Baku</label>
-                                                <input type="text" class="form-control" id="seriBahanBaku2"
-                                                    name="seriBahanBaku2" value="{{ old('seriBahanBaku') }}">
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="tarif" class="form-label">tarif</label>
-                                                <input type="text" class="form-control" id="tarif" name="tarif"
-                                                    value="{{ old('tarif') }}" >
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="tarifFasilitas" class="form-label">tarif Fasilitas</label>
-                                                <input type="text" class="form-control" id="tarifFasilitas"
-                                                    name="tarifFasilitas" value="{{ old('tarifFasilitas') }}" >
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="ukuranBarang" class="form-label">ukuran Barang</label>
-                                                <input type="text" class="form-control" id="ukuranBarang"
-                                                    name="ukuranBarang" value="{{ old('ukuranBarang') }}" >
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="uraianBarang" class="form-label">uraian Barang</label>
-                                                <input type="text" class="form-control" id="uraianBarang"
-                                                    name="uraianBarang" value="{{ old('uraianBarang') }}">
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="seriDokumen" class="form-label">seri Dokumen</label>
-                                                <input type="text" class="form-control" id="seriDokumen"
-                                                    name="seriDokumen" value="{{ old('seriDokumen') }}" >
-                                            </div>
-                                            <div class="col-md-3">
-                                                <label for="seriIjin" class="form-label">seri Ijin</label>
-                                                <input type="text" class="form-control" id="seriIjin2"
-                                                    name="seriIjin2" value="{{ old('seriIjin') }}" >
-                                            </div>
-                                        </div>
-                                    </div>
+                  
+                               
+
+                                    {{-- Pengangkut --}}
+                                    <div class="tab-pane fade" id="pengangkut" role="tabpanel" aria-labelledby="pengangkut-tab">
+                                    <div class="row">
+
 
                                     {{-- Barang Dokumen --}}
                                     <!-- <div class="tab-pane fade" id="barangDokumen" role="tabpanel"
@@ -1126,6 +933,19 @@
             </div><!--end col-->
         </div><!--end row-->
     </div><!-- container -->
+    <!-- Bootstrap 5 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Cek saat modal dibuka
+        var modal = document.getElementById("tambahDokumenModal");
+        modal.addEventListener("shown.bs.modal", function () {
+            document.getElementById("seri").focus();
+        });
+    });
+</script>
+
         <script>
         $('#select-field1').select2({
             theme: 'bootstrap-5'
@@ -1157,6 +977,17 @@
     function updateNomorEntitas2() {
         const nitkuValue = document.getElementById('nitku2').value;
         const nomorEntitasInput = document.getElementById('nomor_npwp');
+
+        // Jika panjang Nitku mencapai 14, set Nomor Entitas menjadi 13 karakter pertama dari Nitku
+        if (nitkuValue.length === 22) {
+            nomorEntitasInput.value = nitkuValue.slice(0, 16); // Hanya ambil 13 karakter pertama
+        }
+    }
+</script>
+<script>
+    function updateNomorEntitas3() {
+        const nitkuValue = document.getElementById('nitku3').value;
+        const nomorEntitasInput = document.getElementById('nomor_npwp2');
 
         // Jika panjang Nitku mencapai 14, set Nomor Entitas menjadi 13 karakter pertama dari Nitku
         if (nitkuValue.length === 22) {
