@@ -5,10 +5,13 @@
     <meta charset="utf-8" />
     <title>@yield('title')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta content="Indorama" name="description" />
+    <meta content="PLN ICON Plus" name="description" />
     <meta content="" name="author" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
+
+
+    <!-- {{-- <link href="{{ asset('template/assets/plugins/datatables/datatable.css') }}" rel="stylesheet" type="text/css" /> --}} -->
 
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" />
@@ -54,7 +57,7 @@
 
     <style>
         body {
-            /* background-image: url('{{ asset('template/img/pattern_background_main.svg') }}'); */
+            background-image: url('{{ asset('template/img/pattern_background_main.svg') }}');
             background-color: #14A2BA;
             background-repeat: no-repeat;
             background-position: top left;
