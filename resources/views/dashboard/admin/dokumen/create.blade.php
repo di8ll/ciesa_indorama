@@ -60,7 +60,7 @@
                                     <div class="tab-pane fade show active" id="header" role="tabpanel"
                                         aria-labelledby="header-tab">
                                         <div class="row">
-                                        <div class="col-md-3 d-none">
+                                        {{-- <div class="col-md-3 d-none">
                                             <label for="kodeDokumen" class="form-label">Jenis Dokumen</label>
                                             <input type="text" class="form-control" id="kodeDokumen" name="kodeDokumen"
                                                 value="{{ old('kodeDokumen', '25') }}" readonly>
@@ -69,7 +69,7 @@
                                             <label for="kodeJenisTpb" class="form-label">Entitas</label>
                                             <input type="text" class="form-control" id="kodeJenisTpb" name="kodeJenisTpb"
                                                 value="{{ old('kodeJenisTpb', 'TPB') }}" readonly>
-                                        </div>
+                                        </div> --}}
                                         <div class="col-md-4 ">
                                             <label for="nomorAju" class="form-label">Nomor Pengajuan</label>
                                             <input type="text" class="form-control" id="nomorAju" name="nomorAju"
@@ -101,6 +101,7 @@
                                     {{-- Entitas --}}
                                     <div class="tab-pane fade" id="entitas" role="tabpanel" aria-labelledby="entitas-tab">
                                     <div class="container">
+
                                     <!-- Penyelenggara/Pengusaha TPB/Pengusaha Kena Pajak -->
                                     <div class="row mb-4 p-3 border rounded shadow-sm bg-light">
                                         <h5 class="text-primary">Penyelenggara/Pengusaha TPB/Pengusaha Kena Pajak</h5>
@@ -153,7 +154,7 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <label for="nomorNpwp" class="form-label">Nomor NPWP</label>
-                                                <input type="text" class="form-control" id="nomorNpwp" name="nomorNpwp" readonly style="border: 1px solid #313131;">
+                                                <input type="text" class="form-control" id="kodeJenisIdentitas2" name="kodeJenisIdentitas2" readonly style="border: 1px solid #313131;">
                                             </div>
                                             <div class="col-md-6 mt-3">
                                                 <label for="nitku2" class="form-label">Nitku</label>
@@ -179,7 +180,7 @@
                                         </center>
                                             <span class="close">&times;</span>
                                             <form class="modal-form">
-                                                <table id="dataTable">
+                                                <table id="dataTable1" class="display">
                                                     <thead>
                                                         <tr>
                                                             <th>NPWP</th>
@@ -193,81 +194,81 @@
                                                             <td>010016806054000</td>
                                                             <td>INDO-RAMA SYNTHETICS TBK</td>
                                                             <td>JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101</td>
-                                                            <td><button type="button" class="pilih-btn">Pilih</button></td>
+                                                            <td><button type="button" class="pilih-btn-1">Pilih</button></td>
                                                         </tr>
                                                         <tr data-npwp2="010016806054000" data-nama2="INDO-RAMA SYNTHETICS TBK" data-nitku2="0010016806054000000000" data-alamat2="JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101">
                                                             <td>010016806054000</td>
                                                             <td>INDO-RAMA SYNTHETICS TBK</td>
                                                             <td>JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101</td>
-                                                            <td><button type="button" class="pilih-btn">Pilih</button></td>
+                                                            <td><button type="button" class="pilih-btn-1">Pilih</button></td>
                                                         </tr>
                                                         </tr>
                                                         <tr data-npwp3="010016806054000" data-nama3="INDO-RAMA SYNTHETICS TBK" data-nitku3="0010016806054000000000" data-alamat3="JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101">
                                                             <td>010016806054000</td>
                                                             <td>INDO-RAMA SYNTHETICS TBK</td>
                                                             <td>JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101</td>
-                                                            <td><button type="button" class="pilih-btn">Pilih</button></td>
+                                                            <td><button type="button" class="pilih-btn-1">Pilih</button></td>
                                                         </tr>
                                                         <tr data-npwp4="010016806054000" data-nama2="INDO-RAMA SYNTHETICS TBK" data-nitku4="0010016806054000000000" data-alamat4="JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101">
                                                             <td>010016806054000</td>
                                                             <td>INDO-RAMA SYNTHETICS TBK</td>
                                                             <td>JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101</td>
-                                                            <td><button type="button" class="pilih-btn">Pilih</button></td>
+                                                            <td><button type="button" class="pilih-btn-1">Pilih</button></td>
                                                         </tr>
                                                         <tr data-npwp5="010016806054000" data-nama2="INDO-RAMA SYNTHETICS TBK" data-nitku5="0010016806054000000000" data-alamat5="JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101">
                                                             <td>010016806054000</td>
                                                             <td>INDO-RAMA SYNTHETICS TBK</td>
                                                             <td>JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101</td>
-                                                            <td><button type="button" class="pilih-btn">Pilih</button></td>
+                                                            <td><button type="button" class="pilih-btn-1">Pilih</button></td>
                                                         </tr>
                                                         <tr data-npwp6="010016806054000" data-nama6="INDO-RAMA SYNTHETICS TBK" data-nitku6="0010016806054000000000" data-alamat6="JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101">
                                                             <td>010016806054000</td>
                                                             <td>INDO-RAMA SYNTHETICS TBK</td>
                                                             <td>JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101</td>
-                                                            <td><button type="button" class="pilih-btn">Pilih</button></td>
+                                                            <td><button type="button" class="pilih-btn-1">Pilih</button></td>
                                                         </tr>
                                                         <tr data-npwp7="010016806054000" data-nama7="INDO-RAMA SYNTHETICS TBK" data-nitku7="0010016806054000000000" data-alamat7="JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101">
                                                             <td>010016806054000</td>
                                                             <td>INDO-RAMA SYNTHETICS TBK</td>
                                                             <td>JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101</td>
-                                                            <td><button type="button" class="pilih-btn">Pilih</button></td>
+                                                            <td><button type="button" class="pilih-btn-1">Pilih</button></td>
                                                         </tr>
                                                         <tr data-npwp8="010016806054000" data-nama2="INDO-RAMA SYNTHETICS TBK" data-nitku8="0010016806054000000000" data-alamat8="JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101">
                                                             <td>010016806054000</td>
                                                             <td>INDO-RAMA SYNTHETICS TBK</td>
                                                             <td>JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101</td>
-                                                            <td><button type="button" class="pilih-btn">Pilih</button></td>
+                                                            <td><button type="button" class="pilih-btn-1">Pilih</button></td>
                                                         </tr>
                                                         <tr data-npwp9="010016806054000" data-nama9="INDO-RAMA SYNTHETICS TBK"  data-nitku9="0010016806054000000000"  data-alamat9="JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101">
                                                             <td>010016806054000</td>
                                                             <td>INDO-RAMA SYNTHETICS TBK</td>
                                                             <td>JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101</td>
-                                                            <td><button type="button" class="pilih-btn">Pilih</button></td>
+                                                            <td><button type="button" class="pilih-btn-1">Pilih</button></td>
                                                         </tr>
                                                         <tr data-npwp10="010016806054000" data-nama10="INDO-RAMA SYNTHETICS TBK"  data-nitku10="0010016806054000000000" data-alamat10="JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101">
                                                             <td>010016806054000</td>
                                                             <td>INDO-RAMA SYNTHETICS TBK</td>
                                                             <td>JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101</td>
-                                                            <td><button type="button" class="pilih-btn">Pilih</button></td>
+                                                            <td><button type="button" class="pilih-btn-1">Pilih</button></td>
                                                         </tr>
                                                         <tr data-npwp11="010016806054000" data-nama11="INDO-RAMA SYNTHETICS TBK"  data-nitku11="0010016806054000000000" data-alamat11="JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101">
                                                             <td>010016806054000</td>
                                                             <td>INDO-RAMA SYNTHETICS TBK</td>
                                                             <td>JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101</td>
-                                                            <td><button type="button" class="pilih-btn">Pilih</button></td>
+                                                            <td><button type="button" class="pilih-btn-1">Pilih</button></td>
                                                         </tr>
                                                         <tr data-npwp12="010016806054000" data-nama12="INDO-RAMA SYNTHETICS TBK"  data-nitku12="0010016806054000000000" data-alamat12="JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101">
                                                             <td>010016806054000</td>
                                                             <td>INDO-RAMA SYNTHETICS TBK</td>
                                                             <td>JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101</td>
-                                                            <td><button type="button" class="pilih-btn">Pilih</button></td>
+                                                            <td><button type="button" class="pilih-btn-1">Pilih</button></td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
                                             </form>
                                         </div>
                                     </div>
-                                   
+
                                     <!-- Penerima Barang/Pembeli Barang Kena Pajak/Penerima Jasa Kena Pajak -->
                                     <div class="row mb-4 p-3 border rounded shadow-sm bg-light">
                                     <div class="d-flex justify-content-between align-items-center">
@@ -281,19 +282,19 @@
                                         </div>
                                         <div class="col-md-6">
                                             <label for="kodeJenisIdentitas3" class="form-label">Nomor NPWP</label>
-                                            <input type="text" class="form-control" id="kodeJenisIdentitas3" name="nomor_npwp2" value="{{ old('kodeJenisIdentitas3') }}" readonly style="border: 1px solid #313131;">
+                                            <input type="text" class="form-control" id="kodeJenisIdentitas3" name="kodeJenisIdentitas3"  readonly style="border: 1px solid #313131;">
                                         </div>
                                         <div class="col-md-6 mt-3">
                                             <label for="nitku3" class="form-label">Nitku</label>
-                                            <input type="text" class="form-control" id="nitku3" name="nitku3" value="{{ old('nitku3') }}" style="border: 1px solid #313131;" oninput="updateNomorEntitas3()">
+                                            <input type="text" class="form-control" id="nitku3" name="nitku3"  style="border: 1px solid #313131;" oninput="updateNomorEntitas3()">
                                         </div>
                                         <div class="col-md-6 mt-3">
                                             <label for="namaEntitas3" class="form-label">Nama</label>
-                                            <input type="text" class="form-control" id="namaEntitas3" name="namaEntitas3" value="{{ old('namaEntitas3') }}" style="border: 1px solid #313131;">
+                                            <input type="text" class="form-control" id="namaEntitas3" name="namaEntitas3" style="border: 1px solid #313131;">
                                         </div>
                                         <div class="col-md-6 mt-3">
                                             <label for="alamatEntitas3" class="form-label">Alamat</label>
-                                            <textarea class="form-control" id="alamatEntitas3" name="alamatEntitas3" style="border: 1px solid #313131;">{{ old('alamatEntitas3') }}</textarea>
+                                            <textarea class="form-control" id="alamatEntitas3" name="alamatEntitas3" style="border: 1px solid #313131;"></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -306,31 +307,30 @@
                                         </center>
                                         <span class="close">&times;</span>
                                         <form class="modal-form">
-                                            <table id="dataTable">
+                                            <table id="dataTable2" class="display">
                                                 <thead>
                                                     <tr>
-                                                        <th>NPWP</th>
+                                                        <th >NPWP</th>
                                                         <th>Nama</th>
                                                         <th>Alamat</th>
                                                         <th>Negara</th>
                                                         <th>Action</th>
                                                     </tr>
                                                 </thead>
-
                                                     <tbody>
                                                         <tr data-npwp="010020766057000" data-nama="GOKAK INDONESIA" data-nitku="010020766057000000000" data-alamat="ATENG ILYAS KP MUHARA RT.002 RW.008 CITEUREUP CITEUREUP KAB. BOGOR INDONESIA ( PT. GOKAK INDONESIA )">
                                                             <td>010020766057000</td>
                                                             <td>GOKAK INDONESIA</td>
                                                             <td>ATENG ILYAS KP MUHARA RT.002 RW.008 CITEUREUP CITEUREUP KAB. BOGOR INDONESIA ( PT. GOKAK INDONESIA )</td>
                                                             <td>-</td>
-                                                            <td><button type="button" class="pilih-btn">Pilih</button></td>
+                                                            <td><button type="button" class="pilih-btn-2">Pilih</button></td>
                                                         </tr>
-                                                        <tr data-npwp2="808248256041000" data-nama2="INDO-RAMA SYNTHETICS TBK" data-nitku2="808248256041000000000" data-alamat2="JALAN RAYA UJUNG BERUNG KM 12,6 RT. 002 RW. 006 CIPADUNG KULON PANYILEUKAN KOTA BANDUNG INDONESIA (PT. LONGDI SEJAHTERA INDONESIA)">
+                                                        <tr data-npwp2="808248256041000" data-nama2="TARA PETINDO BERDIKARI" data-nitku2="808248256041000000000" data-alamat2="JALAN RAYA UJUNG BERUNG KM 12,6 RT. 002 RW. 006 CIPADUNG KULON PANYILEUKAN KOTA BANDUNG INDONESIA (PT. LONGDI SEJAHTERA INDONESIA)">
                                                             <td>808248256041000</td>
                                                             <td>TARA PETINDO BERDIKARI</td>
                                                             <td>PERGUDANGAN LAKSANA BLOK RC. 21- RC.23 PAKUHAJI TANGERANG INDONESIA ( PT. BUANIKA SYAHPUTRA )</td>
                                                              <td>-</td>
-                                                            <td><button type="button" class="pilih-btn">Pilih</button></td>
+                                                            <td><button type="button" class="pilih-btn-2">Pilih</button></td>
                                                         </tr>
                                                         </tr>
                                                         <tr data-npwp3="020591459444000" data-nama3="SAMTEX" data-nitku3="010016806054000000000" data-alamat3="JL. RAYA CIJAPATI RT 02 RW. 06 KEL. CILULUK KEC. CIKANCUNG KAB. BANDUNG JAWA BARAT INDONESIA ( PT. SAMTEX )">
@@ -338,28 +338,28 @@
                                                             <td>SAMTEX</td>
                                                             <td>JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101</td>
                                                              <td>-</td>
-                                                            <td><button type="button" class="pilih-btn">Pilih</button></td>
+                                                            <td><button type="button" class="pilih-btn-2">Pilih</button></td>
                                                         </tr>
                                                         <tr data-npwp4="716100979451000" data-nama2="DUTA KARYA PERTIWI" data-nitku4="716100979451000000000" data-alamat4="JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101">
                                                             <td>716100979451000</td>
                                                             <td>DUTA KARYA PERTIWI</td>
                                                             <td>JL. RAYA SERANG KM. 14,5 KP. LAMPORAN RT.002 RW.001 DUKUH CIKUPA KAB. TANGERANG BANTEN INDONESIA ( PT. DUTA KARYA PERTIWI )</td>
                                                             <td>-</td>
-                                                            <td><button type="button" class="pilih-btn">Pilih</button></td>
+                                                            <td><button type="button" class="pilih-btn-2">Pilih</button></td>
                                                         </tr>
                                                         <tr data-npwp5="010016806054000" data-nama2="TARA PETINDO BERDIKARI" data-nitku5="010016806054000000000" data-alamat5="JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101">
                                                             <td>010016806054000</td>
                                                             <td>TARA PETINDO BERDIKARI</td>
                                                             <td>JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101</td>
                                                             <td>-</td>
-                                                            <td><button type="button" class="pilih-btn">Pilih</button></td>
+                                                            <td><button type="button" class="pilih-btn-2">Pilih</button></td>
                                                         </tr>
                                                     </tbody>
                                                 </table>
                                             </form>
                                         </div>
                                     </div>
-                                    
+
                                         </div>
                                     </div>
 
@@ -367,8 +367,8 @@
                                     {{-- Dokumen --}}
                                     <div class="tab-pane fade" id="dokumen" role="tabpanel" aria-labelledby="dokumen-tab">
                                         <div class="row">
-                  
-                               
+
+
 
                                     {{-- Pengangkut --}}
                                     <div class="tab-pane fade" id="pengangkut" role="tabpanel" aria-labelledby="pengangkut-tab">
@@ -385,15 +385,6 @@
         </div><!--end row-->
     </div><!-- container -->
     <!-- Bootstrap 5 -->
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        // Cek saat modal dibuka
-        var modal = document.getElementById("tambahDokumenModal");
-        modal.addEventListener("shown.bs.modal", function () {
-            document.getElementById("seri").focus();
-        });
-    });
-</script>
 
         <script>
         $('#select-field1').select2({
@@ -479,30 +470,58 @@ window.onclick = function(event) {
 
 <script>
 // Fungsi untuk mengisi form dengan data yang dipilih
-function populateForm(nomorNpwp, namaEntitas2, alamatEntitas2, nitku2) {
+function populateForm1(kodeJenisIdentitas2, namaEntitas2, alamatEntitas2, nitku2) {
     document.getElementById('nitku2').value = nitku2;
-    document.getElementById('nomorNpwp').value = nomorNpwp;
+    document.getElementById('kodeJenisIdentitas2').value = kodeJenisIdentitas2;
     document.getElementById('namaEntitas2').value = namaEntitas2;
     document.getElementById('alamatEntitas2').value = alamatEntitas2;
 }
 
 // Menangani klik tombol Pilih pada setiap baris tabel
-document.querySelectorAll('.pilih-btn').forEach(button => {
+document.querySelectorAll('.pilih-btn-1').forEach(button => {
     button.addEventListener('click', function() {
         // Mengambil data dari atribut 'data-'
         const row = this.closest('tr');
-        const nomorNpwp = row.getAttribute('data-npwp') || row.getAttribute('data-npwp2') || row.getAttribute('data-npwp3') || row.getAttribute('data-npwp4') || row.getAttribute('data-npwp5') || row.getAttribute('data-npwp6') || row.getAttribute('data-npwp7') || row.getAttribute('data-npwp8') || row.getAttribute('data-npwp9') || row.getAttribute('data-npwp10') || row.getAttribute('data-npwp11') || row.getAttribute('data-npwp12');
+        const kodeJenisIdentitas2 = row.getAttribute('data-npwp') || row.getAttribute('data-npwp2') || row.getAttribute('data-npwp3') || row.getAttribute('data-npwp4') || row.getAttribute('data-npwp5') || row.getAttribute('data-npwp6') || row.getAttribute('data-npwp7') || row.getAttribute('data-npwp8') || row.getAttribute('data-npwp9') || row.getAttribute('data-npwp10') || row.getAttribute('data-npwp11') || row.getAttribute('data-npwp12');
         const namaEntitas2 = row.getAttribute('data-nama') || row.getAttribute('data-nama2') || row.getAttribute('data-nama3') || row.getAttribute('data-nama4') || row.getAttribute('data-nama5') || row.getAttribute('data-nama6') || row.getAttribute('data-nama7') || row.getAttribute('data-nama8') || row.getAttribute('data-nama9') || row.getAttribute('data-nama10') || row.getAttribute('data-nama11') || row.getAttribute('data-nama12');
         const alamatEntitas2 = row.getAttribute('data-alamat') || row.getAttribute('data-alamat2') || row.getAttribute('data-alamat3') || row.getAttribute('data-alamat4') || row.getAttribute('data-alamat5') || row.getAttribute('data-alamat6') || row.getAttribute('data-alamat7') || row.getAttribute('data-alamat8') || row.getAttribute('data-alamat9') || row.getAttribute('data-alamat10') || row.getAttribute('data-alamat11') || row.getAttribute('data-alamat12');
         const nitku2 = row.getAttribute('data-nitku') || row.getAttribute('data-nitku2') || row.getAttribute('data-nitku3') || row.getAttribute('data-nitku4') || row.getAttribute('data-nitku5') || row.getAttribute('data-nitku6') || row.getAttribute('data-nitku7') || row.getAttribute('data-nitku8') || row.getAttribute('data-nitku9') || row.getAttribute('data-nitku10') || row.getAttribute('data-nitku11') || row.getAttribute('data-nitku12');
 
         // Memanggil fungsi untuk mengisi form
-        populateForm(nomorNpwp, namaEntitas2, alamatEntitas2, nitku2);
+        populateForm1(kodeJenisIdentitas2, namaEntitas2, alamatEntitas2, nitku2);
         document.getElementById("myModal").style.display = "none"; // Menutup modal setelah memilih
     });
 });
 
 </script>
+
+
+<script>
+    // Fungsi untuk mengisi form dengan data yang dipilih
+    function populateForm2(kodeJenisIdentitas3, namaEntitas3, alamatEntitas3, nitku3) {
+        document.getElementById('nitku3').value = nitku3;
+        document.getElementById('kodeJenisIdentitas3').value = kodeJenisIdentitas3;
+        document.getElementById('namaEntitas3').value = namaEntitas3;
+        document.getElementById('alamatEntitas3').value = alamatEntitas3;
+    }
+
+    // Menangani klik tombol Pilih pada setiap baris tabel
+    document.querySelectorAll('.pilih-btn-2').forEach(button => {
+        button.addEventListener('click', function() {
+            // Mengambil data dari atribut 'data-'
+            const row = this.closest('tr');
+            const kodeJenisIdentitas3 = row.getAttribute('data-npwp') || row.getAttribute('data-npwp2') || row.getAttribute('data-npwp3') || row.getAttribute('data-npwp4') || row.getAttribute('data-npwp5');
+            const namaEntitas3 = row.getAttribute('data-nama') || row.getAttribute('data-nama2') || row.getAttribute('data-nama3') || row.getAttribute('data-nama4') || row.getAttribute('data-nama5');
+            const alamatEntitas3 = row.getAttribute('data-alamat') || row.getAttribute('data-alamat2') || row.getAttribute('data-alamat3') || row.getAttribute('data-alamat4') || row.getAttribute('data-alamat5');
+            const nitku3 = row.getAttribute('data-nitku') || row.getAttribute('data-nitku2') || row.getAttribute('data-nitku3') || row.getAttribute('data-nitku4') || row.getAttribute('data-nitku5');
+
+            // Memanggil fungsi untuk mengisi form
+            populateForm2(kodeJenisIdentitas3, namaEntitas3, alamatEntitas3, nitku3);
+            document.getElementById("myModal2").style.display = "none"; // Menutup modal setelah memilih
+        });
+    });
+
+    </script>
 
 
 <style>
@@ -600,7 +619,7 @@ document.querySelectorAll('.pilih-btn').forEach(button => {
 
 button[type="button"] {
     padding: 5px 10px;
-    background-color: #f44336;
+    background-color: #0abef0;
     color: white;
     border: none;
     cursor: pointer;
@@ -608,10 +627,10 @@ button[type="button"] {
 }
 
     button[type="button"]:hover {
-        background-color: #e53935;
+        background-color: #0abef0;
     }
 
-    
+
 </style>
 
 
@@ -627,5 +646,14 @@ $(document).ready(function() {
     });
 });
 </script>
- 
+
+<script>
+    $(document).ready(function() {
+        $('#dataTable1, #dataTable2').DataTable();
+    });
+</script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
 @endsection
