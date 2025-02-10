@@ -4,7 +4,6 @@
     Dokumen Pabean | Indorama
 @endsection
 
-
 @section('content')
     <div class="container-fluid">
         <!-- Page-Title -->
@@ -51,8 +50,18 @@
                                     </li>
                                     <li class="nav-item" role="presentation">
                                         <button class="nav-link" id="pengangkut-tab" data-bs-toggle="tab"
-                                            data-bs-target="#pengangkut" type="button" role="tab" aria-controls="pengangkut"
-                                            aria-selected="false">Pengangkut</button>
+                                            data-bs-target="#pengangkut" type="button" role="tab"
+                                            aria-controls="pengangkut" aria-selected="false">Pengangkut</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="kemaspetikemas-tab" data-bs-toggle="tab"
+                                            data-bs-target="#kemaspetikemas" type="button" role="tab"
+                                            aria-controls="kemaspetikemas" aria-selected="false">Kemasan & Peti Kemas</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="transaksi-tab" data-bs-toggle="tab"
+                                            data-bs-target="#transaksi" type="button" role="tab"
+                                            aria-controls="transaksi" aria-selected="false">Transaksi</button>
                                     </li>
                                 </ul>
                                 <br>
@@ -60,7 +69,7 @@
                                     <div class="tab-pane fade show active" id="header" role="tabpanel"
                                         aria-labelledby="header-tab">
                                         <div class="row">
-                                        {{-- <div class="col-md-3 d-none">
+                                            {{-- <div class="col-md-3 d-none">
                                             <label for="kodeDokumen" class="form-label">Jenis Dokumen</label>
                                             <input type="text" class="form-control" id="kodeDokumen" name="kodeDokumen"
                                                 value="{{ old('kodeDokumen', '25') }}" readonly>
@@ -70,314 +79,687 @@
                                             <input type="text" class="form-control" id="kodeJenisTpb" name="kodeJenisTpb"
                                                 value="{{ old('kodeJenisTpb', 'TPB') }}" readonly>
                                         </div> --}}
-                                        <div class="col-md-4 ">
-                                            <label for="nomorAju" class="form-label">Nomor Pengajuan</label>
-                                            <input type="text" class="form-control" id="nomorAju" name="nomorAju"
-                                                value="{{ old('nomorAju') }}" readonly  style="border: 1px solid #313131;">
-                                        </div>
-                                        <div class="col-md-4 ">
-                                            <label for="kantor_pabean" class="form-label">Kantor Pabean</label>
-                                            <input type="text" class="form-control" id="kantor_pabean" name="kantor_pabean"
-                                                value="{{ old('kantor_pabean', '050800 - KPPBC TMP A PURWAKARTA') }}" readonly style="border: 1px solid #313131;">
-                                        </div>
-                                        <div class="col-md-4 ">
-                                            <label for="kodeKantor" class="form-label">Jenis TPB</label>
-                                            <input type="text" class="form-control" id="kodeKantor" name="kodeKantor"
-                                                value="{{ old('kodeKantor', '1 - KAWASAN BERIKAT') }}" readonly style="border: 1px solid #313131;">
-                                        </div>
-                                        <div class="col-md-6 mt-3">
-                                            <label for="kodeTujuanPengiriman" class="form-label">Tujuan Pengiriman</label>
-                                            <input type="text" class="form-control" id="kodeTujuanPengiriman" name="kodeTujuanPengiriman"
-                                                value="{{ old('kodeTujuanPengiriman', '1 - PENYERAHAN BKP') }}" readonly style="border: 1px solid #313131;">
-                                        </div>
-                                        <div class="col-md-6 mt-3">
-                                            <label for="kodeCaraBayar" class="form-label">Cara Bayar</label>
-                                            <input type="text" class="form-control" id="kodeCaraBayar" name="kodeCaraBayar"
-                                                value="{{ old('kodeCaraBayar', '1 - BIASA / TUNAI') }}" readonly style="border: 1px solid #313131;">
-                                        </div>
+                                            <div class="col-md-4 ">
+                                                <label for="nomorAju" class="form-label">Nomor Pengajuan</label>
+                                                <input type="text" class="form-control" id="nomorAju" name="nomorAju"
+                                                    value="{{ old('nomorAju') }}" readonly
+                                                    style="border: 1px solid #313131;">
+                                            </div>
+                                            <div class="col-md-4 ">
+                                                <label for="kantor_pabean" class="form-label">Kantor Pabean</label>
+                                                <input type="text" class="form-control" id="kantor_pabean"
+                                                    name="kantor_pabean"
+                                                    value="{{ old('kantor_pabean', '050800 - KPPBC TMP A PURWAKARTA') }}"
+                                                    readonly style="border: 1px solid #313131;">
+                                            </div>
+                                            <div class="col-md-4 ">
+                                                <label for="kodeKantor" class="form-label">Jenis TPB</label>
+                                                <input type="text" class="form-control" id="kodeKantor" name="kodeKantor"
+                                                    value="{{ old('kodeKantor', '1 - KAWASAN BERIKAT') }}" readonly
+                                                    style="border: 1px solid #313131;">
+                                            </div>
+                                            <div class="col-md-6 mt-3">
+                                                <label for="kodeTujuanPengiriman" class="form-label">Tujuan
+                                                    Pengiriman</label>
+                                                <input type="text" class="form-control" id="kodeTujuanPengiriman"
+                                                    name="kodeTujuanPengiriman"
+                                                    value="{{ old('kodeTujuanPengiriman', '1 - PENYERAHAN BKP') }}"
+                                                    readonly style="border: 1px solid #313131;">
+                                            </div>
+                                            <div class="col-md-6 mt-3">
+                                                <label for="kodeCaraBayar" class="form-label">Cara Bayar</label>
+                                                <input type="text" class="form-control" id="kodeCaraBayar"
+                                                    name="kodeCaraBayar"
+                                                    value="{{ old('kodeCaraBayar', '1 - BIASA / TUNAI') }}" readonly
+                                                    style="border: 1px solid #313131;">
+                                            </div>
                                         </div>
                                     </div>
 
                                     {{-- Entitas --}}
-                                    <div class="tab-pane fade" id="entitas" role="tabpanel" aria-labelledby="entitas-tab">
-                                    <div class="container">
+                                    <div class="tab-pane fade" id="entitas" role="tabpanel"
+                                        aria-labelledby="entitas-tab">
+                                        <div class="container">
 
-                                    <!-- Penyelenggara/Pengusaha TPB/Pengusaha Kena Pajak -->
-                                    <div class="row mb-4 p-3 border rounded shadow-sm bg-light">
-                                        <h5 class="text-primary">Penyelenggara/Pengusaha TPB/Pengusaha Kena Pajak</h5>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label for="nomorIdentitas" class="form-label">Nomor Identitas</label>
-                                                <input type="text" class="form-control" id="nomorIdentitas" placeholder="6 - NPWP 16 DIGIT" readonly style="border: 1px solid #313131;">
+                                            <!-- Penyelenggara/Pengusaha TPB/Pengusaha Kena Pajak -->
+                                            <div class="row mb-4 p-3 border rounded shadow-sm bg-light">
+                                                <h5 class="text-primary">Penyelenggara/Pengusaha TPB/Pengusaha Kena Pajak
+                                                </h5>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label for="nomorIdentitas" class="form-label">Nomor
+                                                            Identitas</label>
+                                                        <input type="text" class="form-control" id="nomorIdentitas"
+                                                            placeholder="6 - NPWP 16 DIGIT" readonly
+                                                            style="border: 1px solid #313131;">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label for="kodeJenisIdentitas" class="form-label ">Nomor
+                                                            NPWP</label>
+                                                        <input type="text" class="form-control"
+                                                            id="kodeJenisIdentitas" name="kodeJenisIdentitas"
+                                                            value="{{ old('kodeJenisIdentitas', '010016806054000') }}"
+                                                            readonly style="border: 1px solid #313131;">
+                                                    </div>
+                                                    <div class="col-md-6 mt-3">
+                                                        <label for="nitku" class="form-label">Nitku</label>
+                                                        <input type="text" class="form-control" id="nitku"
+                                                            name="nitku"
+                                                            value="{{ old('nitku', '0010016806054000000000') }}"
+                                                            style="border: 1px solid #313131;"
+                                                            oninput="updateNomorEntitas()">
+                                                    </div>
+                                                    <div class="col-md-6 mt-3">
+                                                        <label for="namaEntitas" class="form-label">Nama</label>
+                                                        <input type="text" class="form-control" id="namaEntitas"
+                                                            name="namaEntitas"
+                                                            value="{{ old('namaEntitas', 'INDO-RAMA SYNTHETICS TBK') }}"
+                                                            style="border: 1px solid #313131;">
+                                                    </div>
+                                                    <div class="col-md-6 mt-3">
+                                                        <label for="nomorIjinEntitas" class="form-label">No Izin
+                                                            TPB</label>
+                                                        <input type="text" class="form-control" id="nomorIjinEntitas"
+                                                            name="nomorIjinEntitas"
+                                                            value="{{ old('no_izin_tpb', 'KEP-724/WBC.09/2022') }}"
+                                                            style="border: 1px solid #313131;">
+                                                    </div>
+                                                    <div class="col-md-6 mt-3">
+                                                        <label for="tanggalIjinEntitas" class="form-label">Tanggal Izin
+                                                            TPB</label>
+                                                        <input type="date" class="form-control"
+                                                            id="tanggalIjinEntitas" name="tanggalIjinEntitas"
+                                                            value="{{ old('tanggal_izin_tpb') }}"
+                                                            style="border: 1px solid #313131;">
+                                                    </div>
+                                                    <div class="col-md-6 mt-3">
+                                                        <label for="nibEntitas" class="form-label">NIB</label>
+                                                        <input type="text" class="form-control" id="nibEntitas"
+                                                            name="nibEntitas"
+                                                            value="{{ old('nibEntitas', '8120302880325') }}"
+                                                            style="border: 1px solid #313131;">
+                                                    </div>
+                                                    <div class="col-md-6 mt-3">
+                                                        <label for="alamatEntitas" class="form-label">Alamat</label>
+                                                        <textarea class="form-control" id="alamatEntitas" name="alamatEntitas" style="border: 1px solid #313131;">{{ old('alamatEntitas', 'JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101') }}</textarea>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="col-md-6">
-                                            <label for="kodeJenisIdentitas" class="form-label ">Nomor NPWP</label>
-                                                <input type="text" class="form-control" id="kodeJenisIdentitas" name="kodeJenisIdentitas" value="{{ old('kodeJenisIdentitas', '010016806054000') }}" readonly style="border: 1px solid #313131;">
+
+                                            <!-- Pemilik Barang -->
+                                            <div class="row mb-4 p-3 border rounded shadow-sm bg-light">
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <h5 class="text-primary" id="exampleModalCenterTitle">Pemilik Barang
+                                                    </h5>
+                                                    <button type="button" class="btn btn-primary"
+                                                        id="myBtn">Referensi</button>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label for="nomorIdentitas" class="form-label">Nomor
+                                                            Identitas</label>
+                                                        <input type="text" class="form-control" id="nomorIdentitas"
+                                                            placeholder="6 - NPWP 16 DIGIT" readonly
+                                                            style="border: 1px solid #313131;">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label for="nomorNpwp" class="form-label">Nomor NPWP</label>
+                                                        <input type="text" class="form-control"
+                                                            id="kodeJenisIdentitas2" name="kodeJenisIdentitas2" readonly
+                                                            style="border: 1px solid #313131;">
+                                                    </div>
+                                                    <div class="col-md-6 mt-3">
+                                                        <label for="nitku2" class="form-label">Nitku</label>
+                                                        <input type="text" class="form-control" id="nitku2"
+                                                            name="nitku2" style="border: 1px solid #313131;"
+                                                            oninput="updateNomorEntitas2()">
+                                                    </div>
+                                                    <div class="col-md-6 mt-3">
+                                                        <label for="namaEntitas2" class="form-label">Nama</label>
+                                                        <input type="text" class="form-control" id="namaEntitas2"
+                                                            name="namaEntitas2" style="border: 1px solid #313131;">
+                                                    </div>
+                                                    <div class="col-md-6 mt-3">
+                                                        <label for="alamatEntitas2" class="form-label">Alamat</label>
+                                                        <textarea class="form-control" id="alamatEntitas2" name="alamatEntitas2" style="border: 1px solid #313131;"></textarea>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="col-md-6 mt-3">
-                                                <label for="nitku" class="form-label">Nitku</label>
-                                                <input type="text" class="form-control" id="nitku" name="nitku" value="{{ old('nitku', '0010016806054000000000') }}" style="border: 1px solid #313131;" oninput="updateNomorEntitas()">
+
+                                            <!-- Modal -->
+                                            <div id="myModal" class="modal" data-backdrop="static"
+                                                data-keyboard="false">
+                                                <!-- Konten Modal -->
+                                                <div class="modal-content">
+                                                    <center>
+                                                        <h5 class="modal-title">Data Referensi Pengusaha</h5>
+                                                    </center>
+                                                    <span class="close">&times;</span>
+                                                    <form class="modal-form">
+                                                        <table id="dataTable1" class="display">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>NPWP</th>
+                                                                    <th>Nama</th>
+                                                                    <th>Alamat</th>
+                                                                    <th>Action</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr data-npwp="010016806054000"
+                                                                    data-nama="INDO-RAMA SYNTHETICS TBK"
+                                                                    data-nitku="0010016806054000000000"
+                                                                    data-alamat="JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101">
+                                                                    <td>010016806054000</td>
+                                                                    <td>INDO-RAMA SYNTHETICS TBK</td>
+                                                                    <td>JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN
+                                                                        JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT
+                                                                        41101</td>
+                                                                    <td><button type="button"
+                                                                            class="pilih-btn-1">Pilih</button></td>
+                                                                </tr>
+                                                                <tr data-npwp2="010016806054000"
+                                                                    data-nama2="INDO-RAMA SYNTHETICS TBK"
+                                                                    data-nitku2="0010016806054000000000"
+                                                                    data-alamat2="JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101">
+                                                                    <td>010016806054000</td>
+                                                                    <td>INDO-RAMA SYNTHETICS TBK</td>
+                                                                    <td>JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN
+                                                                        JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT
+                                                                        41101</td>
+                                                                    <td><button type="button"
+                                                                            class="pilih-btn-1">Pilih</button></td>
+                                                                </tr>
+                                                                </tr>
+                                                                <tr data-npwp3="010016806054000"
+                                                                    data-nama3="INDO-RAMA SYNTHETICS TBK"
+                                                                    data-nitku3="0010016806054000000000"
+                                                                    data-alamat3="JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101">
+                                                                    <td>010016806054000</td>
+                                                                    <td>INDO-RAMA SYNTHETICS TBK</td>
+                                                                    <td>JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN
+                                                                        JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT
+                                                                        41101</td>
+                                                                    <td><button type="button"
+                                                                            class="pilih-btn-1">Pilih</button></td>
+                                                                </tr>
+                                                                <tr data-npwp4="010016806054000"
+                                                                    data-nama2="INDO-RAMA SYNTHETICS TBK"
+                                                                    data-nitku4="0010016806054000000000"
+                                                                    data-alamat4="JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101">
+                                                                    <td>010016806054000</td>
+                                                                    <td>INDO-RAMA SYNTHETICS TBK</td>
+                                                                    <td>JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN
+                                                                        JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT
+                                                                        41101</td>
+                                                                    <td><button type="button"
+                                                                            class="pilih-btn-1">Pilih</button></td>
+                                                                </tr>
+                                                                <tr data-npwp5="010016806054000"
+                                                                    data-nama2="INDO-RAMA SYNTHETICS TBK"
+                                                                    data-nitku5="0010016806054000000000"
+                                                                    data-alamat5="JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101">
+                                                                    <td>010016806054000</td>
+                                                                    <td>INDO-RAMA SYNTHETICS TBK</td>
+                                                                    <td>JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN
+                                                                        JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT
+                                                                        41101</td>
+                                                                    <td><button type="button"
+                                                                            class="pilih-btn-1">Pilih</button></td>
+                                                                </tr>
+                                                                <tr data-npwp6="010016806054000"
+                                                                    data-nama6="INDO-RAMA SYNTHETICS TBK"
+                                                                    data-nitku6="0010016806054000000000"
+                                                                    data-alamat6="JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101">
+                                                                    <td>010016806054000</td>
+                                                                    <td>INDO-RAMA SYNTHETICS TBK</td>
+                                                                    <td>JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN
+                                                                        JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT
+                                                                        41101</td>
+                                                                    <td><button type="button"
+                                                                            class="pilih-btn-1">Pilih</button></td>
+                                                                </tr>
+                                                                <tr data-npwp7="010016806054000"
+                                                                    data-nama7="INDO-RAMA SYNTHETICS TBK"
+                                                                    data-nitku7="0010016806054000000000"
+                                                                    data-alamat7="JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101">
+                                                                    <td>010016806054000</td>
+                                                                    <td>INDO-RAMA SYNTHETICS TBK</td>
+                                                                    <td>JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN
+                                                                        JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT
+                                                                        41101</td>
+                                                                    <td><button type="button"
+                                                                            class="pilih-btn-1">Pilih</button></td>
+                                                                </tr>
+                                                                <tr data-npwp8="010016806054000"
+                                                                    data-nama2="INDO-RAMA SYNTHETICS TBK"
+                                                                    data-nitku8="0010016806054000000000"
+                                                                    data-alamat8="JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101">
+                                                                    <td>010016806054000</td>
+                                                                    <td>INDO-RAMA SYNTHETICS TBK</td>
+                                                                    <td>JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN
+                                                                        JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT
+                                                                        41101</td>
+                                                                    <td><button type="button"
+                                                                            class="pilih-btn-1">Pilih</button></td>
+                                                                </tr>
+                                                                <tr data-npwp9="010016806054000"
+                                                                    data-nama9="INDO-RAMA SYNTHETICS TBK"
+                                                                    data-nitku9="0010016806054000000000"
+                                                                    data-alamat9="JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101">
+                                                                    <td>010016806054000</td>
+                                                                    <td>INDO-RAMA SYNTHETICS TBK</td>
+                                                                    <td>JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN
+                                                                        JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT
+                                                                        41101</td>
+                                                                    <td><button type="button"
+                                                                            class="pilih-btn-1">Pilih</button></td>
+                                                                </tr>
+                                                                <tr data-npwp10="010016806054000"
+                                                                    data-nama10="INDO-RAMA SYNTHETICS TBK"
+                                                                    data-nitku10="0010016806054000000000"
+                                                                    data-alamat10="JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101">
+                                                                    <td>010016806054000</td>
+                                                                    <td>INDO-RAMA SYNTHETICS TBK</td>
+                                                                    <td>JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN
+                                                                        JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT
+                                                                        41101</td>
+                                                                    <td><button type="button"
+                                                                            class="pilih-btn-1">Pilih</button></td>
+                                                                </tr>
+                                                                <tr data-npwp11="010016806054000"
+                                                                    data-nama11="INDO-RAMA SYNTHETICS TBK"
+                                                                    data-nitku11="0010016806054000000000"
+                                                                    data-alamat11="JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101">
+                                                                    <td>010016806054000</td>
+                                                                    <td>INDO-RAMA SYNTHETICS TBK</td>
+                                                                    <td>JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN
+                                                                        JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT
+                                                                        41101</td>
+                                                                    <td><button type="button"
+                                                                            class="pilih-btn-1">Pilih</button></td>
+                                                                </tr>
+                                                                <tr data-npwp12="010016806054000"
+                                                                    data-nama12="INDO-RAMA SYNTHETICS TBK"
+                                                                    data-nitku12="0010016806054000000000"
+                                                                    data-alamat12="JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101">
+                                                                    <td>010016806054000</td>
+                                                                    <td>INDO-RAMA SYNTHETICS TBK</td>
+                                                                    <td>JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN
+                                                                        JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT
+                                                                        41101</td>
+                                                                    <td><button type="button"
+                                                                            class="pilih-btn-1">Pilih</button></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </form>
+                                                </div>
                                             </div>
-                                            <div class="col-md-6 mt-3">
-                                                <label for="namaEntitas" class="form-label">Nama</label>
-                                                <input type="text" class="form-control" id="namaEntitas" name="namaEntitas" value="{{ old('namaEntitas', 'INDO-RAMA SYNTHETICS TBK') }}" style="border: 1px solid #313131;">
+
+                                            <!-- Penerima Barang/Pembeli Barang Kena Pajak/Penerima Jasa Kena Pajak -->
+                                            <div class="row mb-4 p-3 border rounded shadow-sm bg-light">
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <h5 class="text-primary" id="exampleModalCenterTitle">Penerima
+                                                        Barang/Pembeli Barang Kena Pajak/Penerima Jasa Kena Pajak</h5>
+                                                    <button type="button" class="btn btn-primary"
+                                                        id="myBtn2">Referensi</button>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label for="kode_jenis_tpb" class="form-label">Nomor
+                                                            Identitas</label>
+                                                        <input type="text" class="form-control"
+                                                            placeholder="6 - NPWP 16 DIGIT" readonly
+                                                            style="border: 1px solid #313131;">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label for="kodeJenisIdentitas3" class="form-label">Nomor
+                                                            NPWP</label>
+                                                        <input type="text" class="form-control"
+                                                            id="kodeJenisIdentitas3" name="kodeJenisIdentitas3" readonly
+                                                            style="border: 1px solid #313131;">
+                                                    </div>
+                                                    <div class="col-md-6 mt-3">
+                                                        <label for="nitku3" class="form-label">Nitku</label>
+                                                        <input type="text" class="form-control" id="nitku3"
+                                                            name="nitku3" style="border: 1px solid #313131;"
+                                                            oninput="updateNomorEntitas3()">
+                                                    </div>
+                                                    <div class="col-md-6 mt-3">
+                                                        <label for="namaEntitas3" class="form-label">Nama</label>
+                                                        <input type="text" class="form-control" id="namaEntitas3"
+                                                            name="namaEntitas3" style="border: 1px solid #313131;">
+                                                    </div>
+                                                    <div class="col-md-6 mt-3">
+                                                        <label for="alamatEntitas3" class="form-label">Alamat</label>
+                                                        <textarea class="form-control" id="alamatEntitas3" name="alamatEntitas3" style="border: 1px solid #313131;"></textarea>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="col-md-6 mt-3">
-                                                <label for="nomorIjinEntitas" class="form-label">No Izin TPB</label>
-                                                <input type="text" class="form-control" id="nomorIjinEntitas" name="nomorIjinEntitas" value="{{ old('no_izin_tpb', 'KEP-724/WBC.09/2022') }}" style="border: 1px solid #313131;">
+
+                                            <!-- Modal -->
+                                            <div id="myModal2" class="modal" data-backdrop="static"
+                                                data-keyboard="false" style="display: none;">
+                                                <div class="modal-content">
+                                                    <center>
+                                                        <h5 class="modal-title">Data Referensi Pengusaha</h5>
+                                                    </center>
+                                                    <span class="close">&times;</span>
+                                                    <form class="modal-form">
+                                                        <table id="dataTable2" class="display">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>NPWP</th>
+                                                                    <th>Nama</th>
+                                                                    <th>Alamat</th>
+                                                                    <th>Negara</th>
+                                                                    <th>Action</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <tr data-npwp="010020766057000"
+                                                                    data-nama="GOKAK INDONESIA"
+                                                                    data-nitku="010020766057000000000"
+                                                                    data-alamat="ATENG ILYAS KP MUHARA RT.002 RW.008 CITEUREUP CITEUREUP KAB. BOGOR INDONESIA ( PT. GOKAK INDONESIA )">
+                                                                    <td>010020766057000</td>
+                                                                    <td>GOKAK INDONESIA</td>
+                                                                    <td>ATENG ILYAS KP MUHARA RT.002 RW.008 CITEUREUP
+                                                                        CITEUREUP KAB. BOGOR INDONESIA ( PT. GOKAK INDONESIA
+                                                                        )</td>
+                                                                    <td>-</td>
+                                                                    <td><button type="button"
+                                                                            class="pilih-btn-2">Pilih</button></td>
+                                                                </tr>
+                                                                <tr data-npwp2="808248256041000"
+                                                                    data-nama2="TARA PETINDO BERDIKARI"
+                                                                    data-nitku2="808248256041000000000"
+                                                                    data-alamat2="JALAN RAYA UJUNG BERUNG KM 12,6 RT. 002 RW. 006 CIPADUNG KULON PANYILEUKAN KOTA BANDUNG INDONESIA (PT. LONGDI SEJAHTERA INDONESIA)">
+                                                                    <td>808248256041000</td>
+                                                                    <td>TARA PETINDO BERDIKARI</td>
+                                                                    <td>PERGUDANGAN LAKSANA BLOK RC. 21- RC.23 PAKUHAJI
+                                                                        TANGERANG INDONESIA ( PT. BUANIKA SYAHPUTRA )</td>
+                                                                    <td>-</td>
+                                                                    <td><button type="button"
+                                                                            class="pilih-btn-2">Pilih</button></td>
+                                                                </tr>
+                                                                </tr>
+                                                                <tr data-npwp3="020591459444000" data-nama3="SAMTEX"
+                                                                    data-nitku3="010016806054000000000"
+                                                                    data-alamat3="JL. RAYA CIJAPATI RT 02 RW. 06 KEL. CILULUK KEC. CIKANCUNG KAB. BANDUNG JAWA BARAT INDONESIA ( PT. SAMTEX )">
+                                                                    <td>010016806054000</td>
+                                                                    <td>SAMTEX</td>
+                                                                    <td>JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN
+                                                                        JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT
+                                                                        41101</td>
+                                                                    <td>-</td>
+                                                                    <td><button type="button"
+                                                                            class="pilih-btn-2">Pilih</button></td>
+                                                                </tr>
+                                                                <tr data-npwp4="716100979451000"
+                                                                    data-nama2="DUTA KARYA PERTIWI"
+                                                                    data-nitku4="716100979451000000000"
+                                                                    data-alamat4="JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101">
+                                                                    <td>716100979451000</td>
+                                                                    <td>DUTA KARYA PERTIWI</td>
+                                                                    <td>JL. RAYA SERANG KM. 14,5 KP. LAMPORAN RT.002 RW.001
+                                                                        DUKUH CIKUPA KAB. TANGERANG BANTEN INDONESIA ( PT.
+                                                                        DUTA KARYA PERTIWI )</td>
+                                                                    <td>-</td>
+                                                                    <td><button type="button"
+                                                                            class="pilih-btn-2">Pilih</button></td>
+                                                                </tr>
+                                                                <tr data-npwp5="010016806054000"
+                                                                    data-nama2="TARA PETINDO BERDIKARI"
+                                                                    data-nitku5="010016806054000000000"
+                                                                    data-alamat5="JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101">
+                                                                    <td>010016806054000</td>
+                                                                    <td>TARA PETINDO BERDIKARI</td>
+                                                                    <td>JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN
+                                                                        JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT
+                                                                        41101</td>
+                                                                    <td>-</td>
+                                                                    <td><button type="button"
+                                                                            class="pilih-btn-2">Pilih</button></td>
+                                                                </tr>
+                                                            </tbody>
+                                                        </table>
+                                                    </form>
+                                                </div>
                                             </div>
-                                            <div class="col-md-6 mt-3">
-                                                <label for="tanggalIjinEntitas" class="form-label">Tanggal Izin TPB</label>
-                                                <input type="date" class="form-control" id="tanggalIjinEntitas" name="tanggalIjinEntitas" value="{{ old('tanggal_izin_tpb') }}" style="border: 1px solid #313131;">
-                                            </div>
-                                            <div class="col-md-6 mt-3">
-                                                <label for="nibEntitas" class="form-label">NIB</label>
-                                                <input type="text" class="form-control" id="nibEntitas" name="nibEntitas" value="{{ old('nibEntitas', '8120302880325') }}" style="border: 1px solid #313131;">
-                                            </div>
-                                            <div class="col-md-6 mt-3">
-                                                <label for="alamatEntitas" class="form-label">Alamat</label>
-                                                <textarea class="form-control" id="alamatEntitas" name="alamatEntitas" style="border: 1px solid #313131;">{{ old('alamatEntitas', 'JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101') }}</textarea>
-                                            </div>
+
                                         </div>
                                     </div>
 
-                                    <!-- Pemilik Barang -->
-                                    <div class="row mb-4 p-3 border rounded shadow-sm bg-light">
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <h5 class="text-primary" id="exampleModalCenterTitle">Pemilik Barang</h5>
-                                            <button type="button" class="btn btn-primary" id="myBtn">Referensi</button>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-6">
-                                                <label for="nomorIdentitas" class="form-label">Nomor Identitas</label>
-                                                <input type="text" class="form-control" id="nomorIdentitas" placeholder="6 - NPWP 16 DIGIT" readonly style="border: 1px solid #313131;">
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label for="nomorNpwp" class="form-label">Nomor NPWP</label>
-                                                <input type="text" class="form-control" id="kodeJenisIdentitas2" name="kodeJenisIdentitas2" readonly style="border: 1px solid #313131;">
-                                            </div>
-                                            <div class="col-md-6 mt-3">
-                                                <label for="nitku2" class="form-label">Nitku</label>
-                                                <input type="text" class="form-control" id="nitku2" name="nitku2" style="border: 1px solid #313131;" oninput="updateNomorEntitas2()">
-                                            </div>
-                                            <div class="col-md-6 mt-3">
-                                                <label for="namaEntitas2" class="form-label">Nama</label>
-                                                <input type="text" class="form-control" id="namaEntitas2" name="namaEntitas2"  style="border: 1px solid #313131;">
-                                            </div>
-                                            <div class="col-md-6 mt-3">
-                                                <label for="alamatEntitas2" class="form-label">Alamat</label>
-                                                <textarea class="form-control" id="alamatEntitas2" name="alamatEntitas2" style="border: 1px solid #313131;"></textarea>
-                                            </div>
-                                        </div>
-                                    </div>
+                                        {{-- Dokumen --}}
+                                        <div class="tab-pane fade" id="dokumen" role="tabpanel" aria-labelledby="dokumen-tab">
+                                            <div class="row">
+                                                <div class="container-fluid">
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <div class="card">
+                                                                <header>
+                                                                    <div class="right_content">
+                                                                        <div class="col-lg-12 text-start mb-6">
+                                                                            <button type="button" class="btn btn-primary mb-3"
+                                                                            id="myBtn4"><span data-feather="plus"></span>Tambah</button>
+                                                                            {{-- <button class="btn btn-primary mb-3" id="myBtn4">
+                                                                                <span data-feather="plus"></span>
+                                                                                Tambah
+                                                                            </button> --}}
+                                                                        </div>
+                                                                    </div>
+                                                                </header>
+                                                                <div class="card-body" id="tableContainer">
+                                                                    <div class="table-responsive">
+                                                                        <table class="table table-bordered" id="dataTable">
+                                                                            <thead class="thead-light">
+                                                                                <tr>
+                                                                                    <th style="margin-top: 19px;color:black;font-weight: bold;">Seri</th>
+                                                                                    <th style="margin-top: 19px;color:black;font-weight: bold;">Jenis</th>
+                                                                                    <th style="margin-top: 19px;color:black;font-weight: bold;">Nomor</th>
+                                                                                    <th style="margin-top: 19px;color:black;font-weight: bold;">Tanggal</th>
+                                                                                    <th style="margin-top: 19px;color:black;font-weight: bold;">Fasilitas</th>
+                                                                                    <th style="margin-top: 19px;color:black;font-weight: bold;">Izin</th>
+                                                                                    <th style="margin-top: 19px;color:black;font-weight: bold;">Kantor</th>
+                                                                                    <th style="margin-top: 19px;color:black;font-weight: bold;">File</th>
+                                                                                    <th style="margin-top: 19px;color:black;font-weight: bold;">Action</th>
+                                                                                </tr>
+                                                                            </thead>
+                                                                            <tbody>
+                                                                                <!-- Isi tabel akan ditambahkan di sini -->
+                                                                            </tbody>
+                                                                        </table>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
 
-                                    <!-- Modal -->
-                                    <div id="myModal" class="modal" data-backdrop="static" data-keyboard="false">
-                                        <!-- Konten Modal -->
-                                        <div class="modal-content">
-                                        <center>
-                                            <h5 class="modal-title">Data Referensi Pengusaha</h5>
-                                        </center>
-                                            <span class="close">&times;</span>
-                                            <form class="modal-form">
-                                                <table id="dataTable1" class="display">
-                                                    <thead>
-                                                        <tr>
-                                                            <th>NPWP</th>
-                                                            <th>Nama</th>
-                                                            <th>Alamat</th>
-                                                            <th>Action</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                        <tr data-npwp="010016806054000" data-nama="INDO-RAMA SYNTHETICS TBK" data-nitku="0010016806054000000000" data-alamat="JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101">
-                                                            <td>010016806054000</td>
-                                                            <td>INDO-RAMA SYNTHETICS TBK</td>
-                                                            <td>JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101</td>
-                                                            <td><button type="button" class="pilih-btn-1">Pilih</button></td>
-                                                        </tr>
-                                                        <tr data-npwp2="010016806054000" data-nama2="INDO-RAMA SYNTHETICS TBK" data-nitku2="0010016806054000000000" data-alamat2="JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101">
-                                                            <td>010016806054000</td>
-                                                            <td>INDO-RAMA SYNTHETICS TBK</td>
-                                                            <td>JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101</td>
-                                                            <td><button type="button" class="pilih-btn-1">Pilih</button></td>
-                                                        </tr>
-                                                        </tr>
-                                                        <tr data-npwp3="010016806054000" data-nama3="INDO-RAMA SYNTHETICS TBK" data-nitku3="0010016806054000000000" data-alamat3="JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101">
-                                                            <td>010016806054000</td>
-                                                            <td>INDO-RAMA SYNTHETICS TBK</td>
-                                                            <td>JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101</td>
-                                                            <td><button type="button" class="pilih-btn-1">Pilih</button></td>
-                                                        </tr>
-                                                        <tr data-npwp4="010016806054000" data-nama2="INDO-RAMA SYNTHETICS TBK" data-nitku4="0010016806054000000000" data-alamat4="JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101">
-                                                            <td>010016806054000</td>
-                                                            <td>INDO-RAMA SYNTHETICS TBK</td>
-                                                            <td>JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101</td>
-                                                            <td><button type="button" class="pilih-btn-1">Pilih</button></td>
-                                                        </tr>
-                                                        <tr data-npwp5="010016806054000" data-nama2="INDO-RAMA SYNTHETICS TBK" data-nitku5="0010016806054000000000" data-alamat5="JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101">
-                                                            <td>010016806054000</td>
-                                                            <td>INDO-RAMA SYNTHETICS TBK</td>
-                                                            <td>JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101</td>
-                                                            <td><button type="button" class="pilih-btn-1">Pilih</button></td>
-                                                        </tr>
-                                                        <tr data-npwp6="010016806054000" data-nama6="INDO-RAMA SYNTHETICS TBK" data-nitku6="0010016806054000000000" data-alamat6="JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101">
-                                                            <td>010016806054000</td>
-                                                            <td>INDO-RAMA SYNTHETICS TBK</td>
-                                                            <td>JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101</td>
-                                                            <td><button type="button" class="pilih-btn-1">Pilih</button></td>
-                                                        </tr>
-                                                        <tr data-npwp7="010016806054000" data-nama7="INDO-RAMA SYNTHETICS TBK" data-nitku7="0010016806054000000000" data-alamat7="JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101">
-                                                            <td>010016806054000</td>
-                                                            <td>INDO-RAMA SYNTHETICS TBK</td>
-                                                            <td>JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101</td>
-                                                            <td><button type="button" class="pilih-btn-1">Pilih</button></td>
-                                                        </tr>
-                                                        <tr data-npwp8="010016806054000" data-nama2="INDO-RAMA SYNTHETICS TBK" data-nitku8="0010016806054000000000" data-alamat8="JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101">
-                                                            <td>010016806054000</td>
-                                                            <td>INDO-RAMA SYNTHETICS TBK</td>
-                                                            <td>JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101</td>
-                                                            <td><button type="button" class="pilih-btn-1">Pilih</button></td>
-                                                        </tr>
-                                                        <tr data-npwp9="010016806054000" data-nama9="INDO-RAMA SYNTHETICS TBK"  data-nitku9="0010016806054000000000"  data-alamat9="JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101">
-                                                            <td>010016806054000</td>
-                                                            <td>INDO-RAMA SYNTHETICS TBK</td>
-                                                            <td>JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101</td>
-                                                            <td><button type="button" class="pilih-btn-1">Pilih</button></td>
-                                                        </tr>
-                                                        <tr data-npwp10="010016806054000" data-nama10="INDO-RAMA SYNTHETICS TBK"  data-nitku10="0010016806054000000000" data-alamat10="JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101">
-                                                            <td>010016806054000</td>
-                                                            <td>INDO-RAMA SYNTHETICS TBK</td>
-                                                            <td>JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101</td>
-                                                            <td><button type="button" class="pilih-btn-1">Pilih</button></td>
-                                                        </tr>
-                                                        <tr data-npwp11="010016806054000" data-nama11="INDO-RAMA SYNTHETICS TBK"  data-nitku11="0010016806054000000000" data-alamat11="JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101">
-                                                            <td>010016806054000</td>
-                                                            <td>INDO-RAMA SYNTHETICS TBK</td>
-                                                            <td>JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101</td>
-                                                            <td><button type="button" class="pilih-btn-1">Pilih</button></td>
-                                                        </tr>
-                                                        <tr data-npwp12="010016806054000" data-nama12="INDO-RAMA SYNTHETICS TBK"  data-nitku12="0010016806054000000000" data-alamat12="JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101">
-                                                            <td>010016806054000</td>
-                                                            <td>INDO-RAMA SYNTHETICS TBK</td>
-                                                            <td>JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101</td>
-                                                            <td><button type="button" class="pilih-btn-1">Pilih</button></td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </form>
-                                        </div>
-                                    </div>
+                                                        <!-- Modal -->
+                                                        <div id="myModal4" class="modal" data-backdrop="static"
+                                                        data-keyboard="false" style="display: none;">
+                                                        <div class="modal-content">
+                                                            <span class="close">&times;</span>
+                                                            <form id="modalForm" action="{{ route('dokumen.create') }}" method="GET">
+                                                                <div class="modal-form">
+                                                                    <label for="nama">Seri</label>
+                                                                    <input type="text" class="form-control" id="seriDokumen" name="seriDokumen"
+                                                                        value="{{ old('seriDokumen') }}" >
 
-                                    <!-- Penerima Barang/Pembeli Barang Kena Pajak/Penerima Jasa Kena Pajak -->
-                                    <div class="row mb-4 p-3 border rounded shadow-sm bg-light">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <h5 class="text-primary" id="exampleModalCenterTitle">Penerima Barang/Pembeli Barang Kena Pajak/Penerima Jasa Kena Pajak</h5>
-                                        <button type="button" class="btn btn-primary" id="myBtn2">Referensi</button>
-                                    </div>
+                                                                        <div class="form-group">
+                                                                            <label for="alamat">Jenis Dokumen</label>
+                                                                            <select class="form-control" name="division_name" id="select-field4"
+                                                                                required style="border: 1px solid #313131;">
+                                                                                <option selected disabled>Pilih Jenis</option>
+                                                                                <option value="0282 - PERSETUJUAN PENGELUARAN BC28 DENGAN DOKAP" {{ old('division_name') == '1' ? 'selected' : '' }}>
+                                                                                0282 - PERSETUJUAN PENGELUARAN BC28 DENGAN DOKAP</option>
+
+                                                                                <option value="03001 - IZIN PRINSIP PENDIRIAN KAWASAN BERIKAT SEBELUM FISIK BANGUNAN BERDIRI" {{ old('division_name') == '2' ? 'selected' : '' }}>
+                                                                                03001 - IZIN PRINSIP PENDIRIAN KAWASAN BERIKAT SEBELUM FISIK BANGUNAN BERDIRI </option>
+
+                                                                                <option value="03002 - KEPUTUSAN PENETAPAN TEMPAT SEBAGAI KAWASAN BERIKAT DAN PEMBERIAN IZIN PENYELENGGARA KAWASAN BERIKAT" {{ old('division_name') == '3' ? 'selected' : '' }}>
+                                                                                03002 - KEPUTUSAN PENETAPAN TEMPAT SEBAGAI KAWASAN BERIKAT DAN PEMBERIAN IZIN PENYELENGGARA KAWASAN BERIKAT</option>
+
+                                                                                <option value="03003 - PERSETUJUAN PENETAPAN TEMPAT SEBAGAI KAWASAN BERIKAT DAN PEMBERIAN IZIN PENYELENGARA KAWASAN BERIKAT SEKALIGUS IZIN PENGUSAHA KAWASAN BERIKAT" {{ old('division_name') == '4' ? 'selected' : '' }}>
+                                                                                03003 - PERSETUJUAN PENETAPAN TEMPAT SEBAGAI KAWASAN BERIKAT DAN PEMBERIAN IZIN PENYELENGARA KAWASAN BERIKAT SEKALIGUS IZIN PENGUSAHA KAWASAN BERIKAT</option>
+
+                                                                                <option value="03004 - IZIN PDKB" {{ old('division_name') == '5' ? 'selected' : '' }}>
+                                                                                03004 - IZIN PDKB</option>
+
+                                                                                <option value="03005 - PERPANJANGAN PENETAPAN TEMPAT SEBAGAI KAWASAN BERIKAT DAN IZIN PENYELENGGARA KAWASAN BERIKAT, IZIN PENGUSAHA KAWASAN BERIKAT, ATAU IZIN PDKB SEBELUM JANGKA WAKTU IZIN TERSEBUT BERAKHIR" {{ old('division_name') == '5' ? 'selected' : '' }}>
+                                                                                03005 - PERPANJANGAN PENETAPAN TEMPAT SEBAGAI KAWASAN BERIKAT DAN IZIN PENYELENGGARA KAWASAN BERIKAT, IZIN PENGUSAHA KAWASAN BERIKAT, ATAU IZIN PDKB SEBELUM JANGKA WAKTU IZIN TERSEBUT BERAKHIR</option>
+
+                                                                                <option value="03006 - PERUBAHAN IZIN PENYELENGGARA KAWASAN BERIKAT, IZIN PENGUSAHA KAWASAN BERIKAT, ATAU IZIN PDKB (TERDAPAT PERUBAHAN NAMA PERUSAHAAN YANG BUKAN DIKARENAKAN MERGER ATAU DIAKUISISI, JENIS HASIL PRODUK, ATAU LUAS KAWASAN BERIKAT)"
+                                                                                {{ old('division_name') == '6' ? 'selected' : '' }}>
+                                                                                03006 - PERUBAHAN IZIN PENYELENGGARA KAWASAN BERIKAT, IZIN PENGUSAHA KAWASAN BERIKAT, ATAU IZIN PDKB (TERDAPAT PERUBAHAN NAMA PERUSAHAAN YANG BUKAN DIKARENAKAN MERGER ATAU DIAKUISISI, JENIS HASIL PRODUK, ATAU LUAS KAWASAN BERIKAT)
+                                                                                </option>
+
+                                                                                <option value="03007 - PERUBAHAN KEPUTUSAN IZIN PENYELENGGARA KAWASAN BERIKAT, IZIN PENGUSAHA KAWASAN BERIKAT, ATAU IZIN PDKB"
+                                                                                {{ old('division_name') == '7' ? 'selected' : '' }}>
+                                                                                03007 - PERUBAHAN KEPUTUSAN IZIN PENYELENGGARA KAWASAN BERIKAT, IZIN PENGUSAHA KAWASAN BERIKAT, ATAU IZIN PDKB
+                                                                                </option>
+
+                                                                                <option value="03008 - PEMBERIAN IZIN PENAMBAHAN PINTU KHUSUS PEMASUKAN DAN PENGELUARAN BARANG DI KAWASAN BERIKAT"
+                                                                                {{ old('division_name') == '8' ? 'selected' : '' }}>
+                                                                                03008 - PEMBERIAN IZIN PENAMBAHAN PINTU KHUSUS PEMASUKAN DAN PENGELUARAN BARANG DI KAWASAN BERIKAT
+                                                                                </option>
+                                                                            </select>
+                                                                        </div>
+                                                                                <br>
+                                                                    <label for="usaha">Nomor Dokumen</label>
+                                                                    <input type="text" class="form-control" id="kodeDokumen" name="kodeDokumen"
+                                                                        value="{{ old('kodeDokumen') }}">
+
+                                                                    <label for="usaha">Tanggal Dokumen</label>
+                                                                    <input type="date" class="form-control" id="kodeDokumen" name="kodeDokumen"
+                                                                        value="{{ old('kodeDokumen') }}">
+                                                                    <br>
+                                                                    <!-- Tombol Simpan & Batal -->
+                                                                    <div class="button-group">
+                                                                        <button type="submit" class="btn-save">Simpan</button>
+                                                                        <button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        {{-- Pengangkut --}}
+                                        <div class="tab-pane fade" id="pengangkut" role="tabpanel"
+                                            aria-labelledby="pengangkut-tab">
+                                            <div class="row">
+                                                <div class="col-md-12 ">
+                                                    <label for="kodeCaraAngkut" class="form-label">Cara Pengangkutan</label>
+                                                    <input type="text" class="form-control" id="kodeCaraAngkut"
+                                                        name="kodeCaraAngkut"  value="{{ old('kodeCaraAngkut', '3 - Darat') }}" style="border: 1px solid #313131;">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    {{-- Kemasan dan Peti Kemasan --}}
+                                    <div class="tab-pane fade" id="kemaspetikemas" role="tabpanel"
+                                    aria-labelledby="kemaspetikemas-tab">
                                     <div class="row">
-                                        <div class="col-md-6">
-                                            <label for="kode_jenis_tpb" class="form-label">Nomor Identitas</label>
-                                            <input type="text" class="form-control" placeholder="6 - NPWP 16 DIGIT" readonly style="border: 1px solid #313131;">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label for="kodeJenisIdentitas3" class="form-label">Nomor NPWP</label>
-                                            <input type="text" class="form-control" id="kodeJenisIdentitas3" name="kodeJenisIdentitas3"  readonly style="border: 1px solid #313131;">
-                                        </div>
-                                        <div class="col-md-6 mt-3">
-                                            <label for="nitku3" class="form-label">Nitku</label>
-                                            <input type="text" class="form-control" id="nitku3" name="nitku3"  style="border: 1px solid #313131;" oninput="updateNomorEntitas3()">
-                                        </div>
-                                        <div class="col-md-6 mt-3">
-                                            <label for="namaEntitas3" class="form-label">Nama</label>
-                                            <input type="text" class="form-control" id="namaEntitas3" name="namaEntitas3" style="border: 1px solid #313131;">
-                                        </div>
-                                        <div class="col-md-6 mt-3">
-                                            <label for="alamatEntitas3" class="form-label">Alamat</label>
-                                            <textarea class="form-control" id="alamatEntitas3" name="alamatEntitas3" style="border: 1px solid #313131;"></textarea>
+                                        <div class="container-fluid">
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="card">
+                                                        <header>
+                                                            <div class="right_content">
+                                                                <div class="col-lg-12 text-start mb-6">
+                                                                    <button type="button" class="btn btn-primary mb-3"
+                                                                    id="myBtn5"><span data-feather="plus"></span>Tambah Kemasan</button>
+                                                                    {{-- <button class="btn btn-primary mb-3" id="myBtn4">
+                                                                        <span data-feather="plus"></span>
+                                                                        Tambah
+                                                                    </button> --}}
+                                                                </div>
+                                                            </div>
+                                                        </header>
+                                                        <div class="card-body" id="tableContainer">
+                                                            <div class="table-responsive">
+                                                                <table class="table table-bordered" id="dataTable3">
+                                                                    <thead class="thead-light">
+                                                                        <tr>
+                                                                            <th style="margin-top: 19px;color:black;font-weight: bold;">Seri</th>
+                                                                            <th style="margin-top: 19px;color:black;font-weight: bold;">Jumlah</th>
+                                                                            <th style="margin-top: 19px;color:black;font-weight: bold;">Jenis</th>
+                                                                            <th style="margin-top: 19px;color:black;font-weight: bold;">Merk</th>
+                                                                            <th style="margin-top: 19px;color:black;font-weight: bold;">Action</th>
+                                                                        </tr>
+                                                                    </thead>
+                                                                    <tbody>
+                                                                        <!-- Isi tabel akan ditambahkan di sini -->
+                                                                    </tbody>
+                                                                </table>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                <!-- Modal -->
+                                                <div id="myModal5" class="modal" data-backdrop="static"
+                                                data-keyboard="false" style="display: none;">
+                                                <div class="modal-content">
+                                                    <span class="close">&times;</span>
+                                                    <form id="modalForm" action="{{ route('dokumen.create') }}" method="GET">
+                                                        <div class="modal-form">
+                                                            <label for="nama">Seri</label>
+                                                            <input type="text" class="form-control" id="kodeJenisTpb" name="kodeJenisTpb"
+                                                                value="{{ old('kodeJenisTpb') }}" >
+
+                                                            <label for="usaha">Jumlah</label>
+                                                            <input type="text" class="form-control" id="kodeDokumen" name="kodeDokumen"
+                                                                value="{{ old('kodeDokumen') }}">
+                                                                <div class="form-group">
+                                                                    <label for="alamat">Jenis Dokumen</label>
+                                                                    <select class="form-control" name="division_name" id="select-field5"
+                                                                        required style="border: 1px solid #313131;">
+                                                                        <option selected disabled>Pilih Jenis</option>
+                                                                        <option value="1A - DRUM, STEEL" {{ old('division_name') == '1' ? 'selected' : '' }}>
+                                                                            1A - DRUM, STEEL</option>
+                                                                        <option value="1B - DRUM, ALUMUNIUM" {{ old('division_name') == '2' ? 'selected' : '' }}>
+                                                                            1B - DRUM, ALUMUNIUM</option>
+                                                                        <option value="1D - DRUM, PLYWOOD" {{ old('division_name') == '2' ? 'selected' : '' }}>
+                                                                            1D - DRUM, PLYWOOD</option>
+                                                                        <option value="1F - CONTAINER, FLEXIBLE" {{ old('division_name') == '2' ? 'selected' : '' }}>
+                                                                            1F - CONTAINER, FLEXIBLE</option>
+                                                                        <option value="1G - DRUM, FIBRE" {{ old('division_name') == '2' ? 'selected' : '' }}>
+                                                                            1G - DRUM, FIBRE</option>
+                                                                        <option value="1W - DRUM, WOODEN" {{ old('division_name') == '2' ? 'selected' : '' }}>
+                                                                            1W - DRUM, WOODEN</option>
+                                                                        <option value="2C - BARREL, WOODEN" {{ old('division_name') == '2' ? 'selected' : '' }}>
+                                                                            2C - BARREL, WOODEN</option>
+                                                                        <option value=" 3A - JERICCAN, STELL" {{ old('division_name') == '2' ? 'selected' : '' }}>
+                                                                            3A - JERICCAN, STELL</option>
+                                                                    </select>
+                                                                </div>
+                                                                    <BR>
+                                                            <label for="usaha">Merk</label>
+                                                            <input type="text" class="form-control" id="kodeDokumen" name="kodeDokumen"
+                                                                value="{{ old('kodeDokumen') }}">
+                                                            <br>
+                                                            <!-- Tombol Simpan & Batal -->
+                                                            <div class="button-group">
+                                                                <button type="submit" class="btn-save">Simpan</button>
+                                                                <button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button>
+                                                            </div>
+                                                        </div>
+                                                    </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-
-                                <!-- Modal -->
-                                <div id="myModal2" class="modal" data-backdrop="static" data-keyboard="false" style="display: none;">
-                                    <div class="modal-content">
-                                        <center>
-                                            <h5 class="modal-title">Data Referensi Pengusaha</h5>
-                                        </center>
-                                        <span class="close">&times;</span>
-                                        <form class="modal-form">
-                                            <table id="dataTable2" class="display">
-                                                <thead>
-                                                    <tr>
-                                                        <th >NPWP</th>
-                                                        <th>Nama</th>
-                                                        <th>Alamat</th>
-                                                        <th>Negara</th>
-                                                        <th>Action</th>
-                                                    </tr>
-                                                </thead>
-                                                    <tbody>
-                                                        <tr data-npwp="010020766057000" data-nama="GOKAK INDONESIA" data-nitku="010020766057000000000" data-alamat="ATENG ILYAS KP MUHARA RT.002 RW.008 CITEUREUP CITEUREUP KAB. BOGOR INDONESIA ( PT. GOKAK INDONESIA )">
-                                                            <td>010020766057000</td>
-                                                            <td>GOKAK INDONESIA</td>
-                                                            <td>ATENG ILYAS KP MUHARA RT.002 RW.008 CITEUREUP CITEUREUP KAB. BOGOR INDONESIA ( PT. GOKAK INDONESIA )</td>
-                                                            <td>-</td>
-                                                            <td><button type="button" class="pilih-btn-2">Pilih</button></td>
-                                                        </tr>
-                                                        <tr data-npwp2="808248256041000" data-nama2="TARA PETINDO BERDIKARI" data-nitku2="808248256041000000000" data-alamat2="JALAN RAYA UJUNG BERUNG KM 12,6 RT. 002 RW. 006 CIPADUNG KULON PANYILEUKAN KOTA BANDUNG INDONESIA (PT. LONGDI SEJAHTERA INDONESIA)">
-                                                            <td>808248256041000</td>
-                                                            <td>TARA PETINDO BERDIKARI</td>
-                                                            <td>PERGUDANGAN LAKSANA BLOK RC. 21- RC.23 PAKUHAJI TANGERANG INDONESIA ( PT. BUANIKA SYAHPUTRA )</td>
-                                                             <td>-</td>
-                                                            <td><button type="button" class="pilih-btn-2">Pilih</button></td>
-                                                        </tr>
-                                                        </tr>
-                                                        <tr data-npwp3="020591459444000" data-nama3="SAMTEX" data-nitku3="010016806054000000000" data-alamat3="JL. RAYA CIJAPATI RT 02 RW. 06 KEL. CILULUK KEC. CIKANCUNG KAB. BANDUNG JAWA BARAT INDONESIA ( PT. SAMTEX )">
-                                                            <td>010016806054000</td>
-                                                            <td>SAMTEX</td>
-                                                            <td>JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101</td>
-                                                             <td>-</td>
-                                                            <td><button type="button" class="pilih-btn-2">Pilih</button></td>
-                                                        </tr>
-                                                        <tr data-npwp4="716100979451000" data-nama2="DUTA KARYA PERTIWI" data-nitku4="716100979451000000000" data-alamat4="JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101">
-                                                            <td>716100979451000</td>
-                                                            <td>DUTA KARYA PERTIWI</td>
-                                                            <td>JL. RAYA SERANG KM. 14,5 KP. LAMPORAN RT.002 RW.001 DUKUH CIKUPA KAB. TANGERANG BANTEN INDONESIA ( PT. DUTA KARYA PERTIWI )</td>
-                                                            <td>-</td>
-                                                            <td><button type="button" class="pilih-btn-2">Pilih</button></td>
-                                                        </tr>
-                                                        <tr data-npwp5="010016806054000" data-nama2="TARA PETINDO BERDIKARI" data-nitku5="010016806054000000000" data-alamat5="JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101">
-                                                            <td>010016806054000</td>
-                                                            <td>TARA PETINDO BERDIKARI</td>
-                                                            <td>JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101</td>
-                                                            <td>-</td>
-                                                            <td><button type="button" class="pilih-btn-2">Pilih</button></td>
-                                                        </tr>
-                                                    </tbody>
-                                                </table>
-                                            </form>
-                                        </div>
-                                    </div>
-
-                                        </div>
-                                    </div>
-
-
-                                    {{-- Dokumen --}}
-                                    <div class="tab-pane fade" id="dokumen" role="tabpanel" aria-labelledby="dokumen-tab">
-                                        <div class="row">
-
-
-
-                                    {{-- Pengangkut --}}
-                                    <div class="tab-pane fade" id="pengangkut" role="tabpanel" aria-labelledby="pengangkut-tab">
-                                    <div class="row">
-
-
-                                    </div>
-                                </div>
-                            </div>
+                                    {{-- Kemasan dan Peti Kemasan --}}
+                                                                        <div class="tab-pane fade" id="kemaspetikemas" role="tabpanel"
+                                                                        aria-labelledby="kemaspetikemas-tab">
+                                                                        <div class="row">
                         </form><!--end form-->
                     </div><!--end card-body-->
                 </div><!--end card-->
@@ -386,12 +768,12 @@
     </div><!-- container -->
     <!-- Bootstrap 5 -->
 
-        <script>
+    <script>
         $('#select-field1').select2({
             theme: 'bootstrap-5'
         });
     </script>
-        <script>
+    <script>
         $('#select-field2').select2({
             theme: 'bootstrap-5'
         });
@@ -401,144 +783,387 @@
             theme: 'bootstrap-5'
         });
     </script>
-<script>
-    function updateNomorEntitas() {
-        const nitkuValue = document.getElementById('nitku').value;
-        const nomorEntitasInput = document.getElementById('kodeJenisIdentitas');
-
-        // Jika panjang Nitku mencapai 14, set Nomor Entitas menjadi 13 karakter pertama dari Nitku
-        if (nitkuValue.length === 22) {
-            nomorEntitasInput.value = nitkuValue.slice(0, 16); // Hanya ambil 13 karakter pertama
-        }
-    }
-</script>
-
-<script>
-    function updateNomorEntitas2() {
-        const nitkuValue = document.getElementById('nitku2').value;
-        const nomorEntitasInput = document.getElementById('kodeJenisIdentitas2');
-
-        // Jika panjang Nitku mencapai 14, set Nomor Entitas menjadi 13 karakter pertama dari Nitku
-        if (nitkuValue.length === 22) {
-            nomorEntitasInput.value = nitkuValue.slice(0, 16); // Hanya ambil 13 karakter pertama
-        }
-    }
-</script>
-<script>
-    function updateNomorEntitas3() {
-        const nitkuValue = document.getElementById('nitku3').value;
-        const nomorEntitasInput = document.getElementById('kodeJenisIdentitas3');
-
-        // Jika panjang Nitku mencapai 14, set Nomor Entitas menjadi 13 karakter pertama dari Nitku
-        if (nitkuValue.length === 22) {
-            nomorEntitasInput.value = nitkuValue.slice(0, 16); // Hanya ambil 13 karakter pertama
-        }
-    }
-</script>
-
-<script>
-// Open Pemilik Barang Modal
-document.getElementById("myBtn").onclick = function() {
-    document.getElementById("myModal").style.display = "block";
-};
-
-// Open Penerima Barang Modal
-document.getElementById("myBtn2").onclick = function() {
-    document.getElementById("myModal2").style.display = "block";
-};
-
-// Close Modal
-document.getElementsByClassName("close")[0].onclick = function() {
-    document.getElementById("myModal").style.display = "none";
-};
-
-document.getElementsByClassName("close")[1].onclick = function() {
-    document.getElementById("myModal2").style.display = "none";
-};
-
-// Close modal when clicking outside
-window.onclick = function(event) {
-    if (event.target == document.getElementById("myModal")) {
-        document.getElementById("myModal").style.display = "none";
-    }
-    if (event.target == document.getElementById("myModal2")) {
-        document.getElementById("myModal2").style.display = "none";
-    }
-};
-
-</script>
-
-<script>
-// Fungsi untuk mengisi form dengan data yang dipilih
-function populateForm1(kodeJenisIdentitas2, namaEntitas2, alamatEntitas2, nitku2) {
-    document.getElementById('nitku2').value = nitku2;
-    document.getElementById('kodeJenisIdentitas2').value = kodeJenisIdentitas2;
-    document.getElementById('namaEntitas2').value = namaEntitas2;
-    document.getElementById('alamatEntitas2').value = alamatEntitas2;
-}
-
-// Menangani klik tombol Pilih pada setiap baris tabel
-document.querySelectorAll('.pilih-btn-1').forEach(button => {
-    button.addEventListener('click', function() {
-        // Mengambil data dari atribut 'data-'
-        const row = this.closest('tr');
-        const kodeJenisIdentitas2 = row.getAttribute('data-npwp') || row.getAttribute('data-npwp2') || row.getAttribute('data-npwp3') || row.getAttribute('data-npwp4') || row.getAttribute('data-npwp5') || row.getAttribute('data-npwp6') || row.getAttribute('data-npwp7') || row.getAttribute('data-npwp8') || row.getAttribute('data-npwp9') || row.getAttribute('data-npwp10') || row.getAttribute('data-npwp11') || row.getAttribute('data-npwp12');
-        const namaEntitas2 = row.getAttribute('data-nama') || row.getAttribute('data-nama2') || row.getAttribute('data-nama3') || row.getAttribute('data-nama4') || row.getAttribute('data-nama5') || row.getAttribute('data-nama6') || row.getAttribute('data-nama7') || row.getAttribute('data-nama8') || row.getAttribute('data-nama9') || row.getAttribute('data-nama10') || row.getAttribute('data-nama11') || row.getAttribute('data-nama12');
-        const alamatEntitas2 = row.getAttribute('data-alamat') || row.getAttribute('data-alamat2') || row.getAttribute('data-alamat3') || row.getAttribute('data-alamat4') || row.getAttribute('data-alamat5') || row.getAttribute('data-alamat6') || row.getAttribute('data-alamat7') || row.getAttribute('data-alamat8') || row.getAttribute('data-alamat9') || row.getAttribute('data-alamat10') || row.getAttribute('data-alamat11') || row.getAttribute('data-alamat12');
-        const nitku2 = row.getAttribute('data-nitku') || row.getAttribute('data-nitku2') || row.getAttribute('data-nitku3') || row.getAttribute('data-nitku4') || row.getAttribute('data-nitku5') || row.getAttribute('data-nitku6') || row.getAttribute('data-nitku7') || row.getAttribute('data-nitku8') || row.getAttribute('data-nitku9') || row.getAttribute('data-nitku10') || row.getAttribute('data-nitku11') || row.getAttribute('data-nitku12');
-
-        // Memanggil fungsi untuk mengisi form
-        populateForm1(kodeJenisIdentitas2, namaEntitas2, alamatEntitas2, nitku2);
-        document.getElementById("myModal").style.display = "none"; // Menutup modal setelah memilih
-    });
-});
-
-</script>
-
-
-<script>
-    // Fungsi untuk mengisi form dengan data yang dipilih
-    function populateForm2(kodeJenisIdentitas3, namaEntitas3, alamatEntitas3, nitku3) {
-        document.getElementById('nitku3').value = nitku3;
-        document.getElementById('kodeJenisIdentitas3').value = kodeJenisIdentitas3;
-        document.getElementById('namaEntitas3').value = namaEntitas3;
-        document.getElementById('alamatEntitas3').value = alamatEntitas3;
-    }
-
-    // Menangani klik tombol Pilih pada setiap baris tabel
-    document.querySelectorAll('.pilih-btn-2').forEach(button => {
-        button.addEventListener('click', function() {
-            // Mengambil data dari atribut 'data-'
-            const row = this.closest('tr');
-            const kodeJenisIdentitas3 = row.getAttribute('data-npwp') || row.getAttribute('data-npwp2') || row.getAttribute('data-npwp3') || row.getAttribute('data-npwp4') || row.getAttribute('data-npwp5');
-            const namaEntitas3 = row.getAttribute('data-nama') || row.getAttribute('data-nama2') || row.getAttribute('data-nama3') || row.getAttribute('data-nama4') || row.getAttribute('data-nama5');
-            const alamatEntitas3 = row.getAttribute('data-alamat') || row.getAttribute('data-alamat2') || row.getAttribute('data-alamat3') || row.getAttribute('data-alamat4') || row.getAttribute('data-alamat5');
-            const nitku3 = row.getAttribute('data-nitku') || row.getAttribute('data-nitku2') || row.getAttribute('data-nitku3') || row.getAttribute('data-nitku4') || row.getAttribute('data-nitku5');
-
-            // Memanggil fungsi untuk mengisi form
-            populateForm2(kodeJenisIdentitas3, namaEntitas3, alamatEntitas3, nitku3);
-            document.getElementById("myModal2").style.display = "none"; // Menutup modal setelah memilih
+    <script>
+        $('#select-field4').select2({
+            theme: 'bootstrap-5'
         });
-    });
+    </script>
+        <script>
+            $('#select-field5').select2({
+                theme: 'bootstrap-5'
+            });
+        </script>
+    <script>
+        function updateNomorEntitas() {
+            const nitkuValue = document.getElementById('nitku').value;
+            const nomorEntitasInput = document.getElementById('kodeJenisIdentitas');
 
+            // Jika panjang Nitku mencapai 14, set Nomor Entitas menjadi 13 karakter pertama dari Nitku
+            if (nitkuValue.length === 22) {
+                nomorEntitasInput.value = nitkuValue.slice(0, 16); // Hanya ambil 13 karakter pertama
+            }
+        }
+    </script>
+
+    <script>
+        function updateNomorEntitas2() {
+            const nitkuValue = document.getElementById('nitku2').value;
+            const nomorEntitasInput = document.getElementById('kodeJenisIdentitas2');
+
+            // Jika panjang Nitku mencapai 14, set Nomor Entitas menjadi 13 karakter pertama dari Nitku
+            if (nitkuValue.length === 22) {
+                nomorEntitasInput.value = nitkuValue.slice(0, 16); // Hanya ambil 13 karakter pertama
+            }
+        }
+    </script>
+    <script>
+        function updateNomorEntitas3() {
+            const nitkuValue = document.getElementById('nitku3').value;
+            const nomorEntitasInput = document.getElementById('kodeJenisIdentitas3');
+
+            // Jika panjang Nitku mencapai 14, set Nomor Entitas menjadi 13 karakter pertama dari Nitku
+            if (nitkuValue.length === 22) {
+                nomorEntitasInput.value = nitkuValue.slice(0, 16); // Hanya ambil 13 karakter pertama
+            }
+        }
+    </script>
+
+    <script>
+        // Open Pemilik Barang Modal
+        document.getElementById("myBtn").onclick = function() {
+            document.getElementById("myModal").style.display = "block";
+        };
+
+        // Open Penerima Barang Modal
+        document.getElementById("myBtn2").onclick = function() {
+            document.getElementById("myModal2").style.display = "block";
+        };
+
+        // Open Penerima Barang Modal
+        document.getElementById("myBtn4").onclick = function() {
+            document.getElementById("myModal4").style.display = "block";
+        };
+
+        // Open Penerima Barang Modal
+        document.getElementById("myBtn5").onclick = function() {
+            document.getElementById("myModal5").style.display = "block";
+        };
+        // Close Modal
+        document.getElementsByClassName("close")[0].onclick = function() {
+            document.getElementById("myModal").style.display = "none";
+        };
+
+        document.getElementsByClassName("close")[1].onclick = function() {
+            document.getElementById("myModal2").style.display = "none";
+        };
+        document.getElementsByClassName("close")[2].onclick = function() {
+            document.getElementById("myModal4").style.display = "none";
+        };
+
+        document.getElementsByClassName("close")[3].onclick = function() {
+            document.getElementById("myModal5").style.display = "none";
+        };
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            if (event.target == document.getElementById("myModal")) {
+                document.getElementById("myModal").style.display = "none";
+            }
+            if (event.target == document.getElementById("myModal2")) {
+                document.getElementById("myModal2").style.display = "none";
+            }
+            if (event.target == document.getElementById("myModal4")) {
+                document.getElementById("myModal4").style.display = "none";
+            }
+            if (event.target == document.getElementById("myModal5")) {
+                document.getElementById("myModal5").style.display = "none";
+            }
+        };
     </script>
 
 
-<style>
-    body { font-family: Arial, Helvetica, sans-serif; }
 
-   .modal {
-        display: none; /* Hidden by default */
-        position: fixed; /* Stay in place */
-        z-index: 1; /* Sit on top */
+    <script>
+        // Fungsi untuk mengisi form dengan data yang dipilih
+        function populateForm1(kodeJenisIdentitas2, namaEntitas2, alamatEntitas2, nitku2) {
+            document.getElementById('nitku2').value = nitku2;
+            document.getElementById('kodeJenisIdentitas2').value = kodeJenisIdentitas2;
+            document.getElementById('namaEntitas2').value = namaEntitas2;
+            document.getElementById('alamatEntitas2').value = alamatEntitas2;
+        }
+
+        // Menangani klik tombol Pilih pada setiap baris tabel
+        document.querySelectorAll('.pilih-btn-1').forEach(button => {
+            button.addEventListener('click', function() {
+                // Mengambil data dari atribut 'data-'
+                const row = this.closest('tr');
+                const kodeJenisIdentitas2 = row.getAttribute('data-npwp') || row.getAttribute(
+                    'data-npwp2') || row.getAttribute('data-npwp3') || row.getAttribute('data-npwp4') || row
+                    .getAttribute('data-npwp5') || row.getAttribute('data-npwp6') || row.getAttribute(
+                        'data-npwp7') || row.getAttribute('data-npwp8') || row.getAttribute('data-npwp9') ||
+                    row.getAttribute('data-npwp10') || row.getAttribute('data-npwp11') || row.getAttribute(
+                        'data-npwp12');
+                const namaEntitas2 = row.getAttribute('data-nama') || row.getAttribute('data-nama2') || row
+                    .getAttribute('data-nama3') || row.getAttribute('data-nama4') || row.getAttribute(
+                        'data-nama5') || row.getAttribute('data-nama6') || row.getAttribute('data-nama7') ||
+                    row.getAttribute('data-nama8') || row.getAttribute('data-nama9') || row.getAttribute(
+                        'data-nama10') || row.getAttribute('data-nama11') || row.getAttribute(
+                    'data-nama12');
+                const alamatEntitas2 = row.getAttribute('data-alamat') || row.getAttribute(
+                    'data-alamat2') || row.getAttribute('data-alamat3') || row.getAttribute(
+                    'data-alamat4') || row.getAttribute('data-alamat5') || row.getAttribute(
+                    'data-alamat6') || row.getAttribute('data-alamat7') || row.getAttribute(
+                    'data-alamat8') || row.getAttribute('data-alamat9') || row.getAttribute(
+                    'data-alamat10') || row.getAttribute('data-alamat11') || row.getAttribute(
+                        'data-alamat12');
+                const nitku2 = row.getAttribute('data-nitku') || row.getAttribute('data-nitku2') || row
+                    .getAttribute('data-nitku3') || row.getAttribute('data-nitku4') || row.getAttribute(
+                        'data-nitku5') || row.getAttribute('data-nitku6') || row.getAttribute(
+                    'data-nitku7') || row.getAttribute('data-nitku8') || row.getAttribute('data-nitku9') ||
+                    row.getAttribute('data-nitku10') || row.getAttribute('data-nitku11') || row
+                    .getAttribute('data-nitku12');
+
+                // Memanggil fungsi untuk mengisi form
+                populateForm1(kodeJenisIdentitas2, namaEntitas2, alamatEntitas2, nitku2);
+                document.getElementById("myModal").style.display = "none"; // Menutup modal setelah memilih
+            });
+        });
+    </script>
+
+
+    <script>
+        // Fungsi untuk mengisi form dengan data yang dipilih
+        function populateForm2(kodeJenisIdentitas3, namaEntitas3, alamatEntitas3, nitku3) {
+            document.getElementById('nitku3').value = nitku3;
+            document.getElementById('kodeJenisIdentitas3').value = kodeJenisIdentitas3;
+            document.getElementById('namaEntitas3').value = namaEntitas3;
+            document.getElementById('alamatEntitas3').value = alamatEntitas3;
+        }
+
+        // Menangani klik tombol Pilih pada setiap baris tabel
+        document.querySelectorAll('.pilih-btn-2').forEach(button => {
+            button.addEventListener('click', function() {
+                // Mengambil data dari atribut 'data-'
+                const row = this.closest('tr');
+                const kodeJenisIdentitas3 = row.getAttribute('data-npwp') || row.getAttribute(
+                    'data-npwp2') || row.getAttribute('data-npwp3') || row.getAttribute('data-npwp4') || row
+                    .getAttribute('data-npwp5');
+                const namaEntitas3 = row.getAttribute('data-nama') || row.getAttribute('data-nama2') || row
+                    .getAttribute('data-nama3') || row.getAttribute('data-nama4') || row.getAttribute(
+                        'data-nama5');
+                const alamatEntitas3 = row.getAttribute('data-alamat') || row.getAttribute(
+                    'data-alamat2') || row.getAttribute('data-alamat3') || row.getAttribute(
+                    'data-alamat4') || row.getAttribute('data-alamat5');
+                const nitku3 = row.getAttribute('data-nitku') || row.getAttribute('data-nitku2') || row
+                    .getAttribute('data-nitku3') || row.getAttribute('data-nitku4') || row.getAttribute(
+                        'data-nitku5');
+
+                // Memanggil fungsi untuk mengisi form
+                populateForm2(kodeJenisIdentitas3, namaEntitas3, alamatEntitas3, nitku3);
+                document.getElementById("myModal2").style.display = "none"; // Menutup modal setelah memilih
+            });
+        });
+    </script>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .modal {
+            display: none;
+            /* Hidden by default */
+            position: fixed;
+            /* Stay in place */
+            z-index: 1;
+            /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%;
+            /* Full width */
+            height: 100%;
+            /* Full height */
+            overflow: auto;
+            /* Enable scroll if needed */
+            background-color: rgb(0, 0, 0);
+            /* Fallback color */
+            background-color: rgba(0, 0, 0, 0.4);
+            /* Black w/ opacity */
+            padding-top: 100px;
+            /* Adjust for centering */
+        }
+
+        /* Modal Content */
+        .modal-content {
+            background-color: #fefefe;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            /* Adjust width */
+            max-width: 800px;
+            /* Maximum width */
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+        }
+
+        /* The Close Button */
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Modal form styling */
+        .modal-form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .modal-form input {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            /* Rounded corners for inputs */
+        }
+
+        .modal-form button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            /* Rounded corners */
+        }
+
+        .modal-form button:hover {
+            background-color: #45a049;
+        }
+
+        /* Table styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 8px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .button-wrapper {
+            display: flex;
+            justify-content: center;
+            /* Posisikan tombol di tengah secara horizontal */
+            align-items: center;
+            /* Posisikan tombol di tengah secara vertikal */
+            height: 100vh;
+            /* Pastikan elemen pembungkus memiliki tinggi penuh layar */
+        }
+
+        button[type="button"] {
+            padding: 5px 10px;
+            background-color: #0abef0;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        button[type="button"]:hover {
+            background-color: #0abef0;
+        }
+    </style>
+
+
+    <!-- Tambahkan sebelum penutupan tag </body> -->
+    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js">
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            $('#dataTable').DataTable({
+                "pageLength": 8 // Menetapkan jumlah data per halaman menjadi 5
+            });
+        });
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            $('#dataTable1, #dataTable2, #dataTable3').DataTable();
+        });
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+
+    <script>
+        // Retrieve the Nomor Pengajuan value from localStorage
+        const storedNomorAju = localStorage.getItem('nomorAju');
+
+        if (storedNomorAju) {
+            // If a value is found in localStorage, set it as the input's value
+            document.getElementById('nomorAju').value = storedNomorAju;
+        } else {
+            // If no value is found, set a default value (optional)
+            const defaultNomorAju = 'default-value'; // You can adjust this default value as needed
+            document.getElementById('nomorAju').value = defaultNomorAju;
+            localStorage.setItem('nomorAju', defaultNomorAju); // Save default value to localStorage
+        }
+
+        // Save the value to localStorage whenever the input field is modified
+        document.getElementById('nomorAju').addEventListener('input', function() {
+            const currentValue = this.value;
+            localStorage.setItem('nomorAju', currentValue);
+        });
+    </script>
+
+
+
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .modal {
+        display: none;
+        /* Hidden by default */
+        position: fixed;
+        /* Stay in place */
+        z-index: 200;
+        /* Sit on top */
         left: 0;
         top: 0;
-        width: 100%; /* Full width */
-        height: 100%; /* Full height */
-        overflow: auto; /* Enable scroll if needed */
-        background-color: rgb(0, 0, 0); /* Fallback color */
-        background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
-        padding-top: 100px; /* Adjust for centering */
+        width: 100%;
+        /* Full width */
+        height: 100%;
+        /* Full height */
+        overflow: auto;
+        /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0);
+        /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4);
+        /* Black w/ opacity */
+        padding-top: 100px;
+        /* Adjust for centering */
     }
 
     /* Modal Content */
@@ -547,8 +1172,10 @@ document.querySelectorAll('.pilih-btn-1').forEach(button => {
         margin: auto;
         padding: 20px;
         border: 1px solid #888;
-        width: 80%; /* Adjust width */
-        max-width: 800px; /* Maximum width */
+        width: 80%;
+        /* Adjust width */
+        max-width: 800px;
+        /* Maximum width */
         box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
         border-radius: 8px;
     }
@@ -578,82 +1205,75 @@ document.querySelectorAll('.pilih-btn-1').forEach(button => {
         margin: 10px 0;
         padding: 10px;
         border: 1px solid #ccc;
-        border-radius: 4px; /* Rounded corners for inputs */
+        border-radius: 4px;
+        /* Rounded corners for inputs */
     }
 
-    .modal-form button {
+    /* Gaya tombol (untuk tombol dengan warna biru) */
+    .modal-form button.btn-save {
         padding: 10px;
-        background-color: #4CAF50;
+        background-color: #007bff;
+        /* Biru */
         color: white;
         border: none;
         cursor: pointer;
-        border-radius: 4px; /* Rounded corners */
+        border-radius: 4px;
+        /* Sudut membulat */
     }
 
-    .modal-form button:hover {
-        background-color: #45a049;
+    .modal-form button.btn-save:hover {
+        background-color: #0056b3;
+        /* Biru lebih gelap saat hover */
     }
 
-    /* Table styling */
-    table {
-        width: 100%;
-        border-collapse: collapse;
+    /* Gaya tombol (untuk tombol dengan warna merah) */
+    .modal-form button.btn-cancel {
+        padding: 10px;
+        background-color: #dc3545;
+        /* Merah */
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 4px;
+        /* Sudut membulat */
     }
 
-    th, td {
-        padding: 8px;
-        text-align: left;
-        border: 1px solid #ddd;
+    .modal-form button.btn-cancel:hover {
+        background-color: #c82333;
+        /* Merah lebih gelap saat hover */
     }
 
-    th {
-        background-color: #f2f2f2;
+    /* Styling untuk tombol button di dalam button-wrapper */
+    .button-wrapper button[type="button"] {
+        padding: 5px 10px;
+        background-color: #007bff;
+        /* Biru default */
+        color: white;
+        border: none;
+        cursor: pointer;
+        border-radius: 4px;
     }
 
-.button-wrapper {
-    display: flex;
-    justify-content: center; /* Posisikan tombol di tengah secara horizontal */
-    align-items: center;     /* Posisikan tombol di tengah secara vertikal */
-    height: 100vh;           /* Pastikan elemen pembungkus memiliki tinggi penuh layar */
-}
-
-button[type="button"] {
-    padding: 5px 10px;
-    background-color: #0abef0;
-    color: white;
-    border: none;
-    cursor: pointer;
-    border-radius: 4px;
-}
-
-    button[type="button"]:hover {
-        background-color: #0abef0;
+    .button-wrapper button[type="button"]:hover {
+        background-color: #0056b3;
+        /* Biru lebih gelap saat hover */
     }
 
+    /* Menambahkan tombol Cancel dengan warna merah */
+    .button-wrapper .btn-cancel {
+        background-color: #dc3545;
+        /* Merah */
+    }
 
+    .button-wrapper .btn-cancel:hover {
+        background-color: #c82333;
+        /* Merah lebih gelap saat hover */
+    }
+
+    label {
+        display: block;
+        margin-bottom: 8px;
+        /* Sesuaikan nilai ini sesuai kebutuhan */
+    }
 </style>
-
-
-
-<!-- Tambahkan sebelum penutupan tag </body> -->
-<script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
-
-<script>
-$(document).ready(function() {
-    $('#dataTable').DataTable({
-        "pageLength": 8 // Menetapkan jumlah data per halaman menjadi 5
-    });
-});
-</script>
-
-<script>
-    $(document).ready(function() {
-        $('#dataTable1, #dataTable2').DataTable();
-    });
-</script>
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
 @endsection
