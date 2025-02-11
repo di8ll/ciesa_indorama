@@ -66,8 +66,18 @@
                                     </li>
                                     <li class="nav-item" role="presentation">
                                         <button class="nav-link" id="barang-tab" data-bs-toggle="tab"
-                                            data-bs-target="#barang" type="button" role="tab"
-                                            aria-controls="barang" aria-selected="false">Barang</button>
+                                            data-bs-target="#barang" type="button" role="tab" aria-controls="barang"
+                                            aria-selected="false">Barang</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="pungutan-tab" data-bs-toggle="tab"
+                                            data-bs-target="#pungutan" type="button" role="tab"
+                                            aria-controls="pungutan" aria-selected="false">Pungutan</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="pernyataan-tab" data-bs-toggle="tab"
+                                            data-bs-target="#pernyataan" type="button" role="tab"
+                                            aria-controls="pernyataan" aria-selected="false">Pernyataan</button>
                                     </li>
                                 </ul>
                                 <br>
@@ -87,8 +97,8 @@
                                         </div> --}}
                                             <div class="col-md-4 ">
                                                 <label for="nomorAju" class="form-label">Nomor Pengajuan</label>
-                                                <input type="text" class="form-control" id="nomorAju" name="nomorAju"
-                                                    value="{{ old('nomorAju') }}" readonly
+                                                <input type="text" class="form-control" id="nomorAju"
+                                                    name="nomorAju" value="{{ old('nomorAju') }}" readonly
                                                     style="border: 1px solid #313131;">
                                             </div>
                                             <div class="col-md-4 ">
@@ -1016,25 +1026,36 @@
                                                     <div class="col-md-6">
                                                         <label for="Valuta" class="form-label">Valuta</label>
                                                         <input type="text" class="form-control" id="nomorIdentitas"
-                                                        value="{{ old('nilai_cif', 'USD - US DOLLAR') }}" readonly
+                                                            value="{{ old('nilai_cif', 'USD - US DOLLAR') }}" readonly
                                                             style="border: 1px solid #313131;">
                                                     </div>
                                                     <div class="col-md-6">
                                                         <label for="ndpbm" class="form-label">NDPBM</label>
-                                                        <input type="number" class="form-control" id="ndpbm" name="ndpbm" value="{{ old('ndpbm') }}" style="border: 1px solid #313131;" oninput="hitungNilaiPabean()">
+                                                        <input type="number" class="form-control" id="ndpbm"
+                                                            name="ndpbm" value="{{ old('ndpbm') }}"
+                                                            style="border: 1px solid #313131;"
+                                                            oninput="hitungNilaiPabean()">
                                                     </div>
                                                     <div class="col-md-6 mt-3">
                                                         <label for="cif" class="form-label">CIF</label>
-                                                        <input type="text" class="form-control" id="cif" name="cif" value="{{ old('cif') }}" style="border: 1px solid #313131;" oninput="hitungNilaiPabean()">
+                                                        <input type="text" class="form-control" id="cif"
+                                                            name="cif" value="{{ old('cif') }}"
+                                                            style="border: 1px solid #313131;"
+                                                            oninput="hitungNilaiPabean()">
                                                     </div>
                                                     <div class="col-md-6 mt-3">
                                                         <label for="nilai_pabean" class="form-label">Nilai Pabean</label>
-                                                        <input type="text" class="form-control" id="nilai_pabean" name="nilai_pabean" readonly style="border: 1px solid #313131;">
+                                                        <input type="text" class="form-control" id="nilai_pabean"
+                                                            name="nilai_pabean" readonly
+                                                            style="border: 1px solid #313131;">
                                                     </div>
 
                                                     <div class="col-md-6 mt-3">
-                                                        <label for="harga_penyerahan" class="form-label">Harga Penyerahan/Harga Jual/Harga Barang</label>
-                                                        <input type="text" class="form-control" id="harga_penyerahan" name="harga_penyerahan" value="{{ old('harga_penyerahan') }}"  style="border: 1px solid #313131;">
+                                                        <label for="harga_penyerahan" class="form-label">Harga
+                                                            Penyerahan/Harga Jual/Harga Barang</label>
+                                                        <input type="text" class="form-control" id="harga_penyerahan"
+                                                            name="harga_penyerahan" value="{{ old('harga_penyerahan') }}"
+                                                            style="border: 1px solid #313131;">
                                                     </div>
                                                 </div>
                                             </div>
@@ -1042,50 +1063,68 @@
                                             <!-- Data Untuk Keperluan Pajak -->
                                             <div class="row mb-4 p-3 border rounded shadow-sm bg-light">
                                                 <div class="d-flex justify-content-between align-items-center">
-                                                    <h5 class="text-primary" id="exampleModalCenterTitle">Data Untuk Keperluan Pajak
+                                                    <h5 class="text-primary" id="exampleModalCenterTitle">Data Untuk
+                                                        Keperluan Pajak
                                                     </h5>
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-6">
                                                         <label for="nomorIdentitas" class="form-label">Uang Muka</label>
-                                                        <input type="text" class="form-control" id="uang_maku" name="uang_maku" value="{{ old('uang_maku','0.00') }}"
+                                                        <input type="text" class="form-control" id="uang_maku"
+                                                            name="uang_maku" value="{{ old('uang_maku', '0.00') }}"
                                                             style="border: 1px solid #313131;">
                                                     </div>
                                                     <div class="col-md-6">
                                                         <label for="nomorNpwp" class="form-label">Diskon</label>
-                                                        <input type="text" class="form-control" id="diskon" name="diskon" value="{{ old('diskon','0.00') }}"
+                                                        <input type="text" class="form-control" id="diskon"
+                                                            name="diskon" value="{{ old('diskon', '0.00') }}"
                                                             style="border: 1px solid #313131;">
                                                     </div>
                                                     <div class="col-md-12 mt-3">
-                                                        <label for="pengenaan_pajak" class="form-label">Dasar Pengenaan Pajak</label>
-                                                        <input type="text" class="form-control" id="pengenaan_pajak" name="pengenaan_pajak"  style="border: 1px solid #313131;" oninput="hitungPPNBM(); hitungPPN();">
+                                                        <label for="pengenaan_pajak" class="form-label">Dasar Pengenaan
+                                                            Pajak</label>
+                                                        <input type="text" class="form-control" id="pengenaan_pajak"
+                                                            name="pengenaan_pajak" style="border: 1px solid #313131;"
+                                                            oninput="hitungPPNBM(); hitungPPN();">
                                                     </div>
                                                     <div class="col-md-6 mt-3">
-                                                        <label for="namaEntitas2" class="form-label">PPN Yang Dipungut (Tarif & Nilai)</label>
+                                                        <label for="namaEntitas2" class="form-label">PPN Yang Dipungut
+                                                            (Tarif & Nilai)</label>
                                                         <div class="row">
                                                             <div class="col-md-4">
-                                                                <input type="text" class="form-control" id="ppn_tarif" name="ppn_tarif" value="11.00%" style="border: 1px solid #313131;" oninput="hitungPPN()">
+                                                                <input type="text" class="form-control" id="ppn_tarif"
+                                                                    name="ppn_tarif" value="11.00%"
+                                                                    style="border: 1px solid #313131;"
+                                                                    oninput="hitungPPN()">
                                                             </div>
 
                                                             <div class="col-md-8">
-                                                                <input type="text" class="form-control" id="ppn_hasil" name="ppn_hasil" readonly style="border: 1px solid #313131;">
+                                                                <input type="text" class="form-control" id="ppn_hasil"
+                                                                    name="ppn_hasil" readonly
+                                                                    style="border: 1px solid #313131;">
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-6 mt-3">
-                                                    <label for="namaEntitas3" class="form-label">PPnBM Yang Dipungut (Tarif & Nilai)</label>
-                                                    <div class="row">
-                                                        <div class="col-md-4">
-                                                            <input type="text" class="form-control" id="ppnb_tarif" name="ppnb_tarif" value="00.00%" style="border: 1px solid #313131;" oninput="hitungPPNBM()">
-                                                        </div>
+                                                        <label for="namaEntitas3" class="form-label">PPnBM Yang Dipungut
+                                                            (Tarif & Nilai)</label>
+                                                        <div class="row">
+                                                            <div class="col-md-4">
+                                                                <input type="text" class="form-control"
+                                                                    id="ppnb_tarif" name="ppnb_tarif" value="00.00%"
+                                                                    style="border: 1px solid #313131;"
+                                                                    oninput="hitungPPNBM()">
+                                                            </div>
 
-                                                        <div class="col-md-8">
-                                                            <input type="text" class="form-control" id="ppnb_hasil" name="ppnb_hasil" readonly style="border: 1px solid #313131;">
+                                                            <div class="col-md-8">
+                                                                <input type="text" class="form-control"
+                                                                    id="ppnb_hasil" name="ppnb_hasil" readonly
+                                                                    style="border: 1px solid #313131;">
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
 
                                             <!-- Berat -->
                                             <div class="row mb-4 p-3 border rounded shadow-sm bg-light">
@@ -1095,104 +1134,108 @@
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-6">
-                                                        <label for="nomorIdentitas" class="form-label">Berat Kotor (KGM)</label>
-                                                        <input type="text" class="form-control" id="berat_kotor" name="berat_kotor" value="{{ old('berat_kotor') }}"
+                                                        <label for="nomorIdentitas" class="form-label">Berat Kotor
+                                                            (KGM)</label>
+                                                        <input type="text" class="form-control" id="berat_kotor"
+                                                            name="berat_kotor" value="{{ old('berat_kotor') }}"
                                                             style="border: 1px solid #313131;">
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <label for="nomorNpwp" class="form-label">Berat Bersih (KGM)</label>
-                                                        <input type="text" class="form-control" id="berat_bersih" name="berat_bersih" value="{{ old('berat_bersih') }}"
+                                                        <label for="nomorNpwp" class="form-label">Berat Bersih
+                                                            (KGM)</label>
+                                                        <input type="text" class="form-control" id="berat_bersih"
+                                                            name="berat_bersih" value="{{ old('berat_bersih') }}"
                                                             style="border: 1px solid #313131;">
-                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
+                                    </div>
 
                                     {{-- Barang --}}
                                     <div class="tab-pane fade" id="barang" role="tabpanel"
                                         aria-labelledby="barang-tab">
-                                        <div class="container">
-                                            <div class="row">
-                                                <div class="container-fluid">
-                                                    <div class="row">
-                                                        <div class="col-12">
-                                                            <div class="card">
-                                                                <header>
-                                                                    <div class="right_content">
-                                                                        <div class="col-lg-12 text-start mb-6">
-                                                                            <button type="button"
-                                                                                class="btn btn-primary mb-3"
-                                                                                id="myBtn7"><span
-                                                                                    data-feather="plus"></span>Tambah
-                                                                                Barang</button>
-                                                                            {{-- <button class="btn btn-primary mb-3" id="myBtn4">
-                                                                            <span data-feather="plus"></span>
-                                                                            Tambah
-                                                                        </button> --}}
-                                                                        </div>
-                                                                    </div>
-                                                                </header>
-                                                                <div class="card-body" id="tableContainer">
-                                                                    <div class="table-responsive">
-                                                                        <table class="table table-bordered" id="dataTable3">
-                                                                            <thead class="thead-light">
-                                                                                <tr>
-                                                                                    <th
-                                                                                        style="margin-top: 19px;color:black;font-weight: bold;">
-                                                                                        Seri</th>
-                                                                                    <th
-                                                                                        style="margin-top: 19px;color:black;font-weight: bold;">
-                                                                                        HS</th>
-                                                                                    <th
-                                                                                        style="margin-top: 19px;color:black;font-weight: bold;">
-                                                                                        Uraian</th>
-                                                                                    <th
-                                                                                        style="margin-top: 19px;color:black;font-weight: bold;">
-                                                                                        Nilai Barang</th>
-                                                                                    <th
-                                                                                        style="margin-top: 19px;color:black;font-weight: bold;">
-                                                                                        Jumlah Satuan</th>
-                                                                                                                                                                            <th
-                                                                                        style="margin-top: 19px;color:black;font-weight: bold;">
-                                                                                        Jenis Satuan</th>
-                                                                                    <th
-                                                                                        style="margin-top: 19px;color:black;font-weight: bold;">
-                                                                                        Action</th>
-                                                                                </tr>
-                                                                            </thead>
-                                                                            <tbody>
-                                                                                <!-- Isi tabel akan ditambahkan di sini -->
-                                                                            </tbody>
-                                                                        </table>
+                                        <div class="row">
+                                            <div class="container-fluid">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="card">
+                                                            <header>
+                                                                <div class="right_content">
+                                                                    <div class="col-lg-12 text-start mb-6">
+                                                                        <button type="button"
+                                                                            class="btn btn-primary mb-3"
+                                                                            id="myBtn7"><span
+                                                                                data-feather="plus"></span>Tambah
+                                                                            Barang</button>
                                                                     </div>
                                                                 </div>
+                                                            </header>
+                                                            <div class="card-body" id="tableContainer">
+                                                                <div class="table-responsive">
+                                                                    <table class="table table-bordered" id="dataTable3">
+                                                                        <thead class="thead-light">
+                                                                            <tr>
+                                                                                <th
+                                                                                    class="text-dark font-weight-bold text-center">
+                                                                                    Seri</th>
+                                                                                <th
+                                                                                    class="text-dark font-weight-bold text-center">
+                                                                                    Hs</th>
+                                                                                <th
+                                                                                    class="text-dark font-weight-bold text-center">
+                                                                                    Uraian</th>
+                                                                                <th
+                                                                                    class="text-dark font-weight-bold text-center">
+                                                                                    Nilai Barang</th>
+                                                                                <th
+                                                                                    class="text-dark font-weight-bold text-center">
+                                                                                    Jumlah Satuan</th>
+                                                                                <th
+                                                                                    class="text-dark font-weight-bold text-center">
+                                                                                    Jenis Satuan</th>
+                                                                                <th
+                                                                                    class="text-dark font-weight-bold text-center">
+                                                                                    Action</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody>
+                                                                            <!-- Isi tabel akan ditambahkan di sini -->
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
                                                             </div>
+                                                        </div>
 
-                                                            <!-- Modal -->
-                                                            <div id="myModal7" class="modal" data-backdrop="static"
-                                                                data-keyboard="false" style="display: none;">
-                                                                <div class="modal-content">
-                                                                    <span class="close">&times;</span>
-                                                                    <form id="modalForm"
-                                                                        action="{{ route('dokumen.create') }}"
-                                                                        method="GET">
-                                                                        <div class="modal-form">
-                                                                            <h5 class="text-primary" id="exampleModalCenterTitle">Jenis
-                                                                            </h5>
-                                                                            <div class="row">
+                                                        <!-- Modal -->
+                                                        <div id="myModal7" class="modal" data-backdrop="static"
+                                                            data-keyboard="false" style="display: none;">
+                                                            <div class="modal-content">
+                                                                <span class="close">&times;</span>
+                                                                <form id="modalForm"
+                                                                    action="{{ route('dokumen.create') }}"
+                                                                    method="GET">
+                                                                    <div class="modal-form">
+                                                                        <h5 class="text-primary"
+                                                                            id="exampleModalCenterTitle">Jenis
+                                                                        </h5>
+                                                                        <div class="row">
                                                                             <div class="col-md-4">
-                                                                                <label for="nomorIdentitas" class="form-label">Seri</label>
-                                                                                <input type="text" class="form-control" id="seriDokumen4" name="seriDokumen4" value="{{ old('uang_maku','0.00') }}">
+                                                                                <label for="nomorIdentitas"
+                                                                                    class="form-label">Seri</label>
+                                                                                <input type="text" class="form-control"
+                                                                                    id="seriDokumen4" name="seriDokumen4"
+                                                                                    value="{{ old('uang_maku', '0.00') }}">
                                                                             </div>
                                                                             <div class="col-md-4">
-                                                                                <label for="alamat">HS</label>
+                                                                                <label for="nomorIdentitas"
+                                                                                    class="form-label">Hs</label>
                                                                                 <select class="form-control"
                                                                                     name="hs" id="select-field8"
                                                                                     required
                                                                                     style="border: 1px solid #313131;">
                                                                                     <option selected disabled>Pilih
-                                                                                        HS</option>
+                                                                                        Hs</option>
                                                                                     <option value="01012100 --- BIBIT"
                                                                                         {{ old('hs') == '1' ? 'selected' : '' }}>
                                                                                         01012100 --- BIBIT</option>
@@ -1206,123 +1249,315 @@
                                                                                     <option value="01013090 --- BIBIT"
                                                                                         {{ old('hs') == '4' ? 'selected' : '' }}>
                                                                                         01013090 --- BIBIT</option>
-                                                                                    <option value="01019000 --- LAIN - LAIN"
+                                                                                    <option
+                                                                                        value="01019000 --- LAIN - LAIN"
                                                                                         {{ old('hs') == '5' ? 'selected' : '' }}>
                                                                                         01019000 --- LAIN - LAIN</option>
                                                                                     <option value="01022100 --- BIBIT"
                                                                                         {{ old('hs') == '6' ? 'selected' : '' }}>
                                                                                         01022100 --- BIBIT</option>
-                                                                                    <option value="01022910 --- SAPI JANTAN"
+                                                                                    <option
+                                                                                        value="01022910 --- SAPI JANTAN"
                                                                                         {{ old('hs') == '6' ? 'selected' : '' }}>
                                                                                         01022910 --- SAPI JANTAN</option>
                                                                                     <option value="01022911 --- OXEN"
                                                                                         {{ old('hs') == '6' ? 'selected' : '' }}>
                                                                                         01022911 --- OXEN</option>
-                                                                                    <option value="01022919 --- LAIN - LAIN"
+                                                                                    <option
+                                                                                        value="01022919 --- LAIN - LAIN"
                                                                                         {{ old('hs') == '6' ? 'selected' : '' }}>
                                                                                         01022919 --- LAIN - LAIN</option>
 
                                                                                 </select>
                                                                             </div>
                                                                             <div class="col-md-4">
-                                                                                <label for="nomorNpwp" class="form-label">Kode</label>
-                                                                                <input type="text" class="form-control" id="kode" name="kode" value="{{ old('kode') }}">
+                                                                                <label for="nomorNpwp"
+                                                                                    class="form-label">Kode</label>
+                                                                                <input type="text" class="form-control"
+                                                                                    id="kode" name="kode"
+                                                                                    value="{{ old('kode') }}">
                                                                             </div>
                                                                             <div class="col-md-4">
-                                                                                <label for="nomorNpwp" class="form-label">Uraian</label>
-                                                                                <input type="text" class="form-control" id="uraian" name="uraian" value="{{ old('uraian') }}">
+                                                                                <label for="nomorNpwp"
+                                                                                    class="form-label">Uraian</label>
+                                                                                <input type="text" class="form-control"
+                                                                                    id="uraian" name="uraian"
+                                                                                    value="{{ old('uraian') }}">
                                                                             </div>
                                                                             <div class="col-md-4">
-                                                                                <label for="nomorNpwp" class="form-label">Merk</label>
-                                                                                <input type="text" class="form-control" id="merk" name="merk" value="{{ old('merk') }}">
+                                                                                <label for="nomorNpwp"
+                                                                                    class="form-label">Merk</label>
+                                                                                <input type="text" class="form-control"
+                                                                                    id="merk" name="merk"
+                                                                                    value="{{ old('merk') }}">
                                                                             </div>
                                                                             <div class="col-md-4">
-                                                                                <label for="nomorNpwp" class="form-label">Tipe</label>
-                                                                                <input type="text" class="form-control" id="tipe" name="tipe" value="{{ old('tipe') }}">
+                                                                                <label for="nomorNpwp"
+                                                                                    class="form-label">Tipe</label>
+                                                                                <input type="text" class="form-control"
+                                                                                    id="tipe" name="tipe"
+                                                                                    value="{{ old('tipe') }}">
                                                                             </div>
                                                                             <div class="col-md-6">
-                                                                                <label for="nomorNpwp" class="form-label">Ukuran</label>
-                                                                                <input type="text" class="form-control" id="merk" name="merk" value="{{ old('merk') }}">
+                                                                                <label for="nomorNpwp"
+                                                                                    class="form-label">Ukuran</label>
+                                                                                <input type="text" class="form-control"
+                                                                                    id="merk" name="merk"
+                                                                                    value="{{ old('merk') }}">
                                                                             </div>
-                                                                            <div class="col-md-6">
-                                                                                <label for="nomorNpwp" class="form-label">Spesifikasi Lain</label>
-                                                                                <input type="text" class="form-control" id="tipe" name="tipe" value="{{ old('tipe') }}">
+                                                                            <div class="col-md-6 mb-3">
+                                                                                <label for="nomorNpwp"
+                                                                                    class="form-label">Spesifikasi
+                                                                                    Lain</label>
+                                                                                <input type="text" class="form-control"
+                                                                                    id="tipe" name="tipe"
+                                                                                    value="{{ old('tipe') }}">
                                                                             </div>
 
-                                                                            <h5 class="text-primary" id="exampleModalCenterTitle">Jenis
+                                                                            <h5 class="text-primary"
+                                                                                id="exampleModalCenterTitle">Keterangan
+                                                                                Lainnya
                                                                             </h5>
                                                                             <div class="row">
-                                                                            <div class="col-md-4">
-                                                                                <label for="alamat">Penggunaan</label>
-                                                                                <select class="form-control"
-                                                                                    name="hs" id="select-field9"
-                                                                                    required
-                                                                                    style="border: 1px solid #313131;">
-                                                                                    <option selected disabled>Pilih
-                                                                                        Penggunaan</option>
-                                                                                    <option value="0 - BARANG BERHUBUNGAN LANGSUNG"
-                                                                                        {{ old('Penggunaan') == '1' ? 'selected' : '' }}>
-                                                                                        0 - BARANG BERHUBUNGAN LANGSUNG</option>
-                                                                                    <option
-                                                                                        value="1 - TIDAK BERHUBUNGAN LANGSUNG"
-                                                                                        {{ old('hs') == '2' ? 'selected' : '' }}>
-                                                                                        1 - TIDAK BERHUBUNGAN LANGSUNG</option>
-                                                                                    <option value="2 - BARANG KONSUMSI"
-                                                                                        {{ old('hs') == '3' ? 'selected' : '' }}>
-                                                                                        2 - BARANG KONSUMSI</option>
-                                                                                    <option value="3 - BARANG HASIL OLAHAN<"
-                                                                                        {{ old('hs') == '4' ? 'selected' : '' }}>
-                                                                                        3 - BARANG HASIL OLAHAN</option>
-                                                                                    <option value="4 - BARANG LAINNYA"
-                                                                                        {{ old('hs') == '5' ? 'selected' : '' }}>
-                                                                                        4 - BARANG LAINNYA</option>
-                                                                                </select>
-                                                                            </div>
-                                                                            <div class="col-md-4">
-                                                                                <label for="alamat">Kondisi Barang</label>
-                                                                                <select class="form-control"
-                                                                                    name="hs" id="select-field10"
-                                                                                    required
-                                                                                    style="border: 1px solid #313131;">
-                                                                                    <option selected disabled>Pilih
-                                                                                        Penggunaan</option>
-                                                                                    <option value="1 - BAIK"
-                                                                                        {{ old('Penggunaan') == '1' ? 'selected' : '' }}>
-                                                                                        1 - BAIK</option>
-                                                                                    <option
-                                                                                        value="2 - RUSAK"
-                                                                                        {{ old('hs') == '2' ? 'selected' : '' }}>
-                                                                                        2 - RUSAK</option>
-                                                                                </select>
-                                                                            </div>
-                                                                            <div class="col-md-4">
-                                                                                <label for="nomorNpwp" class="form-label">Kode</label>
-                                                                                <input type="text" class="form-control" id="kode" name="kode" value="{{ old('kode') }}">
-                                                                            </div>
-
-                                                                            <div class="col-md-6">
-                                                                                <label for="nomorNpwp" class="form-label">Spesifikasi Lain</label>
-                                                                                <input type="text" class="form-control" id="tipe" name="tipe" value="{{ old('tipe') }}">
-                                                                            </div>
-
-                                                                            <br>
-                                                                            <!-- Tombol Simpan & Batal -->
-                                                                            <div class="button-group">
-                                                                                <button type="submit"
-                                                                                    class="btn-save">Simpan</button>
-                                                                                <button type="button" class="btn-cancel"
-                                                                                    onclick="closeModal()">Cancel</button>
+                                                                                <div class="col-md-4">
+                                                                                    <label
+                                                                                        for="alamat"class="form-label">Penggunaan</label>
+                                                                                    <select class="form-control"
+                                                                                        name="hs" id="select-field9"
+                                                                                        required
+                                                                                        style="border: 1px solid #313131;">
+                                                                                        <option selected disabled>Pilih
+                                                                                            Penggunaan</option>
+                                                                                        <option
+                                                                                            value="0 - BARANG BERHUBUNGAN LANGSUNG"
+                                                                                            {{ old('Penggunaan') == '1' ? 'selected' : '' }}>
+                                                                                            0 - BARANG BERHUBUNGAN LANGSUNG
+                                                                                        </option>
+                                                                                        <option
+                                                                                            value="1 - TIDAK BERHUBUNGAN LANGSUNG"
+                                                                                            {{ old('hs') == '2' ? 'selected' : '' }}>
+                                                                                            1 - TIDAK BERHUBUNGAN LANGSUNG
+                                                                                        </option>
+                                                                                        <option value="2 - BARANG KONSUMSI"
+                                                                                            {{ old('hs') == '3' ? 'selected' : '' }}>
+                                                                                            2 - BARANG KONSUMSI</option>
+                                                                                        <option
+                                                                                            value="3 - BARANG HASIL OLAHAN<"
+                                                                                            {{ old('hs') == '4' ? 'selected' : '' }}>
+                                                                                            3 - BARANG HASIL OLAHAN</option>
+                                                                                        <option value="4 - BARANG LAINNYA"
+                                                                                            {{ old('hs') == '5' ? 'selected' : '' }}>
+                                                                                            4 - BARANG LAINNYA</option>
+                                                                                    </select>
+                                                                                </div>
+                                                                                <div class="col-md-4">
+                                                                                    <label for="alamat"
+                                                                                        class="form-label">Kategori
+                                                                                        Barang</label>
+                                                                                    <select class="form-control"
+                                                                                        name="hs" id="select-field10"
+                                                                                        required
+                                                                                        style="border: 1px solid #313131;">
+                                                                                        <option selected disabled>Pilih
+                                                                                            Kategori Barang</option>
+                                                                                        <option
+                                                                                            value="0 - BARANG BERHUBUNGAN LANGSUNG"
+                                                                                            {{ old('Penggunaan') == '1' ? 'selected' : '' }}>
+                                                                                            1 - HASIL PRODUKSI</option>
+                                                                                        <option
+                                                                                            value="1 - TIDAK BERHUBUNGAN LANGSUNG"
+                                                                                            {{ old('hs') == '2' ? 'selected' : '' }}>
+                                                                                            2 - BAHAN BAKU</option>
+                                                                                        <option value="2 - BARANG KONSUMSI"
+                                                                                            {{ old('hs') == '3' ? 'selected' : '' }}>
+                                                                                            3 - BARANG MODAL</option>
+                                                                                        <option
+                                                                                            value="3 - BARANG HASIL OLAHAN<"
+                                                                                            {{ old('hs') == '4' ? 'selected' : '' }}>
+                                                                                            4 - PERALATAN KANTOR</option>
+                                                                                        <option value="4 - BARANG LAINNYA"
+                                                                                            {{ old('hs') == '5' ? 'selected' : '' }}>
+                                                                                            5 - SISA DARI PROSES PRODUKSI /
+                                                                                            LIMBAH (WASTE/SCRAP) DAN / ATAU
+                                                                                            SISA ATAU BEKAS KEMAS</option>
+                                                                                        <option value="4 - BARANG LAINNYA"
+                                                                                            {{ old('hs') == '5' ? 'selected' : '' }}>
+                                                                                            6 - BARANG YANG DI TIMBUN UNTUK
+                                                                                            DI JUAL</option>
+                                                                                        <option value="4 - BARANG LAINNYA"
+                                                                                            {{ old('hs') == '5' ? 'selected' : '' }}>
+                                                                                            7 - BARANG YANG DI PAMERKAN
+                                                                                            UNTUK DI JUAL</option>
+                                                                                        <option value="4 - BARANG LAINNYA"
+                                                                                            {{ old('hs') == '5' ? 'selected' : '' }}>
+                                                                                            8 - BARANG LAINNYA</option>
+                                                                                    </select>
+                                                                                </div>
+                                                                                <div class="col-md-4">
+                                                                                    <label
+                                                                                        for="alamat"class="form-label">Kondisi
+                                                                                        Barang</label>
+                                                                                    <select class="form-control"
+                                                                                        name="hs" id="select-field11"
+                                                                                        required
+                                                                                        style="border: 1px solid #313131;">
+                                                                                        <option selected disabled>Pilih
+                                                                                            Penggunaan</option>
+                                                                                        <option value="1 - BAIK"
+                                                                                            {{ old('Penggunaan') == '1' ? 'selected' : '' }}>
+                                                                                            1 - BAIK</option>
+                                                                                        <option value="2 - RUSAK"
+                                                                                            {{ old('hs') == '2' ? 'selected' : '' }}>
+                                                                                            2 - RUSAK</option>
+                                                                                    </select>
+                                                                                </div>
                                                                             </div>
                                                                         </div>
-                                                                    </form>
-                                                                </div>
+                                                                        <br>
+                                                                        <div class="row">
+                                                                            <!-- Jangka Waktu -->
+                                                                            <div class="col-md-6">
+                                                                                <label for="nomorNpwp"
+                                                                                    class="form-label">Jangka
+                                                                                    Waktu</label>
+                                                                                <div
+                                                                                    class="form-check d-flex align-items-center">
+                                                                                    <input class="form-check-input me-2"
+                                                                                        type="checkbox"
+                                                                                        id="checkbox4tahun"
+                                                                                        name="tipe" value="4">
+                                                                                    <span> > 4 Tahun</span>
+                                                                                </div>
+                                                                            </div>
+
+                                                                            <!-- Cara Perhitungan -->
+                                                                            <div class="col-md-12">
+                                                                                <label for="alamat"
+                                                                                    class="form-label">Cara
+                                                                                    Perhitungan</label>
+                                                                                <select class="form-control"
+                                                                                    name="hs" id="select-field12"
+                                                                                    required
+                                                                                    style="border: 1px solid #313131;">
+                                                                                    <option selected disabled>Pilih Cara
+                                                                                        Perhitungan</option>
+                                                                                    <option value="0 - HARGA PEMASUKAN"
+                                                                                        {{ old('Penggunaan') == '1' ? 'selected' : '' }}>
+                                                                                        0 - HARGA PEMASUKAN
+                                                                                    </option>
+                                                                                    <option value="1 - HARGA PENYERAHAN"
+                                                                                        {{ old('hs') == '2' ? 'selected' : '' }}>
+                                                                                        1 - HARGA PENYERAHAN
+                                                                                    </option>
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                        <br>
+                                                                        <!-- Tombol Simpan & Batal -->
+                                                                        <div class="button-group">
+                                                                            <button type="submit"
+                                                                                class="btn-save">Simpan</button>
+                                                                            <button type="button" class="btn-cancel"
+                                                                                onclick="closeModal()">Cancel</button>
+                                                                        </div>
+                                                                    </div>
                                                             </div>
                                                         </div>
-                        </form><!--end form-->
-                    </div><!--end card-body-->
-                </div><!--end card-->
-            </div><!--end col-->
-        </div><!--end row-->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Pungutan -->
+                                    <div class="tab-pane fade" id="pungutan" role="tabpanel"
+                                        aria-labelledby="pungutan-tab">
+                                        <div class="container-fluid p-4">
+                                            <div class="card shadow-sm">
+                                                <div class="card-body">
+                                                    <div class="table-responsive">
+                                                        <table class="table table-bordered" id="dataTable3">
+                                                            <thead class="thead-light">
+                                                                <tr>
+                                                                    <th class="text-dark font-weight-bold text-center">
+                                                                        Pungutan</th>
+                                                                    <th class="text-dark font-weight-bold text-center">
+                                                                        Wajib Bayar</th>
+                                                                    <th class="text-dark font-weight-bold text-center">
+                                                                        Dibayar</th>
+                                                                    <th class="text-dark font-weight-bold text-center">
+                                                                        Dibebaskan</th>
+                                                                    <th class="text-dark font-weight-bold text-center">
+                                                                        Ditanggung Pemerintah</th>
+                                                                    <th class="text-dark font-weight-bold text-center">
+                                                                        Sudah Dilunasi</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                <!-- Isi tabel akan ditambahkan di sini -->
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Pernyataan -->
+                                    <div class="tab-pane fade" id="pernyataan" role="tabpanel"
+                                        aria-labelledby="pernyataan-tab">
+                                        <div class="container-fluid p-4">
+                                            <div class="card shadow-sm">
+                                                <div class="card-body">
+                                                    <!-- Harga -->
+                                                    <div class="row mb-4 p-3 border rounded shadow-sm bg-light">
+                                                        <h5 class="text-primary">Tempat & Tinggal</h5>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <label for="ndpbm" class="form-label">Tempat</label>
+                                                                <input type="text" class="form-control"
+                                                                    name="tempat" value="{{ old('tempat','Purwakarta') }}">
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <label for="cif" class="form-label">Tanggal</label>
+                                                                <input type="date" class="form-control"
+                                                                    name="tanggal" value="{{ old('tanggal') }}">     
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- Data Untuk Keperluan Pajak -->
+                                                    <div class="row mb-4 p-3 border rounded shadow-sm bg-light">
+                                                        <h5 class="text-primary">Data Untuk Keperluan Pajak</h5>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <label for="uang_muka" class="form-label">Uang
+                                                                    Muka</label>
+                                                                <input type="text" class="form-control"
+                                                                    name="uang_muka"
+                                                                    value="{{ old('uang_muka', '0.00') }}">
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <label for="diskon" class="form-label">Diskon</label>
+                                                                <input type="text" class="form-control"
+                                                                    name="diskon" value="{{ old('diskon', '0.00') }}">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+            </form><!--end form-->
+        </div><!--end card-body-->
+    </div><!--end card-->
+    </div><!--end col-->
+    </div><!--end row-->
     </div><!-- container -->
     <!-- Bootstrap 5 -->
 
@@ -1361,21 +1596,31 @@
             theme: 'bootstrap-5'
         });
     </script>
-        <script>
-            $('#select-field8').select2({
-                theme: 'bootstrap-5'
-            });
-        </script>
-                <script>
-                    $('#select-field9').select2({
-                        theme: 'bootstrap-5'
-                    });
-                </script>
-                                <script>
-                                    $('#select-field10').select2({
-                                        theme: 'bootstrap-5'
-                                    });
-                                </script>
+    <script>
+        $('#select-field8').select2({
+            theme: 'bootstrap-5'
+        });
+    </script>
+    <script>
+        $('#select-field9').select2({
+            theme: 'bootstrap-5'
+        });
+    </script>
+    <script>
+        $('#select-field10').select2({
+            theme: 'bootstrap-5'
+        });
+    </script>
+    <script>
+        $('#select-field11').select2({
+            theme: 'bootstrap-5'
+        });
+    </script>
+    <script>
+        $('#select-field12').select2({
+            theme: 'bootstrap-5'
+        });
+    </script>
     <script>
         function updateNomorEntitas() {
             const nitkuValue = document.getElementById('nitku').value;
@@ -1524,7 +1769,7 @@
                     .getAttribute('data-nitku3') || row.getAttribute('data-nitku4') || row.getAttribute(
                         'data-nitku5') || row.getAttribute('data-nitku6') || row.getAttribute(
                         'data-nitku7') || row.getAttribute('data-nitku8') || row.getAttribute(
-                    'data-nitku9') ||
+                        'data-nitku9') ||
                     row.getAttribute('data-nitku10') || row.getAttribute('data-nitku11') || row
                     .getAttribute('data-nitku12');
 
@@ -1963,96 +2208,104 @@
         });
     </script>
 
-<script>
-    // Fungsi untuk mendapatkan nilai increment terakhir dari penyimpanan lokal
-    function getLastIncrement() {
-        return parseInt(localStorage.getItem('lastIncrement')) || 0;
-    }
-
-    // Fungsi untuk menyimpan nilai increment terbaru ke penyimpanan lokal
-    function setLastIncrement(value) {
-        localStorage.setItem('lastIncrement', value);
-    }
-
-    // Fungsi untuk menghasilkan nilai seri baru
-    function generateSeri() {
-        let lastIncrement = getLastIncrement();
-        let newIncrement = lastIncrement + 1;
-        setLastIncrement(newIncrement);
-        return newIncrement; // Format: 1, 2, 3, ...
-    }
-
-    // Atur nilai input "seri" saat halaman dimuat
-    document.addEventListener('DOMContentLoaded', function() {
-        // Reset nilai lastIncrement di localStorage saat halaman dimuat
-        setLastIncrement(0);
-        document.getElementById('seriDokumen4').value = generateSeri();
-    });
-</script>
-<script>
-function hitungNilaiPabean() {
-    // Ambil nilai NDPBM dari input
-    var ndpbm = parseFloat(document.getElementById('ndpbm').value);
-
-    // Ambil nilai CIF dari input dan ganti koma dengan titik
-    var cifInput = document.getElementById('cif').value.replace(/,/g, '');
-    var cif = parseFloat(cifInput);
-
-    // Pastikan nilai NDPBM dan CIF adalah angka dan bukan NaN
-    if (!isNaN(ndpbm) && !isNaN(cif)) {
-        // Hitung nilai pabean
-        var nilaiPabean = cif * ndpbm;
-        // Tampilkan hasil pada input nilai_pabean dengan format ribuan
-        document.getElementById('nilai_pabean').value = nilaiPabean.toLocaleString('id-ID', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-    } else {
-        // Jika input tidak valid, kosongkan nilai_pabean
-        document.getElementById('nilai_pabean').value = '';
-    }
-}
-</script>
-
-<script>
-    function hitungPPN() {
-    // Ambil nilai dasar pengenaan pajak dari input dan ganti koma dengan titik
-    var dppInput = document.getElementById('pengenaan_pajak').value.replace(/,/g, '');
-    var dpp = parseFloat(dppInput);
-
-    // Ambil nilai tarif PPN dari input
-    var ppnTarif = parseFloat(document.getElementById('ppn_tarif').value);
-
-    // Pastikan nilai dasar pengenaan pajak dan tarif PPN adalah angka dan bukan NaN
-    if (!isNaN(dpp) && !isNaN(ppnTarif)) {
-        // Hitung PPN terutang
-        var ppnTerutang = (ppnTarif / 100) * dpp;
-        // Tampilkan hasil pada input ppn_hasil dengan format ribuan
-        document.getElementById('ppn_hasil').value = ppnTerutang.toLocaleString('id-ID', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-    } else {
-        // Jika input tidak valid, kosongkan ppn_hasil
-        document.getElementById('ppn_hasil').value = '';
-    }
-}
-
-</script>
-
-<script>
-    function hitungPPNBM() {
-    // Ambil nilai dasar pengenaan pajak dari input dan ganti koma dengan titik
-    var dppInput = document.getElementById('pengenaan_pajak').value.replace(/,/g, '');
-    var dpp = parseFloat(dppInput);
-
-        // Ambil nilai tarif PPnBM dari input
-        var ppnbTarif = parseFloat(document.getElementById('ppnb_tarif').value);
-
-        // Pastikan nilai DPP dan tarif PPnBM adalah angka dan bukan NaN
-        if (!isNaN(dpp) && !isNaN(ppnbTarif)) {
-            // Hitung PPnBM terutang
-            var ppnbmTerutang = (ppnbTarif / 100) * dpp;
-            // Tampilkan hasil pada input ppnb_hasil dengan format ribuan
-            document.getElementById('ppnb_hasil').value = ppnbmTerutang.toLocaleString('id-ID', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
-        } else {
-            // Jika input tidak valid, kosongkan ppnb_hasil
-            document.getElementById('ppnb_hasil').value = '';
+    <script>
+        // Fungsi untuk mendapatkan nilai increment terakhir dari penyimpanan lokal
+        function getLastIncrement() {
+            return parseInt(localStorage.getItem('lastIncrement')) || 0;
         }
-    }
-</script>
+
+        // Fungsi untuk menyimpan nilai increment terbaru ke penyimpanan lokal
+        function setLastIncrement(value) {
+            localStorage.setItem('lastIncrement', value);
+        }
+
+        // Fungsi untuk menghasilkan nilai seri baru
+        function generateSeri() {
+            let lastIncrement = getLastIncrement();
+            let newIncrement = lastIncrement + 1;
+            setLastIncrement(newIncrement);
+            return newIncrement; // Format: 1, 2, 3, ...
+        }
+
+        // Atur nilai input "seri" saat halaman dimuat
+        document.addEventListener('DOMContentLoaded', function() {
+            // Reset nilai lastIncrement di localStorage saat halaman dimuat
+            setLastIncrement(0);
+            document.getElementById('seriDokumen4').value = generateSeri();
+        });
+    </script>
+    <script>
+        function hitungNilaiPabean() {
+            // Ambil nilai NDPBM dari input
+            var ndpbm = parseFloat(document.getElementById('ndpbm').value);
+
+            // Ambil nilai CIF dari input dan ganti koma dengan titik
+            var cifInput = document.getElementById('cif').value.replace(/,/g, '');
+            var cif = parseFloat(cifInput);
+
+            // Pastikan nilai NDPBM dan CIF adalah angka dan bukan NaN
+            if (!isNaN(ndpbm) && !isNaN(cif)) {
+                // Hitung nilai pabean
+                var nilaiPabean = cif * ndpbm;
+                // Tampilkan hasil pada input nilai_pabean dengan format ribuan
+                document.getElementById('nilai_pabean').value = nilaiPabean.toLocaleString('id-ID', {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2
+                });
+            } else {
+                // Jika input tidak valid, kosongkan nilai_pabean
+                document.getElementById('nilai_pabean').value = '';
+            }
+        }
+    </script>
+
+    <script>
+        function hitungPPN() {
+            // Ambil nilai dasar pengenaan pajak dari input dan ganti koma dengan titik
+            var dppInput = document.getElementById('pengenaan_pajak').value.replace(/,/g, '');
+            var dpp = parseFloat(dppInput);
+
+            // Ambil nilai tarif PPN dari input
+            var ppnTarif = parseFloat(document.getElementById('ppn_tarif').value);
+
+            // Pastikan nilai dasar pengenaan pajak dan tarif PPN adalah angka dan bukan NaN
+            if (!isNaN(dpp) && !isNaN(ppnTarif)) {
+                // Hitung PPN terutang
+                var ppnTerutang = (ppnTarif / 100) * dpp;
+                // Tampilkan hasil pada input ppn_hasil dengan format ribuan
+                document.getElementById('ppn_hasil').value = ppnTerutang.toLocaleString('id-ID', {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2
+                });
+            } else {
+                // Jika input tidak valid, kosongkan ppn_hasil
+                document.getElementById('ppn_hasil').value = '';
+            }
+        }
+    </script>
+
+    <script>
+        function hitungPPNBM() {
+            // Ambil nilai dasar pengenaan pajak dari input dan ganti koma dengan titik
+            var dppInput = document.getElementById('pengenaan_pajak').value.replace(/,/g, '');
+            var dpp = parseFloat(dppInput);
+
+            // Ambil nilai tarif PPnBM dari input
+            var ppnbTarif = parseFloat(document.getElementById('ppnb_tarif').value);
+
+            // Pastikan nilai DPP dan tarif PPnBM adalah angka dan bukan NaN
+            if (!isNaN(dpp) && !isNaN(ppnbTarif)) {
+                // Hitung PPnBM terutang
+                var ppnbmTerutang = (ppnbTarif / 100) * dpp;
+                // Tampilkan hasil pada input ppnb_hasil dengan format ribuan
+                document.getElementById('ppnb_hasil').value = ppnbmTerutang.toLocaleString('id-ID', {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2
+                });
+            } else {
+                // Jika input tidak valid, kosongkan ppnb_hasil
+                document.getElementById('ppnb_hasil').value = '';
+            }
+        }
+    </script>
 @endsection
