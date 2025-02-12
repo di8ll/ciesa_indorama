@@ -560,48 +560,26 @@
                                                                 <div class="right_content">
                                                                     <div class="col-lg-12 text-start mb-6">
                                                                         <button type="button"
-                                                                            class="btn btn-primary mb-3"
-                                                                            id="myBtn4"><span
-                                                                                data-feather="plus"></span>Tambah</button>
-                                                                        {{-- <button class="btn btn-primary mb-3" id="myBtn4">
-                                                                                <span data-feather="plus"></span>
-                                                                                Tambah
-                                                                            </button> --}}
+                                                                            class="btn btn-primary mb-3" id="myBtn4">
+                                                                            <span data-feather="plus"></span>Tambah
+                                                                        </button>
                                                                     </div>
                                                                 </div>
                                                             </header>
                                                             <div class="card-body" id="tableContainer">
                                                                 <div class="table-responsive">
-                                                                    <table class="table table-bordered" id="dataTable">
+                                                                    <table class="table table-bordered" id="Table">
                                                                         <thead class="thead-light">
                                                                             <tr>
-                                                                                <th
-                                                                                    style="margin-top: 19px;color:black;font-weight: bold;">
-                                                                                    Seri</th>
-                                                                                <th
-                                                                                    style="margin-top: 19px;color:black;font-weight: bold;">
-                                                                                    Jenis</th>
-                                                                                <th
-                                                                                    style="margin-top: 19px;color:black;font-weight: bold;">
-                                                                                    Nomor</th>
-                                                                                <th
-                                                                                    style="margin-top: 19px;color:black;font-weight: bold;">
-                                                                                    Tanggal</th>
-                                                                                <th
-                                                                                    style="margin-top: 19px;color:black;font-weight: bold;">
-                                                                                    Fasilitas</th>
-                                                                                <th
-                                                                                    style="margin-top: 19px;color:black;font-weight: bold;">
-                                                                                    Izin</th>
-                                                                                <th
-                                                                                    style="margin-top: 19px;color:black;font-weight: bold;">
-                                                                                    Kantor</th>
-                                                                                <th
-                                                                                    style="margin-top: 19px;color:black;font-weight: bold;">
-                                                                                    File</th>
-                                                                                <th
-                                                                                    style="margin-top: 19px;color:black;font-weight: bold;">
-                                                                                    Action</th>
+                                                                                <th>Seri</th>
+                                                                                <th>Jenis</th>
+                                                                                <th>Nomor</th>
+                                                                                <th>Tanggal</th>
+                                                                                <th>Fasilitas</th>
+                                                                                <th>Izin</th>
+                                                                                <th>Kantor</th>
+                                                                                <th>File</th>
+                                                                                <th>Action</th>
                                                                             </tr>
                                                                         </thead>
                                                                         <tbody>
@@ -617,24 +595,17 @@
                                                             data-keyboard="false" style="display: none;">
                                                             <div class="modal-content">
                                                                 <span class="close">&times;</span>
-                                                                <form id="modalForm"
-                                                                    action="{{ route('dokumen.create') }}"
-                                                                    method="GET">
-                                                                    <div class="modal-form">
-                                                                        <label for="nama">Seri</label>
-                                                                        <input type="text" class="form-control"
-                                                                            id="seriDokumen" name="seriDokumen"
-                                                                            value="{{ old('seriDokumen') }}">
+                                                                <div class="modal-form">
+                                                                    <label for="seri">Seri</label>
+                                                                    <input type="text" class="form-control"
+                                                                        id="seriDokumen" name="seriDokumen" readonly>
 
-                                                                        <div class="form-group">
-                                                                            <label for="alamat">Jenis Dokumen</label>
-                                                                            <select class="form-control"
-                                                                                name="division_name" id="select-field4"
-                                                                                required
-                                                                                style="border: 1px solid #313131;">
-                                                                                <option selected disabled>Pilih Jenis
-                                                                                </option>
-                                                                                <option
+                                                                    <div class="form-group">
+                                                                        <label for="jenisDokumen">Jenis Dokumen</label>
+                                                                        <select class="form-control" name="division_name"
+                                                                            id="select-field4" required>
+                                                                            <option selected disabled>Pilih Jenis</option>
+                                                                               <option
                                                                                     value="0282 - PERSETUJUAN PENGELUARAN BC28 DENGAN DOKAP"
                                                                                     {{ old('division_name') == '1' ? 'selected' : '' }}>
                                                                                     0282 - PERSETUJUAN PENGELUARAN BC28
@@ -706,28 +677,26 @@
                                                                                     KHUSUS PEMASUKAN DAN PENGELUARAN BARANG
                                                                                     DI KAWASAN BERIKAT
                                                                                 </option>
-                                                                            </select>
-                                                                        </div>
-                                                                        <br>
-                                                                        <label for="usaha">Nomor Dokumen</label>
-                                                                        <input type="text" class="form-control"
-                                                                            id="kodeDokumen" name="kodeDokumen"
-                                                                            value="{{ old('kodeDokumen') }}">
-
-                                                                        <label for="usaha">Tanggal Dokumen</label>
-                                                                        <input type="date" class="form-control"
-                                                                            id="kodeDokumen" name="kodeDokumen"
-                                                                            value="{{ old('kodeDokumen') }}">
-                                                                        <br>
-                                                                        <!-- Tombol Simpan & Batal -->
-                                                                        <div class="button-group">
-                                                                            <button type="submit"
-                                                                                class="btn-save">Simpan</button>
-                                                                            <button type="button" class="btn-cancel"
-                                                                                onclick="closeModal()">Cancel</button>
-                                                                        </div>
+                                                                        </select>
                                                                     </div>
-                                                                </form>
+
+                                                                    <label for="nomorDokumen">Nomor Dokumen</label>
+                                                                    <input type="text" class="form-control"
+                                                                        id="kodeDokumen" name="kodeDokumen">
+
+                                                                    <label for="tanggalDokumen">Tanggal Dokumen</label>
+                                                                    <input type="date" class="form-control"
+                                                                        id="tanggalDokumen" name="tanggalDokumen">
+
+                                                                    <br>
+
+                                                                    <div class="button-group">
+                                                                        <button type="button"
+                                                                            class="btn-save">Simpan</button>
+                                                                        <button type="button" class="btn-cancel"
+                                                                            onclick="closeModal()">Cancel</button>
+                                                                    </div>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -735,6 +704,151 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                    <script>
+                                        // Fungsi untuk membuka modal saat tombol "Tambah" diklik
+                                        document.getElementById("myBtn4").addEventListener("click", function() {
+                                            document.getElementById("myModal4").style.display = "block";
+                                        });
+
+                                        // Fungsi untuk menutup modal
+                                        function closeModal() {
+                                            document.getElementById("myModal4").style.display = "none";
+                                        }
+
+                                        // Fungsi untuk mendapatkan dan memperbarui nomor seri dokumen yang auto increment
+                                        function getNextSeriDokumen() {
+                                            let nomorAju = document.getElementById("nomorAju").value;
+                                            let seriDokumenCounter = parseInt(localStorage.getItem(nomorAju + "_seriDokumenCounter") || "0");
+
+                                            // If data is not empty, continue incrementing from the last serial number
+                                            let storedData = JSON.parse(localStorage.getItem(nomorAju)) || [];
+                                            if (storedData.length > 0) {
+                                                let lastData = storedData[storedData.length - 1];
+                                                seriDokumenCounter = lastData.seriDokumen;
+                                            }
+
+                                            // Increment the counter and store it back in localStorage
+                                            seriDokumenCounter++;
+                                            localStorage.setItem(nomorAju + "_seriDokumenCounter", seriDokumenCounter.toString());
+
+                                            return seriDokumenCounter;
+                                        }
+
+                                        // Fungsi untuk menyimpan data ke localStorage
+                                        function saveToLocalStorage(nomorAju, data) {
+                                            let storedData = JSON.parse(localStorage.getItem(nomorAju)) || [];
+                                            storedData.push(data);
+                                            localStorage.setItem(nomorAju, JSON.stringify(storedData));
+                                        }
+
+                                        // Fungsi untuk merender tabel dari data yang disimpan
+                                        function renderTable(nomorAju) {
+                                            let storedData = JSON.parse(localStorage.getItem(nomorAju)) || [];
+                                            let tableBody = document.querySelector("#Table tbody");
+                                            tableBody.innerHTML = "";
+
+                                            storedData.forEach((item, index) => {
+                                                let newRow = document.createElement("tr");
+                                                newRow.innerHTML = `
+                                                    <td>${item.seriDokumen}</td>
+                                                    <td>${item.jenisDokumen}</td>
+                                                    <td>${item.kodeDokumen}</td>
+                                                    <td>${item.tanggalDokumen}</td>
+                                                    <td>-</td>
+                                                    <td>-</td>
+                                                    <td>-</td>
+                                                    <td>-</td>
+                                                    <td>
+                                                        <button class="btn btn-edit" data-index="${index}">
+                                                            <i class="fa fa-edit"></i>
+                                                        </button>
+                                                        <button class="btn btn-delete" data-index="${index}">
+                                                            <i class="fa fa-trash"></i>
+                                                        </button>
+                                                    </td>
+                                                `;
+                                                tableBody.appendChild(newRow);
+                                            });
+
+                                            // Adding event listeners for edit and delete buttons
+                                            document.querySelectorAll(".btn-edit").forEach(button => {
+                                                button.addEventListener("click", function() {
+                                                    editData(nomorAju, this.getAttribute("data-index"));
+                                                });
+                                            });
+
+                                            document.querySelectorAll(".btn-delete").forEach(button => {
+                                                button.addEventListener("click", function() {
+                                                    deleteData(nomorAju, this.getAttribute("data-index"));
+                                                });
+                                            });
+                                        }
+
+                                        // Fungsi untuk mengedit data
+                                        function editData(nomorAju, index) {
+                                            let storedData = JSON.parse(localStorage.getItem(nomorAju)) || [];
+                                            let dataToEdit = storedData[index];
+                                            document.getElementById("seriDokumen").value = dataToEdit.seriDokumen;
+                                            document.getElementById("select-field4").value = dataToEdit.jenisDokumen;
+                                            document.getElementById("kodeDokumen").value = dataToEdit.kodeDokumen;
+                                            document.getElementById("tanggalDokumen").value = dataToEdit.tanggalDokumen;
+                                            document.getElementById("myModal4").style.display = "block";
+
+                                            storedData.splice(index, 1);
+                                            localStorage.setItem(nomorAju, JSON.stringify(storedData));
+                                        }
+
+                                        // Fungsi untuk menghapus data
+                                        function deleteData(nomorAju, index) {
+                                            let storedData = JSON.parse(localStorage.getItem(nomorAju)) || [];
+                                            storedData.splice(index, 1);
+                                            localStorage.setItem(nomorAju, JSON.stringify(storedData));
+
+                                            // Check if data is empty and reset the counter if so
+                                            if (storedData.length === 0) {
+                                                localStorage.removeItem(nomorAju + "_seriDokumenCounter");
+                                            }
+
+                                            renderTable(nomorAju);
+                                        }
+
+                                        // Memuat data dan merender tabel saat halaman dimuat
+                                        window.addEventListener("load", function() {
+                                            var nomorAju = document.getElementById("nomorAju").value;
+                                            renderTable(nomorAju);
+                                        });
+
+                                        // Menambahkan data ke tabel saat tombol simpan diklik
+                                        document.querySelector(".btn-save").addEventListener("click", function() {
+                                            var seriDokumen = getNextSeriDokumen(); // Get next auto increment seri dokumen
+                                            var jenisDokumen = document.getElementById("select-field4").value;
+                                            var kodeDokumen = document.getElementById("kodeDokumen").value;
+                                            var tanggalDokumen = document.getElementById("tanggalDokumen").value;
+                                            var nomorAju = document.getElementById("nomorAju").value;
+
+                                            if (seriDokumen && jenisDokumen && kodeDokumen && tanggalDokumen) {
+                                                saveToLocalStorage(nomorAju, {
+                                                    seriDokumen,
+                                                    jenisDokumen,
+                                                    kodeDokumen,
+                                                    tanggalDokumen
+                                                });
+
+                                                renderTable(nomorAju);
+                                                closeModal();
+
+                                                document.getElementById("seriDokumen").value = "";
+                                                document.getElementById("select-field4").value = "";
+                                                document.getElementById("kodeDokumen").value = "";
+                                                document.getElementById("tanggalDokumen").value = "";
+                                            } else {
+                                                alert("Harap isi semua field!");
+                                            }
+                                        });
+                                    </script>
+
+
 
                                     {{-- Pengangkut --}}
                                     <div class="tab-pane fade" id="pengangkut" role="tabpanel"
@@ -1424,8 +1538,8 @@
                                                                                     class="form-check d-flex align-items-center">
                                                                                     <input class="form-check-input me-2"
                                                                                         type="checkbox"
-                                                                                        id="checkbox4tahun"
-                                                                                        name="tipe" value="4">
+                                                                                        id="checkbox4tahun" name="tipe"
+                                                                                        value="4">
                                                                                     <span> > 4 Tahun</span>
                                                                                 </div>
                                                                             </div>
@@ -1494,7 +1608,77 @@
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                                <!-- Isi tabel akan ditambahkan di sini -->
+                                                                <tr>
+                                                                    <td class="text-center">PPh</td>
+                                                                    <td class="text-center">
+                                                                        <select class="form-control" name="hs"
+                                                                            id="select-field13" required
+                                                                            style="width: 450px; border: 1px solid #313131; font-size: 12px; padding: 4px;">
+                                                                            <option selected disabled></option>
+                                                                            <option value="0 - HARGA PEMASUKAN">
+                                                                                0010016806054000000000 - PENGUSAHA / PEMILIK
+                                                                            </option>
+                                                                            <option value="1 - HARGA PENYERAHAN">
+                                                                                0011045861092000000000 - PENERIMA
+                                                                            </option>
+                                                                        </select>
+                                                                    </td>
+                                                                    <td class="text-center" id="pph">Rp 252000000
+                                                                    </td>
+                                                                    <td class="text-center">Rp 0,00</td>
+                                                                    <td class="text-center">Rp 0,00</td>
+                                                                    <td class="text-center">Rp 0,00</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="text-center">BM</td>
+                                                                    <td class="text-center">
+                                                                        <select class="form-control" name="hs"
+                                                                            id="select-field14" required
+                                                                            style="width: 450px; border: 1px solid #313131; font-size: 12px; padding: 4px;">
+                                                                            <option selected disabled></option>
+                                                                            <option value="0 - HARGA PEMASUKAN">
+                                                                                0010016806054000000000- PENGUSAHA / PEMILIK
+                                                                            </option>
+                                                                            <option value="1 - HARGA PENYERAHAN">
+                                                                                0011045861092000000000 - PENERIMA
+                                                                            </option>
+                                                                        </select>
+                                                                    </td>
+                                                                    <td class="text-center" id="bm">Rp 90900000
+                                                                    </td>
+                                                                    <td class="text-center">Rp 0,00</td>
+                                                                    <td class="text-center">Rp 0,00</td>
+                                                                    <td class="text-center">Rp 0,00</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="text-center">PPN</td>
+                                                                    <td class="text-center">
+                                                                        <select class="form-control" name="hs"
+                                                                            id="select-field15" required
+                                                                            style="width: 450px; border: 1px solid #313131; font-size: 12px; padding: 4px;">
+                                                                            <option selected disabled></option>
+                                                                            <option value="0 - HARGA PEMASUKAN">
+                                                                                0010016806054000000000- PENGUSAHA / PEMILIK
+                                                                            </option>
+                                                                            <option value="1 - HARGA PENYERAHAN">
+                                                                                0011045861092000000000 - PENERIMA
+                                                                            </option>
+                                                                        </select>
+                                                                    </td>
+                                                                    <td class="text-center" id="ppn">Rp 1108500000
+                                                                    </td>
+                                                                    <td class="text-center">Rp 0,00</td>
+                                                                    <td class="text-center">Rp 0,00</td>
+                                                                    <td class="text-center">Rp 0,00</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td class="text-center">TOTAL</td>
+                                                                    <td class="text-center"></td>
+                                                                    <td class="text-center" id="total"></td>
+                                                                    <td class="text-center">Rp 0,00</td>
+                                                                    <td class="text-center">Rp 0,00</td>
+                                                                    <td class="text-center">Rp 0,00</td>
+                                                                </tr>
                                                             </tbody>
                                                         </table>
                                                     </div>
@@ -1502,6 +1686,34 @@
                                             </div>
                                         </div>
                                     </div>
+
+                                    <script>
+                                        // Fungsi untuk memformat angka menjadi mata uang Indonesia tanpa titik dan koma
+                                        function formatRupiah(angka) {
+                                            return 'Rp ' + angka.toLocaleString('id-ID').replace(/[^0-9]/g, '');
+                                        }
+
+                                        // Fungsi untuk menghitung total
+                                        function calculateTotal() {
+                                            // Mendapatkan nilai dari elemen-elemen
+                                            var pph = parseInt(document.getElementById("pph").innerText.replace('Rp ', '').replace('.', '').replace(',',
+                                                ''));
+                                            var bm = parseInt(document.getElementById("bm").innerText.replace('Rp ', '').replace('.', '').replace(',', ''));
+                                            var ppn = parseInt(document.getElementById("ppn").innerText.replace('Rp ', '').replace('.', '').replace(',',
+                                                ''));
+
+                                            // Menghitung total
+                                            var total = pph + bm + ppn;
+
+                                            // Menampilkan total dengan format mata uang Indonesia tanpa titik dan koma
+                                            document.getElementById("total").innerText = formatRupiah(total);
+                                        }
+
+                                        // Memanggil fungsi untuk menghitung total saat halaman dimuat
+                                        window.onload = calculateTotal;
+                                    </script>
+
+
 
                                     <!-- Pernyataan -->
                                     <div class="tab-pane fade" id="pernyataan" role="tabpanel"
@@ -1516,31 +1728,42 @@
                                                             <div class="col-md-6">
                                                                 <label for="ndpbm" class="form-label">Tempat</label>
                                                                 <input type="text" class="form-control"
-                                                                    name="tempat" value="{{ old('tempat','Purwakarta') }}">
+                                                                    name="tempat" value="{{ old('tempat') }}"
+                                                                    style="border: 1px solid #313131;">
                                                             </div>
                                                             <div class="col-md-6">
                                                                 <label for="cif" class="form-label">Tanggal</label>
                                                                 <input type="date" class="form-control"
-                                                                    name="tanggal" value="{{ old('tanggal') }}">     
+                                                                    name="tanggal" value="{{ old('tanggal') }}"
+                                                                    style="border: 1px solid #313131;">
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <!-- Data Untuk Keperluan Pajak -->
+                                                    <!-- Nama -->
                                                     <div class="row mb-4 p-3 border rounded shadow-sm bg-light">
-                                                        <h5 class="text-primary">Data Untuk Keperluan Pajak</h5>
+                                                        <h5 class="text-primary">Nama</h5>
                                                         <div class="row">
                                                             <div class="col-md-6">
-                                                                <label for="uang_muka" class="form-label">Uang
-                                                                    Muka</label>
+                                                                <label for="uang_muka" class="form-label">Nama</label>
                                                                 <input type="text" class="form-control"
-                                                                    name="uang_muka"
-                                                                    value="{{ old('uang_muka', '0.00') }}">
+                                                                    name="uang_muka" value="{{ old('nama') }}"
+                                                                    style="border: 1px solid #313131;">
                                                             </div>
                                                             <div class="col-md-6">
-                                                                <label for="diskon" class="form-label">Diskon</label>
+                                                                <label for="diskon" class="form-label">Jabatan</label>
                                                                 <input type="text" class="form-control"
-                                                                    name="diskon" value="{{ old('diskon', '0.00') }}">
+                                                                    name="diskon" value="{{ old('jabatan') }}"
+                                                                    style="border: 1px solid #313131;">
                                                             </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- Tombol Submit -->
+                                                    <div class="row mb-4 p-3">
+                                                        <div class="col-md-12 text-end">
+                                                            <button type="submit"
+                                                                class="btn btn-primary">Kirim</button>
+                                                            <!-- Atau Anda bisa menggunakan elemen input -->
+                                                            <!-- <input type="submit" class="btn btn-primary" value="Kirim"> -->
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1549,763 +1772,760 @@
                                     </div>
 
 
-                        </form>
-                    </div>
-                </div>
-            </div>
-            </form><!--end form-->
-        </div><!--end card-body-->
-    </div><!--end card-->
-    </div><!--end col-->
-    </div><!--end row-->
-    </div><!-- container -->
-    <!-- Bootstrap 5 -->
-
-    <script>
-        $('#select-field1').select2({
-            theme: 'bootstrap-5'
-        });
-    </script>
-    <script>
-        $('#select-field2').select2({
-            theme: 'bootstrap-5'
-        });
-    </script>
-    <script>
-        $('#select-field3').select2({
-            theme: 'bootstrap-5'
-        });
-    </script>
-    <script>
-        $('#select-field4').select2({
-            theme: 'bootstrap-5'
-        });
-    </script>
-    <script>
-        $('#select-field5').select2({
-            theme: 'bootstrap-5'
-        });
-    </script>
-    <script>
-        $('#select-field6').select2({
-            theme: 'bootstrap-5'
-        });
-    </script>
-    <script>
-        $('#select-field7').select2({
-            theme: 'bootstrap-5'
-        });
-    </script>
-    <script>
-        $('#select-field8').select2({
-            theme: 'bootstrap-5'
-        });
-    </script>
-    <script>
-        $('#select-field9').select2({
-            theme: 'bootstrap-5'
-        });
-    </script>
-    <script>
-        $('#select-field10').select2({
-            theme: 'bootstrap-5'
-        });
-    </script>
-    <script>
-        $('#select-field11').select2({
-            theme: 'bootstrap-5'
-        });
-    </script>
-    <script>
-        $('#select-field12').select2({
-            theme: 'bootstrap-5'
-        });
-    </script>
-    <script>
-        function updateNomorEntitas() {
-            const nitkuValue = document.getElementById('nitku').value;
-            const nomorEntitasInput = document.getElementById('kodeJenisIdentitas');
-
-            // Jika panjang Nitku mencapai 14, set Nomor Entitas menjadi 13 karakter pertama dari Nitku
-            if (nitkuValue.length === 22) {
-                nomorEntitasInput.value = nitkuValue.slice(0, 16); // Hanya ambil 13 karakter pertama
-            }
-        }
-    </script>
-
-    <script>
-        function updateNomorEntitas2() {
-            const nitkuValue = document.getElementById('nitku2').value;
-            const nomorEntitasInput = document.getElementById('kodeJenisIdentitas2');
-
-            // Jika panjang Nitku mencapai 14, set Nomor Entitas menjadi 13 karakter pertama dari Nitku
-            if (nitkuValue.length === 22) {
-                nomorEntitasInput.value = nitkuValue.slice(0, 16); // Hanya ambil 13 karakter pertama
-            }
-        }
-    </script>
-    <script>
-        function updateNomorEntitas3() {
-            const nitkuValue = document.getElementById('nitku3').value;
-            const nomorEntitasInput = document.getElementById('kodeJenisIdentitas3');
-
-            // Jika panjang Nitku mencapai 14, set Nomor Entitas menjadi 13 karakter pertama dari Nitku
-            if (nitkuValue.length === 22) {
-                nomorEntitasInput.value = nitkuValue.slice(0, 16); // Hanya ambil 13 karakter pertama
-            }
-        }
-    </script>
-
-    <script>
-        // Open Pemilik Barang Modal
-        document.getElementById("myBtn").onclick = function() {
-            document.getElementById("myModal").style.display = "block";
-        };
-
-        // Open Penerima Barang Modal
-        document.getElementById("myBtn2").onclick = function() {
-            document.getElementById("myModal2").style.display = "block";
-        };
-
-        // Open Penerima Barang Modal
-        document.getElementById("myBtn4").onclick = function() {
-            document.getElementById("myModal4").style.display = "block";
-        };
-
-        // Open Penerima Barang Modal
-        document.getElementById("myBtn5").onclick = function() {
-            document.getElementById("myModal5").style.display = "block";
-        };
-        // Open Penerima Barang Modal
-        document.getElementById("myBtn6").onclick = function() {
-            document.getElementById("myModal6").style.display = "block";
-        };
-        document.getElementById("myBtn7").onclick = function() {
-            document.getElementById("myModal7").style.display = "block";
-        };
-        // Close Modal
-        document.getElementsByClassName("close")[0].onclick = function() {
-            document.getElementById("myModal").style.display = "none";
-        };
-
-        document.getElementsByClassName("close")[1].onclick = function() {
-            document.getElementById("myModal2").style.display = "none";
-        };
-        document.getElementsByClassName("close")[2].onclick = function() {
-            document.getElementById("myModal4").style.display = "none";
-        };
-
-        document.getElementsByClassName("close")[3].onclick = function() {
-            document.getElementById("myModal5").style.display = "none";
-        };
-
-        document.getElementsByClassName("close")[4].onclick = function() {
-            document.getElementById("myModal6").style.display = "none";
-        };
-        document.getElementsByClassName("close")[5].onclick = function() {
-            document.getElementById("myModal7").style.display = "none";
-        };
-
-        // Close modal when clicking outside
-        window.onclick = function(event) {
-            if (event.target == document.getElementById("myModal")) {
-                document.getElementById("myModal").style.display = "none";
-            }
-            if (event.target == document.getElementById("myModal2")) {
-                document.getElementById("myModal2").style.display = "none";
-            }
-            if (event.target == document.getElementById("myModal4")) {
-                document.getElementById("myModal4").style.display = "none";
-            }
-            if (event.target == document.getElementById("myModal5")) {
-                document.getElementById("myModal5").style.display = "none";
-            }
-            if (event.target == document.getElementById("myModal6")) {
-                document.getElementById("myModal6").style.display = "none";
-            }
-            if (event.target == document.getElementById("myModal7")) {
-                document.getElementById("myModal7").style.display = "none";
-            }
-        };
-    </script>
-
-
-
-    <script>
-        // Fungsi untuk mengisi form dengan data yang dipilih
-        function populateForm1(kodeJenisIdentitas2, namaEntitas2, alamatEntitas2, nitku2) {
-            document.getElementById('nitku2').value = nitku2;
-            document.getElementById('kodeJenisIdentitas2').value = kodeJenisIdentitas2;
-            document.getElementById('namaEntitas2').value = namaEntitas2;
-            document.getElementById('alamatEntitas2').value = alamatEntitas2;
-        }
-
-        // Menangani klik tombol Pilih pada setiap baris tabel
-        document.querySelectorAll('.pilih-btn-1').forEach(button => {
-            button.addEventListener('click', function() {
-                // Mengambil data dari atribut 'data-'
-                const row = this.closest('tr');
-                const kodeJenisIdentitas2 = row.getAttribute('data-npwp') || row.getAttribute(
-                        'data-npwp2') || row.getAttribute('data-npwp3') || row.getAttribute('data-npwp4') ||
-                    row
-                    .getAttribute('data-npwp5') || row.getAttribute('data-npwp6') || row.getAttribute(
-                        'data-npwp7') || row.getAttribute('data-npwp8') || row.getAttribute('data-npwp9') ||
-                    row.getAttribute('data-npwp10') || row.getAttribute('data-npwp11') || row.getAttribute(
-                        'data-npwp12');
-                const namaEntitas2 = row.getAttribute('data-nama') || row.getAttribute('data-nama2') || row
-                    .getAttribute('data-nama3') || row.getAttribute('data-nama4') || row.getAttribute(
-                        'data-nama5') || row.getAttribute('data-nama6') || row.getAttribute('data-nama7') ||
-                    row.getAttribute('data-nama8') || row.getAttribute('data-nama9') || row.getAttribute(
-                        'data-nama10') || row.getAttribute('data-nama11') || row.getAttribute(
-                        'data-nama12');
-                const alamatEntitas2 = row.getAttribute('data-alamat') || row.getAttribute(
-                    'data-alamat2') || row.getAttribute('data-alamat3') || row.getAttribute(
-                    'data-alamat4') || row.getAttribute('data-alamat5') || row.getAttribute(
-                    'data-alamat6') || row.getAttribute('data-alamat7') || row.getAttribute(
-                    'data-alamat8') || row.getAttribute('data-alamat9') || row.getAttribute(
-                    'data-alamat10') || row.getAttribute('data-alamat11') || row.getAttribute(
-                    'data-alamat12');
-                const nitku2 = row.getAttribute('data-nitku') || row.getAttribute('data-nitku2') || row
-                    .getAttribute('data-nitku3') || row.getAttribute('data-nitku4') || row.getAttribute(
-                        'data-nitku5') || row.getAttribute('data-nitku6') || row.getAttribute(
-                        'data-nitku7') || row.getAttribute('data-nitku8') || row.getAttribute(
-                        'data-nitku9') ||
-                    row.getAttribute('data-nitku10') || row.getAttribute('data-nitku11') || row
-                    .getAttribute('data-nitku12');
-
-                // Memanggil fungsi untuk mengisi form
-                populateForm1(kodeJenisIdentitas2, namaEntitas2, alamatEntitas2, nitku2);
-                document.getElementById("myModal").style.display = "none"; // Menutup modal setelah memilih
-            });
-        });
-    </script>
-
-
-    <script>
-        // Fungsi untuk mengisi form dengan data yang dipilih
-        function populateForm2(kodeJenisIdentitas3, namaEntitas3, alamatEntitas3, nitku3) {
-            document.getElementById('nitku3').value = nitku3;
-            document.getElementById('kodeJenisIdentitas3').value = kodeJenisIdentitas3;
-            document.getElementById('namaEntitas3').value = namaEntitas3;
-            document.getElementById('alamatEntitas3').value = alamatEntitas3;
-        }
-
-        // Menangani klik tombol Pilih pada setiap baris tabel
-        document.querySelectorAll('.pilih-btn-2').forEach(button => {
-            button.addEventListener('click', function() {
-                // Mengambil data dari atribut 'data-'
-                const row = this.closest('tr');
-                const kodeJenisIdentitas3 = row.getAttribute('data-npwp') || row.getAttribute(
-                        'data-npwp2') || row.getAttribute('data-npwp3') || row.getAttribute('data-npwp4') ||
-                    row
-                    .getAttribute('data-npwp5');
-                const namaEntitas3 = row.getAttribute('data-nama') || row.getAttribute('data-nama2') || row
-                    .getAttribute('data-nama3') || row.getAttribute('data-nama4') || row.getAttribute(
-                        'data-nama5');
-                const alamatEntitas3 = row.getAttribute('data-alamat') || row.getAttribute(
-                    'data-alamat2') || row.getAttribute('data-alamat3') || row.getAttribute(
-                    'data-alamat4') || row.getAttribute('data-alamat5');
-                const nitku3 = row.getAttribute('data-nitku') || row.getAttribute('data-nitku2') || row
-                    .getAttribute('data-nitku3') || row.getAttribute('data-nitku4') || row.getAttribute(
-                        'data-nitku5');
-
-                // Memanggil fungsi untuk mengisi form
-                populateForm2(kodeJenisIdentitas3, namaEntitas3, alamatEntitas3, nitku3);
-                document.getElementById("myModal2").style.display = "none"; // Menutup modal setelah memilih
-            });
-        });
-    </script>
-
-    <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        .modal {
-            display: none;
-            /* Hidden by default */
-            position: fixed;
-            /* Stay in place */
-            z-index: 1;
-            /* Sit on top */
-            left: 0;
-            top: 0;
-            width: 100%;
-            /* Full width */
-            height: 100%;
-            /* Full height */
-            overflow: auto;
-            /* Enable scroll if needed */
-            background-color: rgb(0, 0, 0);
-            /* Fallback color */
-            background-color: rgba(0, 0, 0, 0.4);
-            /* Black w/ opacity */
-            padding-top: 100px;
-            /* Adjust for centering */
-        }
-
-        /* Modal Content */
-        .modal-content {
-            background-color: #fefefe;
-            margin: auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            /* Adjust width */
-            max-width: 800px;
-            /* Maximum width */
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-            border-radius: 8px;
-        }
-
-        /* The Close Button */
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        /* Modal form styling */
-        .modal-form {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .modal-form input {
-            margin: 10px 0;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            /* Rounded corners for inputs */
-        }
-
-        .modal-form button {
-            padding: 10px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 4px;
-            /* Rounded corners */
-        }
-
-        .modal-form button:hover {
-            background-color: #45a049;
-        }
-
-        /* Table styling */
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        th,
-        td {
-            padding: 8px;
-            text-align: left;
-            border: 1px solid #ddd;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-
-        .button-wrapper {
-            display: flex;
-            justify-content: center;
-            /* Posisikan tombol di tengah secara horizontal */
-            align-items: center;
-            /* Posisikan tombol di tengah secara vertikal */
-            height: 100vh;
-            /* Pastikan elemen pembungkus memiliki tinggi penuh layar */
-        }
-
-        button[type="button"] {
-            padding: 5px 10px;
-            background-color: #0abef0;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 4px;
-        }
-
-        button[type="button"]:hover {
-            background-color: #0abef0;
-        }
-    </style>
-
-
-    <!-- Tambahkan sebelum penutupan tag </body> -->
-    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js">
-    </script>
-
-    <script>
-        $(document).ready(function() {
-            $('#dataTable').DataTable({
-                "pageLength": 8 // Menetapkan jumlah data per halaman menjadi 5
-            });
-        });
-    </script>
-
-    <script>
-        $(document).ready(function() {
-            $('#dataTable1, #dataTable2, #dataTable3').DataTable();
-        });
-    </script>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
-
-    <script>
-        // Retrieve the Nomor Pengajuan value from localStorage
-        const storedNomorAju = localStorage.getItem('nomorAju');
-
-        if (storedNomorAju) {
-            // If a value is found in localStorage, set it as the input's value
-            document.getElementById('nomorAju').value = storedNomorAju;
-        } else {
-            // If no value is found, set a default value (optional)
-            const defaultNomorAju = 'default-value'; // You can adjust this default value as needed
-            document.getElementById('nomorAju').value = defaultNomorAju;
-            localStorage.setItem('nomorAju', defaultNomorAju); // Save default value to localStorage
-        }
-
-        // Save the value to localStorage whenever the input field is modified
-        document.getElementById('nomorAju').addEventListener('input', function() {
-            const currentValue = this.value;
-            localStorage.setItem('nomorAju', currentValue);
-        });
-    </script>
-
-
-
-    <style>
-        body {
-            font-family: Arial, Helvetica, sans-serif;
-        }
-
-        .modal {
-            display: none;
-            /* Hidden by default */
-            position: fixed;
-            /* Stay in place */
-            z-index: 200;
-            /* Sit on top */
-            left: 0;
-            top: 0;
-            width: 100%;
-            /* Full width */
-            height: 100%;
-            /* Full height */
-            overflow: auto;
-            /* Enable scroll if needed */
-            background-color: rgb(0, 0, 0);
-            /* Fallback color */
-            background-color: rgba(0, 0, 0, 0.4);
-            /* Black w/ opacity */
-            padding-top: 100px;
-            /* Adjust for centering */
-        }
-
-        /* Modal Content */
-        .modal-content {
-            background-color: #fefefe;
-            margin: auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            /* Adjust width */
-            max-width: 800px;
-            /* Maximum width */
-            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-            border-radius: 8px;
-        }
-
-        /* The Close Button */
-        .close {
-            color: #aaa;
-            float: right;
-            font-size: 28px;
-            font-weight: bold;
-        }
-
-        .close:hover,
-        .close:focus {
-            color: black;
-            text-decoration: none;
-            cursor: pointer;
-        }
-
-        /* Modal form styling */
-        .modal-form {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .modal-form input {
-            margin: 10px 0;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            /* Rounded corners for inputs */
-        }
-
-        /* Gaya tombol (untuk tombol dengan warna biru) */
-        .modal-form button.btn-save {
-            padding: 10px;
-            background-color: #007bff;
-            /* Biru */
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 4px;
-            /* Sudut membulat */
-        }
-
-        .modal-form button.btn-save:hover {
-            background-color: #0056b3;
-            /* Biru lebih gelap saat hover */
-        }
-
-        /* Gaya tombol (untuk tombol dengan warna merah) */
-        .modal-form button.btn-cancel {
-            padding: 10px;
-            background-color: #dc3545;
-            /* Merah */
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 4px;
-            /* Sudut membulat */
-        }
-
-        .modal-form button.btn-cancel:hover {
-            background-color: #c82333;
-            /* Merah lebih gelap saat hover */
-        }
-
-        /* Styling untuk tombol button di dalam button-wrapper */
-        .button-wrapper button[type="button"] {
-            padding: 5px 10px;
-            background-color: #007bff;
-            /* Biru default */
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 4px;
-        }
-
-        .button-wrapper button[type="button"]:hover {
-            background-color: #0056b3;
-            /* Biru lebih gelap saat hover */
-        }
-
-        /* Menambahkan tombol Cancel dengan warna merah */
-        .button-wrapper .btn-cancel {
-            background-color: #dc3545;
-            /* Merah */
-        }
-
-        .button-wrapper .btn-cancel:hover {
-            background-color: #c82333;
-            /* Merah lebih gelap saat hover */
-        }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-            /* Sesuaikan nilai ini sesuai kebutuhan */
-        }
-    </style>
-    <script>
-        // Fungsi untuk mendapatkan nilai increment terakhir dari penyimpanan lokal
-        function getLastIncrement() {
-            return parseInt(localStorage.getItem('lastIncrement')) || 0;
-        }
-
-        // Fungsi untuk menyimpan nilai increment terbaru ke penyimpanan lokal
-        function setLastIncrement(value) {
-            localStorage.setItem('lastIncrement', value);
-        }
-
-        // Fungsi untuk menghasilkan nilai seri baru
-        function generateSeri() {
-            let lastIncrement = getLastIncrement();
-            let newIncrement = lastIncrement + 1;
-            setLastIncrement(newIncrement);
-            return newIncrement; // Format: 1, 2, 3, ...
-        }
-
-        // Atur nilai input "seri" saat halaman dimuat
-        document.addEventListener('DOMContentLoaded', function() {
-            // Reset nilai lastIncrement di localStorage saat halaman dimuat
-            setLastIncrement(0);
-            document.getElementById('seriDokumen').value = generateSeri();
-        });
-    </script>
-
-    <script>
-        // Fungsi untuk mendapatkan nilai increment terakhir dari penyimpanan lokal
-        function getLastIncrement() {
-            return parseInt(localStorage.getItem('lastIncrement')) || 0;
-        }
-
-        // Fungsi untuk menyimpan nilai increment terbaru ke penyimpanan lokal
-        function setLastIncrement(value) {
-            localStorage.setItem('lastIncrement', value);
-        }
-
-        // Fungsi untuk menghasilkan nilai seri baru
-        function generateSeri() {
-            let lastIncrement = getLastIncrement();
-            let newIncrement = lastIncrement + 1;
-            setLastIncrement(newIncrement);
-            return newIncrement; // Format: 1, 2, 3, ...
-        }
-
-        // Atur nilai input "seri" saat halaman dimuat
-        document.addEventListener('DOMContentLoaded', function() {
-            // Reset nilai lastIncrement di localStorage saat halaman dimuat
-            setLastIncrement(0);
-            document.getElementById('seriDokumen2').value = generateSeri();
-        });
-    </script>
-
-    <script>
-        // Fungsi untuk mendapatkan nilai increment terakhir dari penyimpanan lokal
-        function getLastIncrement() {
-            return parseInt(localStorage.getItem('lastIncrement')) || 0;
-        }
-
-        // Fungsi untuk menyimpan nilai increment terbaru ke penyimpanan lokal
-        function setLastIncrement(value) {
-            localStorage.setItem('lastIncrement', value);
-        }
-
-        // Fungsi untuk menghasilkan nilai seri baru
-        function generateSeri() {
-            let lastIncrement = getLastIncrement();
-            let newIncrement = lastIncrement + 1;
-            setLastIncrement(newIncrement);
-            return newIncrement; // Format: 1, 2, 3, ...
-        }
-
-        // Atur nilai input "seri" saat halaman dimuat
-        document.addEventListener('DOMContentLoaded', function() {
-            // Reset nilai lastIncrement di localStorage saat halaman dimuat
-            setLastIncrement(0);
-            document.getElementById('seriDokumen3').value = generateSeri();
-        });
-    </script>
-
-    <script>
-        // Fungsi untuk mendapatkan nilai increment terakhir dari penyimpanan lokal
-        function getLastIncrement() {
-            return parseInt(localStorage.getItem('lastIncrement')) || 0;
-        }
-
-        // Fungsi untuk menyimpan nilai increment terbaru ke penyimpanan lokal
-        function setLastIncrement(value) {
-            localStorage.setItem('lastIncrement', value);
-        }
-
-        // Fungsi untuk menghasilkan nilai seri baru
-        function generateSeri() {
-            let lastIncrement = getLastIncrement();
-            let newIncrement = lastIncrement + 1;
-            setLastIncrement(newIncrement);
-            return newIncrement; // Format: 1, 2, 3, ...
-        }
-
-        // Atur nilai input "seri" saat halaman dimuat
-        document.addEventListener('DOMContentLoaded', function() {
-            // Reset nilai lastIncrement di localStorage saat halaman dimuat
-            setLastIncrement(0);
-            document.getElementById('seriDokumen4').value = generateSeri();
-        });
-    </script>
-    <script>
-        function hitungNilaiPabean() {
-            // Ambil nilai NDPBM dari input
-            var ndpbm = parseFloat(document.getElementById('ndpbm').value);
-
-            // Ambil nilai CIF dari input dan ganti koma dengan titik
-            var cifInput = document.getElementById('cif').value.replace(/,/g, '');
-            var cif = parseFloat(cifInput);
-
-            // Pastikan nilai NDPBM dan CIF adalah angka dan bukan NaN
-            if (!isNaN(ndpbm) && !isNaN(cif)) {
-                // Hitung nilai pabean
-                var nilaiPabean = cif * ndpbm;
-                // Tampilkan hasil pada input nilai_pabean dengan format ribuan
-                document.getElementById('nilai_pabean').value = nilaiPabean.toLocaleString('id-ID', {
-                    minimumFractionDigits: 2,
-                    maximumFractionDigits: 2
-                });
-            } else {
-                // Jika input tidak valid, kosongkan nilai_pabean
-                document.getElementById('nilai_pabean').value = '';
-            }
-        }
-    </script>
-
-    <script>
-        function hitungPPN() {
-            // Ambil nilai dasar pengenaan pajak dari input dan ganti koma dengan titik
-            var dppInput = document.getElementById('pengenaan_pajak').value.replace(/,/g, '');
-            var dpp = parseFloat(dppInput);
-
-            // Ambil nilai tarif PPN dari input
-            var ppnTarif = parseFloat(document.getElementById('ppn_tarif').value);
-
-            // Pastikan nilai dasar pengenaan pajak dan tarif PPN adalah angka dan bukan NaN
-            if (!isNaN(dpp) && !isNaN(ppnTarif)) {
-                // Hitung PPN terutang
-                var ppnTerutang = (ppnTarif / 100) * dpp;
-                // Tampilkan hasil pada input ppn_hasil dengan format ribuan
-                document.getElementById('ppn_hasil').value = ppnTerutang.toLocaleString('id-ID', {
-                    minimumFractionDigits: 2,
-                    maximumFractionDigits: 2
-                });
-            } else {
-                // Jika input tidak valid, kosongkan ppn_hasil
-                document.getElementById('ppn_hasil').value = '';
-            }
-        }
-    </script>
-
-    <script>
-        function hitungPPNBM() {
-            // Ambil nilai dasar pengenaan pajak dari input dan ganti koma dengan titik
-            var dppInput = document.getElementById('pengenaan_pajak').value.replace(/,/g, '');
-            var dpp = parseFloat(dppInput);
-
-            // Ambil nilai tarif PPnBM dari input
-            var ppnbTarif = parseFloat(document.getElementById('ppnb_tarif').value);
-
-            // Pastikan nilai DPP dan tarif PPnBM adalah angka dan bukan NaN
-            if (!isNaN(dpp) && !isNaN(ppnbTarif)) {
-                // Hitung PPnBM terutang
-                var ppnbmTerutang = (ppnbTarif / 100) * dpp;
-                // Tampilkan hasil pada input ppnb_hasil dengan format ribuan
-                document.getElementById('ppnb_hasil').value = ppnbmTerutang.toLocaleString('id-ID', {
-                    minimumFractionDigits: 2,
-                    maximumFractionDigits: 2
-                });
-            } else {
-                // Jika input tidak valid, kosongkan ppnb_hasil
-                document.getElementById('ppnb_hasil').value = '';
-            }
-        }
-    </script>
-@endsection
+                                    <script>
+                                        $('#select-field1').select2({
+                                            theme: 'bootstrap-5'
+                                        });
+                                    </script>
+                                    <script>
+                                        $('#select-field2').select2({
+                                            theme: 'bootstrap-5'
+                                        });
+                                    </script>
+                                    <script>
+                                        $('#select-field3').select2({
+                                            theme: 'bootstrap-5'
+                                        });
+                                    </script>
+                                    <script>
+                                        $('#select-field4').select2({
+                                            theme: 'bootstrap-5'
+                                        });
+                                    </script>
+                                    <script>
+                                        $('#select-field5').select2({
+                                            theme: 'bootstrap-5'
+                                        });
+                                    </script>
+                                    <script>
+                                        $('#select-field6').select2({
+                                            theme: 'bootstrap-5'
+                                        });
+                                    </script>
+                                    <script>
+                                        $('#select-field7').select2({
+                                            theme: 'bootstrap-5'
+                                        });
+                                    </script>
+                                    <script>
+                                        $('#select-field8').select2({
+                                            theme: 'bootstrap-5'
+                                        });
+                                    </script>
+                                    <script>
+                                        $('#select-field9').select2({
+                                            theme: 'bootstrap-5'
+                                        });
+                                    </script>
+                                    <script>
+                                        $('#select-field10').select2({
+                                            theme: 'bootstrap-5'
+                                        });
+                                    </script>
+                                    <script>
+                                        $('#select-field11').select2({
+                                            theme: 'bootstrap-5'
+                                        });
+                                    </script>
+                                    <script>
+                                        $('#select-field12').select2({
+                                            theme: 'bootstrap-5'
+                                        });
+                                    </script>
+                                    <script>
+                                        $('#select-field13').select2({
+                                            theme: 'bootstrap-5'
+                                        });
+                                    </script>
+                                    <script>
+                                        $('#select-field14').select2({
+                                            theme: 'bootstrap-5'
+                                        });
+                                    </script>
+                                    <script>
+                                        $('#select-field15').select2({
+                                            theme: 'bootstrap-5'
+                                        });
+                                    </script>
+
+
+                                    <script>
+                                        function updateNomorEntitas() {
+                                            const nitkuValue = document.getElementById('nitku').value;
+                                            const nomorEntitasInput = document.getElementById('kodeJenisIdentitas');
+
+                                            // Jika panjang Nitku mencapai 14, set Nomor Entitas menjadi 13 karakter pertama dari Nitku
+                                            if (nitkuValue.length === 22) {
+                                                nomorEntitasInput.value = nitkuValue.slice(0, 16); // Hanya ambil 13 karakter pertama
+                                            }
+                                        }
+                                    </script>
+
+                                    <script>
+                                        function updateNomorEntitas2() {
+                                            const nitkuValue = document.getElementById('nitku2').value;
+                                            const nomorEntitasInput = document.getElementById('kodeJenisIdentitas2');
+
+                                            // Jika panjang Nitku mencapai 14, set Nomor Entitas menjadi 13 karakter pertama dari Nitku
+                                            if (nitkuValue.length === 22) {
+                                                nomorEntitasInput.value = nitkuValue.slice(0, 16); // Hanya ambil 13 karakter pertama
+                                            }
+                                        }
+                                    </script>
+                                    <script>
+                                        function updateNomorEntitas3() {
+                                            const nitkuValue = document.getElementById('nitku3').value;
+                                            const nomorEntitasInput = document.getElementById('kodeJenisIdentitas3');
+
+                                            // Jika panjang Nitku mencapai 14, set Nomor Entitas menjadi 13 karakter pertama dari Nitku
+                                            if (nitkuValue.length === 22) {
+                                                nomorEntitasInput.value = nitkuValue.slice(0, 16); // Hanya ambil 13 karakter pertama
+                                            }
+                                        }
+                                    </script>
+
+                                    <script>
+                                        // Open Pemilik Barang Modal
+                                        document.getElementById("myBtn").onclick = function() {
+                                            document.getElementById("myModal").style.display = "block";
+                                        };
+
+                                        // Open Penerima Barang Modal
+                                        document.getElementById("myBtn2").onclick = function() {
+                                            document.getElementById("myModal2").style.display = "block";
+                                        };
+
+                                        // Open Penerima Barang Modal
+                                        document.getElementById("myBtn4").onclick = function() {
+                                            document.getElementById("myModal4").style.display = "block";
+                                        };
+
+                                        // Open Penerima Barang Modal
+                                        document.getElementById("myBtn5").onclick = function() {
+                                            document.getElementById("myModal5").style.display = "block";
+                                        };
+                                        // Open Penerima Barang Modal
+                                        document.getElementById("myBtn6").onclick = function() {
+                                            document.getElementById("myModal6").style.display = "block";
+                                        };
+                                        document.getElementById("myBtn7").onclick = function() {
+                                            document.getElementById("myModal7").style.display = "block";
+                                        };
+                                        // Close Modal
+                                        document.getElementsByClassName("close")[0].onclick = function() {
+                                            document.getElementById("myModal").style.display = "none";
+                                        };
+
+                                        document.getElementsByClassName("close")[1].onclick = function() {
+                                            document.getElementById("myModal2").style.display = "none";
+                                        };
+                                        document.getElementsByClassName("close")[2].onclick = function() {
+                                            document.getElementById("myModal4").style.display = "none";
+                                        };
+
+                                        document.getElementsByClassName("close")[3].onclick = function() {
+                                            document.getElementById("myModal5").style.display = "none";
+                                        };
+
+                                        document.getElementsByClassName("close")[4].onclick = function() {
+                                            document.getElementById("myModal6").style.display = "none";
+                                        };
+                                        document.getElementsByClassName("close")[5].onclick = function() {
+                                            document.getElementById("myModal7").style.display = "none";
+                                        };
+
+                                        // Close modal when clicking outside
+                                        window.onclick = function(event) {
+                                            if (event.target == document.getElementById("myModal")) {
+                                                document.getElementById("myModal").style.display = "none";
+                                            }
+                                            if (event.target == document.getElementById("myModal2")) {
+                                                document.getElementById("myModal2").style.display = "none";
+                                            }
+                                            if (event.target == document.getElementById("myModal4")) {
+                                                document.getElementById("myModal4").style.display = "none";
+                                            }
+                                            if (event.target == document.getElementById("myModal5")) {
+                                                document.getElementById("myModal5").style.display = "none";
+                                            }
+                                            if (event.target == document.getElementById("myModal6")) {
+                                                document.getElementById("myModal6").style.display = "none";
+                                            }
+                                            if (event.target == document.getElementById("myModal7")) {
+                                                document.getElementById("myModal7").style.display = "none";
+                                            }
+                                        };
+                                    </script>
+
+
+
+                                    <script>
+                                        // Fungsi untuk mengisi form dengan data yang dipilih
+                                        function populateForm1(kodeJenisIdentitas2, namaEntitas2, alamatEntitas2, nitku2) {
+                                            document.getElementById('nitku2').value = nitku2;
+                                            document.getElementById('kodeJenisIdentitas2').value = kodeJenisIdentitas2;
+                                            document.getElementById('namaEntitas2').value = namaEntitas2;
+                                            document.getElementById('alamatEntitas2').value = alamatEntitas2;
+                                        }
+
+                                        // Menangani klik tombol Pilih pada setiap baris tabel
+                                        document.querySelectorAll('.pilih-btn-1').forEach(button => {
+                                            button.addEventListener('click', function() {
+                                                // Mengambil data dari atribut 'data-'
+                                                const row = this.closest('tr');
+                                                const kodeJenisIdentitas2 = row.getAttribute('data-npwp') || row.getAttribute(
+                                                        'data-npwp2') || row.getAttribute('data-npwp3') || row.getAttribute('data-npwp4') ||
+                                                    row
+                                                    .getAttribute('data-npwp5') || row.getAttribute('data-npwp6') || row.getAttribute(
+                                                        'data-npwp7') || row.getAttribute('data-npwp8') || row.getAttribute('data-npwp9') ||
+                                                    row.getAttribute('data-npwp10') || row.getAttribute('data-npwp11') || row.getAttribute(
+                                                        'data-npwp12');
+                                                const namaEntitas2 = row.getAttribute('data-nama') || row.getAttribute('data-nama2') || row
+                                                    .getAttribute('data-nama3') || row.getAttribute('data-nama4') || row.getAttribute(
+                                                        'data-nama5') || row.getAttribute('data-nama6') || row.getAttribute('data-nama7') ||
+                                                    row.getAttribute('data-nama8') || row.getAttribute('data-nama9') || row.getAttribute(
+                                                        'data-nama10') || row.getAttribute('data-nama11') || row.getAttribute(
+                                                        'data-nama12');
+                                                const alamatEntitas2 = row.getAttribute('data-alamat') || row.getAttribute(
+                                                    'data-alamat2') || row.getAttribute('data-alamat3') || row.getAttribute(
+                                                    'data-alamat4') || row.getAttribute('data-alamat5') || row.getAttribute(
+                                                    'data-alamat6') || row.getAttribute('data-alamat7') || row.getAttribute(
+                                                    'data-alamat8') || row.getAttribute('data-alamat9') || row.getAttribute(
+                                                    'data-alamat10') || row.getAttribute('data-alamat11') || row.getAttribute(
+                                                    'data-alamat12');
+                                                const nitku2 = row.getAttribute('data-nitku') || row.getAttribute('data-nitku2') || row
+                                                    .getAttribute('data-nitku3') || row.getAttribute('data-nitku4') || row.getAttribute(
+                                                        'data-nitku5') || row.getAttribute('data-nitku6') || row.getAttribute(
+                                                        'data-nitku7') || row.getAttribute('data-nitku8') || row.getAttribute(
+                                                        'data-nitku9') ||
+                                                    row.getAttribute('data-nitku10') || row.getAttribute('data-nitku11') || row
+                                                    .getAttribute('data-nitku12');
+
+                                                // Memanggil fungsi untuk mengisi form
+                                                populateForm1(kodeJenisIdentitas2, namaEntitas2, alamatEntitas2, nitku2);
+                                                document.getElementById("myModal").style.display = "none"; // Menutup modal setelah memilih
+                                            });
+                                        });
+                                    </script>
+
+
+                                    <script>
+                                        // Fungsi untuk mengisi form dengan data yang dipilih
+                                        function populateForm2(kodeJenisIdentitas3, namaEntitas3, alamatEntitas3, nitku3) {
+                                            document.getElementById('nitku3').value = nitku3;
+                                            document.getElementById('kodeJenisIdentitas3').value = kodeJenisIdentitas3;
+                                            document.getElementById('namaEntitas3').value = namaEntitas3;
+                                            document.getElementById('alamatEntitas3').value = alamatEntitas3;
+                                        }
+
+                                        // Menangani klik tombol Pilih pada setiap baris tabel
+                                        document.querySelectorAll('.pilih-btn-2').forEach(button => {
+                                            button.addEventListener('click', function() {
+                                                // Mengambil data dari atribut 'data-'
+                                                const row = this.closest('tr');
+                                                const kodeJenisIdentitas3 = row.getAttribute('data-npwp') || row.getAttribute(
+                                                        'data-npwp2') || row.getAttribute('data-npwp3') || row.getAttribute('data-npwp4') ||
+                                                    row
+                                                    .getAttribute('data-npwp5');
+                                                const namaEntitas3 = row.getAttribute('data-nama') || row.getAttribute('data-nama2') || row
+                                                    .getAttribute('data-nama3') || row.getAttribute('data-nama4') || row.getAttribute(
+                                                        'data-nama5');
+                                                const alamatEntitas3 = row.getAttribute('data-alamat') || row.getAttribute(
+                                                    'data-alamat2') || row.getAttribute('data-alamat3') || row.getAttribute(
+                                                    'data-alamat4') || row.getAttribute('data-alamat5');
+                                                const nitku3 = row.getAttribute('data-nitku') || row.getAttribute('data-nitku2') || row
+                                                    .getAttribute('data-nitku3') || row.getAttribute('data-nitku4') || row.getAttribute(
+                                                        'data-nitku5');
+
+                                                // Memanggil fungsi untuk mengisi form
+                                                populateForm2(kodeJenisIdentitas3, namaEntitas3, alamatEntitas3, nitku3);
+                                                document.getElementById("myModal2").style.display = "none"; // Menutup modal setelah memilih
+                                            });
+                                        });
+                                    </script>
+
+                                    <style>
+                                        .btn {
+                                            background-color: transparent;
+                                            border: none;
+                                            cursor: pointer;
+                                            padding: 5px;
+                                        }
+
+                                        .btn i {
+                                            font-size: 16px;
+                                            color: #000;
+                                        }
+
+                                        .btn:hover i {
+                                            color: #007bff;
+                                        }
+
+                                        body {
+                                            font-family: Arial, Helvetica, sans-serif;
+                                        }
+
+                                        .modal {
+                                            display: none;
+                                            /* Hidden by default */
+                                            position: fixed;
+                                            /* Stay in place */
+                                            z-index: 1;
+                                            /* Sit on top */
+                                            left: 0;
+                                            top: 0;
+                                            width: 100%;
+                                            /* Full width */
+                                            height: 100%;
+                                            /* Full height */
+                                            overflow: auto;
+                                            /* Enable scroll if needed */
+                                            background-color: rgb(0, 0, 0);
+                                            /* Fallback color */
+                                            background-color: rgba(0, 0, 0, 0.4);
+                                            /* Black w/ opacity */
+                                            padding-top: 100px;
+                                            /* Adjust for centering */
+                                        }
+
+                                        /* Modal Content */
+                                        .modal-content {
+                                            background-color: #fefefe;
+                                            margin: auto;
+                                            padding: 20px;
+                                            border: 1px solid #888;
+                                            width: 80%;
+                                            /* Adjust width */
+                                            max-width: 800px;
+                                            /* Maximum width */
+                                            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+                                            border-radius: 8px;
+                                        }
+
+                                        /* The Close Button */
+                                        .close {
+                                            color: #aaa;
+                                            float: right;
+                                            font-size: 28px;
+                                            font-weight: bold;
+                                        }
+
+                                        .close:hover,
+                                        .close:focus {
+                                            color: black;
+                                            text-decoration: none;
+                                            cursor: pointer;
+                                        }
+
+                                        /* Modal form styling */
+                                        .modal-form {
+                                            display: flex;
+                                            flex-direction: column;
+                                        }
+
+                                        .modal-form input {
+                                            margin: 10px 0;
+                                            padding: 10px;
+                                            border: 1px solid #ccc;
+                                            border-radius: 4px;
+                                            /* Rounded corners for inputs */
+                                        }
+
+                                        .modal-form button {
+                                            padding: 10px;
+                                            background-color: #4CAF50;
+                                            color: white;
+                                            border: none;
+                                            cursor: pointer;
+                                            border-radius: 4px;
+                                            /* Rounded corners */
+                                        }
+
+                                        .modal-form button:hover {
+                                            background-color: #45a049;
+                                        }
+
+                                        /* Table styling */
+                                        table {
+                                            width: 100%;
+                                            border-collapse: collapse;
+                                        }
+
+                                        th,
+                                        td {
+                                            padding: 8px;
+                                            text-align: left;
+                                            border: 1px solid #ddd;
+                                        }
+
+                                        th {
+                                            background-color: #f2f2f2;
+                                        }
+
+                                        .button-wrapper {
+                                            display: flex;
+                                            justify-content: center;
+                                            /* Posisikan tombol di tengah secara horizontal */
+                                            align-items: center;
+                                            /* Posisikan tombol di tengah secara vertikal */
+                                            height: 100vh;
+                                            /* Pastikan elemen pembungkus memiliki tinggi penuh layar */
+                                        }
+
+                                        button[type="button"] {
+                                            padding: 5px 10px;
+                                            background-color: #0abef0;
+                                            color: white;
+                                            border: none;
+                                            cursor: pointer;
+                                            border-radius: 4px;
+                                        }
+
+                                        button[type="button"]:hover {
+                                            background-color: #0abef0;
+                                        }
+                                    </style>
+
+
+                                    <!-- Tambahkan sebelum penutupan tag </body> -->
+                                    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                                    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js">
+                                    </script>
+
+                                    <script>
+                                        $(document).ready(function() {
+                                            $('#dataTable').DataTable({
+                                                "pageLength": 8 // Menetapkan jumlah data per halaman menjadi 5
+                                            });
+                                        });
+                                    </script>
+
+                                    <script>
+                                        $(document).ready(function() {
+                                            $('#dataTable1, #dataTable2, #dataTable3').DataTable();
+                                        });
+                                    </script>
+
+                                    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+                                    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+                                    <link rel="stylesheet"
+                                        href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+
+                                    <script>
+                                        // Retrieve the Nomor Pengajuan value from localStorage
+                                        const storedNomorAju = localStorage.getItem('nomorAju');
+
+                                        if (storedNomorAju) {
+                                            // If a value is found in localStorage, set it as the input's value
+                                            document.getElementById('nomorAju').value = storedNomorAju;
+                                        } else {
+                                            // If no value is found, set a default value (optional)
+                                            const defaultNomorAju = 'default-value'; // You can adjust this default value as needed
+                                            document.getElementById('nomorAju').value = defaultNomorAju;
+                                            localStorage.setItem('nomorAju', defaultNomorAju); // Save default value to localStorage
+                                        }
+
+                                        // Save the value to localStorage whenever the input field is modified
+                                        document.getElementById('nomorAju').addEventListener('input', function() {
+                                            const currentValue = this.value;
+                                            localStorage.setItem('nomorAju', currentValue);
+                                        });
+                                    </script>
+
+
+
+                                    <style>
+                                        body {
+                                            font-family: Arial, Helvetica, sans-serif;
+                                        }
+
+                                        .modal {
+                                            display: none;
+                                            /* Hidden by default */
+                                            position: fixed;
+                                            /* Stay in place */
+                                            z-index: 200;
+                                            /* Sit on top */
+                                            left: 0;
+                                            top: 0;
+                                            width: 100%;
+                                            /* Full width */
+                                            height: 100%;
+                                            /* Full height */
+                                            overflow: auto;
+                                            /* Enable scroll if needed */
+                                            background-color: rgb(0, 0, 0);
+                                            /* Fallback color */
+                                            background-color: rgba(0, 0, 0, 0.4);
+                                            /* Black w/ opacity */
+                                            padding-top: 100px;
+                                            /* Adjust for centering */
+                                        }
+
+                                        /* Modal Content */
+                                        .modal-content {
+                                            background-color: #fefefe;
+                                            margin: auto;
+                                            padding: 20px;
+                                            border: 1px solid #888;
+                                            width: 80%;
+                                            /* Adjust width */
+                                            max-width: 800px;
+                                            /* Maximum width */
+                                            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+                                            border-radius: 8px;
+                                        }
+
+                                        /* The Close Button */
+                                        .close {
+                                            color: #aaa;
+                                            float: right;
+                                            font-size: 28px;
+                                            font-weight: bold;
+                                        }
+
+                                        .close:hover,
+                                        .close:focus {
+                                            color: black;
+                                            text-decoration: none;
+                                            cursor: pointer;
+                                        }
+
+                                        /* Modal form styling */
+                                        .modal-form {
+                                            display: flex;
+                                            flex-direction: column;
+                                        }
+
+                                        .modal-form input {
+                                            margin: 10px 0;
+                                            padding: 10px;
+                                            border: 1px solid #ccc;
+                                            border-radius: 4px;
+                                            /* Rounded corners for inputs */
+                                        }
+
+                                        /* Gaya tombol (untuk tombol dengan warna biru) */
+                                        .modal-form button.btn-save {
+                                            padding: 10px;
+                                            background-color: #007bff;
+                                            /* Biru */
+                                            color: white;
+                                            border: none;
+                                            cursor: pointer;
+                                            border-radius: 4px;
+                                            /* Sudut membulat */
+                                        }
+
+                                        .modal-form button.btn-save:hover {
+                                            background-color: #0056b3;
+                                            /* Biru lebih gelap saat hover */
+                                        }
+
+                                        /* Gaya tombol (untuk tombol dengan warna merah) */
+                                        .modal-form button.btn-cancel {
+                                            padding: 10px;
+                                            background-color: #dc3545;
+                                            /* Merah */
+                                            color: white;
+                                            border: none;
+                                            cursor: pointer;
+                                            border-radius: 4px;
+                                            /* Sudut membulat */
+                                        }
+
+                                        .modal-form button.btn-cancel:hover {
+                                            background-color: #c82333;
+                                            /* Merah lebih gelap saat hover */
+                                        }
+
+                                        /* Styling untuk tombol button di dalam button-wrapper */
+                                        .button-wrapper button[type="button"] {
+                                            padding: 5px 10px;
+                                            background-color: #007bff;
+                                            /* Biru default */
+                                            color: white;
+                                            border: none;
+                                            cursor: pointer;
+                                            border-radius: 4px;
+                                        }
+
+                                        .button-wrapper button[type="button"]:hover {
+                                            background-color: #0056b3;
+                                            /* Biru lebih gelap saat hover */
+                                        }
+
+                                        /* Menambahkan tombol Cancel dengan warna merah */
+                                        .button-wrapper .btn-cancel {
+                                            background-color: #dc3545;
+                                            /* Merah */
+                                        }
+
+                                        .button-wrapper .btn-cancel:hover {
+                                            background-color: #c82333;
+                                            /* Merah lebih gelap saat hover */
+                                        }
+
+                                        label {
+                                            display: block;
+                                            margin-bottom: 8px;
+                                            /* Sesuaikan nilai ini sesuai kebutuhan */
+                                        }
+                                    </style>
+
+
+                                    <script>
+                                        // Fungsi untuk mendapatkan nilai increment terakhir dari penyimpanan lokal
+                                        function getLastIncrement() {
+                                            return parseInt(localStorage.getItem('lastIncrement')) || 0;
+                                        }
+
+                                        // Fungsi untuk menyimpan nilai increment terbaru ke penyimpanan lokal
+                                        function setLastIncrement(value) {
+                                            localStorage.setItem('lastIncrement', value);
+                                        }
+
+                                        // Fungsi untuk menghasilkan nilai seri baru
+                                        function generateSeri() {
+                                            let lastIncrement = getLastIncrement();
+                                            let newIncrement = lastIncrement + 1;
+                                            setLastIncrement(newIncrement);
+                                            return newIncrement; // Format: 1, 2, 3, ...
+                                        }
+
+                                        // Atur nilai input "seri" saat halaman dimuat
+                                        document.addEventListener('DOMContentLoaded', function() {
+                                            // Reset nilai lastIncrement di localStorage saat halaman dimuat
+                                            setLastIncrement(0);
+                                            document.getElementById('seriDokumen2').value = generateSeri();
+                                        });
+                                    </script>
+
+                                    <script>
+                                        // Fungsi untuk mendapatkan nilai increment terakhir dari penyimpanan lokal
+                                        function getLastIncrement() {
+                                            return parseInt(localStorage.getItem('lastIncrement')) || 0;
+                                        }
+
+                                        // Fungsi untuk menyimpan nilai increment terbaru ke penyimpanan lokal
+                                        function setLastIncrement(value) {
+                                            localStorage.setItem('lastIncrement', value);
+                                        }
+
+                                        // Fungsi untuk menghasilkan nilai seri baru
+                                        function generateSeri() {
+                                            let lastIncrement = getLastIncrement();
+                                            let newIncrement = lastIncrement + 1;
+                                            setLastIncrement(newIncrement);
+                                            return newIncrement; // Format: 1, 2, 3, ...
+                                        }
+
+                                        // Atur nilai input "seri" saat halaman dimuat
+                                        document.addEventListener('DOMContentLoaded', function() {
+                                            // Reset nilai lastIncrement di localStorage saat halaman dimuat
+                                            setLastIncrement(0);
+                                            document.getElementById('seriDokumen3').value = generateSeri();
+                                        });
+                                    </script>
+
+                                    <script>
+                                        // Fungsi untuk mendapatkan nilai increment terakhir dari penyimpanan lokal
+                                        function getLastIncrement() {
+                                            return parseInt(localStorage.getItem('lastIncrement')) || 0;
+                                        }
+
+                                        // Fungsi untuk menyimpan nilai increment terbaru ke penyimpanan lokal
+                                        function setLastIncrement(value) {
+                                            localStorage.setItem('lastIncrement', value);
+                                        }
+
+                                        // Fungsi untuk menghasilkan nilai seri baru
+                                        function generateSeri() {
+                                            let lastIncrement = getLastIncrement();
+                                            let newIncrement = lastIncrement + 1;
+                                            setLastIncrement(newIncrement);
+                                            return newIncrement; // Format: 1, 2, 3, ...
+                                        }
+
+                                        // Atur nilai input "seri" saat halaman dimuat
+                                        document.addEventListener('DOMContentLoaded', function() {
+                                            // Reset nilai lastIncrement di localStorage saat halaman dimuat
+                                            setLastIncrement(0);
+                                            document.getElementById('seriDokumen4').value = generateSeri();
+                                        });
+                                    </script>
+                                    <script>
+                                        function hitungNilaiPabean() {
+                                            // Ambil nilai NDPBM dari input
+                                            var ndpbm = parseFloat(document.getElementById('ndpbm').value);
+
+                                            // Ambil nilai CIF dari input dan ganti koma dengan titik
+                                            var cifInput = document.getElementById('cif').value.replace(/,/g, '');
+                                            var cif = parseFloat(cifInput);
+
+                                            // Pastikan nilai NDPBM dan CIF adalah angka dan bukan NaN
+                                            if (!isNaN(ndpbm) && !isNaN(cif)) {
+                                                // Hitung nilai pabean
+                                                var nilaiPabean = cif * ndpbm;
+                                                // Tampilkan hasil pada input nilai_pabean dengan format ribuan
+                                                document.getElementById('nilai_pabean').value = nilaiPabean.toLocaleString('id-ID', {
+                                                    minimumFractionDigits: 2,
+                                                    maximumFractionDigits: 2
+                                                });
+                                            } else {
+                                                // Jika input tidak valid, kosongkan nilai_pabean
+                                                document.getElementById('nilai_pabean').value = '';
+                                            }
+                                        }
+                                    </script>
+
+                                    <script>
+                                        function hitungPPN() {
+                                            // Ambil nilai dasar pengenaan pajak dari input dan ganti koma dengan titik
+                                            var dppInput = document.getElementById('pengenaan_pajak').value.replace(/,/g, '');
+                                            var dpp = parseFloat(dppInput);
+
+                                            // Ambil nilai tarif PPN dari input
+                                            var ppnTarif = parseFloat(document.getElementById('ppn_tarif').value);
+
+                                            // Pastikan nilai dasar pengenaan pajak dan tarif PPN adalah angka dan bukan NaN
+                                            if (!isNaN(dpp) && !isNaN(ppnTarif)) {
+                                                // Hitung PPN terutang
+                                                var ppnTerutang = (ppnTarif / 100) * dpp;
+                                                // Tampilkan hasil pada input ppn_hasil dengan format ribuan
+                                                document.getElementById('ppn_hasil').value = ppnTerutang.toLocaleString('id-ID', {
+                                                    minimumFractionDigits: 2,
+                                                    maximumFractionDigits: 2
+                                                });
+                                            } else {
+                                                // Jika input tidak valid, kosongkan ppn_hasil
+                                                document.getElementById('ppn_hasil').value = '';
+                                            }
+                                        }
+                                    </script>
+
+                                    <script>
+                                        function hitungPPNBM() {
+                                            // Ambil nilai dasar pengenaan pajak dari input dan ganti koma dengan titik
+                                            var dppInput = document.getElementById('pengenaan_pajak').value.replace(/,/g, '');
+                                            var dpp = parseFloat(dppInput);
+
+                                            // Ambil nilai tarif PPnBM dari input
+                                            var ppnbTarif = parseFloat(document.getElementById('ppnb_tarif').value);
+
+                                            // Pastikan nilai DPP dan tarif PPnBM adalah angka dan bukan NaN
+                                            if (!isNaN(dpp) && !isNaN(ppnbTarif)) {
+                                                // Hitung PPnBM terutang
+                                                var ppnbmTerutang = (ppnbTarif / 100) * dpp;
+                                                // Tampilkan hasil pada input ppnb_hasil dengan format ribuan
+                                                document.getElementById('ppnb_hasil').value = ppnbmTerutang.toLocaleString('id-ID', {
+                                                    minimumFractionDigits: 2,
+                                                    maximumFractionDigits: 2
+                                                });
+                                            } else {
+                                                // Jika input tidak valid, kosongkan ppnb_hasil
+                                                document.getElementById('ppnb_hasil').value = '';
+                                            }
+                                        }
+                                    </script>
+                                @endsection

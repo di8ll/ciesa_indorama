@@ -30,19 +30,24 @@ class DokumenController extends Controller
     }
     public function store(Request $request)
     {
-    // // Validate the incoming request data
-    // $validatedData = $request->validate([
-    //     'kodeJenisTpb' => 'required|string',
-    //     'kodeDokumen' => 'required|string',
-    //     'division_name' => 'required|string',
-    // ]);
+            $request->validate([
+                'seriDokumen' => 'required|string|max:255',
+                'division_name' => 'required|string',
+                'kodeDokumen' => 'required|string|max:255',
+                'tanggalDokumen' => 'required|date',
+            ]);
 
-    // // Generate a unique nomorAju
-    // $nomorAju = (string) Str::uuid();
+            $dokumen = new Dokumen([
+                'seri_dokumen' => $request->get('seriDokumen'),
+                'division_name' => $request->get('division_name'),
+                'kode_dokumen' => $request->get('kodeDokumen'),
+                'tanggal_dokumen' => $request->get('tanggalDokumen'),
+            ]);
 
-    // // Pass the generated nomorAju to the view
-    // return view('dashboard.admin.dokumen.create', compact('nomorAju'));
+            $dokumen->save();
+
+            return redirect()->route('dokumen.index')->with('success', 'Dokumen berhasil disimpan');
+        }
+
     }
 
-
-}
