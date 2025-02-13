@@ -740,7 +740,7 @@
                                                             </header>
                                                             <div class="card-body" id="tableContainer">
                                                                 <div class="table-responsive">
-                                                                    <table class="table table-bordered" id="dataTable3">
+                                                                    <table class="table table-bordered" id="Table2">
                                                                         <thead class="thead-light">
                                                                             <tr>
                                                                                 <th
@@ -773,10 +773,8 @@
                                                             data-keyboard="false" style="display: none;">
                                                             <div class="modal-content">
                                                                 <span class="close">&times;</span>
-                                                                <form id="modalForm"
-                                                                    action="{{ route('dokumen.create') }}"
-                                                                    method="GET">
                                                                     <div class="modal-form">
+                                                                        <input type="hidden" id="editIndex2" value="">
                                                                         <label for="nama">Seri</label>
                                                                         <input type="text" class="form-control"
                                                                             id="seriDokumen2" name="seriDokumen2"
@@ -786,57 +784,128 @@
                                                                         <input type="text" class="form-control"
                                                                             id="jumlah" name="jumlah"
                                                                             value="{{ old('jumlah') }}">
+
                                                                         <div class="form-group">
                                                                             <label for="alamat">Jenis Dokumen</label>
                                                                             <select class="form-control"
-                                                                                name="division_name" id="select-field5"
+                                                                                name="jenis_dokumen" id="select-field5"
                                                                                 required
                                                                                 style="border: 1px solid #313131;">
                                                                                 <option selected disabled>Pilih Jenis
                                                                                 </option>
                                                                                 <option value="1A - DRUM, STEEL"
-                                                                                    {{ old('division_name') == '1' ? 'selected' : '' }}>
+                                                                                    {{ old('jenis_dokumen') == '1' ? 'selected' : '' }}>
                                                                                     1A - DRUM, STEEL</option>
                                                                                 <option value="1B - DRUM, ALUMUNIUM"
-                                                                                    {{ old('division_name') == '2' ? 'selected' : '' }}>
+                                                                                    {{ old('jenis_dokumen') == '2' ? 'selected' : '' }}>
                                                                                     1B - DRUM, ALUMUNIUM</option>
                                                                                 <option value="1D - DRUM, PLYWOOD"
-                                                                                    {{ old('division_name') == '2' ? 'selected' : '' }}>
+                                                                                    {{ old('jenis_dokumen') == '2' ? 'selected' : '' }}>
                                                                                     1D - DRUM, PLYWOOD</option>
                                                                                 <option value="1F - CONTAINER, FLEXIBLE"
-                                                                                    {{ old('division_name') == '2' ? 'selected' : '' }}>
+                                                                                    {{ old('jenis_dokumen') == '2' ? 'selected' : '' }}>
                                                                                     1F - CONTAINER, FLEXIBLE</option>
                                                                                 <option value="1G - DRUM, FIBRE"
-                                                                                    {{ old('division_name') == '2' ? 'selected' : '' }}>
+                                                                                    {{ old('jenis_dokumen') == '2' ? 'selected' : '' }}>
                                                                                     1G - DRUM, FIBRE</option>
                                                                                 <option value="1W - DRUM, WOODEN"
-                                                                                    {{ old('division_name') == '2' ? 'selected' : '' }}>
+                                                                                    {{ old('jenis_dokumen') == '2' ? 'selected' : '' }}>
                                                                                     1W - DRUM, WOODEN</option>
                                                                                 <option value="2C - BARREL, WOODEN"
-                                                                                    {{ old('division_name') == '2' ? 'selected' : '' }}>
+                                                                                    {{ old('jenis_dokumen') == '2' ? 'selected' : '' }}>
                                                                                     2C - BARREL, WOODEN</option>
                                                                                 <option value=" 3A - JERICCAN, STELL"
-                                                                                    {{ old('division_name') == '2' ? 'selected' : '' }}>
+                                                                                    {{ old('jenis_dokumen') == '2' ? 'selected' : '' }}>
                                                                                     3A - JERICCAN, STELL</option>
                                                                             </select>
                                                                         </div>
                                                                         <BR>
                                                                         <label for="usaha">Merk</label>
                                                                         <input type="text" class="form-control"
-                                                                            id="kodeDokumen" name="kodeDokumen"
-                                                                            value="{{ old('kodeDokumen') }}">
+                                                                            id="merk" name="merk"
+                                                                            value="{{ old('merk') }}">
                                                                         <br>
                                                                         <!-- Tombol Simpan & Batal -->
                                                                         <div class="button-group">
-                                                                            <button type="submit"
-                                                                                class="btn-save">Simpan</button>
-                                                                            <button type="button" class="btn-cancel"
-                                                                                onclick="closeModal()">Cancel</button>
+                                                                            <button type="button" class="btn btn-success" id="saveBtn">Simpan</button>
+                                                                            <button type="button" class="btn btn-secondary" id="cancelBtn">Batal</button>
                                                                         </div>
                                                                     </div>
                                                                 </form>
                                                             </div>
                                                         </div>
+
+                                                        <script>
+                                                            // Mendapatkan elemen modal dan tombol
+                                                            var modal = document.getElementById("myModal5");
+                                                            var btn = document.getElementById("myBtn5");
+                                                            var span = document.getElementsByClassName("close")[0];
+                                                            var saveBtn = document.getElementById("saveBtn");
+                                                            var cancelBtn = document.getElementById("cancelBtn");
+
+                                                            // Membuka modal saat tombol "Tambah Kemasan" diklik
+                                                            btn.onclick = function() {
+                                                                modal.style.display = "block";
+                                                            }
+
+                                                            // Menutup modal saat tombol "x" diklik
+                                                            span.onclick = function() {
+                                                                modal.style.display = "none";
+                                                            }
+
+                                                            // Menutup modal saat area di luar modal diklik
+                                                            window.onclick = function(event) {
+                                                                if (event.target == modal) {
+                                                                    modal.style.display = "none";
+                                                                }
+                                                            }
+
+                                                            // Menambahkan data ke tabel saat tombol "Simpan" diklik
+                                                            saveBtn.onclick = function() {
+                                                                var seri = document.getElementById("seriDokumen2").value;
+                                                                var jumlah = document.getElementById("jumlah").value;
+                                                                var jenis = document.getElementById("select-field5").value;
+                                                                var merk = document.getElementById("merk").value;
+
+                                                                // Validasi input
+                                                                if (seri && jumlah && jenis && merk) {
+                                                                    // Menambahkan data ke tabel
+                                                                    var table = document.getElementById("Table2").getElementsByTagName('tbody')[0];
+                                                                    var newRow = table.insertRow(table.rows.length);
+
+                                                                    newRow.insertCell(0).textContent = seri;
+                                                                    newRow.insertCell(1).textContent = jumlah;
+                                                                    newRow.insertCell(2).textContent = jenis;
+                                                                    newRow.insertCell(3).textContent = merk;
+
+                                                                    // Menambahkan tombol Hapus di setiap baris
+                                                                    var deleteCell = newRow.insertCell(4);
+                                                                    var deleteBtn = document.createElement("button");
+                                                                    deleteBtn.textContent = "Hapus";
+                                                                    deleteBtn.classList.add("btn", "btn-danger", "btn-sm");
+                                                                    deleteBtn.onclick = function() {
+                                                                        table.deleteRow(newRow.rowIndex);
+                                                                    };
+                                                                    deleteCell.appendChild(deleteBtn);
+
+                                                                    // Menutup modal setelah data ditambahkan
+                                                                    modal.style.display = "none";
+
+                                                                    // Reset input field setelah data ditambahkan
+                                                                    document.getElementById("seriDokumen2").value = "";
+                                                                    document.getElementById("jumlah").value = "";
+                                                                    document.getElementById("select-field5").value = "";
+                                                                    document.getElementById("merk").value = "";
+                                                                } else {
+                                                                    alert("Harap lengkapi semua data sebelum menyimpan!");
+                                                                }
+                                                            }
+
+                                                            // Membatalkan dan menutup modal saat tombol "Batal" diklik
+                                                            cancelBtn.onclick = function() {
+                                                                modal.style.display = "none";
+                                                            }
+                                                        </script>
 
                                                         <div class="row">
                                                             <div class="col-12">
@@ -2385,8 +2454,6 @@
                                     </script>
 
                                     {{-- Fungsi MODAL DOKUMEN  --}}
-
-                                    {{-- Fungsi MODAL DOKUMEN  --}}
                                     <script>
                                         // Function to open the modal when the "Tambah" button is clicked
                                         document.getElementById("myBtn4").addEventListener("click", function() {
@@ -2484,9 +2551,6 @@
                                             }
                                         }
 
-
-
-
                                         // Function to delete data
                                         function deleteData(nomorAju, index) {
                                             let storedData = JSON.parse(localStorage.getItem(nomorAju)) || [];
@@ -2557,4 +2621,7 @@
                                             renderTable(nomorAju);
                                         });
                                     </script>
+
+
+
                                 @endsection
