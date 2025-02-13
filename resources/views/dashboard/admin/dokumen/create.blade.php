@@ -596,6 +596,7 @@
                                                             <div class="modal-content">
                                                                 <span class="close">&times;</span>
                                                                 <div class="modal-form">
+                                                                    <input type="hidden" id="editIndex" value="">
                                                                     <label for="seri">Seri</label>
                                                                     <input type="text" class="form-control"
                                                                         id="seriDokumen" name="seriDokumen" readonly>
@@ -605,81 +606,76 @@
                                                                         <select class="form-control" name="division_name"
                                                                             id="select-field4" required>
                                                                             <option selected disabled>Pilih Jenis</option>
-                                                                               <option
-                                                                                    value="0282 - PERSETUJUAN PENGELUARAN BC28 DENGAN DOKAP"
-                                                                                    {{ old('division_name') == '1' ? 'selected' : '' }}>
-                                                                                    0282 - PERSETUJUAN PENGELUARAN BC28
-                                                                                    DENGAN DOKAP</option>
+                                                                            <option
+                                                                                value="0282 - PERSETUJUAN PENGELUARAN BC28 DENGAN DOKAP"
+                                                                                {{ old('division_name') == '1' ? 'selected' : '' }}>
+                                                                                0282 - PERSETUJUAN PENGELUARAN BC28
+                                                                                DENGAN DOKAP</option>
 
-                                                                                <option
-                                                                                    value="03001 - IZIN PRINSIP PENDIRIAN KAWASAN BERIKAT SEBELUM FISIK BANGUNAN BERDIRI"
-                                                                                    {{ old('division_name') == '2' ? 'selected' : '' }}>
-                                                                                    03001 - IZIN PRINSIP PENDIRIAN KAWASAN
-                                                                                    BERIKAT SEBELUM FISIK BANGUNAN BERDIRI
-                                                                                </option>
+                                                                            <option
+                                                                                value="03001 - IZIN PRINSIP PENDIRIAN KAWASAN BERIKAT SEBELUM FISIK BANGUNAN BERDIRI"
+                                                                                {{ old('division_name') == '2' ? 'selected' : '' }}>
+                                                                                03001 - IZIN PRINSIP PENDIRIAN KAWASAN
+                                                                                BERIKAT SEBELUM FISIK BANGUNAN BERDIRI
+                                                                            </option>
 
-                                                                                <option
-                                                                                    value="03002 - KEPUTUSAN PENETAPAN TEMPAT SEBAGAI KAWASAN BERIKAT DAN PEMBERIAN IZIN PENYELENGGARA KAWASAN BERIKAT"
-                                                                                    {{ old('division_name') == '3' ? 'selected' : '' }}>
-                                                                                    03002 - KEPUTUSAN PENETAPAN TEMPAT
-                                                                                    SEBAGAI KAWASAN BERIKAT DAN PEMBERIAN
-                                                                                    IZIN PENYELENGGARA KAWASAN BERIKAT
-                                                                                </option>
+                                                                            <option
+                                                                                value="03002 - KEPUTUSAN PENETAPAN TEMPAT SEBAGAI KAWASAN BERIKAT DAN PEMBERIAN IZIN PENYELENGGARA KAWASAN BERIKAT"
+                                                                                {{ old('division_name') == '3' ? 'selected' : '' }}>
+                                                                                03002 - KEPUTUSAN PENETAPAN TEMPAT
+                                                                                SEBAGAI KAWASAN BERIKAT DAN PEMBERIAN
+                                                                                IZIN PENYELENGGARA KAWASAN BERIKAT
+                                                                            </option>
 
-                                                                                <option
-                                                                                    value="03003 - PERSETUJUAN PENETAPAN TEMPAT SEBAGAI KAWASAN BERIKAT DAN PEMBERIAN IZIN PENYELENGARA KAWASAN BERIKAT SEKALIGUS IZIN PENGUSAHA KAWASAN BERIKAT"
-                                                                                    {{ old('division_name') == '4' ? 'selected' : '' }}>
-                                                                                    03003 - PERSETUJUAN PENETAPAN TEMPAT
-                                                                                    SEBAGAI KAWASAN BERIKAT DAN PEMBERIAN
-                                                                                    IZIN PENYELENGARA KAWASAN BERIKAT
-                                                                                    SEKALIGUS IZIN PENGUSAHA KAWASAN BERIKAT
-                                                                                </option>
+                                                                            <option
+                                                                                value="03003 - PERSETUJUAN PENETAPAN TEMPAT SEBAGAI KAWASAN BERIKAT DAN PEMBERIAN IZIN PENYELENGARA KAWASAN BERIKAT SEKALIGUS IZIN PENGUSAHA KAWASAN BERIKAT"
+                                                                                {{ old('division_name') == '4' ? 'selected' : '' }}>
+                                                                                03003 - PERSETUJUAN PENETAPAN TEMPAT
+                                                                                SEBAGAI KAWASAN BERIKAT DAN PEMBERIAN
+                                                                                IZIN PENYELENGARA KAWASAN BERIKAT
+                                                                                SEKALIGUS IZIN PENGUSAHA KAWASAN BERIKAT
+                                                                            </option>
 
-                                                                                <option value="03004 - IZIN PDKB"
-                                                                                    {{ old('division_name') == '5' ? 'selected' : '' }}>
-                                                                                    03004 - IZIN PDKB</option>
+                                                                            <option value="03004 - IZIN PDKB"
+                                                                                {{ old('division_name') == '5' ? 'selected' : '' }}>
+                                                                                03004 - IZIN PDKB</option>
 
-                                                                                <option
-                                                                                    value="03005 - PERPANJANGAN PENETAPAN TEMPAT SEBAGAI KAWASAN BERIKAT DAN IZIN PENYELENGGARA KAWASAN BERIKAT, IZIN PENGUSAHA KAWASAN BERIKAT, ATAU IZIN PDKB SEBELUM JANGKA WAKTU IZIN TERSEBUT BERAKHIR"
-                                                                                    {{ old('division_name') == '5' ? 'selected' : '' }}>
-                                                                                    03005 - PERPANJANGAN PENETAPAN TEMPAT
-                                                                                    SEBAGAI KAWASAN BERIKAT DAN IZIN
-                                                                                    PENYELENGGARA KAWASAN BERIKAT, IZIN
-                                                                                    PENGUSAHA KAWASAN BERIKAT, ATAU IZIN
-                                                                                    PDKB SEBELUM JANGKA WAKTU IZIN TERSEBUT
-                                                                                    BERAKHIR</option>
+                                                                            <option
+                                                                                value="03005 - PERPANJANGAN PENETAPAN TEMPAT SEBAGAI KAWASAN BERIKAT DAN IZIN PENYELENGGARA KAWASAN BERIKAT, IZIN PENGUSAHA KAWASAN BERIKAT, ATAU IZIN PDKB SEBELUM JANGKA WAKTU IZIN TERSEBUT BERAKHIR"
+                                                                                {{ old('division_name') == '5' ? 'selected' : '' }}>
+                                                                                03005 - PERPANJANGAN PENETAPAN TEMPAT
+                                                                                SEBAGAI KAWASAN BERIKAT DAN IZIN
+                                                                                PENYELENGGARA KAWASAN BERIKAT, IZIN
+                                                                                PENGUSAHA KAWASAN BERIKAT, ATAU IZIN
+                                                                                PDKB SEBELUM JANGKA WAKTU IZIN TERSEBUT
+                                                                                BERAKHIR</option>
+                                                                            03006 - PERUBAHAN IZIN PENYELENGGARA
+                                                                            KAWASAN BERIKAT, IZIN PENGUSAHA KAWASAN
+                                                                            BERIKAT, ATAU IZIN PDKB (TERDAPAT
+                                                                            PERUBAHAN NAMA PERUSAHAAN YANG BUKAN
+                                                                            DIKARENAKAN MERGER ATAU DIAKUISISI,
+                                                                            JENIS HASIL PRODUK, ATAU LUAS KAWASAN
+                                                                            BERIKAT)
+                                                                            </option>
 
-                                                                                <option
-                                                                                    value="03006 - PERUBAHAN IZIN PENYELENGGARA KAWASAN BERIKAT, IZIN PENGUSAHA KAWASAN BERIKAT, ATAU IZIN PDKB (TERDAPAT PERUBAHAN NAMA PERUSAHAAN YANG BUKAN DIKARENAKAN MERGER ATAU DIAKUISISI, JENIS HASIL PRODUK, ATAU LUAS KAWASAN BERIKAT)"
-                                                                                    {{ old('division_name') == '6' ? 'selected' : '' }}>
-                                                                                    03006 - PERUBAHAN IZIN PENYELENGGARA
-                                                                                    KAWASAN BERIKAT, IZIN PENGUSAHA KAWASAN
-                                                                                    BERIKAT, ATAU IZIN PDKB (TERDAPAT
-                                                                                    PERUBAHAN NAMA PERUSAHAAN YANG BUKAN
-                                                                                    DIKARENAKAN MERGER ATAU DIAKUISISI,
-                                                                                    JENIS HASIL PRODUK, ATAU LUAS KAWASAN
-                                                                                    BERIKAT)
-                                                                                </option>
+                                                                            <option
+                                                                                value="03007 - PERUBAHAN KEPUTUSAN IZIN PENYELENGGARA KAWASAN BERIKAT, IZIN PENGUSAHA KAWASAN BERIKAT, ATAU IZIN PDKB"
+                                                                                {{ old('division_name') == '7' ? 'selected' : '' }}>
+                                                                                03007 - PERUBAHAN KEPUTUSAN IZIN
+                                                                                PENYELENGGARA KAWASAN BERIKAT, IZIN
+                                                                                PENGUSAHA KAWASAN BERIKAT, ATAU IZIN
+                                                                                PDKB
+                                                                            </option>
 
-                                                                                <option
-                                                                                    value="03007 - PERUBAHAN KEPUTUSAN IZIN PENYELENGGARA KAWASAN BERIKAT, IZIN PENGUSAHA KAWASAN BERIKAT, ATAU IZIN PDKB"
-                                                                                    {{ old('division_name') == '7' ? 'selected' : '' }}>
-                                                                                    03007 - PERUBAHAN KEPUTUSAN IZIN
-                                                                                    PENYELENGGARA KAWASAN BERIKAT, IZIN
-                                                                                    PENGUSAHA KAWASAN BERIKAT, ATAU IZIN
-                                                                                    PDKB
-                                                                                </option>
-
-                                                                                <option
-                                                                                    value="03008 - PEMBERIAN IZIN PENAMBAHAN PINTU KHUSUS PEMASUKAN DAN PENGELUARAN BARANG DI KAWASAN BERIKAT"
-                                                                                    {{ old('division_name') == '8' ? 'selected' : '' }}>
-                                                                                    03008 - PEMBERIAN IZIN PENAMBAHAN PINTU
-                                                                                    KHUSUS PEMASUKAN DAN PENGELUARAN BARANG
-                                                                                    DI KAWASAN BERIKAT
-                                                                                </option>
+                                                                            <option
+                                                                                value="03008 - PEMBERIAN IZIN PENAMBAHAN PINTU KHUSUS PEMASUKAN DAN PENGELUARAN BARANG DI KAWASAN BERIKAT"
+                                                                                {{ old('division_name') == '8' ? 'selected' : '' }}>
+                                                                                03008 - PEMBERIAN IZIN PENAMBAHAN PINTU
+                                                                                KHUSUS PEMASUKAN DAN PENGELUARAN BARANG
+                                                                                DI KAWASAN BERIKAT
+                                                                            </option>
                                                                         </select>
                                                                     </div>
-
                                                                     <label for="nomorDokumen">Nomor Dokumen</label>
                                                                     <input type="text" class="form-control"
                                                                         id="kodeDokumen" name="kodeDokumen">
@@ -704,151 +700,6 @@
                                             </div>
                                         </div>
                                     </div>
-
-                                    <script>
-                                        // Fungsi untuk membuka modal saat tombol "Tambah" diklik
-                                        document.getElementById("myBtn4").addEventListener("click", function() {
-                                            document.getElementById("myModal4").style.display = "block";
-                                        });
-
-                                        // Fungsi untuk menutup modal
-                                        function closeModal() {
-                                            document.getElementById("myModal4").style.display = "none";
-                                        }
-
-                                        // Fungsi untuk mendapatkan dan memperbarui nomor seri dokumen yang auto increment
-                                        function getNextSeriDokumen() {
-                                            let nomorAju = document.getElementById("nomorAju").value;
-                                            let seriDokumenCounter = parseInt(localStorage.getItem(nomorAju + "_seriDokumenCounter") || "0");
-
-                                            // If data is not empty, continue incrementing from the last serial number
-                                            let storedData = JSON.parse(localStorage.getItem(nomorAju)) || [];
-                                            if (storedData.length > 0) {
-                                                let lastData = storedData[storedData.length - 1];
-                                                seriDokumenCounter = lastData.seriDokumen;
-                                            }
-
-                                            // Increment the counter and store it back in localStorage
-                                            seriDokumenCounter++;
-                                            localStorage.setItem(nomorAju + "_seriDokumenCounter", seriDokumenCounter.toString());
-
-                                            return seriDokumenCounter;
-                                        }
-
-                                        // Fungsi untuk menyimpan data ke localStorage
-                                        function saveToLocalStorage(nomorAju, data) {
-                                            let storedData = JSON.parse(localStorage.getItem(nomorAju)) || [];
-                                            storedData.push(data);
-                                            localStorage.setItem(nomorAju, JSON.stringify(storedData));
-                                        }
-
-                                        // Fungsi untuk merender tabel dari data yang disimpan
-                                        function renderTable(nomorAju) {
-                                            let storedData = JSON.parse(localStorage.getItem(nomorAju)) || [];
-                                            let tableBody = document.querySelector("#Table tbody");
-                                            tableBody.innerHTML = "";
-
-                                            storedData.forEach((item, index) => {
-                                                let newRow = document.createElement("tr");
-                                                newRow.innerHTML = `
-                                                    <td>${item.seriDokumen}</td>
-                                                    <td>${item.jenisDokumen}</td>
-                                                    <td>${item.kodeDokumen}</td>
-                                                    <td>${item.tanggalDokumen}</td>
-                                                    <td>-</td>
-                                                    <td>-</td>
-                                                    <td>-</td>
-                                                    <td>-</td>
-                                                    <td>
-                                                        <button class="btn btn-edit" data-index="${index}">
-                                                            <i class="fa fa-edit"></i>
-                                                        </button>
-                                                        <button class="btn btn-delete" data-index="${index}">
-                                                            <i class="fa fa-trash"></i>
-                                                        </button>
-                                                    </td>
-                                                `;
-                                                tableBody.appendChild(newRow);
-                                            });
-
-                                            // Adding event listeners for edit and delete buttons
-                                            document.querySelectorAll(".btn-edit").forEach(button => {
-                                                button.addEventListener("click", function() {
-                                                    editData(nomorAju, this.getAttribute("data-index"));
-                                                });
-                                            });
-
-                                            document.querySelectorAll(".btn-delete").forEach(button => {
-                                                button.addEventListener("click", function() {
-                                                    deleteData(nomorAju, this.getAttribute("data-index"));
-                                                });
-                                            });
-                                        }
-
-                                        // Fungsi untuk mengedit data
-                                        function editData(nomorAju, index) {
-                                            let storedData = JSON.parse(localStorage.getItem(nomorAju)) || [];
-                                            let dataToEdit = storedData[index];
-                                            document.getElementById("seriDokumen").value = dataToEdit.seriDokumen;
-                                            document.getElementById("select-field4").value = dataToEdit.jenisDokumen;
-                                            document.getElementById("kodeDokumen").value = dataToEdit.kodeDokumen;
-                                            document.getElementById("tanggalDokumen").value = dataToEdit.tanggalDokumen;
-                                            document.getElementById("myModal4").style.display = "block";
-
-                                            storedData.splice(index, 1);
-                                            localStorage.setItem(nomorAju, JSON.stringify(storedData));
-                                        }
-
-                                        // Fungsi untuk menghapus data
-                                        function deleteData(nomorAju, index) {
-                                            let storedData = JSON.parse(localStorage.getItem(nomorAju)) || [];
-                                            storedData.splice(index, 1);
-                                            localStorage.setItem(nomorAju, JSON.stringify(storedData));
-
-                                            // Check if data is empty and reset the counter if so
-                                            if (storedData.length === 0) {
-                                                localStorage.removeItem(nomorAju + "_seriDokumenCounter");
-                                            }
-
-                                            renderTable(nomorAju);
-                                        }
-
-                                        // Memuat data dan merender tabel saat halaman dimuat
-                                        window.addEventListener("load", function() {
-                                            var nomorAju = document.getElementById("nomorAju").value;
-                                            renderTable(nomorAju);
-                                        });
-
-                                        // Menambahkan data ke tabel saat tombol simpan diklik
-                                        document.querySelector(".btn-save").addEventListener("click", function() {
-                                            var seriDokumen = getNextSeriDokumen(); // Get next auto increment seri dokumen
-                                            var jenisDokumen = document.getElementById("select-field4").value;
-                                            var kodeDokumen = document.getElementById("kodeDokumen").value;
-                                            var tanggalDokumen = document.getElementById("tanggalDokumen").value;
-                                            var nomorAju = document.getElementById("nomorAju").value;
-
-                                            if (seriDokumen && jenisDokumen && kodeDokumen && tanggalDokumen) {
-                                                saveToLocalStorage(nomorAju, {
-                                                    seriDokumen,
-                                                    jenisDokumen,
-                                                    kodeDokumen,
-                                                    tanggalDokumen
-                                                });
-
-                                                renderTable(nomorAju);
-                                                closeModal();
-
-                                                document.getElementById("seriDokumen").value = "";
-                                                document.getElementById("select-field4").value = "";
-                                                document.getElementById("kodeDokumen").value = "";
-                                                document.getElementById("tanggalDokumen").value = "";
-                                            } else {
-                                                alert("Harap isi semua field!");
-                                            }
-                                        });
-                                    </script>
-
-
 
                                     {{-- Pengangkut --}}
                                     <div class="tab-pane fade" id="pengangkut" role="tabpanel"
@@ -1911,6 +1762,7 @@
                                         document.getElementById("myBtn7").onclick = function() {
                                             document.getElementById("myModal7").style.display = "block";
                                         };
+
                                         // Close Modal
                                         document.getElementsByClassName("close")[0].onclick = function() {
                                             document.getElementById("myModal").style.display = "none";
@@ -1933,7 +1785,9 @@
                                         document.getElementsByClassName("close")[5].onclick = function() {
                                             document.getElementById("myModal7").style.display = "none";
                                         };
-
+                                        document.getElementsByClassName("close")[6].onclick = function() {
+                                            document.getElementById("myModal8").style.display = "none";
+                                        };
                                         // Close modal when clicking outside
                                         window.onclick = function(event) {
                                             if (event.target == document.getElementById("myModal")) {
@@ -1954,10 +1808,11 @@
                                             if (event.target == document.getElementById("myModal7")) {
                                                 document.getElementById("myModal7").style.display = "none";
                                             }
+                                            if (event.target == document.getElementById("myModal8")) {
+                                                document.getElementById("myModal8").style.display = "none";
+                                            }
                                         };
                                     </script>
-
-
 
                                     <script>
                                         // Fungsi untuk mengisi form dengan data yang dipilih
@@ -2527,5 +2382,179 @@
                                                 document.getElementById('ppnb_hasil').value = '';
                                             }
                                         }
+                                    </script>
+
+                                    {{-- Fungsi MODAL DOKUMEN  --}}
+
+                                    {{-- Fungsi MODAL DOKUMEN  --}}
+                                    <script>
+                                        // Function to open the modal when the "Tambah" button is clicked
+                                        document.getElementById("myBtn4").addEventListener("click", function() {
+                                            var nomorAju = document.getElementById("nomorAju").value;
+                                            var nextSeriDokumen = getNextSeriDokumen(nomorAju);
+                                            document.getElementById("seriDokumen").value = nextSeriDokumen;
+                                            document.getElementById("myModal4").style.display = "block";
+                                        });
+
+                                        function closeModal() {
+                                            document.getElementById("myModal4").style.display = "none";
+                                            document.getElementById("seriDokumen").value = "";
+                                            document.getElementById("select-field4").value = "";
+                                            document.getElementById("kodeDokumen").value = "";
+                                            document.getElementById("tanggalDokumen").value = "";
+                                            document.getElementById("editIndex").value = "";
+                                        }
+
+                                        // Function to get the next seriDokumen number
+                                        function getNextSeriDokumen(nomorAju) {
+                                            let storedData = JSON.parse(localStorage.getItem(nomorAju)) || [];
+                                            return storedData.length + 1;
+                                        }
+
+                                        // Function to save data to localStorage
+                                        function saveToLocalStorage(nomorAju, data) {
+                                            let storedData = JSON.parse(localStorage.getItem(nomorAju)) || [];
+                                            storedData.push(data);
+                                            localStorage.setItem(nomorAju, JSON.stringify(storedData));
+                                        }
+
+                                        // Function to render the table from stored data
+                                        function renderTable(nomorAju) {
+                                            let storedData = JSON.parse(localStorage.getItem(nomorAju)) || [];
+                                            let tableBody = document.querySelector("#Table tbody");
+                                            tableBody.innerHTML = "";
+
+                                            storedData.forEach((item, index) => {
+                                                let newRow = document.createElement("tr");
+                                                newRow.innerHTML = `
+                                                    <td>${item.seriDokumen}</td>
+                                                    <td>${item.jenisDokumen}</td>
+                                                    <td>${item.kodeDokumen}</td>
+                                                    <td>${item.tanggalDokumen}</td>
+                                                    <td>-</td>
+                                                    <td>-</td>
+                                                    <td>-</td>
+                                                    <td>-</td>
+                                                    <td>
+                                                        <button class="btn btn-edit" data-index="${index}">
+                                                            <i class="fa fa-edit"></i>
+                                                        </button>
+                                                        <button class="btn btn-delete" data-index="${index}">
+                                                            <i class="fa fa-trash"></i>
+                                                        </button>
+                                                    </td>
+                                                `;
+                                                tableBody.appendChild(newRow);
+                                            });
+
+                                            // Adding event listeners for edit and delete buttons
+                                            document.querySelectorAll(".btn-edit").forEach(button => {
+                                                button.addEventListener("click", function(event) {
+                                                    event.preventDefault(); // Prevent page refresh or default behavior
+                                                    editData(nomorAju, this.getAttribute("data-index"));
+                                                });
+                                            });
+
+                                            document.querySelectorAll(".btn-delete").forEach(button => {
+                                                button.addEventListener("click", function() {
+                                                    deleteData(nomorAju, this.getAttribute("data-index"));
+                                                });
+                                            });
+                                        }
+
+                                        // Function to open the edit modal and populate it with existing data
+                                        function editData(nomorAju, index) {
+                                            let storedData = JSON.parse(localStorage.getItem(nomorAju)) || [];
+                                            let dataToEdit = storedData[index];
+
+                                            if (dataToEdit) {
+                                                // Isi form modal dengan data yang akan diedit
+                                                document.getElementById("seriDokumen").value = dataToEdit.seriDokumen;
+                                                document.getElementById("select-field4").value = dataToEdit.jenisDokumen;
+                                                document.getElementById("kodeDokumen").value = dataToEdit.kodeDokumen;
+                                                document.getElementById("tanggalDokumen").value = dataToEdit.tanggalDokumen;
+
+                                                // Simpan indeks data yang sedang diedit
+                                                document.getElementById("editIndex").value = index;
+
+                                                // Tampilkan modal
+                                                document.getElementById("myModal4").style.display = "block";
+                                            } else {
+                                                alert("Data tidak ditemukan!");
+                                            }
+                                        }
+
+
+
+
+                                        // Function to delete data
+                                        function deleteData(nomorAju, index) {
+                                            let storedData = JSON.parse(localStorage.getItem(nomorAju)) || [];
+                                            storedData.splice(index, 1);
+
+                                            // Reassign seriDokumen to maintain sequential order
+                                            storedData.forEach((item, idx) => {
+                                                item.seriDokumen = idx + 1;
+                                            });
+
+                                            localStorage.setItem(nomorAju, JSON.stringify(storedData));
+                                            renderTable(nomorAju);
+                                        }
+                                        document.querySelector(".btn-save").addEventListener("click", function() {
+                                            var nomorAju = document.getElementById("nomorAju").value;
+                                            var seriDokumen = document.getElementById("seriDokumen").value;
+                                            var jenisDokumen = document.getElementById("select-field4").value;
+                                            var kodeDokumen = document.getElementById("kodeDokumen").value;
+                                            var tanggalDokumen = document.getElementById("tanggalDokumen").value;
+                                            var editIndex = document.getElementById("editIndex").value;
+
+                                            if (jenisDokumen && kodeDokumen && tanggalDokumen) {
+                                                let storedData = JSON.parse(localStorage.getItem(nomorAju)) || [];
+
+                                                if (editIndex) {
+                                                    // Mode edit: perbarui data yang ada
+                                                    storedData[editIndex] = {
+                                                        seriDokumen,
+                                                        jenisDokumen,
+                                                        kodeDokumen,
+                                                        tanggalDokumen
+                                                    };
+                                                } else {
+                                                    // Mode tambah: tambahkan data baru
+                                                    seriDokumen = getNextSeriDokumen(nomorAju);
+                                                    storedData.push({
+                                                        seriDokumen,
+                                                        jenisDokumen,
+                                                        kodeDokumen,
+                                                        tanggalDokumen
+                                                    });
+                                                }
+
+                                                // Simpan data ke localStorage
+                                                localStorage.setItem(nomorAju, JSON.stringify(storedData));
+
+                                                // Render ulang tabel
+                                                renderTable(nomorAju);
+
+                                                // Tutup modal
+                                                closeModal();
+
+                                                // Reset form dan indeks edit
+                                                document.getElementById("seriDokumen").value = "";
+                                                document.getElementById("select-field4").value = "";
+                                                document.getElementById("kodeDokumen").value = "";
+                                                document.getElementById("tanggalDokumen").value = "";
+                                                document.getElementById("editIndex").value = "";
+                                            } else {
+                                                alert("Harap isi semua field!");
+                                            }
+                                        });
+
+
+                                        // Load data and render table when the page loads
+                                        window.addEventListener("load", function() {
+                                            var nomorAju = document.getElementById("nomorAju").value;
+                                            renderTable(nomorAju);
+                                        });
                                     </script>
                                 @endsection
