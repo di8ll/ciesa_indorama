@@ -15,7 +15,7 @@
         }
 
         .right_content {
-            order: 2;
+            border: 2;
         }
     </style>
 
