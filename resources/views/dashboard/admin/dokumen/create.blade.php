@@ -1297,7 +1297,7 @@
                                             </div>
 
                                             <!-- Cara Perhitungan -->
-                                            <div class="col-md-12">
+                                            <div class="col-md-12  mb-3" >
                                                 <label for="alamat" class="form-label">Cara
                                                     Perhitungan</label>
                                                 <select class="form-control" name="hs" id="select-field12"
@@ -1313,6 +1313,72 @@
                                                         1 - HARGA PENYERAHAN
                                                     </option>
                                                 </select>
+                                            </div>
+
+                                            <h5 class="text-primary" id="exampleModalCenterTitle">Jenis
+                                            </h5>
+                                            <style>
+                                                label {
+                                                    margin-bottom: 8px;
+                                                    font-size: 14px;
+                                                }
+
+                                                .input-group {
+                                                    display: flex;
+                                                    justify-content: space-between;
+                                                    align-items: center;
+                                                }
+
+                                                .input-group input[type="text"],
+                                                .input-group select {
+                                                    flex: 1;
+                                                    padding: 10px;
+                                                    border: 1px solid #ccc;
+                                                    border-radius: 4px;
+                                                }
+
+                                                .input-group input[type="text"] {
+                                                    margin-right: 20px; /* Jarak antara input dan select */
+                                                }
+                                            </style>
+
+                                            <div class="container">
+                                                <label for="satuan">Satuan</label>
+                                                <div class="input-group">
+                                                    <input type="text" id="harga" name="harga"  >
+                                                    <select name="satuan_harga" id="select-field16">
+                                                        <option value="KGM - KILOGRAM" {{ old('satuan_harga') == 'KGM - KILOGRAM' ? 'selected' : '' }}>
+                                                            KGM - KILOGRAM
+                                                        </option>
+                                                        <option value="KPP - KGM OF PHOSPHORUS PENTOXIDE(PHOSPOHORIC ANHYDRIDE)"
+                                                            {{ old('satuan_harga') == 'KPP - KGM OF PHOSPHORUS PENTOXIDE(PHOSPOHORIC ANHYDRIDE)' ? 'selected' : '' }}>
+                                                            KPP - KGM OF PHOSPHORUS PENTOXIDE(PHOSPOHORIC ANHYDRIDE)
+                                                        </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="container">
+                                                <label for="satuan">Kemasan</label>
+                                                <div class="input-group">
+                                                    <input type="text" id="kemasan" name="kemasan">
+                                                    <select name="satuan_kemasan" id="select-field17">
+                                                        <option value="KGM - KILOGRAM" {{ old('satuan_kemasan') == 'KGM - KILOGRAM' ? 'selected' : '' }}>
+                                                            1F CONTAINER, FLEXIBLE
+                                                        </option>
+                                                        <option value="KPP - KGM OF PHOSPHORUS PENTOXIDE(PHOSPOHORIC ANHYDRIDE)"
+                                                            {{ old('satuan_kemasan') == 'KPP - KGM OF PHOSPHORUS PENTOXIDE(PHOSPOHORIC ANHYDRIDE)' ? 'selected' : '' }}>
+                                                           BL, BALE COMPRESSED
+                                                        </option>
+                                                        <option value="KPP - KGM OF PHOSPHORUS PENTOXIDE(PHOSPOHORIC ANHYDRIDE)"
+                                                        {{ old('satuan_kemasan') == 'KPP - KGM OF PHOSPHORUS PENTOXIDE(PHOSPOHORIC ANHYDRIDE)' ? 'selected' : '' }}>
+                                                       FX, BAG, FLEXIBLE CONTAINER
+                                                    </option>
+                                                    <option value="KPP - KGM OF PHOSPHORUS PENTOXIDE(PHOSPOHORIC ANHYDRIDE)"
+                                                    {{ old('satuan_kemasan') == 'KPP - KGM OF PHOSPHORUS PENTOXIDE(PHOSPOHORIC ANHYDRIDE)' ? 'selected' : '' }}>
+                                                   FX, BAG, FLEXIBLE CONTAINER
+                                                </option>
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
                                         <br>
@@ -1585,7 +1651,16 @@
             theme: 'bootstrap-5'
         });
     </script>
-
+    <script>
+        $('#select-field16').select2({
+            theme: 'bootstrap-5'
+        });
+    </script>
+        <script>
+            $('#select-field17').select2({
+                theme: 'bootstrap-5'
+            });
+        </script>
 
     <script>
         function updateNomorEntitas() {
