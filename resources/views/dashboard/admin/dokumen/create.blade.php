@@ -153,33 +153,33 @@
                                                         [
                                                             'label' => 'Nomor NPWP',
                                                             'id' => 'kodeJenisIdentitas',
-                                                            'name' => 'kodeJenisIdentitas',
+                                                            'name' => 'kodeJenisIdentitas[]',
                                                             'value' => old('kodeJenisIdentitas', '010016806054000'),
                                                             'readonly' => true,
                                                         ],
                                                         [
                                                             'label' => 'Nitku',
                                                             'id' => 'nomorIdentitas',
-                                                            'name' => 'nomorIdentitas',
+                                                            'name' => 'nomorIdentitas[]',
                                                             'value' => old('nomorIdentitas', '0010016806054000000000'),
                                                         ],
                                                         [
                                                             'label' => 'Nama',
                                                             'id' => 'namaEntitas',
-                                                            'name' => 'namaEntitas',
+                                                            'name' => 'namaEntitas[]',
                                                             'value' => old('namaEntitas', 'INDO-RAMA SYNTHETICS TBK'),
                                                         ],
                                                         [
                                                             'label' => 'No Izin TPB',
                                                             'id' => 'nomorIjinEntitas',
                                                             'name' => 'nomorIjinEntitas',
-                                                            'value' => old('no_izin_tpb', 'KEP-724/WBC.09/2022'),
+                                                            'value' => old('nomorIjinEntitas', 'KEP-724/WBC.09/2022'),
                                                         ],
                                                         [
                                                             'label' => 'Tanggal Izin TPB',
                                                             'id' => 'tanggalIjinEntitas',
                                                             'name' => 'tanggalIjinEntitas',
-                                                            'value' => old('tanggal_izin_tpb'),
+                                                            'value' => old('tanggalIjinEntitas'),
                                                             'type' => 'date',
                                                         ],
                                                         [
@@ -195,7 +195,7 @@
                                                     <div class="col-md-6">
                                                         <label for="nomorIdentitas" class="form-label">Nomor
                                                             Identitas</label>
-                                                        <input type="text" class="form-control" id="nomorIdentitas"
+                                                        <input type="text" class="form-control" id="nomorIdentitas[]"
                                                             placeholder="6 - NPWP 16 DIGIT" readonly
                                                             style="border: 1px solid #313131;">
                                                     </div>
@@ -215,7 +215,7 @@
 
                                                     <div class="col-md-6 mt-3">
                                                         <label for="alamatEntitas" class="form-label">Alamat</label>
-                                                        <textarea class="form-control" id="alamatEntitas" name="alamatEntitas" style="border: 1px solid #313131;">{{ old('alamatEntitas', 'JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101') }}</textarea>
+                                                        <textarea class="form-control" id="alamatEntitas" name="alamatEntitas[]" style="border: 1px solid #313131;">{{ old('alamatEntitas', 'JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101') }}</textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -234,19 +234,19 @@
                                                         [
                                                             'label' => 'Nomor NPWP',
                                                             'id' => 'kodeJenisIdentitas2',
-                                                            'name' => 'kodeJenisIdentitas',
+                                                            'name' => 'kodeJenisIdentitas[]',
                                                             'readonly' => true,
                                                         ],
                                                         [
                                                             'label' => 'Nitku',
                                                             'id' => 'nitku2',
-                                                            'name' => 'nomorIdentitas',
+                                                            'name' => 'nomorIdentitas[]',
                                                             'oninput' => 'updateNomorEntitas2()',
                                                         ],
                                                         [
                                                             'label' => 'Nama',
                                                             'id' => 'namaEntitas2',
-                                                            'name' => 'namaEntitas',
+                                                            'name' => 'namaEntitas[]',
                                                         ],
                                                     ];
                                                 @endphp
@@ -274,7 +274,7 @@
                                                     @endforeach
                                                     <div class="col-md-6 mt-3">
                                                         <label for="alamatEntitas2" class="form-label">Alamat</label>
-                                                        <textarea class="form-control" id="alamatEntitas2" name="alamatEntitas" style="border: 1px solid #313131;"></textarea>
+                                                        <textarea class="form-control" id="alamatEntitas2" name="alamatEntitas[]" style="border: 1px solid #313131;"></textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -463,19 +463,19 @@
                                                         [
                                                             'label' => 'Nomor NPWP',
                                                             'id' => 'kodeJenisIdentitas3',
-                                                            'name' => 'kodeJenisIdentitas',
+                                                            'name' => 'kodeJenisIdentitas[]',
                                                             'readonly' => true,
                                                         ],
                                                         [
                                                             'label' => 'Nitku',
                                                             'id' => 'nitku3',
-                                                            'name' => 'nomorIdentitas',
+                                                            'name' => 'nomorIdentitas[]',
                                                             'oninput' => 'updateNomorEntitas3()',
                                                         ],
                                                         [
                                                             'label' => 'Nama',
                                                             'id' => 'namaEntitas3',
-                                                            'name' => 'namaEntitas',
+                                                            'name' => 'namaEntitas[]',
                                                         ],
                                                     ];
                                                 @endphp
@@ -501,7 +501,7 @@
                                                     @endforeach
                                                     <div class="col-md-6 mt-3">
                                                         <label for="alamatEntitas2" class="form-label">Alamat</label>
-                                                        <textarea class="form-control" id="alamatEntitas3" name="alamatEntitas" rows="3"
+                                                        <textarea class="form-control" id="alamatEntitas3" name="alamatEntitas[]" rows="3"
                                                             style="border: 1px solid #313131;"></textarea>
                                                     </div>
                                                 </div>
@@ -651,11 +651,11 @@
                                                                  <input type="hidden" id="editIndex" value="">
                                                                  <label for="seri">Seri</label>
                                                                  <input type="text" class="form-control"
-                                                                     id="seriDokumen" name="seriDokumen" readonly>
+                                                                     id="seriDokumen" name="seriDokumen[]" readonly>
 
                                                                  <div class="form-group">
-                                                                     <label for="jenisDokumen">Jenis Dokumen</label>
-                                                                     <select class="form-control" name="380"
+                                                                     <label for="kodeDokumen">Jenis Dokumen</label>
+                                                                     <select class="form-control" name="kodeDokumen[]"
                                                                          id="select-field4" required>
                                                                          <option selected disabled>Pilih Jenis</option>
                                                                          <option
@@ -739,13 +739,13 @@
 
                                                                          <option
                                                                          value="380 - INVOICE"
-                                                                         {{ old('kodeDokumen') == '9' ? 'selected' : '' }}>
+                                                                         {{ old('kodeDokumen') == '10' ? 'selected' : '' }}>
                                                                          380 - INVOICE
                                                                      </option>
 
                                                                      <option
                                                                      value="217 - PACKING LIST"
-                                                                     {{ old('kodeDokumen') == '10' ? 'selected' : '' }}>
+                                                                     {{ old('kodeDokumen') == '11' ? 'selected' : '' }}>
                                                                      217 - PACKING LIST
                                                                  </option>
                                                                      </select>
@@ -804,13 +804,6 @@
                                                         </option>
                                                     @endforeach
                                                 </select>
-                                            </div>
-
-                                            {{-- Hidden Input for Seri Pengangkut --}}
-                                            <div class="col-md-12" style="display: none;">
-                                                <label for="seriPengangkut" class="form-label">Seri Pengangkut</label>
-                                                <input type="number" class="form-control" name="seriPengangkut[]"
-                                                    value="{{ old('seriPengangkut', 1) }}">
                                             </div>
                                         </div>
                                     </div>
@@ -872,14 +865,18 @@
                                                                 <div class="modal-form">
                                                                     <input type="hidden" id="editIndex2" value="">
                                                                     <label for="nama">Seri</label>
-                                                                    <input type="text" class="form-control"
-                                                                        id="seriDokumen2" name="seriKemasan[]"
-                                                                        value="{{ old('seriKemasan') }}" readonly>
+                                                                    <div class="col-md-12">
+                                                                        <label for="seriKemasan" class="form-label">Seri Pengangkut</label>
+                                                                        <input type="text" class="form-control"
+                                                                            id="seriDokumen2" name="seriKemasan"
+                                                                            value="{{ is_array(old('seriKemasan')) ? implode(',', old('seriKemasan')) : old('seriKemasan') }}" readonly>
+                                                                    </div>
 
                                                                     <label for="usaha">Jumlah</label>
                                                                     <input type="text" class="form-control"
-                                                                        id="jumlah" name="jumlahKemasan[]"
-                                                                        value="{{ old('jumlahKemasan') }}">
+                                                                        id="jumlah" name="jumlahKemasan"
+                                                                        value="{{ is_array(old('jumlahKemasan')) ? implode(', ', old('jumlahKemasan')) : old('jumlahKemasan') }}">
+
 
                                                                     <div class="form-group">
                                                                         <label for="alamat">Jenis Dokumen</label>
@@ -974,7 +971,7 @@
                             </div>
                         </div>
 
-                        <!-- Modal -->
+                        {{-- <!-- Modal -->
                         <div id="myModal6" class="modal" data-backdrop="static" data-keyboard="false"
                             style="display: none;">
                             <div class="modal-content">
@@ -1036,7 +1033,7 @@
                                 </div>
                                 </form>
                             </div>
-                        </div>
+                        </div> --}}
                     </div>
 
                 </div>
@@ -1062,16 +1059,18 @@
                     </div>
                     <div class="col-md-6">
                         <label for="ndpbm" class="form-label">NDPBM</label>
-                        <input type="number" class="form-control" id="ndpbm" name="ndpbm[]"
-                            value="{{ old('ndpbm') }}" style="border: 1px solid #313131;"
-                            oninput="hitungNilaiPabean()">
+                        <input type="number" class="form-control" id="ndpbm" name="ndpbm"
+                            value="{{ is_array(old('ndpbm')) ? old('ndpbm')[0] ?? '' : old('ndpbm') }}"
+                            style="border: 1px solid #313131;" oninput="hitungNilaiPabean()">
                     </div>
+
                     <div class="col-md-6 mt-3">
                         <label for="cif" class="form-label">CIF</label>
-                        <input type="text" class="form-control" id="cif" name="cif[]"
-                            value="{{ old('cif') }}" style="border: 1px solid #313131;"
-                            oninput="hitungNilaiPabean()">
+                        <input type="text" class="form-control" id="cif" name="cif"
+                            value="{{ is_array(old('cif')) ? implode(', ', old('cif')) : old('cif') }}"
+                            style="border: 1px solid #313131;" oninput="hitungNilaiPabean()">
                     </div>
+
                     {{-- gatau ini --}}
                     <div class="col-md-6 mt-3">
                         <label for="nilai_pabean" class="form-label">Nilai Pabean</label>
@@ -1103,11 +1102,13 @@
                         value="{{ old('uang_maku', '0.00') }}" style="border: 1px solid #313131;">
                 </div>
                            {{--  --}}
-                <div class="col-md-6">
-                    <label for="nomorNpwp" class="form-label">Diskon</label>
-                    <input type="text" class="form-control" id="diskon" name="diskon[]"
-                        value="{{ old('diskon', '0.00') }}" style="border: 1px solid #313131;">
-                </div>
+                           <div class="col-md-6">
+                            <label for="nomorNpwp" class="form-label">Diskon</label>
+                            <input type="text" class="form-control" id="diskon" name="diskon"
+                                value="{{ is_array(old('diskon')) ? implode(', ', old('diskon')) : old('diskon', '0.00') }}"
+                                style="border: 1px solid #313131;">
+                        </div>
+
                 <div class="col-md-12 mt-3">
                     <label for="pengenaan_pajak" class="form-label">Dasar Pengenaan
                         Pajak</label>
@@ -1601,7 +1602,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <script>
         // Fungsi untuk memformat angka menjadi mata uang Indonesia tanpa titik dan koma
@@ -1669,13 +1670,13 @@
                         </div>
                     </div>
                     <!-- Tombol Submit -->
-                    {{-- <div class="row mb-4 p-3">
+                    {{-- {{-- <div class="row mb-4 p-3">
                         <div class="col-md-12 text-end">
                             <button type="submit" class="btn btn-primary">Kirim</button>
                             <!-- Atau Anda bisa menggunakan elemen input -->
                             <!-- <input type="submit" class="btn btn-primary" value="Kirim"> -->
                         </div>
-                    </div> --}}
+                    </div>
                     <div class="right_content">
                         <div class="col-lg-12 text-start mb-6">
                             <button type="submit" class="btn btn-primary mb-3" ><span
@@ -1685,7 +1686,29 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
+{{--
+                        <div class="row mb-4 p-3">
+                        <div class="col-md-12 text-end">
+                            <button type="submit" class="btn btn-primary">Kirim</button>
+                            <!-- Atau Anda bisa menggunakan elemen input -->
+                            <!-- <input type="submit" class="btn btn-primary" value="Kirim"> -->
+                        </div>
+                    </div> --}}
+
+                    <div class="col-12 mt-3">
+                        <button class="btn btn-primary" type="submit">Submit</button>
+                        <a href="{{ route('dokumen_baru') }}" class="btn btn-danger">Cancel</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form><!--end form-->
+</div><!--end card-body-->
+</div><!--end card-->
+</div><!--end col-->
+</div><!--end row-->
+</div><!-- container -->
 
 
     <script>
@@ -2586,41 +2609,33 @@
                 let storedData = JSON.parse(localStorage.getItem(nomorAju)) || [];
 
                 if (editIndex) {
-                    // Mode edit: perbarui data yang ada
+                    // Mode edit: update existing data
                     storedData[editIndex] = {
-                        seriDokumen,
-                        jenisDokumen,
-                        kodeDokumen,
-                        tanggalDokumen
+                        seriDokumen: seriDokumen,
+                        jenisDokumen: jenisDokumen,
+                        kodeDokumen: kodeDokumen,
+                        tanggalDokumen: tanggalDokumen
                     };
                 } else {
-                    // Mode tambah: tambahkan data baru
-                    seriDokumen = getNextSeriDokumen(nomorAju);
+                    // Mode add: create new entry
                     storedData.push({
-                        seriDokumen,
-                        jenisDokumen,
-                        kodeDokumen,
-                        tanggalDokumen
+                        seriDokumen: seriDokumen,
+                        jenisDokumen: jenisDokumen,
+                        kodeDokumen: kodeDokumen,
+                        tanggalDokumen: tanggalDokumen
                     });
                 }
 
-                // Simpan data ke localStorage
+                // Save updated data to localStorage
                 localStorage.setItem(nomorAju, JSON.stringify(storedData));
 
-                // Render ulang tabel
+                // Re-render the table to reflect changes
                 renderTable(nomorAju);
 
-                // Tutup modal
+                // Close the modal
                 closeModal();
-
-                // Reset form dan indeks edit
-                document.getElementById("seriDokumen").value = "";
-                document.getElementById("select-field4").value = "";
-                document.getElementById("kodeDokumen").value = "";
-                document.getElementById("tanggalDokumen").value = "";
-                document.getElementById("editIndex").value = "";
             } else {
-                alert("Harap isi semua field!");
+                alert("Please complete all fields.");
             }
         });
 
