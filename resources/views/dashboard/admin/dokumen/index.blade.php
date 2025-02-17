@@ -56,11 +56,11 @@
                             <form id="modalForm" action="{{ route('dokumen.create') }}" method="GET">
                                 <div class="modal-form">
                                     <label for="nama">Entitas</label>
-                                    <input type="text" class="form-control" id="kodeJenisTpb" name="kodeJenisTpb"
+                                    <input type="text" class="form-control" id="kodeJenisTpb" name="kodeJenisTpb[]"
                                         value="{{ old('kodeJenisTpb', 'TPB') }}" readonly required>
 
                                     <label for="usaha">Jenis Dokumen</label>
-                                    <input type="text" class="form-control" id="kodeDokumen" name="kodeDokumen"
+                                    <input type="text" class="form-control" id="kodeDokumen" name="kodeDokumen[]"
                                         value="{{ old('kodeDokumen', '25') }}" required>
 
                                     <div class="form-group">
@@ -175,7 +175,7 @@
                             const formattedNomorUrut = String(nomorUrut).padStart(5, '0');
 
                             // Membuat nomorAju
-                            const nomorAju = `000025-010016-${formattedDate}-${divisionPrefix}${formattedNomorUrut}`;
+                            const nomorAju = `700025-010016-${formattedDate}-${divisionPrefix}${formattedNomorUrut}`;
 
                             // Menyimpan nomorAju di localStorage
                             localStorage.setItem('nomorAju', nomorAju);

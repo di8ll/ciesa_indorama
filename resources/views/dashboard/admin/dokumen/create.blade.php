@@ -64,7 +64,7 @@
                                             data-bs-target="#transaksi" type="button" role="tab"
                                             aria-controls="transaksi" aria-selected="false">Transaksi</button>
                                     </li>
-                                    <li class="nav-item" role="presentation">
+                                    {{-- <li class="nav-item" role="presentation">
                                         <button class="nav-link" id="barang-tab" data-bs-toggle="tab"
                                             data-bs-target="#barang" type="button" role="tab" aria-controls="barang"
                                             aria-selected="false">Barang</button>
@@ -73,7 +73,7 @@
                                         <button class="nav-link" id="pungutan-tab" data-bs-toggle="tab"
                                             data-bs-target="#pungutan" type="button" role="tab"
                                             aria-controls="pungutan" aria-selected="false">Pungutan</button>
-                                    </li>
+                                    </li> --}}
                                     <li class="nav-item" role="presentation">
                                         <button class="nav-link" id="pernyataan-tab" data-bs-toggle="tab"
                                             data-bs-target="#pernyataan" type="button" role="tab"
@@ -600,113 +600,180 @@
                                         </div>
                                     </div>
 
-                                    {{-- Dokumen --}}
-                                    <div class="tab-pane fade" id="dokumen" role="tabpanel"
-                                        aria-labelledby="dokumen-tab">
-                                        <div class="row">
-                                            <div class="container-fluid">
-                                                <div class="row">
-                                                    <div class="col-12">
-                                                        <div class="card">
-                                                            <header>
-                                                                <div class="right_content">
-                                                                    <div class="col-lg-12 text-start mb-6">
-                                                                        <button type="button"
-                                                                            class="btn btn-primary mb-3" id="myBtn4">
-                                                                            <span data-feather="plus"></span>Tambah
-                                                                        </button>
-                                                                    </div>
-                                                                </div>
-                                                            </header>
-                                                            <div class="card-body" id="tableContainer">
-                                                                <div class="table-responsive">
-                                                                    <table class="table table-bordered" id="Table">
-                                                                        <thead class="thead-light">
-                                                                            <tr>
-                                                                                <th>Seri</th>
-                                                                                <th>Jenis</th>
-                                                                                <th>Nomor</th>
-                                                                                <th>Tanggal</th>
-                                                                                <th>Fasilitas</th>
-                                                                                <th>Izin</th>
-                                                                                <th>Kantor</th>
-                                                                                <th>File</th>
-                                                                                <th>Action</th>
-                                                                            </tr>
-                                                                        </thead>
-                                                                        <tbody>
-                                                                            <!-- Isi tabel akan ditambahkan di sini -->
-                                                                        </tbody>
-                                                                    </table>
-                                                                </div>
-                                                            </div>
-                                                        </div>
+                                     {{-- Dokumen --}}
+                                     <div class="tab-pane fade" id="dokumen" role="tabpanel"
+                                     aria-labelledby="dokumen-tab">
+                                     <div class="row">
+                                         <div class="container-fluid">
+                                             <div class="row">
+                                                 <div class="col-12">
+                                                     <div class="card">
+                                                         <header>
+                                                             <div class="right_content">
+                                                                 <div class="col-lg-12 text-start mb-6">
+                                                                     <button type="button"
+                                                                         class="btn btn-primary mb-3" id="myBtn4">
+                                                                         <span data-feather="plus"></span>Tambah
+                                                                     </button>
+                                                                 </div>
+                                                             </div>
+                                                         </header>
+                                                         <div class="card-body" id="tableContainer">
+                                                             <div class="table-responsive">
+                                                                 <table class="table table-bordered" id="Table">
+                                                                     <thead class="thead-light">
+                                                                         <tr>
+                                                                             <th>Seri</th>
+                                                                             <th>Jenis</th>
+                                                                             <th>Nomor</th>
+                                                                             <th>Tanggal</th>
+                                                                             <th>Fasilitas</th>
+                                                                             <th>Izin</th>
+                                                                             <th>Kantor</th>
+                                                                             <th>File</th>
+                                                                             <th>Action</th>
+                                                                         </tr>
+                                                                     </thead>
+                                                                     <tbody>
+                                                                         <!-- Isi tabel akan ditambahkan di sini -->
+                                                                     </tbody>
+                                                                 </table>
+                                                             </div>
+                                                         </div>
+                                                     </div>
 
-                                                        <!-- Modal -->
-                                                        <div id="myModal4" class="modal" data-backdrop="static"
-                                                            data-keyboard="false" style="display: none;">
-                                                            <div class="modal-content">
-                                                                <span class="close">&times;</span>
-                                                                <div class="modal-form">
-                                                                    <input type="hidden" id="editIndex">
-                                                                    <label for="seri">Seri</label>
-                                                                    <input type="text" class="form-control"
-                                                                        id="seriDokumen" name="seriDokumen" readonly>
+                                                     <!-- Modal -->
+                                                     <div id="myModal4" class="modal" data-backdrop="static"
+                                                         data-keyboard="false" style="display: none;">
+                                                         <div class="modal-content">
+                                                             <span class="close">&times;</span>
+                                                             <div class="modal-form">
+                                                                 <input type="hidden" id="editIndex" value="">
+                                                                 <label for="seri">Seri</label>
+                                                                 <input type="text" class="form-control"
+                                                                     id="seriDokumen" name="seriDokumen" readonly>
 
-                                                                    <div class="form-group">
-                                                                        <label for="jenisDokumen">Jenis Dokumen</label>
-                                                                        <select class="form-control" name="kodeDokumen"
-                                                                            id="select-field4" required>
-                                                                            <option selected disabled>Pilih Jenis</option>
-                                                                            @php
-                                                                                $jenisDokumen = [
-                                                                                    '0282 - PERSETUJUAN PENGELUARAN BC28 DENGAN DOKAP',
-                                                                                    '03001 - IZIN PRINSIP PENDIRIAN KAWASAN BERIKAT SEBELUM FISIK BANGUNAN BERDIRI',
-                                                                                    '03002 - KEPUTUSAN PENETAPAN TEMPAT SEBAGAI KAWASAN BERIKAT DAN PEMBERIAN IZIN PENYELENGGARA KAWASAN BERIKAT',
-                                                                                    '03003 - PERSETUJUAN PENETAPAN TEMPAT SEBAGAI KAWASAN BERIKAT DAN PEMBERIAN IZIN PENYELENGARA KAWASAN BERIKAT SEKALIGUS IZIN PENGUSAHA KAWASAN BERIKAT',
-                                                                                    '03004 - IZIN PDKB',
-                                                                                    '03005 - PERPANJANGAN PENETAPAN TEMPAT SEBAGAI KAWASAN BERIKAT DAN IZIN PENYELENGGARA KAWASAN BERIKAT, IZIN PENGUSAHA KAWASAN BERIKAT, ATAU IZIN PDKB SEBELUM JANGKA WAKTU IZIN TERSEBUT BERAKHIR',
-                                                                                    '03006 - PERUBAHAN IZIN PENYELENGGARA KAWASAN BERIKAT, IZIN PENGUSAHA KAWASAN BERIKAT, ATAU IZIN PDKB (TERDAPAT PERUBAHAN NAMA PERUSAHAAN YANG BUKAN DIKARENAKAN MERGER ATAU DIAKUISISI, JENIS HASIL PRODUK, ATAU LUAS KAWASAN BERIKAT)',
-                                                                                    '03007 - PERUBAHAN KEPUTUSAN IZIN PENYELENGGARA KAWASAN BERIKAT, IZIN PENGUSAHA KAWASAN BERIKAT, ATAU IZIN PDKB',
-                                                                                    '03008 - PEMBERIAN IZIN PENAMBAHAN PINTU KHUSUS PEMASUKAN DAN PENGELUARAN BARANG DI KAWASAN BERIKAT',
-                                                                                    '380 - INVOICE',
-                                                                                    '217 - PACKING LIST',
-                                                                                ];
-                                                                            @endphp
+                                                                 <div class="form-group">
+                                                                     <label for="jenisDokumen">Jenis Dokumen</label>
+                                                                     <select class="form-control" name="380"
+                                                                         id="select-field4" required>
+                                                                         <option selected disabled>Pilih Jenis</option>
+                                                                         <option
+                                                                             value="0282 - PERSETUJUAN PENGELUARAN BC28 DENGAN DOKAP"
+                                                                             {{ old('kodeDokumen') == '1' ? 'selected' : '' }}>
+                                                                             0282 - PERSETUJUAN PENGELUARAN BC28
+                                                                             DENGAN DOKAP</option>
 
-                                                                            @foreach ($jenisDokumen as $index => $dokumen)
-                                                                                <option value="{{ $dokumen }}"
-                                                                                    {{ old('nomorDokumen') == $index + 1 ? 'selected' : '' }}>
-                                                                                    {{ $dokumen }}
-                                                                                </option>
-                                                                            @endforeach
-                                                                        </select>
-                                                                    </div>
+                                                                         <option
+                                                                             value="03001 - IZIN PRINSIP PENDIRIAN KAWASAN BERIKAT SEBELUM FISIK BANGUNAN BERDIRI"
+                                                                             {{ old('kodeDokumen') == '2' ? 'selected' : '' }}>
+                                                                             03001 - IZIN PRINSIP PENDIRIAN KAWASAN
+                                                                             BERIKAT SEBELUM FISIK BANGUNAN BERDIRI
+                                                                         </option>
 
-                                                                    <label for="nomorDokumen">Nomor Dokumen</label>
-                                                                    <input type="text" class="form-control"
-                                                                        id="nomorDokumen" name="nomorDokumen">
+                                                                         <option
+                                                                             value="03002 - KEPUTUSAN PENETAPAN TEMPAT SEBAGAI KAWASAN BERIKAT DAN PEMBERIAN IZIN PENYELENGGARA KAWASAN BERIKAT"
+                                                                             {{ old('kodeDokumen') == '3' ? 'selected' : '' }}>
+                                                                             03002 - KEPUTUSAN PENETAPAN TEMPAT
+                                                                             SEBAGAI KAWASAN BERIKAT DAN PEMBERIAN
+                                                                             IZIN PENYELENGGARA KAWASAN BERIKAT
+                                                                         </option>
 
-                                                                    <label for="tanggalDokumen">Tanggal Dokumen</label>
-                                                                    <input type="date" class="form-control"
-                                                                        id="tanggalDokumen" name="tanggalDokumen">
+                                                                         <option
+                                                                             value="03003 - PERSETUJUAN PENETAPAN TEMPAT SEBAGAI KAWASAN BERIKAT DAN PEMBERIAN IZIN PENYELENGARA KAWASAN BERIKAT SEKALIGUS IZIN PENGUSAHA KAWASAN BERIKAT"
+                                                                             {{ old('kodeDokumen') == '4' ? 'selected' : '' }}>
+                                                                             03003 - PERSETUJUAN PENETAPAN TEMPAT
+                                                                             SEBAGAI KAWASAN BERIKAT DAN PEMBERIAN
+                                                                             IZIN PENYELENGARA KAWASAN BERIKAT
+                                                                             SEKALIGUS IZIN PENGUSAHA KAWASAN BERIKAT
+                                                                         </option>
 
-                                                                    <br>
+                                                                         <option value="03004 - IZIN PDKB"
+                                                                             {{ old('kodeDokumen') == '5' ? 'selected' : '' }}>
+                                                                             03004 - IZIN PDKB</option>
 
-                                                                    <div class="button-group">
-                                                                        <button type="button"
-                                                                            class="btn-save">Simpan</button>
-                                                                        <button type="button" class="btn-cancel"
-                                                                            onclick="closeModal()">Cancel</button>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                                                         <option
+                                                                             value="03005 - PERPANJANGAN PENETAPAN TEMPAT SEBAGAI KAWASAN BERIKAT DAN IZIN PENYELENGGARA KAWASAN BERIKAT, IZIN PENGUSAHA KAWASAN BERIKAT, ATAU IZIN PDKB SEBELUM JANGKA WAKTU IZIN TERSEBUT BERAKHIR"
+                                                                             {{ old('kodeDokumen') == '6' ? 'selected' : '' }}>
+                                                                             03005 - PERPANJANGAN PENETAPAN TEMPAT
+                                                                             SEBAGAI KAWASAN BERIKAT DAN IZIN
+                                                                             PENYELENGGARA KAWASAN BERIKAT, IZIN
+                                                                             PENGUSAHA KAWASAN BERIKAT, ATAU IZIN
+                                                                             PDKB SEBELUM JANGKA WAKTU IZIN TERSEBUT
+                                                                             BERAKHIR</option>
+                                                                        <option
+                                                                             value="03006 - PERUBAHAN IZIN PENYELENGGARA
+                                                                            KAWASAN BERIKAT, IZIN PENGUSAHA KAWASAN
+                                                                            BERIKAT, ATAU IZIN PDKB (TERDAPAT
+                                                                            PERUBAHAN NAMA PERUSAHAAN YANG BUKAN
+                                                                            DIKARENAKAN MERGER ATAU DIAKUISISI,
+                                                                            JENIS HASIL PRODUK, ATAU LUAS KAWASAN
+                                                                            BERIKAT)"
+
+                                                                             {{ old('kodeDokumen') == '7' ? 'selected' : '' }}>
+                                                                            03006 - PERUBAHAN IZIN PENYELENGGARA
+                                                                            KAWASAN BERIKAT, IZIN PENGUSAHA KAWASAN
+                                                                            BERIKAT, ATAU IZIN PDKB (TERDAPAT
+                                                                            PERUBAHAN NAMA PERUSAHAAN YANG BUKAN
+                                                                            DIKARENAKAN MERGER ATAU DIAKUISISI,
+                                                                            JENIS HASIL PRODUK, ATAU LUAS KAWASAN
+                                                                            BERIKAT)
+                                                                         </option>
+
+                                                                         <option
+                                                                             value="03007 - PERUBAHAN KEPUTUSAN IZIN PENYELENGGARA KAWASAN BERIKAT, IZIN PENGUSAHA KAWASAN BERIKAT, ATAU IZIN PDKB"
+                                                                             {{ old('kodeDokumen') == '8' ? 'selected' : '' }}>
+                                                                             03007 - PERUBAHAN KEPUTUSAN IZIN
+                                                                             PENYELENGGARA KAWASAN BERIKAT, IZIN
+                                                                             PENGUSAHA KAWASAN BERIKAT, ATAU IZIN
+                                                                             PDKB
+                                                                         </option>
+
+                                                                         <option
+                                                                             value="03008 - PEMBERIAN IZIN PENAMBAHAN PINTU KHUSUS PEMASUKAN DAN PENGELUARAN BARANG DI KAWASAN BERIKAT"
+                                                                             {{ old('kodeDokumen') == '9' ? 'selected' : '' }}>
+                                                                             03008 - PEMBERIAN IZIN PENAMBAHAN PINTU
+                                                                             KHUSUS PEMASUKAN DAN PENGELUARAN BARANG
+                                                                             DI KAWASAN BERIKAT
+                                                                         </option>
+
+                                                                         <option
+                                                                         value="380 - INVOICE"
+                                                                         {{ old('kodeDokumen') == '9' ? 'selected' : '' }}>
+                                                                         380 - INVOICE
+                                                                     </option>
+
+                                                                     <option
+                                                                     value="217 - PACKING LIST"
+                                                                     {{ old('kodeDokumen') == '10' ? 'selected' : '' }}>
+                                                                     217 - PACKING LIST
+                                                                 </option>
+                                                                     </select>
+                                                                 </div>
+                                                                 <label for="nomorDokumen">Nomor Dokumen</label>
+                                                                 <input type="text" class="form-control"
+                                                                     id="kodeDokumen" name="nomorDokumen[]">
+
+                                                                 <label for="tanggalDokumen">Tanggal Dokumen</label>
+                                                                 <input type="date" class="form-control"
+                                                                     id="tanggalDokumen" name="tanggalDokumen[]">
+
+                                                                 <br>
+
+                                                                 <div class="button-group">
+                                                                     <button type="button"
+                                                                         class="btn-save">Simpan</button>
+                                                                     <button type="button" class="btn-cancel"
+                                                                         onclick="closeModal()">Cancel</button>
+                                                                 </div>
+                                                             </div>
+                                                         </div>
+                                                     </div>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </div>
 
                                     {{-- Pengangkut --}}
                                     <div class="tab-pane fade" id="pengangkut" role="tabpanel"
@@ -742,7 +809,7 @@
                                             {{-- Hidden Input for Seri Pengangkut --}}
                                             <div class="col-md-12" style="display: none;">
                                                 <label for="seriPengangkut" class="form-label">Seri Pengangkut</label>
-                                                <input type="number" class="form-control" name="seriPengangkut"
+                                                <input type="number" class="form-control" name="seriPengangkut[]"
                                                     value="{{ old('seriPengangkut', 1) }}">
                                             </div>
                                         </div>
@@ -806,51 +873,54 @@
                                                                     <input type="hidden" id="editIndex2" value="">
                                                                     <label for="nama">Seri</label>
                                                                     <input type="text" class="form-control"
-                                                                        id="seriDokumen2" name="seriDokumen2"
-                                                                        value="{{ old('seriDokumen2') }}" readonly>
+                                                                        id="seriDokumen2" name="seriKemasan[]"
+                                                                        value="{{ old('seriKemasan') }}" readonly>
 
                                                                     <label for="usaha">Jumlah</label>
                                                                     <input type="text" class="form-control"
-                                                                        id="jumlah" name="jumlah"
-                                                                        value="{{ old('jumlah') }}">
+                                                                        id="jumlah" name="jumlahKemasan[]"
+                                                                        value="{{ old('jumlahKemasan') }}">
 
                                                                     <div class="form-group">
                                                                         <label for="alamat">Jenis Dokumen</label>
-                                                                        <select class="form-control" name="jenisDokumen2"
+                                                                        <select class="form-control" name="kodeJenisKemasan[]"
                                                                             id="select-field5" required
                                                                             style="border: 1px solid #313131;">
                                                                             <option selected disabled>Pilih Jenis
                                                                             </option>
                                                                             <option value="1A - DRUM, STEEL"
-                                                                                {{ old('jenisDokumen2') == '1' ? 'selected' : '' }}>
+                                                                                {{ old('kodeJenisKemasan') == '1' ? 'selected' : '' }}>
                                                                                 1A - DRUM, STEEL</option>
                                                                             <option value="1B - DRUM, ALUMUNIUM"
-                                                                                {{ old('jenisDokumen2') == '2' ? 'selected' : '' }}>
+                                                                                {{ old('kodeJenisKemasan') == '2' ? 'selected' : '' }}>
                                                                                 1B - DRUM, ALUMUNIUM</option>
                                                                             <option value="1D - DRUM, PLYWOOD"
-                                                                                {{ old('jenisDokumen2') == '2' ? 'selected' : '' }}>
+                                                                                {{ old('kodeJenisKemasan') == '2' ? 'selected' : '' }}>
                                                                                 1D - DRUM, PLYWOOD</option>
                                                                             <option value="1F - CONTAINER, FLEXIBLE"
-                                                                                {{ old('jenisDokumen2') == '2' ? 'selected' : '' }}>
+                                                                                {{ old('kodeJenisKemasan') == '2' ? 'selected' : '' }}>
                                                                                 1F - CONTAINER, FLEXIBLE</option>
                                                                             <option value="1G - DRUM, FIBRE"
-                                                                                {{ old('jenisDokumen2') == '2' ? 'selected' : '' }}>
+                                                                                {{ old('kodeJenisKemasan') == '2' ? 'selected' : '' }}>
                                                                                 1G - DRUM, FIBRE</option>
                                                                             <option value="1W - DRUM, WOODEN"
-                                                                                {{ old('jenisDokumen2') == '2' ? 'selected' : '' }}>
+                                                                                {{ old('kodeJenisKemasan') == '2' ? 'selected' : '' }}>
                                                                                 1W - DRUM, WOODEN</option>
                                                                             <option value="2C - BARREL, WOODEN"
-                                                                                {{ old('jenis_dokumen') == '2' ? 'selected' : '' }}>
+                                                                                {{ old('kodeJenisKemasan') == '2' ? 'selected' : '' }}>
                                                                                 2C - BARREL, WOODEN</option>
                                                                             <option value=" 3A - JERICCAN, STELL"
-                                                                                {{ old('jenis_dokumen') == '2' ? 'selected' : '' }}>
+                                                                                {{ old('kodeJenisKemasan') == '2' ? 'selected' : '' }}>
                                                                                 3A - JERICCAN, STELL</option>
+                                                                            <option value=" CT - Carton"
+                                                                                {{ old('kodeJenisKemasan') == '2' ? 'selected' : '' }}>
+                                                                                CT - Carton</option>
                                                                         </select>
                                                                     </div>
                                                                     <BR>
                                                                     <label for="usaha">Merk</label>
                                                                     <input type="text" class="form-control"
-                                                                        id="merk" name="merk"
+                                                                        id="merk" name="merkKemasan[]"
                                                                         value="{{ old('merk') }}">
                                                                     <br>
                                                                     <!-- Tombol Simpan & Batal -->
@@ -873,10 +943,7 @@
                                     <div class="col-lg-12 text-start mb-6">
                                         <button type="button" class="btn btn-primary mb-3" id="myBtn6"><span
                                                 data-feather="plus"></span>Tambah Peti Kemasan</button>
-                                        {{-- <button class="btn btn-primary mb-3" id="myBtn4">
-                                                  <span data-feather="plus"></span>
-                                                  Tambah Peti Kemas
-                                              </button> --}}
+
                                     </div>
                                 </div>
                             </header>
@@ -915,7 +982,7 @@
                                 <div class="modal-form">
                                     <input type="hidden" id="editIndex3" value="">
                                     <label for="nama">Seri</label>
-                                    <input type="text" class="form-control" id="seriDokumen3" name="seriDokumen3"
+                                    <input type="text" class="form-control" id="seriDokumen3" name="seriKemasan[]"
                                         value="{{ old('seriDokumen3') }}" readonly>
 
                                     <label for="usaha">Nomor</label>
@@ -979,8 +1046,8 @@
     </div>
     </div>
 
-    {{-- Transaksi --}}
-    <div class="tab-pane fade" id="transaksi" role="tabpanel" aria-labelledby="transaksi-tab">
+     {{-- Transaksi --}}
+     <div class="tab-pane fade" id="transaksi" role="tabpanel" aria-labelledby="transaksi-tab">
         <div class="container">
             <!-- Harga -->
             <div class="row mb-4 p-3 border rounded shadow-sm bg-light">
@@ -989,93 +1056,96 @@
                 <div class="row">
                     <div class="col-md-6">
                         <label for="Valuta" class="form-label">Valuta</label>
-                        <input type="text" class="form-control" id="nomorIdentitas"
-                            value="{{ old('nilai_cif', 'USD - US DOLLAR') }}" readonly
+                        <input type="text" class="form-control" id="kodeValuta" name="kodeValuta"
+                            value="{{ old('kodeValuta', 'USD - US DOLLAR') }}" readonly
                             style="border: 1px solid #313131;">
                     </div>
                     <div class="col-md-6">
                         <label for="ndpbm" class="form-label">NDPBM</label>
-                        <input type="number" class="form-control" id="ndpbm" name="ndpbm"
+                        <input type="number" class="form-control" id="ndpbm" name="ndpbm[]"
                             value="{{ old('ndpbm') }}" style="border: 1px solid #313131;"
                             oninput="hitungNilaiPabean()">
                     </div>
                     <div class="col-md-6 mt-3">
                         <label for="cif" class="form-label">CIF</label>
-                        <input type="text" class="form-control" id="cif" name="cif"
+                        <input type="text" class="form-control" id="cif" name="cif[]"
                             value="{{ old('cif') }}" style="border: 1px solid #313131;"
                             oninput="hitungNilaiPabean()">
                     </div>
+                    {{-- gatau ini --}}
                     <div class="col-md-6 mt-3">
                         <label for="nilai_pabean" class="form-label">Nilai Pabean</label>
                         <input type="text" class="form-control" id="nilai_pabean" name="nilai_pabean" readonly
                             style="border: 1px solid #313131;">
                     </div>
-
+                    {{-- --}}
                     <div class="col-md-6 mt-3">
                         <label for="harga_penyerahan" class="form-label">Harga
                             Penyerahan/Harga Jual/Harga Barang</label>
-                        <input type="text" class="form-control" id="harga_penyerahan" name="harga_penyerahan"
+                        <input type="text" class="form-control" id="harga_penyerahan" name="hargaPenyerahan"
                             value="{{ old('harga_penyerahan') }}" style="border: 1px solid #313131;">
                     </div>
                 </div>
             </div>
 
-            <!-- Data Untuk Keperluan Pajak -->
-            <div class="row mb-4 p-3 border rounded shadow-sm bg-light">
-                <div class="d-flex justify-content-between align-items-center">
-                    <h5 class="text-primary" id="exampleModalCenterTitle">Data Untuk
-                        Keperluan Pajak
-                    </h5>
+          <!-- Data Untuk Keperluan Pajak -->
+          <div class="row mb-4 p-3 border rounded shadow-sm bg-light">
+            <div class="d-flex justify-content-between align-items-center">
+                <h5 class="text-primary" id="exampleModalCenterTitle">Data Untuk
+                    Keperluan Pajak
+                </h5>
+            </div>
+            <div class="row">
+                           {{-- gatau ini --}}
+                <div class="col-md-6">
+                    <label for="nomorIdentitas" class="form-label">Uang Muka</label>
+                    <input type="text" class="form-control" id="uang_maku" name="uang_maku"
+                        value="{{ old('uang_maku', '0.00') }}" style="border: 1px solid #313131;">
                 </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <label for="nomorIdentitas" class="form-label">Uang Muka</label>
-                        <input type="text" class="form-control" id="uang_maku" name="uang_maku"
-                            value="{{ old('uang_maku', '0.00') }}" style="border: 1px solid #313131;">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="nomorNpwp" class="form-label">Diskon</label>
-                        <input type="text" class="form-control" id="diskon" name="diskon"
-                            value="{{ old('diskon', '0.00') }}" style="border: 1px solid #313131;">
-                    </div>
-                    <div class="col-md-12 mt-3">
-                        <label for="pengenaan_pajak" class="form-label">Dasar Pengenaan
-                            Pajak</label>
-                        <input type="text" class="form-control" id="pengenaan_pajak" name="pengenaan_pajak"
-                            style="border: 1px solid #313131;" oninput="hitungPPNBM(); hitungPPN();">
-                    </div>
-                    <div class="col-md-6 mt-3">
-                        <label for="namaEntitas2" class="form-label">PPN Yang Dipungut
-                            (Tarif & Nilai)</label>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <input type="text" class="form-control" id="ppn_tarif" name="ppn_tarif"
-                                    value="11.00%" style="border: 1px solid #313131;" oninput="hitungPPN()">
-                            </div>
+                           {{--  --}}
+                <div class="col-md-6">
+                    <label for="nomorNpwp" class="form-label">Diskon</label>
+                    <input type="text" class="form-control" id="diskon" name="diskon[]"
+                        value="{{ old('diskon', '0.00') }}" style="border: 1px solid #313131;">
+                </div>
+                <div class="col-md-12 mt-3">
+                    <label for="pengenaan_pajak" class="form-label">Dasar Pengenaan
+                        Pajak</label>
+                    <input type="text" class="form-control" id="pengenaan_pajak" name="dasarPengenaanPajak[]"
+                        style="border: 1px solid #313131;" oninput="hitungPPNBM(); hitungPPN();">
+                </div>
+                <div class="col-md-6 mt-3">
+                    <label for="namaEntitas2" class="form-label">PPN Yang Dipungut
+                        (Tarif & Nilai)</label>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" id="ppn_tarif" name="tarifPpnPajak[]"
+                                value="11.00%" style="border: 1px solid #313131;" oninput="hitungPPN()">
+                        </div>
 
-                            <div class="col-md-8">
-                                <input type="text" class="form-control" id="ppn_hasil" name="ppn_hasil" readonly
-                                    style="border: 1px solid #313131;">
-                            </div>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" id="ppn_hasil" name="ppnPajak[]" readonly
+                                style="border: 1px solid #313131;">
                         </div>
                     </div>
-                    <div class="col-md-6 mt-3">
-                        <label for="namaEntitas3" class="form-label">PPnBM Yang Dipungut
-                            (Tarif & Nilai)</label>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <input type="text" class="form-control" id="ppnb_tarif" name="ppnb_tarif"
-                                    value="00.00%" style="border: 1px solid #313131;" oninput="hitungPPNBM()">
-                            </div>
+                </div>
+                <div class="col-md-6 mt-3">
+                    <label for="namaEntitas3" class="form-label">PPnBM Yang Dipungut
+                        (Tarif & Nilai)</label>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <input type="text" class="form-control" id="ppnb_tarif" name="tarifPpnbmPajakp[]"
+                                value="00.00%" style="border: 1px solid #313131;" oninput="hitungPPNBM()">
+                        </div>
 
-                            <div class="col-md-8">
-                                <input type="text" class="form-control" id="ppnb_hasil" name="ppnb_hasil" readonly
-                                    style="border: 1px solid #313131;">
-                            </div>
+                        <div class="col-md-8">
+                            <input type="text" class="form-control" id="ppnb_hasil" name="ppnbmPajak[]" readonly
+                                style="border: 1px solid #313131;">
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
 
             <!-- Berat -->
             <div class="row mb-4 p-3 border rounded shadow-sm bg-light">
@@ -1087,13 +1157,13 @@
                     <div class="col-md-6">
                         <label for="nomorIdentitas" class="form-label">Berat Kotor
                             (KGM)</label>
-                        <input type="text" class="form-control" id="berat_kotor" name="berat_kotor"
+                        <input type="text" class="form-control" id="berat_kotor" name="bruto[]"
                             value="{{ old('berat_kotor') }}" style="border: 1px solid #313131;">
                     </div>
                     <div class="col-md-6">
                         <label for="nomorNpwp" class="form-label">Berat Bersih
                             (KGM)</label>
-                        <input type="text" class="form-control" id="berat_bersih" name="berat_bersih"
+                        <input type="text" class="form-control" id="berat_bersih" name="netto[]"
                             value="{{ old('berat_bersih') }}" style="border: 1px solid #313131;">
                     </div>
                 </div>
@@ -1101,8 +1171,9 @@
         </div>
     </div>
 
-    {{-- Barang --}}
-    <div class="tab-pane fade" id="barang" role="tabpanel" aria-labelledby="barang-tab">
+{{--
+    Barang --}}
+    {{-- <div class="tab-pane fade" id="barang" role="tabpanel" aria-labelledby="barang-tab">
         <div class="row">
             <div class="container-fluid">
                 <div class="row">
@@ -1430,9 +1501,9 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
-    <!-- Pungutan -->
+    {{-- <!-- Pungutan -->
     <div class="tab-pane fade" id="pungutan" role="tabpanel" aria-labelledby="pungutan-tab">
         <div class="container-fluid p-4">
             <div class="card shadow-sm">
@@ -1560,8 +1631,8 @@
 
 
 
-    <!-- Pernyataan -->
-    <div class="tab-pane fade" id="pernyataan" role="tabpanel" aria-labelledby="pernyataan-tab">
+     <!-- Pernyataan -->
+     <div class="tab-pane fade" id="pernyataan" role="tabpanel" aria-labelledby="pernyataan-tab">
         <div class="container-fluid p-4">
             <div class="card shadow-sm">
                 <div class="card-body">
@@ -1571,12 +1642,12 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <label for="ndpbm" class="form-label">Tempat</label>
-                                <input type="text" class="form-control" name="tempat"
+                                <input type="text" class="form-control" name="kotaTtd[]"
                                     value="{{ old('tempat') }}" style="border: 1px solid #313131;">
                             </div>
                             <div class="col-md-6">
                                 <label for="cif" class="form-label">Tanggal</label>
-                                <input type="date" class="form-control" name="tanggal"
+                                <input type="date" class="form-control" name="tanggalTtd[]"
                                     value="{{ old('tanggal') }}" style="border: 1px solid #313131;">
                             </div>
                         </div>
@@ -1587,22 +1658,28 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <label for="uang_muka" class="form-label">Nama</label>
-                                <input type="text" class="form-control" name="uang_muka"
+                                <input type="text" class="form-control" name="idPengguna[]"
                                     value="{{ old('nama') }}" style="border: 1px solid #313131;">
                             </div>
                             <div class="col-md-6">
                                 <label for="diskon" class="form-label">Jabatan</label>
-                                <input type="text" class="form-control" name="diskon"
+                                <input type="text" class="form-control" name="jabatanTtd[]"
                                     value="{{ old('jabatan') }}" style="border: 1px solid #313131;">
                             </div>
                         </div>
                     </div>
                     <!-- Tombol Submit -->
-                    <div class="row mb-4 p-3">
+                    {{-- <div class="row mb-4 p-3">
                         <div class="col-md-12 text-end">
                             <button type="submit" class="btn btn-primary">Kirim</button>
                             <!-- Atau Anda bisa menggunakan elemen input -->
                             <!-- <input type="submit" class="btn btn-primary" value="Kirim"> -->
+                        </div>
+                    </div> --}}
+                    <div class="right_content">
+                        <div class="col-lg-12 text-start mb-6">
+                            <button type="submit" class="btn btn-primary mb-3" ><span
+                                    ></span>Submit</button>
                         </div>
                     </div>
                 </div>
