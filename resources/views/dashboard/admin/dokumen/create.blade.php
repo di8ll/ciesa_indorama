@@ -1696,10 +1696,15 @@
                         </div>
                     </div> --}}
 
+                    {{-- <div class="col-12 mt-3">
+                        <button class="btn btn-primary" type="submit">Submit</button>
+                        <a href="{{ route('dokumen_baru') }}" class="btn btn-danger">Cancel</a>
+                    </div> --}}
                     <div class="col-12 mt-3">
                         <button class="btn btn-primary" type="submit">Submit</button>
                         <a href="{{ route('dokumen_baru') }}" class="btn btn-danger">Cancel</a>
                     </div>
+                </form>
                 </div>
             </div>
         </div>
@@ -2598,12 +2603,12 @@
             renderTable(nomorAju);
         }
         document.querySelector(".btn-save").addEventListener("click", function() {
-            var nomorAju = document.getElementById("nomorAju").value;
-            var seriDokumen = document.getElementById("seriDokumen").value;
-            var jenisDokumen = document.getElementById("select-field4").value;
-            var kodeDokumen = document.getElementById("kodeDokumen").value;
-            var tanggalDokumen = document.getElementById("tanggalDokumen").value;
-            var editIndex = document.getElementById("editIndex").value;
+            var nomorAju = document.getElementById("nomorAju").value.trim();;
+            var seriDokumen = document.getElementById("seriDokumen").value.trim();;
+            var jenisDokumen = document.getElementById("select-field4").value.trim();;
+            var kodeDokumen = document.getElementById("kodeDokumen").value.trim();;
+            var tanggalDokumen = document.getElementById("tanggalDokumen").value.trim();;
+            var editIndex = document.getElementById("editIndex").value.trim();;
 
             if (jenisDokumen && kodeDokumen && tanggalDokumen) {
                 let storedData = JSON.parse(localStorage.getItem(nomorAju)) || [];
