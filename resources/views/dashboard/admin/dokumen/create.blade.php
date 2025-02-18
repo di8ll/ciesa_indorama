@@ -85,173 +85,53 @@
                                     <div class="tab-pane fade show active" id="header" role="tabpanel"
                                         aria-labelledby="header-tab">
                                         <div class="row">
-                                            @php
-                                                $inputs = [
-                                                    [
-                                                        'label' => 'Nomor Pengajuan',
-                                                        'id' => 'nomorAju',
-                                                        'name' => 'nomorAju',
-                                                        'value' => old('nomorAju'),
-                                                        'readonly' => true,
-                                                    ],
-                                                    [
-                                                        'label' => 'Kantor Pabean',
-                                                        'id' => 'kodeKantor',
-                                                        'name' => 'kodeKantor',
-                                                        'value' => old('kodeKantor', '050800 - KPPBC TMP A PURWAKARTA'),
-                                                        'readonly' => true,
-                                                    ],
-                                                    [
-                                                        'label' => 'Jenis TPB',
-                                                        'id' => 'kodeJenisTpb',
-                                                        'name' => 'kodeJenisTpb',
-                                                        'value' => old('kodeJenisTpb', '1 - KAWASAN BERIKAT'),
-                                                        'readonly' => true,
-                                                    ],
-                                                    [
-                                                        'label' => 'Tujuan Pengiriman',
-                                                        'id' => 'kodeTujuanPengiriman',
-                                                        'name' => 'kodeTujuanPengiriman',
-                                                        'value' => old('kodeTujuanPengiriman', '1 - PENYERAHAN BKP'),
-                                                        'readonly' => true,
-                                                    ],
-                                                    [
-                                                        'label' => 'Cara Bayar',
-                                                        'id' => 'kodeCaraBayar',
-                                                        'name' => 'kodeCaraBayar',
-                                                        'value' => old('kodeCaraBayar', '1 - BIASA / TUNAI'),
-                                                        'readonly' => true,
-                                                    ],
-                                                ];
-                                            @endphp
-
-                                            <div class="row">
-                                                @foreach ($inputs as $input)
-                                                    <div class="col-md-4 mt-3">
-                                                        <label for="{{ $input['id'] }}"
-                                                            class="form-label">{{ $input['label'] }}</label>
-                                                        <input type="text" class="form-control"
-                                                            id="{{ $input['id'] }}" name="{{ $input['name'] }}"
-                                                            value="{{ $input['value'] }}"
-                                                            {{ $input['readonly'] ? 'readonly' : '' }}
-                                                            style="border: 1px solid #313131;">
-                                                    </div>
-                                                @endforeach
-                                            </div>
+                                            {{-- <div class="col-md-3 d-none">
+                                            <label for="kodeDokumen" class="form-label">Jenis Dokumen</label>
+                                            <input type="text" class="form-control" id="kodeDokumen" name="kodeDokumen"
+                                                value="{{ old('kodeDokumen', '25') }}" readonly>
+                                        </div>
+                                        <div class="col-md-3 d-none">
+                                            <label for="kodeJenisTpb" class="form-label">Entitas</label>
+                                            <input type="text" class="form-control" id="kodeJenisTpb" name="kodeJenisTpb"
+                                                value="{{ old('kodeJenisTpb', 'TPB') }}" readonly>
+                                        </div> --}}
+                                        <div class="col-md-4">
+                                            <label for="nomorAju" class="form-label">Nomor Pengajuan</label>
+                                            <input type="text" class="form-control" id="nomorAju" name="nomorAju"
+                                                value="{{ old('nomorAju') }}" readonly style="border: 1px solid #313131;">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="kodeKantor" class="form-label">Kantor Pabean</label>
+                                            <input type="text" class="form-control" id="kodeKantor" name="kodeKantor"
+                                                value="{{ old('kodeKantor', '050800') }}" readonly style="border: 1px solid #313131;">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="kodeJenisTpb" class="form-label">Jenis TPB</label>
+                                            <input type="text" class="form-control" id="kodeJenisTpb" name="kodeJenisTpb"
+                                                value="{{ old('kodeJenisTpb', '1') }}" readonly style="border: 1px solid #313131;">
+                                        </div>
+                                        <div class="col-md-6 mt-3">
+                                            <label for="kodeTujuanPengiriman" class="form-label">Tujuan Pengiriman</label>
+                                            <input type="text" class="form-control" id="kodeTujuanPengiriman" name="kodeTujuanPengiriman"
+                                                value="{{ old('kodeTujuanPengiriman', '1') }}" readonly style="border: 1px solid #313131;">
+                                        </div>
+                                        <div class="col-md-6 mt-3">
+                                            <label for="kodeCaraBayar" class="form-label">Cara Bayar</label>
+                                            <input type="text" class="form-control" id="kodeCaraBayar" name="kodeCaraBayar"
+                                                value="{{ old('kodeCaraBayar', '1') }}" readonly style="border: 1px solid #313131;">
                                         </div>
                                     </div>
-
+                                </div>
                                     {{-- Entitas --}}
                                     <div class="tab-pane fade" id="entitas" role="tabpanel"
                                         aria-labelledby="entitas-tab">
                                         <div class="container">
+
+                                            <!-- Penyelenggara/Pengusaha TPB/Pengusaha Kena Pajak -->
                                             <div class="row mb-4 p-3 border rounded shadow-sm bg-light">
                                                 <h5 class="text-primary">Penyelenggara/Pengusaha TPB/Pengusaha Kena Pajak
                                                 </h5>
-                                                @php
-                                                    $entitas = [
-                                                        [
-                                                            'label' => 'Nomor NPWP',
-                                                            'id' => 'kodeJenisIdentitas',
-                                                            'name' => 'kodeJenisIdentitas[]',
-                                                            'value' => old('kodeJenisIdentitas', '010016806054000'),
-                                                            'readonly' => true,
-                                                        ],
-                                                        [
-                                                            'label' => 'Nitku',
-                                                            'id' => 'nomorIdentitas',
-                                                            'name' => 'nomorIdentitas[]',
-                                                            'value' => old('nomorIdentitas', '0010016806054000000000'),
-                                                        ],
-                                                        [
-                                                            'label' => 'Nama',
-                                                            'id' => 'namaEntitas',
-                                                            'name' => 'namaEntitas[]',
-                                                            'value' => old('namaEntitas', 'INDO-RAMA SYNTHETICS TBK'),
-                                                        ],
-                                                        [
-                                                            'label' => 'No Izin TPB',
-                                                            'id' => 'nomorIjinEntitas',
-                                                            'name' => 'nomorIjinEntitas',
-                                                            'value' => old('nomorIjinEntitas', 'KEP-724/WBC.09/2022'),
-                                                        ],
-                                                        [
-                                                            'label' => 'Tanggal Izin TPB',
-                                                            'id' => 'tanggalIjinEntitas',
-                                                            'name' => 'tanggalIjinEntitas',
-                                                            'value' => old('tanggalIjinEntitas'),
-                                                            'type' => 'date',
-                                                        ],
-                                                        [
-                                                            'label' => 'NIB',
-                                                            'id' => 'nibEntitas',
-                                                            'name' => 'nibEntitas',
-                                                            'value' => old('nibEntitas', '8120302880325'),
-                                                        ],
-                                                    ];
-                                                @endphp
-
-                                                <div class="row g-3">
-                                                    <div class="col-md-6">
-                                                        <label for="nomorIdentitas" class="form-label">Nomor
-                                                            Identitas</label>
-                                                        <input type="text" class="form-control" id="nomorIdentitas[]"
-                                                            placeholder="6 - NPWP 16 DIGIT" readonly
-                                                            style="border: 1px solid #313131;">
-                                                    </div>
-
-                                                    @foreach ($entitas as $input)
-                                                        <div class="col-md-6 mt-3">
-                                                            <label for="{{ $input['id'] }}"
-                                                                class="form-label">{{ $input['label'] }}</label>
-                                                            <input type="{{ $input['type'] ?? 'text' }}"
-                                                                class="form-control" id="{{ $input['id'] }}"
-                                                                name="{{ $input['name'] }}"
-                                                                value="{{ $input['value'] }}"
-                                                                {{ isset($input['readonly']) ? 'readonly' : '' }}
-                                                                style="border: 1px solid #313131;">
-                                                        </div>
-                                                    @endforeach
-
-                                                    <div class="col-md-6 mt-3">
-                                                        <label for="alamatEntitas" class="form-label">Alamat</label>
-                                                        <textarea class="form-control" id="alamatEntitas" name="alamatEntitas[]" style="border: 1px solid #313131;">{{ old('alamatEntitas', 'JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101') }}</textarea>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                            <!-- Entitas Pemilik Barang -->
-                                            <div class="row mb-4 p-3 border rounded shadow-sm bg-light">
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <h5 class="text-primary" id="exampleModalCenterTitle">Pemilik Barang
-                                                    </h5>
-                                                    <button type="button" class="btn btn-primary"
-                                                        id="myBtn">Referensi</button>
-                                                </div>
-
-                                                @php
-                                                    $pemilikBarang = [
-                                                        [
-                                                            'label' => 'Nomor NPWP',
-                                                            'id' => 'kodeJenisIdentitas2',
-                                                            'name' => 'kodeJenisIdentitas[]',
-                                                            'readonly' => true,
-                                                        ],
-                                                        [
-                                                            'label' => 'Nitku',
-                                                            'id' => 'nitku2',
-                                                            'name' => 'nomorIdentitas[]',
-                                                            'oninput' => 'updateNomorEntitas2()',
-                                                        ],
-                                                        [
-                                                            'label' => 'Nama',
-                                                            'id' => 'namaEntitas2',
-                                                            'name' => 'namaEntitas[]',
-                                                        ],
-                                                    ];
-                                                @endphp
-
-                                                <div class="row g-3">
+                                                <div class="row">
                                                     <div class="col-md-6">
                                                         <label for="nomorIdentitas" class="form-label">Nomor
                                                             Identitas</label>
@@ -259,22 +139,95 @@
                                                             placeholder="6 - NPWP 16 DIGIT" readonly
                                                             style="border: 1px solid #313131;">
                                                     </div>
+                                                    <div class="col-md-6">
+                                                        <label for="kodeJenisIdentitas" class="form-label ">Nomor
+                                                            NPWP</label>
+                                                        <input type="text" class="form-control"
+                                                            id="kodeJenisIdentitas" name="kodeJenisIdentitas"
+                                                            value="{{ old('kodeJenisIdentitas', '010016806054000') }}"
+                                                            readonly style="border: 1px solid #313131;">
+                                                    </div>
+                                                    <div class="col-md-6 mt-3">
+                                                        <label for="nitku" class="form-label">Nitku</label>
+                                                        <input type="text" class="form-control" id="nitku"
+                                                            name="nitku"
+                                                            value="{{ old('nitku', '0010016806054000000000') }}"
+                                                            style="border: 1px solid #313131;"
+                                                            oninput="updateNomorEntitas()">
+                                                    </div>
+                                                    <div class="col-md-6 mt-3">
+                                                        <label for="namaEntitas" class="form-label">Nama</label>
+                                                        <input type="text" class="form-control" id="namaEntitas"
+                                                            name="namaEntitas"
+                                                            value="{{ old('namaEntitas', 'INDO-RAMA SYNTHETICS TBK') }}"
+                                                            style="border: 1px solid #313131;">
+                                                    </div>
+                                                    <div class="col-md-6 mt-3">
+                                                        <label for="nomorIjinEntitas" class="form-label">No Izin
+                                                            TPB</label>
+                                                        <input type="text" class="form-control" id="nomorIjinEntitas"
+                                                            name="nomorIjinEntitas"
+                                                            value="{{ old('no_izin_tpb', 'KEP-724/WBC.09/2022') }}"
+                                                            style="border: 1px solid #313131;">
+                                                    </div>
+                                                    <div class="col-md-6 mt-3">
+                                                        <label for="tanggalIjinEntitas" class="form-label">Tanggal Izin
+                                                            TPB</label>
+                                                        <input type="date" class="form-control"
+                                                            id="tanggalIjinEntitas" name="tanggalIjinEntitas"
+                                                            value="{{ old('tanggal_izin_tpb') }}"
+                                                            style="border: 1px solid #313131;">
+                                                    </div>
+                                                    <div class="col-md-6 mt-3">
+                                                        <label for="nibEntitas" class="form-label">NIB</label>
+                                                        <input type="text" class="form-control" id="nibEntitas"
+                                                            name="nibEntitas"
+                                                            value="{{ old('nibEntitas', '8120302880325') }}"
+                                                            style="border: 1px solid #313131;">
+                                                    </div>
+                                                    <div class="col-md-6 mt-3">
+                                                        <label for="alamatEntitas" class="form-label">Alamat</label>
+                                                        <textarea class="form-control" id="alamatEntitas" name="alamatEntitas" style="border: 1px solid #313131;">{{ old('alamatEntitas', 'JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101') }}</textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
 
-                                                    @foreach ($pemilikBarang as $input)
-                                                        <div class="col-md-6 mt-3">
-                                                            <label for="{{ $input['id'] }}"
-                                                                class="form-label">{{ $input['label'] }}</label>
-                                                            <input type="text" class="form-control"
-                                                                id="{{ $input['id'] }}" name="{{ $input['name'] }}"
-                                                                {{ isset($input['placeholder']) ? "placeholder={$input['placeholder']}" : '' }}
-                                                                {{ isset($input['readonly']) ? 'readonly' : '' }}
-                                                                {{ isset($input['oninput']) ? "oninput={$input['oninput']}" : '' }}
-                                                                style="border: 1px solid #313131;">
-                                                        </div>
-                                                    @endforeach
+                                            <!-- Pemilik Barang -->
+                                            <div class="row mb-4 p-3 border rounded shadow-sm bg-light">
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <h5 class="text-primary" id="exampleModalCenterTitle">Pemilik Barang
+                                                    </h5>
+                                                    <button type="button" class="btn btn-primary"
+                                                        id="myBtn">Referensi</button>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label for="nomorIdentitas" class="form-label">Nomor
+                                                            Identitas</label>
+                                                        <input type="text" class="form-control" id="nomorIdentitas"
+                                                            placeholder="6 - NPWP 16 DIGIT" readonly
+                                                            style="border: 1px solid #313131;">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label for="nomorNpwp" class="form-label">Nomor NPWP</label>
+                                                        <input type="text" class="form-control"
+                                                            id="kodeJenisIdentitas2" name="kodeJenisIdentitas2" readonly
+                                                            style="border: 1px solid #313131;">
+                                                    </div>
+                                                    <div class="col-md-6 mt-3">
+                                                        <label for="nitku2" class="form-label">Nitku</label>
+                                                        <input type="text" class="form-control" id="nitku2"
+                                                            name="nitku2" style="border: 1px solid #313131;"
+                                                            oninput="updateNomorEntitas2()">
+                                                    </div>
+                                                    <div class="col-md-6 mt-3">
+                                                        <label for="namaEntitas2" class="form-label">Nama</label>
+                                                        <input type="text" class="form-control" id="namaEntitas2"
+                                                            name="namaEntitas2" style="border: 1px solid #313131;">
+                                                    </div>
                                                     <div class="col-md-6 mt-3">
                                                         <label for="alamatEntitas2" class="form-label">Alamat</label>
-                                                        <textarea class="form-control" id="alamatEntitas2" name="alamatEntitas[]" style="border: 1px solid #313131;"></textarea>
+                                                        <textarea class="form-control" id="alamatEntitas2" name="alamatEntitas2" style="border: 1px solid #313131;"></textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -458,51 +411,35 @@
                                                     <button type="button" class="btn btn-primary"
                                                         id="myBtn2">Referensi</button>
                                                 </div>
-                                                @php
-                                                    $penerimaBarang = [
-                                                        [
-                                                            'label' => 'Nomor NPWP',
-                                                            'id' => 'kodeJenisIdentitas3',
-                                                            'name' => 'kodeJenisIdentitas[]',
-                                                            'readonly' => true,
-                                                        ],
-                                                        [
-                                                            'label' => 'Nitku',
-                                                            'id' => 'nitku3',
-                                                            'name' => 'nomorIdentitas[]',
-                                                            'oninput' => 'updateNomorEntitas3()',
-                                                        ],
-                                                        [
-                                                            'label' => 'Nama',
-                                                            'id' => 'namaEntitas3',
-                                                            'name' => 'namaEntitas[]',
-                                                        ],
-                                                    ];
-                                                @endphp
-
-                                                <div class="row g-3">
+                                                <div class="row">
                                                     <div class="col-md-6">
-                                                        <label for="nomorIdentitas" class="form-label">Nomor
+                                                        <label for="kode_jenis_tpb" class="form-label">Nomor
                                                             Identitas</label>
                                                         <input type="text" class="form-control"
                                                             placeholder="6 - NPWP 16 DIGIT" readonly
                                                             style="border: 1px solid #313131;">
                                                     </div>
-                                                    @foreach ($penerimaBarang as $input)
-                                                        <div class="col-md-6">
-                                                            <label for="{{ $input['id'] }}"
-                                                                class="form-label">{{ $input['label'] }}</label>
-                                                            <input type="text" class="form-control"
-                                                                id="{{ $input['id'] }}" name="{{ $input['name'] }}"
-                                                                {{ isset($input['readonly']) ? 'readonly' : '' }}
-                                                                {{ isset($input['oninput']) ? "oninput={$input['oninput']}" : '' }}
-                                                                style="border: 1px solid #313131;">
-                                                        </div>
-                                                    @endforeach
+                                                    <div class="col-md-6">
+                                                        <label for="kodeJenisIdentitas3" class="form-label">Nomor
+                                                            NPWP</label>
+                                                        <input type="text" class="form-control"
+                                                            id="kodeJenisIdentitas3" name="kodeJenisIdentitas3" readonly
+                                                            style="border: 1px solid #313131;">
+                                                    </div>
                                                     <div class="col-md-6 mt-3">
-                                                        <label for="alamatEntitas2" class="form-label">Alamat</label>
-                                                        <textarea class="form-control" id="alamatEntitas3" name="alamatEntitas[]" rows="3"
-                                                            style="border: 1px solid #313131;"></textarea>
+                                                        <label for="nitku3" class="form-label">Nitku</label>
+                                                        <input type="text" class="form-control" id="nitku3"
+                                                            name="nitku3" style="border: 1px solid #313131;"
+                                                            oninput="updateNomorEntitas3()">
+                                                    </div>
+                                                    <div class="col-md-6 mt-3">
+                                                        <label for="namaEntitas3" class="form-label">Nama</label>
+                                                        <input type="text" class="form-control" id="namaEntitas3"
+                                                            name="namaEntitas3" style="border: 1px solid #313131;">
+                                                    </div>
+                                                    <div class="col-md-6 mt-3">
+                                                        <label for="alamatEntitas3" class="form-label">Alamat</label>
+                                                        <textarea class="form-control" id="alamatEntitas3" name="alamatEntitas3" style="border: 1px solid #313131;"></textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -599,7 +536,6 @@
 
                                         </div>
                                     </div>
-
                                      {{-- Dokumen --}}
                                      <div class="tab-pane fade" id="dokumen" role="tabpanel"
                                      aria-labelledby="dokumen-tab">
@@ -643,6 +579,25 @@
                                                      </div>
 
                                                      <!-- Modal -->
+                                                     @php
+                                                     $Dokumen = [
+                                                         [
+                                                             'label' => 'Jenis Dokumen',
+                                                             'id' => 'select-field4',
+                                                             'name' => 'kodeDokumen',
+                                                         ],
+                                                         [
+                                                             'label' => 'Nomor Dokumen',
+                                                             'id' => 'nomorDokumen',
+                                                             'name' => 'nomorDokumen',
+                                                         ],
+                                                         [
+                                                             'label' => 'Tanggal Dokumen',
+                                                             'id' => 'tanggalDokumen',
+                                                             'name' => 'tanggalDokumen',
+                                                         ],
+                                                     ];
+                                                 @endphp
                                                      <div id="myModal4" class="modal" data-backdrop="static"
                                                          data-keyboard="false" style="display: none;">
                                                          <div class="modal-content">
@@ -651,112 +606,44 @@
                                                                  <input type="hidden" id="editIndex" value="">
                                                                  <label for="seri">Seri</label>
                                                                  <input type="text" class="form-control"
-                                                                     id="seriDokumen" name="seriDokumen[]" readonly>
+                                                                     id="seriDokumen" name="seriDokumen" value="{{ old('seriDokumen','1') }}" readonly>
 
-                                                                 <div class="form-group">
-                                                                     <label for="kodeDokumen">Jenis Dokumen</label>
-                                                                     <select class="form-control" name="kodeDokumen[]"
-                                                                         id="select-field4" required>
-                                                                         <option selected disabled>Pilih Jenis</option>
-                                                                         <option
-                                                                             value="0282 - PERSETUJUAN PENGELUARAN BC28 DENGAN DOKAP"
-                                                                             {{ old('kodeDokumen') == '1' ? 'selected' : '' }}>
-                                                                             0282 - PERSETUJUAN PENGELUARAN BC28
-                                                                             DENGAN DOKAP</option>
+                                                                        @php
+                                                                        $dokumenOptions = [
+                                                                            '0282 - PERSETUJUAN PENGELUARAN BC28 DENGAN DOKAP',
+                                                                            '03001 - IZIN PRINSIP PENDIRIAN KAWASAN BERIKAT SEBELUM FISIK BANGUNAN BERDIRI',
+                                                                            '03002 - KEPUTUSAN PENETAPAN TEMPAT SEBAGAI KAWASAN BERIKAT DAN PEMBERIAN IZIN PENYELENGGARA KAWASAN BERIKAT',
+                                                                            '03003 - PERSETUJUAN PENETAPAN TEMPAT SEBAGAI KAWASAN BERIKAT DAN PEMBERIAN IZIN PENYELENGARA KAWASAN BERIKAT SEKALIGUS IZIN PENGUSAHA KAWASAN BERIKAT',
+                                                                            '03004 - IZIN PDKB',
+                                                                            '03005 - PERPANJANGAN PENETAPAN TEMPAT SEBAGAI KAWASAN BERIKAT DAN IZIN PENYELENGGARA KAWASAN BERIKAT, IZIN PENGUSAHA KAWASAN BERIKAT, ATAU IZIN PDKB SEBELUM JANGKA WAKTU IZIN TERSEBUT BERAKHIR',
+                                                                            '03006 - PERUBAHAN IZIN PENYELENGGARA KAWASAN BERIKAT, IZIN PENGUSAHA KAWASAN BERIKAT, ATAU IZIN PDKB (TERDAPAT PERUBAHAN NAMA PERUSAHAAN YANG BUKAN DIKARENAKAN MERGER ATAU DIAKUISISI, JENIS HASIL PRODUK, ATAU LUAS KAWASAN BERIKAT)',
+                                                                            '03007 - PERUBAHAN KEPUTUSAN IZIN PENYELENGGARA KAWASAN BERIKAT, IZIN PENGUSAHA KAWASAN BERIKAT, ATAU IZIN PDKB',
+                                                                            '03008 - PEMBERIAN IZIN PENAMBAHAN PINTU KHUSUS PEMASUKAN DAN PENGELUARAN BARANG DI KAWASAN BERIKAT',
+                                                                            '380 - INVOICE',
+                                                                            '217 - PACKING LIST'
+                                                                        ];
+                                                                        $selectedValue = old('kodeDokumen', $data->kodeDokumen ?? '380 - INVOICE');
+                                                                    @endphp
 
-                                                                         <option
-                                                                             value="03001 - IZIN PRINSIP PENDIRIAN KAWASAN BERIKAT SEBELUM FISIK BANGUNAN BERDIRI"
-                                                                             {{ old('kodeDokumen') == '2' ? 'selected' : '' }}>
-                                                                             03001 - IZIN PRINSIP PENDIRIAN KAWASAN
-                                                                             BERIKAT SEBELUM FISIK BANGUNAN BERDIRI
-                                                                         </option>
+                                                                    <div class="form-group">
+                                                                        <label for="kodeDokumen">Jenis Dokumen</label>
+                                                                        <select class="form-control" name="kodeDokumen" id="select-field4" required>
+                                                                            <option selected disabled>Pilih Jenis</option>
+                                                                            @foreach ($dokumenOptions as $option)
+                                                                                <option value="{{ $option }}" {{ $selectedValue == $option ? 'selected' : '' }}>
+                                                                                    {{ $option }}
+                                                                                </option>
+                                                                            @endforeach
+                                                                        </select>
+                                                                    </div>
 
-                                                                         <option
-                                                                             value="03002 - KEPUTUSAN PENETAPAN TEMPAT SEBAGAI KAWASAN BERIKAT DAN PEMBERIAN IZIN PENYELENGGARA KAWASAN BERIKAT"
-                                                                             {{ old('kodeDokumen') == '3' ? 'selected' : '' }}>
-                                                                             03002 - KEPUTUSAN PENETAPAN TEMPAT
-                                                                             SEBAGAI KAWASAN BERIKAT DAN PEMBERIAN
-                                                                             IZIN PENYELENGGARA KAWASAN BERIKAT
-                                                                         </option>
-
-                                                                         <option
-                                                                             value="03003 - PERSETUJUAN PENETAPAN TEMPAT SEBAGAI KAWASAN BERIKAT DAN PEMBERIAN IZIN PENYELENGARA KAWASAN BERIKAT SEKALIGUS IZIN PENGUSAHA KAWASAN BERIKAT"
-                                                                             {{ old('kodeDokumen') == '4' ? 'selected' : '' }}>
-                                                                             03003 - PERSETUJUAN PENETAPAN TEMPAT
-                                                                             SEBAGAI KAWASAN BERIKAT DAN PEMBERIAN
-                                                                             IZIN PENYELENGARA KAWASAN BERIKAT
-                                                                             SEKALIGUS IZIN PENGUSAHA KAWASAN BERIKAT
-                                                                         </option>
-
-                                                                         <option value="03004 - IZIN PDKB"
-                                                                             {{ old('kodeDokumen') == '5' ? 'selected' : '' }}>
-                                                                             03004 - IZIN PDKB</option>
-
-                                                                         <option
-                                                                             value="03005 - PERPANJANGAN PENETAPAN TEMPAT SEBAGAI KAWASAN BERIKAT DAN IZIN PENYELENGGARA KAWASAN BERIKAT, IZIN PENGUSAHA KAWASAN BERIKAT, ATAU IZIN PDKB SEBELUM JANGKA WAKTU IZIN TERSEBUT BERAKHIR"
-                                                                             {{ old('kodeDokumen') == '6' ? 'selected' : '' }}>
-                                                                             03005 - PERPANJANGAN PENETAPAN TEMPAT
-                                                                             SEBAGAI KAWASAN BERIKAT DAN IZIN
-                                                                             PENYELENGGARA KAWASAN BERIKAT, IZIN
-                                                                             PENGUSAHA KAWASAN BERIKAT, ATAU IZIN
-                                                                             PDKB SEBELUM JANGKA WAKTU IZIN TERSEBUT
-                                                                             BERAKHIR</option>
-                                                                        <option
-                                                                             value="03006 - PERUBAHAN IZIN PENYELENGGARA
-                                                                            KAWASAN BERIKAT, IZIN PENGUSAHA KAWASAN
-                                                                            BERIKAT, ATAU IZIN PDKB (TERDAPAT
-                                                                            PERUBAHAN NAMA PERUSAHAAN YANG BUKAN
-                                                                            DIKARENAKAN MERGER ATAU DIAKUISISI,
-                                                                            JENIS HASIL PRODUK, ATAU LUAS KAWASAN
-                                                                            BERIKAT)"
-
-                                                                             {{ old('kodeDokumen') == '7' ? 'selected' : '' }}>
-                                                                            03006 - PERUBAHAN IZIN PENYELENGGARA
-                                                                            KAWASAN BERIKAT, IZIN PENGUSAHA KAWASAN
-                                                                            BERIKAT, ATAU IZIN PDKB (TERDAPAT
-                                                                            PERUBAHAN NAMA PERUSAHAAN YANG BUKAN
-                                                                            DIKARENAKAN MERGER ATAU DIAKUISISI,
-                                                                            JENIS HASIL PRODUK, ATAU LUAS KAWASAN
-                                                                            BERIKAT)
-                                                                         </option>
-
-                                                                         <option
-                                                                             value="03007 - PERUBAHAN KEPUTUSAN IZIN PENYELENGGARA KAWASAN BERIKAT, IZIN PENGUSAHA KAWASAN BERIKAT, ATAU IZIN PDKB"
-                                                                             {{ old('kodeDokumen') == '8' ? 'selected' : '' }}>
-                                                                             03007 - PERUBAHAN KEPUTUSAN IZIN
-                                                                             PENYELENGGARA KAWASAN BERIKAT, IZIN
-                                                                             PENGUSAHA KAWASAN BERIKAT, ATAU IZIN
-                                                                             PDKB
-                                                                         </option>
-
-                                                                         <option
-                                                                             value="03008 - PEMBERIAN IZIN PENAMBAHAN PINTU KHUSUS PEMASUKAN DAN PENGELUARAN BARANG DI KAWASAN BERIKAT"
-                                                                             {{ old('kodeDokumen') == '9' ? 'selected' : '' }}>
-                                                                             03008 - PEMBERIAN IZIN PENAMBAHAN PINTU
-                                                                             KHUSUS PEMASUKAN DAN PENGELUARAN BARANG
-                                                                             DI KAWASAN BERIKAT
-                                                                         </option>
-
-                                                                         <option
-                                                                         value="380 - INVOICE"
-                                                                         {{ old('kodeDokumen') == '10' ? 'selected' : '' }}>
-                                                                         380 - INVOICE
-                                                                     </option>
-
-                                                                     <option
-                                                                     value="217 - PACKING LIST"
-                                                                     {{ old('kodeDokumen') == '11' ? 'selected' : '' }}>
-                                                                     217 - PACKING LIST
-                                                                 </option>
-                                                                     </select>
-                                                                 </div>
                                                                  <label for="nomorDokumen">Nomor Dokumen</label>
                                                                  <input type="text" class="form-control"
-                                                                     id="kodeDokumen" name="nomorDokumen[]">
+                                                                     id="kodeDokumen" name="nomorDokumen" value="{{ old('nomorDokumen','612500427') }}"  >
 
                                                                  <label for="tanggalDokumen">Tanggal Dokumen</label>
                                                                  <input type="date" class="form-control"
-                                                                     id="tanggalDokumen" name="tanggalDokumen[]">
+                                                                     id="tanggalDokumen" name="tanggalDokumen" value="{{ old('tanggalDokumen','2025-02-04') }}" >
 
                                                                  <br>
 
@@ -869,18 +756,18 @@
                                                                         <label for="seriKemasan" class="form-label">Seri Pengangkut</label>
                                                                         <input type="text" class="form-control"
                                                                             id="seriDokumen2" name="seriKemasan"
-                                                                            value="{{ is_array(old('seriKemasan')) ? implode(',', old('seriKemasan')) : old('seriKemasan') }}" readonly>
+                                                                            value="{{ is_array(old('seriKemasan')) ? implode(',', old('seriKemasan')) : old('seriKemasan')  }}" readonly>
                                                                     </div>
 
                                                                     <label for="usaha">Jumlah</label>
                                                                     <input type="text" class="form-control"
-                                                                        id="jumlah" name="jumlahKemasan"
-                                                                        value="{{ is_array(old('jumlahKemasan')) ? implode(', ', old('jumlahKemasan')) : old('jumlahKemasan') }}">
+                                                                           id="jumlah" name="jumlahKemasan"
+                                                                           value="{{ is_array(old('jumlahKemasan')) ? implode(', ', old('jumlahKemasan')) : (old('jumlahKemasan') ?: '20') }}">
 
 
                                                                     <div class="form-group">
                                                                         <label for="alamat">Jenis Dokumen</label>
-                                                                        <select class="form-control" name="kodeJenisKemasan[]"
+                                                                        <select class="form-control" name="kodeJenisKemasan"
                                                                             id="select-field5" required
                                                                             style="border: 1px solid #313131;">
                                                                             <option selected disabled>Pilih Jenis
@@ -917,8 +804,8 @@
                                                                     <BR>
                                                                     <label for="usaha">Merk</label>
                                                                     <input type="text" class="form-control"
-                                                                        id="merk" name="merkKemasan[]"
-                                                                        value="{{ old('merk') }}">
+                                                                        id="merk" name="merkKemasan"
+                                                                        value="{{ old('merk','Indorama') }}">
                                                                     <br>
                                                                     <!-- Tombol Simpan & Batal -->
                                                                     <div class="button-group">
@@ -1081,8 +968,8 @@
                     <div class="col-md-6 mt-3">
                         <label for="harga_penyerahan" class="form-label">Harga
                             Penyerahan/Harga Jual/Harga Barang</label>
-                        <input type="text" class="form-control" id="harga_penyerahan" name="hargaPenyerahan"
-                            value="{{ old('harga_penyerahan') }}" style="border: 1px solid #313131;">
+                        <input type="text" class="form-control" id="hargaPenyerahan" name="hargaPenyerahan"
+                            value="{{ old('hargaPenyerahan') }}" style="border: 1px solid #313131;">
                     </div>
                 </div>
             </div>
@@ -1112,7 +999,7 @@
                 <div class="col-md-12 mt-3">
                     <label for="pengenaan_pajak" class="form-label">Dasar Pengenaan
                         Pajak</label>
-                    <input type="text" class="form-control" id="pengenaan_pajak" name="dasarPengenaanPajak[]"
+                    <input type="text" class="form-control" id="pengenaan_pajak" name="dasarPengenaanPajak"
                         style="border: 1px solid #313131;" oninput="hitungPPNBM(); hitungPPN();">
                 </div>
                 <div class="col-md-6 mt-3">
@@ -1120,12 +1007,12 @@
                         (Tarif & Nilai)</label>
                     <div class="row">
                         <div class="col-md-4">
-                            <input type="text" class="form-control" id="ppn_tarif" name="tarifPpnPajak[]"
+                            <input type="text" class="form-control" id="ppn_tarif" name="tarifPpnPajak"
                                 value="11.00%" style="border: 1px solid #313131;" oninput="hitungPPN()">
                         </div>
 
                         <div class="col-md-8">
-                            <input type="text" class="form-control" id="ppn_hasil" name="ppnPajak[]" readonly
+                            <input type="text" class="form-control" id="ppn_hasil" name="ppnPajak" readonly
                                 style="border: 1px solid #313131;">
                         </div>
                     </div>
@@ -1135,12 +1022,12 @@
                         (Tarif & Nilai)</label>
                     <div class="row">
                         <div class="col-md-4">
-                            <input type="text" class="form-control" id="ppnb_tarif" name="tarifPpnbmPajakp[]"
+                            <input type="text" class="form-control" id="ppnb_tarif" name="tarifPpnbmPajak"
                                 value="00.00%" style="border: 1px solid #313131;" oninput="hitungPPNBM()">
                         </div>
 
                         <div class="col-md-8">
-                            <input type="text" class="form-control" id="ppnb_hasil" name="ppnbmPajak[]" readonly
+                            <input type="text" class="form-control" id="ppnb_hasil" name="ppnbmPajak" readonly
                                 style="border: 1px solid #313131;">
                         </div>
                     </div>
@@ -1158,13 +1045,13 @@
                     <div class="col-md-6">
                         <label for="nomorIdentitas" class="form-label">Berat Kotor
                             (KGM)</label>
-                        <input type="text" class="form-control" id="berat_kotor" name="bruto[]"
+                        <input type="text" class="form-control" id="berat_kotor" name="bruto"
                             value="{{ old('berat_kotor') }}" style="border: 1px solid #313131;">
                     </div>
                     <div class="col-md-6">
                         <label for="nomorNpwp" class="form-label">Berat Bersih
                             (KGM)</label>
-                        <input type="text" class="form-control" id="berat_bersih" name="netto[]"
+                        <input type="text" class="form-control" id="berat_bersih" name="netto"
                             value="{{ old('berat_bersih') }}" style="border: 1px solid #313131;">
                     </div>
                 </div>
@@ -1643,12 +1530,12 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <label for="ndpbm" class="form-label">Tempat</label>
-                                <input type="text" class="form-control" name="kotaTtd[]"
+                                <input type="text" class="form-control" name="kotaTtd"
                                     value="{{ old('tempat') }}" style="border: 1px solid #313131;">
                             </div>
                             <div class="col-md-6">
                                 <label for="cif" class="form-label">Tanggal</label>
-                                <input type="date" class="form-control" name="tanggalTtd[]"
+                                <input type="date" class="form-control" name="tanggalTtd"
                                     value="{{ old('tanggal') }}" style="border: 1px solid #313131;">
                             </div>
                         </div>
@@ -1659,12 +1546,12 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <label for="uang_muka" class="form-label">Nama</label>
-                                <input type="text" class="form-control" name="idPengguna[]"
+                                <input type="text" class="form-control" name="idPengguna"
                                     value="{{ old('nama') }}" style="border: 1px solid #313131;">
                             </div>
                             <div class="col-md-6">
                                 <label for="diskon" class="form-label">Jabatan</label>
-                                <input type="text" class="form-control" name="jabatanTtd[]"
+                                <input type="text" class="form-control" name="jabatanTtd"
                                     value="{{ old('jabatan') }}" style="border: 1px solid #313131;">
                             </div>
                         </div>
@@ -1696,15 +1583,10 @@
                         </div>
                     </div> --}}
 
-                    {{-- <div class="col-12 mt-3">
-                        <button class="btn btn-primary" type="submit">Submit</button>
-                        <a href="{{ route('dokumen_baru') }}" class="btn btn-danger">Cancel</a>
-                    </div> --}}
                     <div class="col-12 mt-3">
                         <button class="btn btn-primary" type="submit">Submit</button>
                         <a href="{{ route('dokumen_baru') }}" class="btn btn-danger">Cancel</a>
                     </div>
-                </form>
                 </div>
             </div>
         </div>
@@ -2573,19 +2455,19 @@
             let dataToEdit = storedData[index];
 
             if (dataToEdit) {
-                // Isi form modal dengan data yang akan diedit
+                // Fill the modal form with data to edit
                 document.getElementById("seriDokumen").value = dataToEdit.seriDokumen;
                 document.getElementById("select-field4").value = dataToEdit.jenisDokumen;
                 document.getElementById("kodeDokumen").value = dataToEdit.kodeDokumen;
                 document.getElementById("tanggalDokumen").value = dataToEdit.tanggalDokumen;
 
-                // Simpan indeks data yang sedang diedit
+                // Store the index of the data being edited
                 document.getElementById("editIndex").value = index;
 
-                // Tampilkan modal
+                // Show the modal
                 document.getElementById("myModal4").style.display = "block";
             } else {
-                alert("Data tidak ditemukan!");
+                alert("Data not found!");
             }
         }
 
@@ -2602,19 +2484,20 @@
             localStorage.setItem(nomorAju, JSON.stringify(storedData));
             renderTable(nomorAju);
         }
+
         document.querySelector(".btn-save").addEventListener("click", function() {
-            var nomorAju = document.getElementById("nomorAju").value.trim();;
-            var seriDokumen = document.getElementById("seriDokumen").value.trim();;
-            var jenisDokumen = document.getElementById("select-field4").value.trim();;
-            var kodeDokumen = document.getElementById("kodeDokumen").value.trim();;
-            var tanggalDokumen = document.getElementById("tanggalDokumen").value.trim();;
-            var editIndex = document.getElementById("editIndex").value.trim();;
+            var nomorAju = document.getElementById("nomorAju").value;
+            var seriDokumen = document.getElementById("seriDokumen").value;
+            var jenisDokumen = document.getElementById("select-field4").value;
+            var kodeDokumen = document.getElementById("kodeDokumen").value;
+            var tanggalDokumen = document.getElementById("tanggalDokumen").value;
+            var editIndex = document.getElementById("editIndex").value;
 
             if (jenisDokumen && kodeDokumen && tanggalDokumen) {
                 let storedData = JSON.parse(localStorage.getItem(nomorAju)) || [];
 
                 if (editIndex) {
-                    // Mode edit: update existing data
+                    // Edit mode: update existing data
                     storedData[editIndex] = {
                         seriDokumen: seriDokumen,
                         jenisDokumen: jenisDokumen,
@@ -2622,7 +2505,7 @@
                         tanggalDokumen: tanggalDokumen
                     };
                 } else {
-                    // Mode add: create new entry
+                    // Add mode: create new entry
                     storedData.push({
                         seriDokumen: seriDokumen,
                         jenisDokumen: jenisDokumen,
@@ -2643,7 +2526,6 @@
                 alert("Please complete all fields.");
             }
         });
-
 
         // Load data and render table when the page loads
         window.addEventListener("load", function() {
@@ -2698,19 +2580,19 @@
             storedData.forEach((item, index) => {
                 let newRow = document.createElement("tr");
                 newRow.innerHTML = `
-<td>${index + 1}</td>
-<td>${item.jenisDokumen2}</td>
-<td>${item.jumlah}</td>
-<td>${item.merk}</td>
-<td>
-<button class="btn btn-edit2" data-index="${index}">
-<i class="fa fa-edit"></i>
-</button>
-<button class="btn btn-delete2" data-index="${index}">
-<i class="fa fa-trash"></i>
-</button>
-</td>
-`;
+                <td>${index + 1}</td>
+                <td>${item.jenisDokumen2}</td>
+                <td>${item.jumlah}</td>
+                <td>${item.merk}</td>
+                <td>
+                <button class="btn btn-edit2" data-index="${index}">
+                <i class="fa fa-edit"></i>
+                </button>
+                <button class="btn btn-delete2" data-index="${index}">
+                <i class="fa fa-trash"></i>
+                </button>
+                </td>
+                `;
                 tableBody.appendChild(newRow);
             });
 
@@ -2859,20 +2741,20 @@
             storedData.forEach((item, index) => {
                 let newRow = document.createElement("tr");
                 newRow.innerHTML = `
-<td>${item.seriDokumen3}</td>
-<td>${item.nomor2}</td>
-<td>${item.ukuran}</td>
-<td>${item.jenis}</td>
-<td>${item.Tipe}</td>
-<td>
-<button class="btn btn-edit3" data-index="${index}">
-<i class="fa fa-edit"></i>
-</button>
-<button class="btn btn-delete3" data-index="${index}">
-<i class="fa fa-trash"></i>
-</button>
-</td>
-`;
+                <td>${item.seriDokumen3}</td>
+                <td>${item.nomor2}</td>
+                <td>${item.ukuran}</td>
+                <td>${item.jenis}</td>
+                <td>${item.Tipe}</td>
+                <td>
+                <button class="btn btn-edit3" data-index="${index}">
+                <i class="fa fa-edit"></i>
+                </button>
+                <button class="btn btn-delete3" data-index="${index}">
+                <i class="fa fa-trash"></i>
+                </button>
+                </td>
+                `;
                 tableBody.appendChild(newRow);
             });
 
