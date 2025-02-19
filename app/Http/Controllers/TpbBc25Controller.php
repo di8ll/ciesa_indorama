@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Models\Dokumen;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log; // Add this import
 use Illuminate\Support\Facades\Http;
@@ -12,10 +11,11 @@ use App\Models\User;
 
 class TpbBc25Controller extends Controller
 
+
+
 {
     public function index(Request $request)
     {
-
         return view('dashboard.admin.dokumen.index');
     }
 
@@ -24,41 +24,16 @@ class TpbBc25Controller extends Controller
         return view('dashboard.admin.dokumen.create');
     }
 
-    // public function storeDokumen(Request $request)
-    // {
-
-
-    //     // Validate incoming request
-    //     $request->validate([
-    //         'kodeDokumen' => 'required|string',
-    //         'nomorDokumen' => 'required|string',
-    //         'tanggalDokumen' => 'required|date',
-    //     ]);
-
-    //     // Create a new document record
-    //     $dokumen = new Dokumen();
-    //     $dokumen->kodeDokumen = $request->input('kodeDokumen');
-    //     $dokumen->nomorDokumen = $request->input('nomorDokumen');
-    //     $dokumen->tanggalDokumen = $request->input('tanggalDokumen');
-    //     $dokumen->user_id = Auth::id(); // Assuming the authenticated user is storing this information
-
-    //     try {
-    //         // Save the document
-    //         $dokumen->save();
-
-    //         return redirect()->route('dokumen.index')->with('success', 'Dokumen berhasil disimpan');
-    //     } catch (\Exception $e) {
-    //         return redirect()->route('dokumen.index')->with('error', 'Terjadi kesalahan saat menyimpan dokumen: ' . $e->getMessage());
-    //     }
-    // }
-
     public function store(Request $request)
     {
-        // Menampilkan hasil request sebelum diproses lebih lanjut (debugging)
-        // dd($request->all()); // Bisa diaktifkan untuk cek input JSON
+        // Validasi input untuk jumlahKontainer
+        $validated = $request->validate([
+            'jumlahKontainer' => 'required|integer|min:0',
+        ]);
 
         // Ambil user yang sedang autentikasi
         $user = Auth::user();
+
         if (!$user) {
             return response()->json([
                 'status' => 'error',
@@ -66,8 +41,9 @@ class TpbBc25Controller extends Controller
             ], 401);
         }
 
-        // Ambil access_token dari tabel users
+        // Ambil access_token dari kolom 'access_token' di tabel 'users'
         $accessToken = $user->access_token;
+
         if (!$accessToken) {
             return response()->json([
                 'status' => 'error',
@@ -75,132 +51,102 @@ class TpbBc25Controller extends Controller
             ], 401);
         }
 
-        // Ambil semua input dari request
-        $payload = $request->all();
+        // Ambil semua data request tanpa filter
+        // // Ambil semua data request tanpa filter
+        $validated = $request->all();
 
-        // Konversi nilaiBarang (Nilai Pabean) ke format angka desimal jika ada
-        if (isset($payload['nilaiBarang'])) {
-            // Hapus titik sebagai pemisah ribuan dan ubah koma menjadi titik desimal
-            $payload['nilaiBarang'] = str_replace(['.', ','], ['', '.'], $payload['nilaiBarang']);
+        dd(request()->all());
 
-            // Cek apakah nilaiBarang bisa dikonversi ke angka
-            if (is_numeric($payload['nilaiBarang'])) {
-                // Format angka tanpa pemisah ribuan, dengan dua angka desimal
-                $payload['nilaiBarang'] = number_format((float) $payload['nilaiBarang'], 2, '.', '');
-            } else {
-                return response()->json([
-                    'status' => 'error',
-                    'message' => 'Nilai Pabean harus berupa angka yang valid'
-                ], 400);
-            }
-        }
-
-        // Konversi tarifPpnPajak ke format desimal jika ada
-        if (isset($payload['tarifPpnPajak'])) {
-            // Hapus persen (%) dan ubah ke format desimal
-            $payload['tarifPpnPajak'] = str_replace('%', '', $payload['tarifPpnPajak']);
-
-            // Cek apakah tarifPpnPajak bisa dikonversi ke angka
-            if (is_numeric($payload['tarifPpnPajak'])) {
-                // Ubah ke format desimal (misalnya 11.00 menjadi 0.11)
-                $payload['tarifPpnPajak'] = number_format(((float) $payload['tarifPpnPajak'] / 100), 2, '.', '');
-            } else {
-                return response()->json([
-                    'status' => 'error',
-                    'message' => 'Tarif PPN harus berupa angka yang valid'
-                ], 400);
-            }
-        }
+        // dd($validated); // This will dump the validated data to check what values are coming through.
 
 
-        if (isset($payload['ppnPajak'])) {
-            $payload['ppnPajak'] = str_replace(['.', ','], ['', '.'], $payload['ppnPajak']);
+        // Fields to convert to integer
+        $fieldsToConvertInteger = [
+            'jumlahKontainer', 'seri', 'bruto2','cif2','cif3','diskon','fob','hargaEkspor','hargaPenyerahan','isiPerKemasan','jumlahKemasan','jumlahKemasan2',
+            'jumlahSatuan','jumlahSatuan2','jumlahSatuan3','jumlahSatuan4','jumlahSatuan6','jumlahSatuan7','jumlahSatuan8',
+            'netto','nilaiBarang','seriBarang','seriBarang2','seriBarang3','seriBarang4','ndpbm','ndpbm2','ndpbm3','freight','seriKontainer','cifRupiah','cifRupiah2',
+            'hargaPerolehan','jumlahSatuan','jumlahSatuan2','jumlahSatuan3','jumlahSatuan4','jumlahSatuan5','jumlahSatuan6','jumlahSatuan7','jumlahSatuan8',
+            'seriBahanBaku','seriBahanBaku2','seriBahanBaku3','seriBarangDokAsal','seriIjin','seriIjin2','seriIjin3','nilaiBayar','nilaiBayar2','nilaiBayar3','nilaiBayar4','nilaiBayar5',
+            'nilaiFasilitas','nilaiFasilitas3','nilaiFasilitas4','nilaiFasilitas5','nilaiFasilitas','nilaiFasilitas2','nilaiFasilitas3',
+            'nilaiFasilitas4','nilaiFasilitas5','tarif','tarif2','tarif3','tarif4','tarif5','nilaiBayar','nilaiBayar3','nilaiBayar5',
+            'nilaiSudahDilunasi','nilaiSudahDilunasi2','nilaiSudahDilunasi3','nilaiSudahDilunasi4','nilaiSudahDilunasi5','seriDokumen','seriDokumen2',
+            'seriDokumen3','seriDokumen4','seriIjin','seriIjin2','seriIjin3','tarifFasilitas','tarifFasilitas2','tarifFasilitas3','tarifFasilitas4','tarifFasilitas5',
+            'seriEntitas','seriEntitas2','seriEntitas3','seriPengangkut','seriKemasan'
 
-            if (is_numeric($payload['ppnPajak'])) {
-                $payload['ppnPajak'] = number_format((float) $payload['ppnPajak'], 2, '.', '');
-            } else {
-                return response()->json([
-                    'status' => 'error',
-                    'message' => 'PPN harus berupa angka yang valid'
-                ], 400);
-            }
-        }
+        ];
 
+        // Fields to convert to decimal
+        $fieldsToConvertDecimal4 = [
+            'bruto','cif','hargaPenyerahan','hargaPenyerahan2','hargaPenyerahan3',
+            'netto2','volume'
+        ];
 
-                // Konversi tarifPpnPajak ke format desimal jika ada
-                if (isset($payload['tarifPpnbmPajak'])) {
-                    // Hapus persen (%) dan ubah ke format desimal
-                    $payload['tarifPpnbmPajak'] = str_replace('%', '', $payload['tarifPpnbmPajak']);
+        // Fields to convert to decimal
+        $fieldsToConvertDecimal2 = [
+            'dasarPengenaanPajak',  'ppnPajak', 'ppnbmPajak','tarifPpnPajak', 'tarifPpnbmPajak'
+        ];
 
-                    // Cek apakah tarifPpnbmPajak bisa dikonversi ke angka
-                    if (is_numeric($payload['tarifPpnbmPajak'])) {
-                        // Ubah ke format desimal (misalnya 11.00 menjadi 0.11)
-                        $payload['tarifPpnbmPajak'] = number_format(((float) $payload['tarifPpnbmPajak'] / 100), 2, '.', '');
-                    } else {
-                        return response()->json([
-                            'status' => 'error',
-                            'message' => 'Tarif PPN harus berupa angka yang valid'
-                        ], 400);
-                    }
+        // Combine both fields for conversion
+        $fieldsToConvert = array_merge($fieldsToConvertInteger, $fieldsToConvertDecimal4, $fieldsToConvertDecimal2);
+
+        foreach ($fieldsToConvert as $field) {
+            if (isset($validated[$field])) {
+                // Convert to integer if the field is in the integer array
+                if (in_array($field, $fieldsToConvertInteger)) {
+                    $validated[$field] = (int) $validated[$field]; // Convert to integer
                 }
-
-
-        if (isset($payload['ppnbmPajak'])) {
-            $payload['ppnbmPajak'] = str_replace(['.', ','], ['', '.'], $payload['ppnbmPajak']);
-
-            if (is_numeric($payload['ppnbmPajak'])) {
-                $payload['ppnbmPajak'] = number_format((float) $payload['ppnbmPajak'], 2, '.', '');
-            } else {
-                return response()->json([
-                    'status' => 'error',
-                    'message' => 'PPN harus berupa angka yang valid'
-                ], 400);
+                // Convert to decimal if the field is in the decimal array
+                if (in_array($field, $fieldsToConvertDecimal4)) {
+                    $validated[$field] = round(floatval($validated[$field]), 4); // Convert to decimal and round to 4 decimal places
+                }
+                if (in_array($field, $fieldsToConvertDecimal2)) {
+                    $validated[$field] = round(floatval($validated[$field]), 2); // Convert to decimal and round to 2 decimal places
+                }
             }
         }
+
+        $payload = $request->all();
 
         $apiUrl = 'https://apis-gw.beacukai.go.id/openapi/document';
 
-        try {
-            // Kirim data ke API eksternal
-            $response = Http::withToken($accessToken)->post($apiUrl, $payload);
+    try {
+        // Kirim permintaan POST ke API eksternal menggunakan Http facade
+        $response = Http::withToken($accessToken)->post($apiUrl, $payload);
 
-            // Periksa apakah request ke API gagal
-            if ($response->failed()) {
-                return response()->json([
-                    'status' => 'error',
-                    'message' => 'Gagal menghubungi API eksternal',
-                    'details' => [
-                        'status_code' => $response->status(),
-                        'body' => $response->json()
-                    ]
-                ], $response->status());
-            }
-
-            $data = $response->json();
-
-            // Periksa apakah response dari API sukses
-            if (isset($data['status']) && $data['status'] === 'success') {
-                return response()->json([
-                    'status' => 'success',
-                    'message' => 'Data berhasil dikirim',
-                    'data' => $data
-                ]);
-            }
-
+        // Cek respons dari API
+        if ($response->failed()) {
             return response()->json([
                 'status' => 'error',
-                'message' => $data['message'] ?? 'Gagal menyimpan data'
-            ], 400);
-
-        } catch (\Exception $e) {
-            return response()->json([
-                'status' => 'error',
-                'message' => 'Terjadi kesalahan saat mengirim permintaan',
-                'details' => $e->getMessage()
-            ], 500);
+                'message' => 'Gagal menghubungi API eksternal',
+                'details' => [
+                    'status_code' => $response->status(),
+                    'body' => $response->json()
+                ]
+            ], $response->status());
         }
+
+        $data = $response->json();
+
+        // Periksa apakah status respons adalah 'success'
+        if (isset($data['status']) && $data['status'] === 'success') {
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Data berhasil dikirim',
+                'data' => $payload
+            ]);
+        }
+
+        return response()->json([
+            'status' => 'error',
+            'message' => $data['message'] ?? 'Gagal menyimpan data'
+        ], 400);
+
+    } catch (\Exception $e) {
+        return response()->json([
+            'status' => 'error',
+            'message' => 'Terjadi kesalahan saat mengirim permintaan',
+            'details' => $e->getMessage()
+        ], 500);
     }
-
-
-
+    }
 }
