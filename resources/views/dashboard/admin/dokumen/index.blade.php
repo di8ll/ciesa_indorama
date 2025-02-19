@@ -61,7 +61,7 @@
 
                                     <label for="usaha">Jenis Dokumen</label>
                                     <input type="text" class="form-control" id="kodeDokumen" name="kodeDokumen"
-                                        value="{{ old('kodeDokumen', '25') }}" required>
+                                        value="{{ old('kodeDokumen') }}" required>
 
                                     <div class="form-group">
                                         <label for="alamat">Nama Divisi</label>

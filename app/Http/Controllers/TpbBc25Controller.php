@@ -78,71 +78,82 @@ class TpbBc25Controller extends Controller
         // Ambil semua input dari request
         $payload = $request->all();
 
-        // Konversi CIF ke format angka (BigDecimal) jika ada
-        if (isset($payload['cif'])) {
-            // Hapus koma sebagai pemisah ribuan dan pastikan hanya angka dan titik desimal yang ada
-            $payload['cif'] = str_replace(',', '', $payload['cif']);
+        // Konversi nilaiBarang (Nilai Pabean) ke format angka desimal jika ada
+        if (isset($payload['nilaiBarang'])) {
+            // Hapus titik sebagai pemisah ribuan dan ubah koma menjadi titik desimal
+            $payload['nilaiBarang'] = str_replace(['.', ','], ['', '.'], $payload['nilaiBarang']);
 
-            // Cek apakah CIF bisa dikonversi ke angka
-            if (is_numeric($payload['cif'])) {
+            // Cek apakah nilaiBarang bisa dikonversi ke angka
+            if (is_numeric($payload['nilaiBarang'])) {
                 // Format angka tanpa pemisah ribuan, dengan dua angka desimal
-                $payload['cif'] = number_format((float) $payload['cif'], 2, '.', '');
+                $payload['nilaiBarang'] = number_format((float) $payload['nilaiBarang'], 2, '.', '');
             } else {
                 return response()->json([
                     'status' => 'error',
-                    'message' => 'CIF harus berupa angka yang valid'
+                    'message' => 'Nilai Pabean harus berupa angka yang valid'
                 ], 400);
             }
         }
 
-        // Konversi hargaPenyerahan ke format yang benar jika ada
-        if (isset($payload['hargaPenyerahan'])) {
-            // Hapus koma sebagai pemisah ribuan dan pastikan hanya angka dan titik desimal yang ada
-            $payload['hargaPenyerahan'] = str_replace(',', '', $payload['hargaPenyerahan']);
-
-            // Cek apakah hargaPenyerahan bisa dikonversi ke angka
-            if (is_numeric($payload['hargaPenyerahan'])) {
-                // Format angka tanpa pemisah ribuan, dengan dua angka desimal
-                $payload['hargaPenyerahan'] = number_format((float) $payload['hargaPenyerahan'], 2, '.', '');
-            } else {
-                return response()->json([
-                    'status' => 'error',
-                    'message' => 'Harga Penyerahan harus berupa angka yang valid'
-                ], 400);
-            }
-        }
-
-                // Konversi ppnPajak jika ada
-        if (isset($payload['ppnPajak'])) {
-            // Hapus tanda persen dan pastikan hanya angka yang ada
-            $ppnPajak = str_replace('%', '', $payload['ppnPajak']);
-
-            // Cek apakah ppnPajak bisa dikonversi ke angka
-            if (is_numeric($ppnPajak)) {
-                // Format ppnPajak menjadi angka desimal (tanpa persen)
-                $payload['ppnPajak'] = number_format((float) $ppnPajak, 4, '.', '');
-            } else {
-                return response()->json([
-                    'status' => 'error',
-                    'message' => 'PPN Pajak harus berupa angka yang valid'
-                ], 400);
-            }
-        }
-
-
-        // Konversi tarifPpnPajak jika ada
+        // Konversi tarifPpnPajak ke format desimal jika ada
         if (isset($payload['tarifPpnPajak'])) {
-            // Hapus tanda persen dan pastikan hanya angka yang ada
-            $tarifPpnPajak = str_replace('%', '', $payload['tarifPpnPajak']);
+            // Hapus persen (%) dan ubah ke format desimal
+            $payload['tarifPpnPajak'] = str_replace('%', '', $payload['tarifPpnPajak']);
 
             // Cek apakah tarifPpnPajak bisa dikonversi ke angka
-            if (is_numeric($tarifPpnPajak)) {
-                // Format tarifPpnPajak menjadi angka desimal (tanpa persen)
-                $payload['tarifPpnPajak'] = number_format((float) $tarifPpnPajak, 4, '.', '');
+            if (is_numeric($payload['tarifPpnPajak'])) {
+                // Ubah ke format desimal (misalnya 11.00 menjadi 0.11)
+                $payload['tarifPpnPajak'] = number_format(((float) $payload['tarifPpnPajak'] / 100), 2, '.', '');
             } else {
                 return response()->json([
                     'status' => 'error',
-                    'message' => 'Tarif PPN Pajak harus berupa angka yang valid'
+                    'message' => 'Tarif PPN harus berupa angka yang valid'
+                ], 400);
+            }
+        }
+
+
+        if (isset($payload['ppnPajak'])) {
+            $payload['ppnPajak'] = str_replace(['.', ','], ['', '.'], $payload['ppnPajak']);
+
+            if (is_numeric($payload['ppnPajak'])) {
+                $payload['ppnPajak'] = number_format((float) $payload['ppnPajak'], 2, '.', '');
+            } else {
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'PPN harus berupa angka yang valid'
+                ], 400);
+            }
+        }
+
+
+                // Konversi tarifPpnPajak ke format desimal jika ada
+                if (isset($payload['tarifPpnbmPajak'])) {
+                    // Hapus persen (%) dan ubah ke format desimal
+                    $payload['tarifPpnbmPajak'] = str_replace('%', '', $payload['tarifPpnbmPajak']);
+
+                    // Cek apakah tarifPpnbmPajak bisa dikonversi ke angka
+                    if (is_numeric($payload['tarifPpnbmPajak'])) {
+                        // Ubah ke format desimal (misalnya 11.00 menjadi 0.11)
+                        $payload['tarifPpnbmPajak'] = number_format(((float) $payload['tarifPpnbmPajak'] / 100), 2, '.', '');
+                    } else {
+                        return response()->json([
+                            'status' => 'error',
+                            'message' => 'Tarif PPN harus berupa angka yang valid'
+                        ], 400);
+                    }
+                }
+
+
+        if (isset($payload['ppnbmPajak'])) {
+            $payload['ppnbmPajak'] = str_replace(['.', ','], ['', '.'], $payload['ppnbmPajak']);
+
+            if (is_numeric($payload['ppnbmPajak'])) {
+                $payload['ppnbmPajak'] = number_format((float) $payload['ppnbmPajak'], 2, '.', '');
+            } else {
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'PPN harus berupa angka yang valid'
                 ], 400);
             }
         }
