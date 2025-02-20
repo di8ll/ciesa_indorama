@@ -51,11 +51,10 @@ class TpbBc25Controller extends Controller
             ], 401);
         }
 
-        // Ambil semua data request tanpa filter
         // // Ambil semua data request tanpa filter
         $validated = $request->all();
 
-        dd(request()->all());
+        // dd(request()->all());
 
         // dd($validated); // This will dump the validated data to check what values are coming through.
 
@@ -104,10 +103,272 @@ class TpbBc25Controller extends Controller
                 }
             }
         }
+        $payload = [
+            'asalData' => $validated['asalData'] ?? null,
+            'bruto' => $validated['bruto'] ?? null,
+            'cif' => $validated['cif'] ?? null,
+            'dasarPengenaanPajak' => $validated['dasarPengenaanPajak'] ?? null,
+            'disclaimer' => $validated['disclaimer'] ?? null,
+            'kodeJenisTpb' => $validated['kodeJenisTpb'] ?? null,
+            'hargaPenyerahan' => $validated['hargaPenyerahan'] ?? null,
+            'idPengguna' => $validated['idPengguna'] ?? null,
+            'jabatanTtd' => $validated['jabatanTtd'] ?? null,
+            'jumlahKontainer' => $validated['jumlahKontainer'] ?? null,
+            'kodeCaraBayar' => $validated['kodeCaraBayar'] ?? null,
+            'kodeDokumen' => $validated['kodeDokumen'] ?? null,
+            'kodeKantor' => $validated['kodeKantor'] ?? null,
+            'kodeLokasiBayar' => $validated['kodeLokasiBayar'] ?? null,
+            'kodeTujuanPengiriman' => $validated['kodeTujuanPengiriman'] ?? null,
+            'kodeValuta' => $validated['kodeValuta'] ?? null,
+            'kotaTtd' => $validated['kotaTtd'] ?? null,
+            'namaTtd' => $validated['namaTtd'] ?? null,
+            'ndpbm' => $validated['ndpbm'] ?? null,
+            'netto' => $validated['netto'] ?? null,
+            'nomorAju' => $validated['nomorAju'] ?? null,
+            'seri' => $validated['seri'] ?? null,
+            'tanggalAju' => $validated['tanggalAju'] ?? null,
+            'tanggalTtd' => $validated['tanggalTtd'] ?? null,
+            'volume' => $validated['volume'] ?? null,
+            'ppnPajak' => $validated['ppnPajak'] ?? null,
+            'ppnbmPajak' => $validated['ppnbmPajak'] ?? null,
+            'tarifPpnPajak' => $validated['tarifPpnPajak'] ?? null,
+            'tarifPpnbmPajak' => $validated['tarifPpnbmPajak'] ?? null,
+            'barang' => array_map(function ($barang) {
+                return [
+                    "bruto" => $barang["bruto"] ?? null,
+                    "cif" => $barang["cif2"] ?? null,
+                    "diskon" => $barang["diskon"] ?? null,
+                    "fob" => $barang["fob"] ?? null,
+                    "freight" => $barang["freight"] ?? null,
+                    "hargaEkspor" => $barang["hargaEkspor"] ?? null,
+                    "hargaPenyerahan" => $barang["hargaPenyerahan"] ?? null,
+                    "isiPerKemasan" => $barang["isiPerKemasan"] ?? null,
+                    "jumlahKemasan" => $barang["jumlahKemasan"] ?? null,
+                    "jumlahSatuan" => $barang["jumlahSatuan"] ?? null,
+                    "kodeBarang" => $barang["kodeBarang"] ?? null,
+                    "kodeGunaBarang" => $barang["kodeGunaBarang"] ?? null,
+                    "kodeKategoriBarang" => $barang["kodeKategoriBarang"] ?? null,
+                    "kodeJenisKemasan" => $barang["kodeJenisKemasan"] ?? null,
+                    "kodeKondisiBarang" => $barang["kodeKondisiBarang"] ?? null,
+                    "kodePerhitungan" => $barang["kodePerhitungan"] ?? null,
+                    "kodeSatuanBarang" => $barang["kodeSatuanBarang"] ?? null,
+                    "merk" => $barang["merk"] ?? null,
+                    "netto" => $barang["netto"] ?? null,
+                    "nilaiBarang" => $barang["nilaiBarang"] ?? null,
+                    "posTarif" => $barang["posTarif"] ?? null,
+                    "seriBarang" => $barang["seriBarang"] ?? null,
+                    "spesifikasiLain" => $barang["spesifikasiLain"] ?? null,
+                    "tipe" => $barang["tipe"] ?? null,
+                    "ukuran" => $barang["ukuran"] ?? null,
+                    "uraian" => $barang["uraian"] ?? null,
+                    "bahanBaku" => $barang['bahanBaku'] ?? [],
+                    "barangDokumen" => $barang["barangDokumen"] ?? [],
+                    "barangTarif" => $barang["barangTarif"] ?? []
+                ];
+            }, $validated['barang'] ?? []),
+            'bahanBaku' => array_map(function ($bahanBaku) {
+                return [
+                    "kodeBahanBaku" => $bahanBaku["kodeBahanBaku"] ?? null,
+                    "jumlah" => $bahanBaku["jumlah"] ?? null,
+                    "cif" => $bahanBaku["cif3"] ?? null,
+                    "cifRupiah" => $bahanBaku["cifRupiah2"] ?? null,
+                    "hargaPenyerahan" => $bahanBaku["hargaPenyerahan3"] ?? null,
+                    "jumlahSatuan" => $bahanBaku["jumlahSatuan2"] ?? null,
+                    "kodeAsalBahanBaku" => $bahanBaku["kodeAsalBahanBaku"] ?? null,
+                    "kodeBarang" => $bahanBaku["kodeBarang2"] ?? null,
+                    "kodeDokAsal" => $bahanBaku["kodeDokAsal2"] ?? null,
+                    "kodeKantor" => $bahanBaku["kodeKantor2"] ?? null,
+                    "kodeSatuanBarang" => $bahanBaku["kodeSatuanBarang2"] ?? null,
+                    "merkBarang" => $bahanBaku["merkBarang"] ?? null,
+                    "ndpbm" => $bahanBaku["ndpbm3"] ?? null,
+                    "nomorAjuDokAsal" => $bahanBaku["nomorAjuDokAsal"] ?? null,
+                    "nomorDaftarDokAsal" => $bahanBaku["nomorDaftarDokAsal"] ?? null,
+                    "posTarif" => $bahanBaku["posTarif2"] ?? null,
+                    "seriBahanBaku" => $bahanBaku["seriBahanBaku"] ?? null,
+                    "seriBarang2" => $bahanBaku["seriBarang2"] ?? null,
+                    "seriBarangDokAsal" => $bahanBaku["seriBarangDokAsal"] ?? null,
+                    "seriIjin" => $bahanBaku["seriIjin"] ?? null,
+                    "spesifikasiLainBarang" => $bahanBaku["spesifikasiLainBarang"] ?? null,
+                    "tanggalDaftarDokAsal" => $bahanBaku["tanggalDaftarDokAsal"] ?? null,
+                    "tipeBarang" => $bahanBaku["tipeBarang"] ?? null,
+                ];
+            }, $validated['bahanBaku'] ?? []),
+            'bahanBakuTarif' => array_map(function ($bahanBakuTarif) {
+                return [
+                    "kodeJenisTarif" => $bahanBakuTarif["kodeJenisTarif"] ?? null,
+                    "jumlahSatuan" => $bahanBakuTarif["jumlahSatuan3"] ?? null,
+                    "kodeFasilitasTarif" => $bahanBakuTarif["kodeFasilitasTarif"] ?? null,
+                    "kodeJenisPungutan" => $bahanBakuTarif["kodeJenisPungutan"] ?? null,
+                    "nilaiBayar" => $bahanBakuTarif["nilaiBayar"] ?? null,
+                    "nilaiFasilitas" => $bahanBakuTarif["nilaiFasilitas"] ?? null,
+                    "nilaiSudahDilunasi" => $bahanBakuTarif["nilaiSudahDilunasi"] ?? null,
+                    "seriBahanBaku" => $bahanBakuTarif["seriBahanBaku2"] ?? null,
+                    "tarif" => $bahanBakuTarif["tarif"] ?? null,
+                    "tarifFasilitas" => $bahanBakuTarif["tarifFasilitas"] ?? null,
+                    "ukuranBarang" => $validated["ukuranBarang"] ?? null,
+                    "uraianBarang" => $validated["uraianBarang"] ?? null,
+                ];
 
-        $payload = $request->all();
+            }, $validated['bahanBakuTarif'] ?? []),
+            'barangDokumen' => array_map(function ($barangDokumen) {
+                return [
+                    "seriDokumen" => $barangDokumen["seriDokumen"] ?? null,
+                    "seriIjin" => $barangDokumen["seriIjin2"] ?? null,
+                ];
+            }, $validated['barangDokumen'] ?? []),
+            'barangTarif' => array_map(function ($barangTarif)  {
+                return [
+                    "seriBarang" => $barangTarif['seriBarang3'] ?? null,
+                    "kodeJenisTarif" => $barangTarif['kodeJenisTarif2'] ?? null,
+                    "jumlahSatuan" => $barangTarif['jumlahSatuan4'] ?? null,
+                    "kodeFasilitasTarif" => $barangTarif['kodeFasilitasTarif2'] ?? null,
+                    "kodeSatuanBarang" => $barangTarif['kodeSatuanBarang3'] ?? null,
+                    "kodeJenisPungutan" => $barangTarif['kodeJenisPungutan2'] ?? null,
+                    "nilaiBayar" => $barangTarif['nilaiBayar2'] ?? null,
+                    "nilaiFasilitas" => $barangTarif['nilaiFasilitas2'] ?? null,
+                    "nilaiSudahDilunasi" => $barangTarif['nilaiSudahDilunasi2'] ?? null,
+                    "tarif" => $barangTarif['tarif2'] ?? null,
+                    "tarifFasilitas" => $barangTarif['tarifFasilitas2'] ?? null,
+                    // Menambahkan array kedua sebagai elemen array pertama
+                    [
+                        "seriBarang" => $barangTarif['seriBarang4'] ?? null,
+                        "kodeJenisTarif" => $barangTarif['kodeJenisTarif3'] ?? null,
+                        "jumlahSatuan" => $barangTarif['jumlahSatuan5'] ?? null,
+                        "kodeFasilitasTarif" => $barangTarif['kodeFasilitasTarif3'] ?? null,
+                        "kodeSatuanBarang" => $barangTarif['kodeSatuanBarang4'] ?? null,
+                        "kodeJenisPungutan" => $barangTarif['kodeJenisPungutan3'] ?? null,
+                        "nilaiBayar" => $barangTarif['nilaiBayar3'] ?? null,
+                        "nilaiFasilitas" => $barangTarif['nilaiFasilitas3'] ?? null,
+                        "nilaiSudahDilunasi" => $barangTarif['nilaiSudahDilunasi3'] ?? null,
+                        "tarif" => $barangTarif['tarif3'] ?? null,
+                        "tarifFasilitas" => $barangTarif['tarifFasilitas3'] ?? null,
+                        "jumlahSatuan" => $validated['jumlahSatuan6'] ?? null,
+                        "kodeFasilitasTarif" => $validated['kodeFasilitasTarif'] ?? null,
+                    ]
+                ];
+            }, $validated['barangTarif'] ?? []),
+            'kodeJenisPungutan' => array_map(function ($kodeJenisPungutan) {
+                return [
+                    "jumlahSatuan" => $kodeJenisPungutan["jumlahSatuan7"] ?? null,
+                    "kodeFasilitasTarif" => $kodeJenisPungutan["kodeFasilitasTarif5"] ?? null,
+                    "kodeJenisPungutan" => $kodeJenisPungutan["kodeJenisPungutan4"] ?? null,
+                    "kodeJenisTarif" => $kodeJenisPungutan["kodeJenisTarif4"] ?? null,
+                    "kodeSatuanBarang" => $kodeJenisPungutan["kodeSatuanBarang5"] ?? null,
+                    "nilaiBayar" => $kodeJenisPungutan["nilaiBayar4"] ?? null,
+                    "nilaiFasilitas" => $kodeJenisPungutan["nilaiFasilitas4"] ?? null,
+                    "nilaiSudahDilunasi" => $kodeJenisPungutan["nilaiSudahDilunasi4"] ?? null,
+                    "tarif" => $kodeJenisPungutan["tarif4"] ?? null,
+                    "tarifFasilitas" => $kodeJenisPungutan["tarifFasilitas4"] ?? null,
+                ];
+            }, $validated['barangDokumen'] ?? []),
+            'barangDokumen' => array_map(function ($barangDokumen) {
+                return [
+                    "seriDokumen" => $barangDokumen["seriDokumen"] ?? null,
+                    "seriIjin" => $barangDokumen["seriIjin2"] ?? null,
+                ];
+            }, $validated['barangDokumen'] ?? []),
+            'bahanBakuTarif' => array_map(function ($bahanBakuTarif) {
+                return [
+                    "kodeJenisTarif" => $bahanBakuTarif['kodeJenisTarif5'] ?? null,
+                    "jumlahSatuan" => $bahanBakuTarif['jumlahSatuan8'] ?? null,
+                    "kodeFasilitasTarif" => $bahanBakuTarif['kodeFasilitasTarif6'] ?? null,
+                    "kodeJenisPungutan" => $bahanBakuTarif['kodeJenisPungutan5'] ?? null,
+                    "nilaiBayar" => $bahanBakuTarif['nilaiBayar5'] ?? null,
+                    "nilaiFasilitas" => $bahanBakuTarif['nilaiFasilitas5'] ?? null,
+                    "nilaiSudahDilunasi" => $bahanBakuTarif['nilaiSudahDilunasi5'] ?? null,
+                    "seriBahanBaku" => $bahanBakuTarif['seriBahanBaku3'] ?? null,
+                    "tarif" => $bahanBakuTarif['tarif5'] ?? null,
+                    "tarifFasilitas" => $bahanBakuTarif['tarifFasilitas5'] ?? null,
+                ];
+            }, $validated['bahanBakuTarif'] ?? []),
+            'entitas' => array_map(function ($entitas)  {
+                return [
+                        "alamatEntitas" => $entitas['alamatEntitas'] ?? null,
+                        "kodeEntitas" => $entitas['kodeEntitas'] ?? null,
+                        "kodeJenisApi" => $entitas['kodeJenisApi'] ?? null,
+                        "kodeJenisIdentitas" => $entitas['kodeJenisIdentitas'] ?? null,
+                        "kodeStatus" => $entitas['kodeStatus'] ?? null,
+                        "namaEntitas" => $entitas['namaEntitas'] ?? null,
+                        "nibEntitas" => $entitas['nibEntitas'] ?? null,
+                        "nomorIdentitas" => $entitas['nomorIdentitas'] ?? null,
+                        "nomorIjinEntitas" => $entitas['nomorIjinEntitas'] ?? null,
+                        "tanggalIjinEntitas" => $entitas['tanggalIjinEntitas'] ?? null,
+                        "seriEntitas" => $entitas['seriEntitas'] ?? null,
+                   [
+                    "alamatEntitas" => $entitas['alamatEntitas'] ?? null,
+                        "kodeEntitas" => $entitas['kodeEntitas2'] ?? null,
+                        "kodeJenisApi" => $entitas['kodeJenisApi2'] ?? null,
+                        "kodeJenisIdentitas" => $entitas['kodeJenisIdentitas2'] ?? null, "kodeStatus" => $entitas['kodeStatus2'] ?? null,
+                        "namaEntitas" => $entitas['namaEntitas2'] ?? null,
+                        "niperEntitas" => $entitas['niperEntitas'] ?? null,
+                        "nomorIdentitas" => $entitas['nomorIdentitas2'] ?? null,
+                        "kodeEntitas" => $entitas['kodeEntitas2'] ?? null,
+                        "kodeJenisApi" => $entitas['kodeJenisApi2'] ?? null,
+                        "kodeJenisIdentitas" => $entitas['kodeJenisIdentitas2'] ?? null,
+                        "kodeStatus" => $entitas['kodeStatus2'] ?? null,
+                        "namaEntitas" => $entitas['namaEntitas2'] ?? null,
+                        "niperEntitas" => $entitas['niperEntitas'] ?? null,
+                        "nomorIdentitas" => $entitas['nomorIdentitas2'] ?? null,
+                   ],
+                   [
+                        "alamatEntitas" => $entitas['alamatEntitas3'] ?? null,
+                        "kodeEntitas" => $entitas['kodeEntitas3'] ?? null,
+                        "kodeJenisApi" => $entitas['kodeJenisApi3'] ?? null,
+                        "kodeJenisIdentitas" => $entitas['kodeJenisIdentitas3'] ?? null,
+                        "kodeStatus" => $entitas['kodeStatus3'] ?? null,
+                        "kodeStatus3" => $entitas['namaEntitas3'] ?? null,
+                        "niperEntitas2" => $entitas['niperEntitas2'] ?? null,
+                        "nomorIdentitas3" => $entitas['nomorIdentitas3'] ?? null,
+                        "seriEntitas" => $entitas['seriEntitas3'] ?? null,
+                    ]
+                ];
+            }, $validated['entitas'] ?? []),
+            'kemasan' => array_map(function ($kemasan) {
+                return [
+                                "jumlahKemasan" => $kemasan['jumlahKemasan2'] ?? null,
+                                "kodeJenisKemasan" => $kemasan['kodeJenisKemasan2'] ?? null,
+                                "merkKemasan" => $kemasan['merkKemasan'] ?? null,
+                                "seriKemasan" => $kemasan['seriKemasan'] ?? null,
+                ];
+            }, $validated['kemasan'] ?? []),
+            'kontainer' => array_map(function ($kontainer) {
+                return [
+                            "kodeJenisKontainer" => $validated['kodeJenisKontainer'] ?? null,
+                            "kodeTipeKontainer" => $validated['kodeTipeKontainer'] ?? null,
+                            "kodeUkuranKontainer" => $validated['kodeUkuranKontainer'] ?? null,
+                            "nomorKontainer" => $validated['nomorKontainer'] ?? null,
+                            "seriKontainer" => $validated['seriKontainer'] ?? null,
+                ];
+            }, $validated['kontainer'] ?? []),
+            'dokumen' => array_map(function ($dokumen)  {
+                return [
+                                   "idDokumen" => $validated['idDokumen'] ?? null,
+                                    "kodeDokumen" => $validated['kodeDokumen2'] ?? null,
+                                    "nomorDokumen" => $validated['nomorDokumen'] ?? null,
+                                    "seriDokumen" => $validated['seriDokumen3'] ?? null,
+                                    "tanggalDokumen" => $validated['tanggalDokumen'] ?? null,
+                    // Menambahkan array kedua sebagai elemen array pertama
+                    [
+                                    "idDokumen" => $validated['idDokumen2'] ?? null,
+                                    "kodeDokumen" => $validated['kodeDokumen3'] ?? null,
+                                    "nomorDokumen" => $validated['nomorDokumen2'] ?? null,
+                                    "seriDokumen" => $validated['seriDokumen4'] ?? null,
+                                    "tanggalDokumen" => $validated['tanggalDokumen2'] ?? null,
+                    ]
+                ];
+            }, $validated['dokumen'] ?? []),
+            'pengangkut' => array_map(function ($pengangkut)  {
+                return [
+                                "kodeCaraAngkut" => $pengangkut['kodeCaraAngkut'] ?? null,
+                                "namaPengangkut" => $pengangkut['namaPengangkut'] ?? null,
+                                "nomorPengangkut" => $pengangkut['nomorPengangkut'] ?? null,
+                                "seriPengangkut" => $pengangkut['seriPengangkut'] ?? null,
+                            ];
+             }, $validated['pengangkut'] ?? []),
 
-        $apiUrl = 'https://apis-gw.beacukai.go.id/openapi/document';
+        ];
+// Ensure this is inside the correct context, for example within an array or a function
+$apiUrl = 'https://apis-gw.beacukai.go.id/openapi/document';
 
     try {
         // Kirim permintaan POST ke API eksternal menggunakan Http facade
