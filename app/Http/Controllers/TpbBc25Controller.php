@@ -54,6 +54,11 @@ class TpbBc25Controller extends Controller
         // // Ambil semua data request tanpa filter
         $payload = $request->all();
 
+            // **Pastikan field wajib ada (default nilai kosong jika tidak ada)**
+    $payload['barang'][0]['bahanBaku'] = $payload['barang'][0]['bahanBaku'] ?? [];
+    $payload['barang'][0]['barangDokumen'] = $payload['barang'][0]['barangDokumen'] ?? [];
+    $payload['barang'][0]['barangTarif'] = $payload['barang'][0]['barangTarif'] ?? [];
+
         // dd(request()->all());
 
         // dd($validated); // This will dump the validated data to check what values are coming through.

@@ -468,103 +468,103 @@
                                         </div>
                                     </div>
 
-    {{-- Bahan Baku --}}
-<div class="tab-pane fade" id="bahanBaku" role="tabpanel" aria-labelledby="bahanBaku-tab">
-    <div class="row">
-        <div class="col-md-3">
-            <label for="bahanBaku" class="form-label">Bahan Baku</label>
-            <input type="text" class="form-control" id="bahanBaku" name="bahanBaku[0][kodeBahanBaku]" value="{{ old('bahanBaku[0][kodeBahanBaku]', 'BB001') }}">
-        </div>
-        <div class="col-md-3">
-            <label for="jumlah" class="form-label">Jumlah</label>
-            <input type="number" class="form-control" id="jumlah" name="bahanBaku[0][jumlah]" value="{{ old('bahanBaku[0][jumlah]', 50.00) }}" step="any">
-        </div>
-        <div class="col-md-3">
-            <label for="cif3" class="form-label">CIF</label>
-            <input type="number" class="form-control" id="cif3" name="bahanBaku[0][cif]" value="{{ old('bahanBaku[0][cif]', 61338.75) }}" step="any">
-        </div>
-        <div class="col-md-3">
-            <label for="cifRupiah2" class="form-label">CIF Rupiah</label>
-            <input type="number" class="form-control" id="cifRupiah2" name="bahanBaku[0][cifRupiah]" value="{{ old('bahanBaku[0][cifRupiah]', 45145.32) }}" step="any">
-        </div>
-        <div class="col-md-3">
-            <label for="hargaPenyerahan3" class="form-label">Harga Penyerahan</label>
-            <input type="number" class="form-control" id="hargaPenyerahan3" name="bahanBaku[0][hargaPenyerahan]" value="{{ old('bahanBaku[0][hargaPenyerahan]', 0) }}" step="any">
-        </div>
-        <div class="col-md-3">
-            <label for="jumlahSatuan2" class="form-label">Jumlah Satuan</label>
-            <input type="number" class="form-control" id="jumlahSatuan2" name="bahanBaku[0][jumlahSatuan]" value="{{ old('bahanBaku[0][jumlahSatuan]', 1.09) }}" step="any">
-        </div>
-        <div class="col-md-3">
-            <label for="kodeAsalBahanBaku" class="form-label">Kode Asal Bahan Baku</label>
-            <input type="text" class="form-control" id="kodeAsalBahanBaku" name="bahanBaku[0][kodeAsalBahanBaku]" value="{{ old('bahanBaku[0][kodeAsalBahanBaku]', '1') }}">
-        </div>
-        <div class="col-md-3">
-            <label for="kodeBarang2" class="form-label">Kode Barang</label>
-            <input type="text" class="form-control" id="kodeBarang2" name="bahanBaku[0][kodeBarang]" value="{{ old('bahanBaku[0][kodeBarang]', '09-05002-014-O') }}">
-        </div>
-        <div class="col-md-3">
-            <label for="kodeDokAsal2" class="form-label">Kode Dok Asal</label>
-            <input type="text" class="form-control" id="kodeDokAsal2" name="bahanBaku[0][kodeDokAsal]" value="{{ old('bahanBaku[0][kodeDokAsal]', '23') }}">
-        </div>
-        <div class="col-md-3">
-            <label for="kodeKantor2" class="form-label">Kode Kantor</label>
-            <input type="text" class="form-control" id="kodeKantor2" name="bahanBaku[0][kodeKantor]" value="{{ old('bahanBaku[0][kodeKantor]', '050800') }}">
-        </div>
-        <div class="col-md-3">
-            <label for="kodeSatuanBarang2" class="form-label">Kode Satuan Barang</label>
-            <input type="text" class="form-control" id="kodeSatuanBarang2" name="bahanBaku[0][kodeSatuanBarang]" value="{{ old('bahanBaku[0][kodeSatuanBarang]', 'KGM') }}">
-        </div>
-        <div class="col-md-3">
-            <label for="merkBarang" class="form-label">Merk Barang</label>
-            <input type="text" class="form-control" id="merkBarang" name="bahanBaku[0][merkBarang]" value="{{ old('bahanBaku[0][merkBarang]', 'Sesuai Invoice') }}">
-        </div>
-        <div class="col-md-3">
-            <label for="ndpbm3" class="form-label">NDPBM</label>
-            <input type="number" class="form-control" id="ndpbm3" name="bahanBaku[0][ndpbm]" value="{{ old('bahanBaku[0][ndpbm]', 16322) }}" step="any">
-        </div>
-        <div class="col-md-3">
-            <label for="nomorAjuDokAsal" class="form-label">Nomor Aju Dok Asal</label>
-            <input type="text" class="form-control" id="nomorAjuDokAsal" name="bahanBaku[0][nomorAjuDokAsal]" value="{{ old('bahanBaku[0][nomorAjuDokAsal]', '00002301001620250107000018') }}">
-        </div>
-        <div class="col-md-3">
-            <label for="nomorDaftarDokAsal" class="form-label">Nomor Daftar Dok Asal</label>
-            <input type="text" class="form-control" id="nomorDaftarDokAsal" name="bahanBaku[0][nomorDaftarDokAsal]" value="{{ old('bahanBaku[0][nomorDaftarDokAsal]', '002877') }}">
-        </div>
-        <div class="col-md-3">
-            <label for="posTarif2" class="form-label">Pos Tarif</label>
-            <input type="text" class="form-control" id="posTarif2" name="bahanBaku[0][posTarif]" value="{{ old('bahanBaku[0][posTarif]', '34039190') }}">
-        </div>
-        <div class="col-md-3">
-            <label for="seriBahanBaku" class="form-label">Seri Bahan Baku</label>
-            <input type="text" class="form-control" id="seriBahanBaku" name="bahanBaku[0][seriBahanBaku]" value="{{ old('bahanBaku[0][seriBahanBaku]', 1) }}">
-        </div>
-        <div class="col-md-3">
-            <label for="seriBarang2" class="form-label">Seri Barang</label>
-            <input type="text" class="form-control" id="seriBarang2" name="bahanBaku[0][seriBarang]" value="{{ old('bahanBaku[0][seriBarang]', 2) }}">
-        </div>
-        <div class="col-md-3">
-            <label for="seriBarangDokAsal" class="form-label">Seri Barang Dok Asal</label>
-            <input type="text" class="form-control" id="seriBarangDokAsal" name="bahanBaku[0][seriBarangDokAsal]" value="{{ old('bahanBaku[0][seriBarangDokAsal]', 2) }}">
-        </div>
-        <div class="col-md-3">
-            <label for="seriIjin" class="form-label">Seri Ijin</label>
-            <input type="text" class="form-control" id="seriIjin" name="bahanBaku[0][seriIjin]" value="{{ old('bahanBaku[0][seriIjin]', 0) }}">
-        </div>
-        <div class="col-md-3">
-            <label for="spesifikasiLainBarang" class="form-label">Spesifikasi Lain Barang</label>
-            <input type="text" class="form-control" id="spesifikasiLainBarang" name="bahanBaku[0][spesifikasiLainBarang]" value="{{ old('bahanBaku[0][spesifikasiLainBarang]', 'Baik dan Baru') }}">
-        </div>
-        <div class="col-md-3">
-            <label for="tanggalDaftarDokAsal" class="form-label">Tanggal Daftar Dok Asal</label>
-            <input type="text" class="form-control" id="tanggalDaftarDokAsal" name="bahanBaku[0][tanggalDaftarDokAsal]" value="{{ old('bahanBaku[0][tanggalDaftarDokAsal]', '2025-01-15') }}">
-        </div>
-        <div class="col-md-3">
-            <label for="tipeBarang" class="form-label">Tipe Barang</label>
-            <input type="text" class="form-control" id="tipeBarang" name="bahanBaku[0][tipeBarang]" value="{{ old('bahanBaku[0][tipeBarang]', 'Sesuai Invoice') }}">
-        </div>
-    </div>
-</div>
+                                    {{-- Bahan Baku --}}
+                                <div class="tab-pane fade" id="bahanBaku" role="tabpanel" aria-labelledby="bahanBaku-tab">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <label for="bahanBaku" class="form-label">Bahan Baku</label>
+                                            <input type="text" class="form-control" id="bahanBaku" name="bahanBaku[0][kodeBahanBaku]" value="{{ old('kodeBahanBaku', 'BB001') }}">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="jumlah" class="form-label">Jumlah</label>
+                                            <input type="number" class="form-control" id="jumlah" name="bahanBaku[0][jumlah]" value="{{ old('jumlah', 50.00) }}" step="any">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="cif3" class="form-label">CIF</label>
+                                            <input type="number" class="form-control" id="cif3" name="bahanBaku[0][cif]" value="{{ old('cif', 61338.75) }}" step="any">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="cifRupiah2" class="form-label">CIF Rupiah</label>
+                                            <input type="number" class="form-control" id="cifRupiah2" name="bahanBaku[0][cifRupiah]" value="{{ old('cifRupiah', 45145.32) }}" step="any">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="hargaPenyerahan3" class="form-label">Harga Penyerahan</label>
+                                            <input type="number" class="form-control" id="hargaPenyerahan3" name="bahanBaku[0][hargaPenyerahan]" value="{{ old('hargaPenyerahan', 0) }}" step="any">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="jumlahSatuan2" class="form-label">Jumlah Satuan</label>
+                                            <input type="number" class="form-control" id="jumlahSatuan2" name="bahanBaku[0][jumlahSatuan]" value="{{ old('jumlahSatuan', 1.09) }}" step="any">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="kodeAsalBahanBaku" class="form-label">Kode Asal Bahan Baku</label>
+                                            <input type="text" class="form-control" id="kodeAsalBahanBaku" name="bahanBaku[0][kodeAsalBahanBaku]" value="{{ old('kodeAsalBahanBaku', '1') }}">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="kodeBarang2" class="form-label">Kode Barang</label>
+                                            <input type="text" class="form-control" id="kodeBarang2" name="bahanBaku[0][kodeBarang]" value="{{ old('kodeBarang', '09-05002-014-O') }}">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="kodeDokAsal2" class="form-label">Kode Dok Asal</label>
+                                            <input type="text" class="form-control" id="kodeDokAsal2" name="bahanBaku[0][kodeDokAsal]" value="{{ old('kodeDokAsal', '23') }}">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="kodeKantor2" class="form-label">Kode Kantor</label>
+                                            <input type="text" class="form-control" id="kodeKantor2" name="bahanBaku[0][kodeKantor]" value="{{ old('kodeKantor', '050800') }}">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="kodeSatuanBarang2" class="form-label">Kode Satuan Barang</label>
+                                            <input type="text" class="form-control" id="kodeSatuanBarang2" name="bahanBaku[0][kodeSatuanBarang]" value="{{ old('kodeSatuanBarang', 'KGM') }}">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="merkBarang" class="form-label">Merk Barang</label>
+                                            <input type="text" class="form-control" id="merkBarang" name="bahanBaku[0][merkBarang]" value="{{ old('merkBarang', 'Sesuai Invoice') }}">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="ndpbm3" class="form-label">NDPBM</label>
+                                            <input type="number" class="form-control" id="ndpbm3" name="bahanBaku[0][ndpbm]" value="{{ old('ndpbm', 16322) }}" step="any">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="nomorAjuDokAsal" class="form-label">Nomor Aju Dok Asal</label>
+                                            <input type="text" class="form-control" id="nomorAjuDokAsal" name="bahanBaku[0][nomorAjuDokAsal]" value="{{ old('nomorAjuDokAsal', '00002301001620250107000018') }}">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="nomorDaftarDokAsal" class="form-label">Nomor Daftar Dok Asal</label>
+                                            <input type="text" class="form-control" id="nomorDaftarDokAsal" name="bahanBaku[0][nomorDaftarDokAsal]" value="{{ old('nomorDaftarDokAsal', '002877') }}">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="posTarif2" class="form-label">Pos Tarif</label>
+                                            <input type="text" class="form-control" id="posTarif2" name="bahanBaku[0][posTarif]" value="{{ old('posTarif', '34039190') }}">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="seriBahanBaku" class="form-label">Seri Bahan Baku</label>
+                                            <input type="text" class="form-control" id="seriBahanBaku" name="bahanBaku[0][seriBahanBaku]" value="{{ old('seriBahanBaku', 1) }}">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="seriBarang2" class="form-label">Seri Barang</label>
+                                            <input type="text" class="form-control" id="seriBarang2" name="bahanBaku[0][seriBarang]" value="{{ old('seriBarang', 2) }}">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="seriBarangDokAsal" class="form-label">Seri Barang Dok Asal</label>
+                                            <input type="text" class="form-control" id="seriBarangDokAsal" name="bahanBaku[0][seriBarangDokAsal]" value="{{ old('seriBarangDokAsal', 2) }}">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="seriIjin" class="form-label">Seri Ijin</label>
+                                            <input type="text" class="form-control" id="seriIjin" name="bahanBaku[0][seriIjin]" value="{{ old('seriIjin', 0) }}">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="spesifikasiLainBarang" class="form-label">Spesifikasi Lain Barang</label>
+                                            <input type="text" class="form-control" id="spesifikasiLainBarang" name="bahanBaku[0][spesifikasiLainBarang]" value="{{ old('spesifikasiLainBarang', 'Baik dan Baru') }}">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="tanggalDaftarDokAsal" class="form-label">Tanggal Daftar Dok Asal</label>
+                                            <input type="text" class="form-control" id="tanggalDaftarDokAsal" name="bahanBaku[0][tanggalDaftarDokAsal]" value="{{ old('tanggalDaftarDokAsal', '2025-01-15') }}">
+                                        </div>
+                                        <div class="col-md-3">
+                                            <label for="tipeBarang" class="form-label">Tipe Barang</label>
+                                            <input type="text" class="form-control" id="tipeBarang" name="bahanBaku[0][tipeBarang]" value="{{ old('tipeBarang', 'Sesuai Invoice') }}">
+                                        </div>
+                                    </div>
+                                </div>
 
                                     {{-- bahan Baku Tarif --}}
                                     <div class="tab-pane fade" id="bahanBakuTarif" role="tabpanel"
