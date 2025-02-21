@@ -7,7 +7,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log; // Add this import
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Auth; // Add this import to access the authenticated user
-use App\Models\User;
+use App\Models\Dokumen;
+
 
 class TpbBc25Controller extends Controller
 
@@ -21,11 +22,14 @@ class TpbBc25Controller extends Controller
 
     public function create(Request $request)
     {
-        return view('dashboard.admin.dokumen.create');
+        $dokumen = Dokumen::all();
+        return view('dashboard.admin.dokumen.create', compact('dokumen'));
     }
 
     public function store(Request $request)
     {
+        dd(request()->all());
+
         // Validasi input untuk jumlahKontainer
         $validated = $request->validate([
             'jumlahKontainer' => 'required|integer|min:0',
@@ -59,7 +63,7 @@ class TpbBc25Controller extends Controller
     $payload['barang'][0]['barangDokumen'] = $payload['barang'][0]['barangDokumen'] ?? [];
     $payload['barang'][0]['barangTarif'] = $payload['barang'][0]['barangTarif'] ?? [];
 
-        // dd(request()->all());
+
 
         // dd($validated); // This will dump the validated data to check what values are coming through.
 

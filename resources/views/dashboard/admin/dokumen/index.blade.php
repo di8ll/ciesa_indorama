@@ -59,9 +59,9 @@
                                     <input type="text" class="form-control" id="entitas" name="entitas"
                                         value="{{ old('entitas', 'TPB') }}" readonly required>
 
-                                    {{-- <label for="usaha">Jenis Dokumen</label>
-                                    <input type="text" class="form-control" id="kodeDokumen" name="kodeDokumen"
-                                        value="{{ old('kodeDokumen','25') }}" required> --}}
+                                    <label for="usaha">Jenis Dokumen</label>
+                                    <input type="text" class="form-control" id="kodeDokumen" name="dokumen[0][kodeDokumen]"
+                                        value="{{ old('kodeDokumen','25') }}" required>
 
                                     <div class="form-group">
                                         <label for="alamat">Nama Divisi</label>
