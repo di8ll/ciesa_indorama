@@ -34,28 +34,31 @@ class DokumenController extends Controller
     {
         // Validasi input data
         $request->validate([
-                 'dokumen.0.idDokumen' => 'required|string|max:255',
             'dokumen.0.kodeDokumen' => 'required|string|max:255',
             'dokumen.0.nomorDokumen' => 'required|string|max:255',
             'dokumen.0.tanggalDokumen' => 'required|date',
         ]);
 
-        // Menyimpan data dokumen baru dengan data dari request
-        $dokumen = new Dokumen();
+        // Simpan data baru
+        Dokumen::create([
+            'kodeDokumen' => $request->input('dokumen.0.kodeDokumen'),
+            'nomorDokumen' => $request->input('dokumen.0.nomorDokumen'),
+            'tanggalDokumen' => $request->input('dokumen.0.tanggalDokumen'),
+        ]);
 
-        // Mengisi data dokumen
-        $dokumen->kodeDokumen = $request->input('dokumen.0.idDokumen');
-        $dokumen->kodeDokumen = $request->input('dokumen.0.kodeDokumen');
-        $dokumen->nomorDokumen = $request->input('dokumen.0.nomorDokumen');
-        $dokumen->tanggalDokumen = $request->input('dokumen.0.tanggalDokumen');
-
-        // Menyimpan dokumen ke database
-        $dokumen->save();
-
-        // Redirect ke halaman daftar dokumen dengan pesan sukses
         return redirect()->route('/dokumen/create')->with('success', 'Dokumen berhasil disimpan!');
     }
 
+    public function destroy($idDokumen)
+    {
+        // Cari dokumen berdasarkan ID
+        $dokumen = Dokumen::findOrFail($idDokumen);
 
+        // Hapus dokumen
+        $dokumen->delete();
+
+        // Redirect ke halaman dokumen dengan pesan sukses
+        return redirect()->route('dokumen.index')->with('success', 'Dokumen berhasil dihapus!');
+    }
 }
 

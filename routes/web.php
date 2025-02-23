@@ -31,6 +31,6 @@ Route::middleware('auth')->get('/home', function () {
     Route::get('/data_dokumen', [DokumenController::class, 'index'])->name('tampil_dokumenpabean');  // Get semua dokumen
     Route::post('/kirim_dokumen', [DokumenController::class, 'store'])->name('kirim_dokumenpabean'); // Simpan dokumen baru
     Route::put('/dokumen_update/{id}', [DokumenController::class, 'update']); // Update dokumen
-    Route::delete('/dokumen/{id}', [DokumenController::class, 'destroy']); // Hapus dokumen
+    Route::delete('/dokumen_hapus/{id}', [DokumenController::class, 'destroy']); // Hapus dokumen
 
 

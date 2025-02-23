@@ -562,131 +562,167 @@
                                         </div>
                                     </div>
 
-                                        {{-- Dokumen --}}
-                                        <div class="tab-pane fade" id="dokumen" role="tabpanel" aria-labelledby="dokumen-tab">
-                                            <div class="row">
-                                                <div class="container-fluid">
-                                                    <div class="row">
-                                                        <div class="col-12">
-                                                            <div class="card">
-                                                                <header>
-                                                                    <div class="right_content">
-                                                                        <div class="col-lg-12 text-start mb-6">
-                                                                            <button type="button" class="btn btn-primary mb-3" id="myBtn4">
-                                                                                <span data-feather="plus"></span>Tambah
-                                                                            </button>
-                                                                        </div>
-                                                                    </div>
-                                                                </header>
-                                                                <div class="card-body" id="tableContainer">
-                                                                    <div class="table-responsive">
-                                                                        <table class="table table-bordered" id="dataTable">
-                                                                            <thead class="thead-light">
-                                                                                <tr>
-                                                                                    <th>Seri</th>
-                                                                                    <th>Jenis</th>
-                                                                                    <th>Nomor</th>
-                                                                                    <th>Tanggal</th>
-                                                                                    <th>Fasilitas</th>
-                                                                                    <th>Izin</th>
-                                                                                    <th>Kantor</th>
-                                                                                    <th>File</th>
-                                                                                    <th>Action</th>
-                                                                                </tr>
-                                                                            </thead>
-                                                                            <tbody>
-                                                                                @foreach($dokumen as $dokumen)
-                                                                                <tr>
-                                                                                    <td>{{ $dokumen->seriDokumen }}</td>
-                                                                                    <td>{{ $dokumen->kodeDokumen }}</td>
-                                                                                    <td>{{ $dokumen->nomorDokumen }}</td>
-                                                                                    <td>{{ $dokumen->tanggalDokumen }}</td>
-                                                                                    <td>{{ $dokumen->fasilitas ?? '-' }}</td>
-                                                                                    <td>{{ $dokumen->izin ?? '-' }}</td>
-                                                                                    <td>{{ $dokumen->kantor ?? '-' }}</td>
-                                                                                    <td>
-                                                                                        <!-- Add file link or icon if necessary -->
-                                                                                        {{ $dokumen->file ?? '-' }}
-                                                                                    </td>
-                                                                                    <td>
-                                                                                        <button class="btn btn-edit" data-index="{{ $loop->index }}">
-                                                                                            <i class="fa fa-edit"></i>
-                                                                                        </button>
-                                                                                        <button class="btn btn-delete" data-index="{{ $loop->index }}">
-                                                                                            <i class="fa fa-trash"></i>
-                                                                                        </button>
-                                                                                    </td>
-                                                                                </tr>
-                                                                                @endforeach
-                                                                            </tbody>
-                                                                        </table>
+                                    {{-- Dokumen --}}
+                                    <div class="tab-pane fade" id="dokumen" role="tabpanel" aria-labelledby="dokumen-tab">
+                                        <div class="row">
+                                            <div class="container-fluid">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="card">
+                                                            <header>
+                                                                <div class="right_content">
+                                                                    <div class="col-lg-12 text-start mb-6">
+                                                                        <button type="button" class="btn btn-primary mb-3" id="myBtn4" onclick="openModal()">
+                                                                            <span data-feather="plus"></span>Tambah
+                                                                        </button>
                                                                     </div>
                                                                 </div>
+                                                            </header>
+                                                            <div class="card-body" id="tableContainer">
+                                                                <div class="table-responsive">
+                                                                    <table class="table" id="dokumenTable">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th>ID Dokumen</th>
+                                                                                <th>Kode Dokumen</th>
+                                                                                <th>Nomor Dokumen</th>
+                                                                                <th>Seri Dokumen</th>
+                                                                                <th>Tanggal Dokumen</th>
+                                                                                <th>Aksi</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody id="dokumenTableBody">
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
                                                             </div>
+                                                        </div>
 
-                                                    <!-- Modal -->
-                                                    <div id="myModal4" class="modal" data-backdrop="static" data-keyboard="false" style="display: none;">
-                                                        <div class="modal-content">
-                                                            <span class="close"  onclick="closeModal()">&times;</span>
-                                                            <div class="modal-form">
-                                                                <form id="modalForm" action="{{ route('kirim_dokumenpabean') }}" method="POST">
-                                                                    @csrf <!-- Tambahkan token CSRF untuk keamanan -->
-
-                                                                    <label for="seri">Seri</label>
-                                                                    <input type="text" class="form-control" id="seriDokumen" name="dokumen[0][idDokumen]">
-
-                                                                    <div class="form-group">
-                                                                        <label for="jenisDokumen">Jenis Dokumen</label>
-                                                                        <select class="form-control" name="dokumen[0][kodeDokumen]" id="select-field4" required>
-                                                                            <option selected disabled>Pilih Jenis</option>
-                                                                            <option value="0282 - PERSETUJUAN PENGELUARAN BC28 DENGAN DOKAP" {{ old('dokumen.0.kodeDokumen') == '0282 - PERSETUJUAN PENGELUARAN BC28 DENGAN DOKAP' ? 'selected' : '' }}>0282 - PERSETUJUAN PENGELUARAN BC28 DENGAN DOKAP</option>
-                                                                            <option value="03001 - IZIN PRINSIP PENDIRIAN KAWASAN BERIKAT SEBELUM FISIK BANGUNAN BERDIRI" {{ old('dokumen.0.kodeDokumen') == '03001 - IZIN PRINSIP PENDIRIAN KAWASAN BERIKAT SEBELUM FISIK BANGUNAN BERDIRI' ? 'selected' : '' }}>03001 - IZIN PRINSIP PENDIRIAN KAWASAN BERIKAT SEBELUM FISIK BANGUNAN BERDIRI</option>
-                                                                            <option value="03002 - KEPUTUSAN PENETAPAN TEMPAT SEBAGAI KAWASAN BERIKAT DAN PEMBERIAN IZIN PENYELENGGARA KAWASAN BERIKAT" {{ old('dokumen.0.kodeDokumen') == '03002 - KEPUTUSAN PENETAPAN TEMPAT SEBAGAI KAWASAN BERIKAT DAN PEMBERIAN IZIN PENYELENGGARA KAWASAN BERIKAT' ? 'selected' : '' }}>03002 - KEPUTUSAN PENETAPAN TEMPAT SEBAGAI KAWASAN BERIKAT DAN PEMBERIAN IZIN PENYELENGGARA KAWASAN BERIKAT</option>
-                                                                            <option value="03003 - PERSETUJUAN PENETAPAN TEMPAT SEBAGAI KAWASAN BERIKAT DAN PEMBERIAN IZIN PENYELENGARA KAWASAN BERIKAT SEKALIGUS IZIN PENGUSAHA KAWASAN BERIKAT" {{ old('dokumen.0.kodeDokumen') == '03003 - PERSETUJUAN PENETAPAN TEMPAT SEBAGAI KAWASAN BERIKAT DAN PEMBERIAN IZIN PENYELENGARA KAWASAN BERIKAT SEKALIGUS IZIN PENGUSAHA KAWASAN BERIKAT' ? 'selected' : '' }}>03003 - PERSETUJUAN PENETAPAN TEMPAT SEBAGAI KAWASAN BERIKAT DAN PEMBERIAN IZIN PENYELENGARA KAWASAN BERIKAT SEKALIGUS IZIN PENGUSAHA KAWASAN BERIKAT</option>
-                                                                            <!-- Tambahkan opsi lainnya di sini -->
-                                                                        </select>
-                                                                    </div>
-
-                                                                    <label for="nomorDokumen">Nomor Dokumen</label>
-                                                                    <input type="text" class="form-control" id="kodeDokumen" name="dokumen[0][nomorDokumen]" required>
-
-                                                                    <label for="tanggalDokumen">Tanggal Dokumen</label>
-                                                                    <input type="date" class="form-control" id="tanggalDokumen" name="dokumen[0][tanggalDokumen]" required>
-
-                                                                    <br>
-
-                                                                    <div class="button-group">
-                                                                        <button type="submit" class="btn-save">Simpan</button>
-                                                                        <button type="button" class="btn-cancel" onclick="closeModal()">Cancel</button>
-                                                                    </div>
-                                                                </form>
+                                                        <!-- Modal -->
+                                                        <div id="myModal4" class="modal" data-backdrop="static" data-keyboard="false" style="display: none;">
+                                                            <div class="modal-content">
+                                                                <span class="close" onclick="closeModal()">&times;</span>
+                                                                <div class="modal-form">
+                                                                    <div id="dokumenContainer"></div>
+                                                                    <button type="button" class="btn btn-primary" onclick="tambahDokumen()">Tambah</button>
+                                                                    <button type="button" class="btn btn-primary" onclick="simpanDokumen()">Simpan</button>
+                                                                    <button type="button" class="btn btn-cancel" onclick="closeModal()">Batal</button>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    </div>
-                                                    </div>
-                                                    </div>
-                                                    </div>
-                                                    </div>
-                                                    <script>
-                                                        // Fungsi untuk menutup modal
-                                                        function closeModal() {
-                                                            document.getElementById('myModal4').style.display = 'none';
-                                                        }
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
-                                                        // Fungsi untuk membuka modal
-                                                        function openModal() {
-                                                            document.getElementById('myModal4').style.display = 'block';
-                                                        }
+                                    <script>
+                                        let dokumenList = [];
+                                        let idCounter = 1; // Auto-increment counter
 
-                                                        // Menutup modal ketika klik pada tombol close
-                                                        document.querySelector('.close').addEventListener('click', closeModal);
+                                        // Open modal and automatically add a form to it
+                                        function openModal() {
+                                            document.getElementById('myModal4').style.display = 'block';
+                                            tambahDokumen();  // Automatically load the form when the modal is opened
+                                        }
 
-                                                        // Menyimpan form ketika tombol simpan ditekan
-                                                        document.querySelector('.btn-save').addEventListener('click', function () {
-                                                            document.getElementById('modalForm').submit();
-                                                        });
-                                                    </script>
+                                        // Add new document form
+                                        function tambahDokumen() {
+                                            let index = dokumenList.length;
+                                            let dokumenContainer = document.getElementById('dokumenContainer');
+                                            let dokumenForm = document.createElement('div');
+                                            dokumenForm.classList.add('dokumen-form');
+                                            dokumenForm.innerHTML = `
+                                                <div class="col-md-12">
+                                                    <label for="dokumen[${index}][idDokumen]" class="form-label">ID Dokumen</label>
+                                                    <input type="text" class="form-control border-primary" value="${idCounter}" name="dokumen[${index}][idDokumen]" id="idDokumen${index}" readonly>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <label for="dokumen[${index}][kodeDokumen]" class="form-label">Kode Dokumen</label>
+                                                    <input type="text" class="form-control border-primary" name="dokumen[${index}][kodeDokumen]" id="kodeDokumen${index}">
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <label for="dokumen[${index}][nomorDokumen]" class="form-label">Nomor Dokumen</label>
+                                                    <input type="text" class="form-control border-primary" name="dokumen[${index}][nomorDokumen]" id="nomorDokumen${index}">
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <label for="dokumen[${index}][seriDokumen]" class="form-label">Seri Dokumen</label>
+                                                    <input type="text" class="form-control border-primary" name="dokumen[${index}][seriDokumen]" id="seriDokumen${index}">
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <label for="dokumen[${index}][tanggalDokumen]" class="form-label">Tanggal Dokumen</label>
+                                                    <input type="date" class="form-control border-primary" name="dokumen[${index}][tanggalDokumen]" id="tanggalDokumen${index}">
+                                                </div>
+                                                <button type="button" class="btn btn-danger" onclick="hapusDokumen(this, ${index})">Hapus</button>
+                                                <hr>
+                                            `;
+                                            dokumenContainer.appendChild(dokumenForm);
+                                            dokumenList.push(index);
+                                            idCounter++; // Naikkan ID Dokumen
+                                        }
+
+                                        // Delete a document form
+                                        function hapusDokumen(button, index) {
+                                            let dokumenContainer = document.getElementById('dokumenContainer');
+                                            dokumenContainer.removeChild(button.parentElement);
+                                            dokumenList = dokumenList.filter(i => i !== index);
+                                        }
+
+                                        // Save documents to the table
+                                        function simpanDokumen() {
+                                            let dokumenTableBody = document.getElementById("dokumenTableBody");
+                                            dokumenList.forEach(index => {
+                                                let idDokumen = document.getElementById(`idDokumen${index}`).value;
+                                                let kodeDokumen = document.getElementById(`kodeDokumen${index}`).value;
+                                                let nomorDokumen = document.getElementById(`nomorDokumen${index}`).value;
+                                                let seriDokumen = document.getElementById(`seriDokumen${index}`).value;
+                                                let tanggalDokumen = document.getElementById(`tanggalDokumen${index}`).value;
+
+                                                if (!idDokumen || !kodeDokumen || !nomorDokumen || !seriDokumen || !tanggalDokumen) {
+                                                    alert("Semua field harus diisi!");
+                                                    return;
+                                                }
+
+                                                // Create a new row in the table
+                                                let newRow = `<tr>
+                                                    <td>${idDokumen}</td>
+                                                    <td>${kodeDokumen}</td>
+                                                    <td>${nomorDokumen}</td>
+                                                    <td>${seriDokumen}</td>
+                                                    <td>${tanggalDokumen}</td>
+                                                    <td><button class='btn btn-danger' onclick='hapusBaris(this)'>Hapus</button></td>
+                                                </tr>`;
+
+                                                dokumenTableBody.innerHTML += newRow;
+                                            });
+                                            dokumenList = [];
+                                            // Close the modal after saving
+                                            closeModal();
+                                        }
+
+                                        // Delete a row from the table
+                                        function hapusBaris(button) {
+                                            let row = button.parentElement.parentElement;
+                                            row.parentElement.removeChild(row);
+                                        }
+
+                                        // Close the modal
+                                        function closeModal() {
+                                            document.getElementById('myModal4').style.display = 'none';
+                                        }
+                                    </script>
+
+                                        <script>
+                                            // Function to close the modal
+                                            function closeModal() {
+                                                document.getElementById("myModal4").style.display = "none";
+                                            }
+
+                                            // Optionally, you can show the modal like this:
+                                            // function openModal() {
+                                            //     document.getElementById("myModal4").style.display = "block";
+                                            // }
+                                        </script>
 
 
                                     {{-- Pengangkut --}}

@@ -12,8 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('datadokumen', function (Blueprint $table) {
-            $table->id();
-            $table->string('idDokumen');
+            $table->increments('idDokumen'); // Menggunakan increments agar dapat dikelola secara manual
             $table->string('kodeDokumen');
             $table->string('nomorDokumen');
             $table->string('tanggalDokumen');

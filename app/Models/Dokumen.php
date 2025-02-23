@@ -10,14 +10,14 @@ class Dokumen extends Model
     use HasFactory;
 
     protected $table = 'datadokumen';
+    protected $primaryKey = 'idDokumen'; // Primary key yang digunakan
 
     protected $fillable = [
-        'idDokumen',
         'kodeDokumen',
         'nomorDokumen',
         'tanggalDokumen',
     ];
 
-
-
+    public $incrementing = true; // Pastikan auto-increment aktif
+    protected $keyType = 'int'; // Tipe integer
 }
