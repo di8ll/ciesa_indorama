@@ -95,11 +95,86 @@
                                             <input type="text" class="form-control" id="kodeJenisTpb" name="kodeJenisTpb"
                                                 value="{{ old('kodeJenisTpb', 'TPB') }}" readonly>
                                         </div> --}}
-                                        <div class="col-md-3 d-none">
-                                            <label for="asalData" class="form-label">Asal Data</label>
-                                            <input type="text" class="form-control" id="asalData"
-                                                name="asalData" value="{{ old('asalData','S',) }}", >
-                                        </div>
+                                            <div class="col-md-3 d-none">
+                                                <label for="asalData" class="form-label">Asal Data</label>
+                                                <input type="text" class="form-control" id="asalData"
+                                                    name="asalData" value="{{ old('asalData', 'S') }}",>
+                                            </div>
+                                            {{-- <div class="col-md-3 d-none">
+                                                <label for="asalData" class="form-label">Bruto</label>
+                                                <input class="form-control" type="number" name="bruto" id="bruto"
+                                                    value="{{ old('bruto', 3818.88) }}" step="any">
+                                            </div> --}}
+                                            <div class="col-md-3 d-none">
+                                                <label for="validationCustom01" class="form-label">Disclaimer</label>
+                                                <input type="text" class="form-control" id="disclaimer"
+                                                    name="disclaimer" value="{{ old('disclaimer', '1') }}">
+                                            </div>
+                                            <div class="col-md-3 d-none">
+                                                <label for="validationCustom01" class="form-label">Jumlah
+                                                    Kontainer</label>
+                                                <input type="text" class="form-control" id="jumlahKontainer"
+                                                    name="jumlahKontainer" value="{{ old('jumlahKontainer', 0) }}"
+                                                    step="any">
+                                            </div>
+                                            <div class="col-md-3 d-none">
+                                                <label for="validationCustom01" class="form-label">kode Lokasi
+                                                    Bayar</label>
+                                                <input type="text" class="form-control" id="kodeLokasiBayar"
+                                                    name="kodeLokasiBayar" value="{{ old('kodeLokasiBayar', '1') }}">
+                                            </div>
+                                            <div class="col-md-3 d-none">
+                                                <label for="kodeDokumen" class="form-label">Kode Dokumen</label>
+                                                <input type="text" class="form-control" id="kodeDokumen"
+                                                    name="kodeDokumen" value="{{ old('kodeDokumen', '25') }}">
+                                            </div>
+                                            <div class="col-md-3 d-none">
+                                                <label for="validationCustom01" class="form-label">Seri</label>
+                                                <input type="text" class="form-control" id="seri" name="seri"
+                                                    value="{{ old('seri',1) }}"   step="any">
+                                            </div>
+                                            <div class="col-md-3 d-none">
+                                                <label for="validationCustom01" class="form-label">Identitas
+                                                    Penggguna</label>
+                                                <input type="text" class="form-control" id="idPengguna"
+                                                    name="idPengguna" value="{{ old('idPengguna','010016') }}" >
+                                            </div>
+                                            <div class="col-md-3 d-none">
+                                                <label for="validationCustom01" class="form-label">Netto</label>
+                                                <input type="text" class="form-control" id="netto" name="netto"
+                                                    value="{{ old('netto', 3632.72) }}" step="any" >
+                                            </div>
+
+                                            <div class="col-md-3 d-none">
+                                                <label for="validationCustom01" class="form-label">Tanggal Aju</label>
+                                                <input type="text" class="form-control" id="tanggalAju"
+                                                    name="tanggalAju" value="{{ old('tanggalAju','2025-02-09') }}" >
+                                            </div>
+
+                                            <div class="col-md-3 d-none">
+                                                <label for="validationCustom01" class="form-label">Volume</label>
+                                                <input type="text" class="form-control" id="volume" name="volume"
+                                                    value="{{ old('volume',0) }}" step="any" >
+                                            </div>
+
+
+                                            {{-- <div class="col-md-3 d-none">
+                                                <label for="validationCustom01" class="form-label">Dasar Pengenaan
+                                                    Pajak</label>
+                                                <input type="text" class="form-control" id="dasarPengenaanPajak"
+                                                    name="dasarPengenaanPajak" value="{{ old('dasarPengenaanPajak',148358277.72) }}"
+                                                    step="any">
+                                            </div>
+
+                                            <div class="col-md-3 d-none">
+                                                <label for="validationCustom01" class="form-label">Harga
+                                                    Penyerahan</label>
+                                                <input type="text" class="form-control" id="hargaPenyerahan"
+                                                    name="hargaPenyerahan" value="{{ old('hargaPenyerahan',148358277.72) }}" step="any" >
+                                            </div> --}}
+
+
+
                                             <div class="col-md-4 ">
                                                 <label for="nomorAju" class="form-label">Nomor Pengajuan</label>
                                                 <input type="text" class="form-control" id="nomorAju"
@@ -116,7 +191,8 @@
                                             <div class="col-md-4">
                                                 <label for="kodeJenisTpb" class="form-label">Jenis TPB</label>
                                                 <select class="form-control" id="select-field18"name="kodeJenisTpb">
-                                                    <option value="1 - KAWASAN BERIKAT" selected>1 - KAWASAN BERIKAT</option>
+                                                    <option value="1 - KAWASAN BERIKAT" selected>1 - KAWASAN BERIKAT
+                                                    </option>
                                                     <option value="10 - FTZ">10 - FTZ</option>
                                                     <option value="11 - BUKEK">11 - BUKEK</option>
                                                 </select>
@@ -134,14 +210,24 @@
                                                 <label for="kodeJenisTpb" class="form-label">Cara Bayar</label>
                                                 <select class="form-control" id="select-field19" name="kodeCaraBayar">
                                                     <option value="1 - BIASA / TUNAI" selected>1 - BIASA / TUNAI</option>
-                                                    <option value="10 - PEMBAYARAN KEMUDIAN  (OPEN ACCOUNT SECARA BERTAHAP)">10 - PEMBAYARAN KEMUDIAN  (OPEN ACCOUNT SECARA BERTAHAP)</option>
-                                                    <option value="11 - PEMBAYARAN KEMUDIAN  (OPEN ACCOUNT SECARA TUNAI)">11 - PEMBAYARAN KEMUDIAN  (OPEN ACCOUNT SECARA TUNAI)</option>
-                                                    <option value="12 - DILAKUKAN DI DN DENGAN PEMBAYARAN UANG TUNAI">12 - DILAKUKAN DI DN DENGAN PEMBAYARAN UANG TUNAI </option>
-                                                    <option value="13 - DILAKUKAN DI DN DENGAN PEMBAYARAN MELALUI TELEGRAPH TRANSFER (T/T)">13 - DILAKUKAN DI DN DENGAN PEMBAYARAN MELALUI TELEGRAPH TRANSFER (T/T)</option>
-                                                    <option value="14 TELEGRAPH TRANSFER (T/T)">14 TELEGRAPH TRANSFER (T/T)</option>
+                                                    <option
+                                                        value="10 - PEMBAYARAN KEMUDIAN  (OPEN ACCOUNT SECARA BERTAHAP)">10
+                                                        - PEMBAYARAN KEMUDIAN (OPEN ACCOUNT SECARA BERTAHAP)</option>
+                                                    <option value="11 - PEMBAYARAN KEMUDIAN  (OPEN ACCOUNT SECARA TUNAI)">
+                                                        11 - PEMBAYARAN KEMUDIAN (OPEN ACCOUNT SECARA TUNAI)</option>
+                                                    <option value="12 - DILAKUKAN DI DN DENGAN PEMBAYARAN UANG TUNAI">12 -
+                                                        DILAKUKAN DI DN DENGAN PEMBAYARAN UANG TUNAI </option>
+                                                    <option
+                                                        value="13 - DILAKUKAN DI DN DENGAN PEMBAYARAN MELALUI TELEGRAPH TRANSFER (T/T)">
+                                                        13 - DILAKUKAN DI DN DENGAN PEMBAYARAN MELALUI TELEGRAPH TRANSFER
+                                                        (T/T)</option>
+                                                    <option value="14 TELEGRAPH TRANSFER (T/T)">14 TELEGRAPH TRANSFER (T/T)
+                                                    </option>
                                                     <option value="15 PEMBAYARAN DIMUKA">15 PEMBAYARAN DIMUKA</option>
-                                                    <option value="16 SIGHT LETTER OF CREDIT">16 SIGHT LETTER OF CREDIT</option>
-                                                    <option value="17 INKASO  (COLLECTION DRAFT)">17 INKASO  (COLLECTION DRAFT)</option>
+                                                    <option value="16 SIGHT LETTER OF CREDIT">16 SIGHT LETTER OF CREDIT
+                                                    </option>
+                                                    <option value="17 INKASO  (COLLECTION DRAFT)">17 INKASO (COLLECTION
+                                                        DRAFT)</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -175,7 +261,7 @@
                                                     <div class="col-md-6">
                                                         <label for="nitku" class="form-label">Nitku</label>
                                                         <input type="text" class="form-control" id="nitku"
-                                                           name="entitas[0][nomorIdentitas]"
+                                                            name="entitas[0][nomorIdentitas]"
                                                             value="{{ old('nomorIdentitas', '0010016806054000000000') }}"
                                                             style="border: 1px solid #313131;"
                                                             oninput="updateNomorEntitas()">
@@ -200,7 +286,7 @@
                                                             TPB</label>
                                                         <input type="date" class="form-control"
                                                             id="tanggalIjinEntitas" name="entitas[0][tanggalIjinEntitas]"
-                                                           value="{{ old('tanggalIjinEntitas','2022-10-24') }}"
+                                                            value="{{ old('tanggalIjinEntitas', '2022-10-24') }}"
                                                             style="border: 1px solid #313131;">
                                                     </div>
                                                     <div class="col-md-6 mt-3">
@@ -212,7 +298,45 @@
                                                     </div>
                                                     <div class="col-md-6 mt-3">
                                                         <label for="alamatEntitas" class="form-label">Alamat</label>
-                                                        <textarea class="form-control" id="alamatEntitas" name="entitas[0][alamatEntitas]" style="border: 1px solid #313131;">{{ old('alamatEntitas', 'JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101') }}</textarea>
+                                                        <textarea class="form-control" id="alamatEntitas" name="entitas[0][alamatEntitas]"
+                                                            style="border: 1px solid #313131;">{{ old('alamatEntitas', 'JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101') }}</textarea>
+                                                    </div>
+                                                    <div class="col-md-3 d-none">
+                                                        <label for="kodeEntitas" class="form-label">Kode Entitas</label>
+                                                        <input type="text" class="form-control border-primary"
+                                                            id="kodeEntitas" name="entitas[0][kodeEntitas]"
+                                                            value="{{ old('kodeEntitas',"3") }}" >
+                                                        </div>
+                                                        <div class="col-md-3 d-none">
+                                                            <label for="kodeEntitas" class="form-label">Kode Entitas</label>
+                                                            <input type="text" class="form-control border-primary"
+                                                                id="kodeEntitas" name="entitas[0][kodeEntitas]"
+                                                                value="{{ old('kodeEntitas',"3") }}" >
+                                                            </div>
+                                                            <div class="col-md-3 d-none">
+                                                                <label for="kodeJenisApi" class="form-label">kode Jenis Api</label>
+                                                                <input type="text" class="form-control border-primary"
+                                                                    id="kodeJenisApi" name="entitas[0][kodeJenisApi]"
+                                                                    value="{{ old('kodeJenisApi',"2") }}">
+                                                    </div>
+                                                    <div class="col-md-3 d-none">
+                                                        <label for="kodeJenisIdentitas" class="form-label">Kode Jenis
+                                                            Identitas</label>
+                                                        <input type="text" class="form-control border-primary"
+                                                            id="kodeJenisIdentitas"  name="entitas[0][kodeJenisIdentitas]"
+                                                            value="{{ old('kodeJenisIdentitas',"6") }}" >
+                                                        </div>
+                                                        <div class="col-md-3 d-none">
+                                                            <label for="kodeStatus" class="form-label">Kode Status</label>
+                                                            <input type="text" class="form-control border-primary"
+                                                                id="kodeStatus"  name="entitas[0][kodeStatus]"
+                                                                value="{{ old('kodeStatus',"3") }}" >
+                                                    </div>
+                                                    <div class="col-md-3 d-none">
+                                                        <label for="seriEntitas" class="form-label">seri Entitas</label>
+                                                        <input type="text" class="form-control border-primary"
+                                                            id="seriEntitas" name="entitas[0][seriEntitas]"
+                                                            value="{{ old('seriEntitas',3) }}" step="any" >
                                                     </div>
                                                 </div>
                                             </div>
@@ -236,23 +360,71 @@
                                                     <div class="col-md-6 d-none">
                                                         <label for="nomorNpwp" class="form-label">Nomor NPWP</label>
                                                         <input type="text" class="form-control"
-                                                            id="kodeJenisIdentitas2" name="kodeJenisIdentitas2" readonly
+                                                            id="kodeJenisIdentitas2" readonly
                                                             style="border: 1px solid #313131;">
                                                     </div>
                                                     <div class="col-md-6 ">
                                                         <label for="nitku2" class="form-label">Nitku</label>
                                                         <input type="text" class="form-control" id="nitku2"
-                                                           name="entitas[1][nomorIdentitas]" style="border: 1px solid #313131;"
+                                                            name="entitas[1][nomorIdentitas]"
+                                                            style="border: 1px solid #313131;"
                                                             oninput="updateNomorEntitas2()">
                                                     </div>
                                                     <div class="col-md-6 mt-3">
                                                         <label for="namaEntitas2" class="form-label">Nama</label>
                                                         <input type="text" class="form-control" id="namaEntitas2"
-                                                        name="entitas[1][namaEntitas]" style="border: 1px solid #313131;">
+                                                            name="entitas[1][namaEntitas]"
+                                                            style="border: 1px solid #313131;">
                                                     </div>
                                                     <div class="col-md-6 mt-3">
                                                         <label for="alamatEntitas2" class="form-label">Alamat</label>
-                                                        <textarea class="form-control" id="alamatEntitas2" name="entitas[1][alamatEntitas]" style="border: 1px solid #313131;"></textarea>
+                                                        <textarea class="form-control" id="alamatEntitas2" name="entitas[1][alamatEntitas]"
+                                                            style="border: 1px solid #313131;"></textarea>
+                                                    </div>
+                                                    <div class="col-md-3 d-none">
+                                                        <label for="kodeEntitas" class="form-label">Kode Entitas</label>
+                                                        <input type="text" class="form-control border-success"
+                                                            id="kodeEntitas2" name="entitas[1][kodeEntitas]"
+                                                            value="{{ old('kodeEntitas', '7') }}">
+                                                    </div>
+                                                    <div class="col-md-3 d-none">
+                                                        <label for="kodeJenisApi" class="form-label">kode Jenis
+                                                            Api</label>
+                                                        <input type="text" class="form-control border-primary"
+                                                            id="kodeJenisApi2" name="entitas[1][kodeJenisApi]"
+                                                            value="{{ old('kodeJenisApi', '2') }}">
+                                                    </div>
+                                                    <div class="col-md-3 d-none">
+                                                        <label for="kodeJenisApi" class="form-label">kode Jenis
+                                                            Api</label>
+                                                        <input type="text" class="form-control border-primary"
+                                                            id="kodeJenisApi2" name="entitas[1][kodeJenisApi]"
+                                                            value="{{ old('kodeJenisApi', '2') }}">
+                                                    </div>
+                                                    <div class="col-md-3 d-none">
+                                                        <label for="kodeJenisIdentitas" class="form-label">Kode Jenis
+                                                            Identitas</label>
+                                                        <input type="text" class="form-control border-success"
+                                                            id="kodeJenisIdentitas2" name="entitas[1][kodeJenisIdentitas]"
+                                                            value="{{ old('kodeJenisIdentitas', '6') }}">
+                                                    </div>
+                                                    <div class="col-md-3 d-none">
+                                                        <label for="kodeStatus2" class="form-label">Kode Status</label>
+                                                        <input type="text" class="form-control border-success"
+                                                            id="kodeStatus2" name="entitas[1][kodeStatus]"
+                                                            value="{{ old('kodeStatus', '3') }}">
+                                                    </div>
+                                                    <div class="col-md-3 d-none">
+                                                        <label for="niperEntitas" class="form-label">niper Entitas</label>
+                                                        <input type="text" class="form-control border-primary"
+                                                            id="niperEntitas" name="entitas[1][niperEntitas]"
+                                                            value="{{ old('niperEntitas', 'dadang') }}">
+                                                    </div>
+                                                    <div class="col-md-3 d-none">
+                                                        <label for="seriEntitas" class="form-label">seri Entitas</label>
+                                                        <input type="text" class="form-control border-primary"
+                                                            id="seriEntitas2" name="entitas[1][seriEntitas]"
+                                                            value="{{ old('seriEntitas', 7) }}" step="any">
                                                     </div>
                                                 </div>
                                             </div>
@@ -448,23 +620,63 @@
                                                         <label for="kodeJenisIdentitas3" class="form-label">Nomor
                                                             NPWP</label>
                                                         <input type="text" class="form-control"
-                                                            id="kodeJenisIdentitas3" name="kodeJenisIdentitas3" readonly
+                                                            id="kodeJenisIdentitas3" readonly
                                                             style="border: 1px solid #313131;">
                                                     </div>
                                                     <div class="col-md-6 ">
                                                         <label for="nitku3" class="form-label">Nitku</label>
                                                         <input type="text" class="form-control" id="nitku3"
-                                                        name="entitas[2][nomorIdentitas]" style="border: 1px solid #313131;"
+                                                            name="entitas[2][nomorIdentitas]"
+                                                            style="border: 1px solid #313131;"
                                                             oninput="updateNomorEntitas3()">
                                                     </div>
                                                     <div class="col-md-6 mt-3">
                                                         <label for="namaEntitas3" class="form-label">Nama</label>
                                                         <input type="text" class="form-control" id="namaEntitas3"
-                                                        name="entitas[2][namaEntitas]"  style="border: 1px solid #313131;">
+                                                            name="entitas[2][namaEntitas]"
+                                                            style="border: 1px solid #313131;">
                                                     </div>
                                                     <div class="col-md-6 mt-3">
                                                         <label for="alamatEntitas3" class="form-label">Alamat</label>
-                                                        <textarea class="form-control" id="alamatEntitas3" name="entitas[2][alamatEntitas]" style="border: 1px solid #313131;"></textarea>
+                                                        <textarea class="form-control" id="alamatEntitas3" name="entitas[2][alamatEntitas]"
+                                                            style="border: 1px solid #313131;"></textarea>
+                                                    </div>
+                                                    <div class="col-md-3 d-none">
+                                                        <label for="kodeEntitas" class="form-label">Kode Entitas</label>
+                                                        <input type="text" class="form-control border-primary"
+                                                            id="kodeEntitas3" name="entitas[2][kodeEntitas]"
+                                                            value="{{ old('kodeEntitas',"8") }}" >
+                                                        </div>
+                                                        <div class="col-md-3 d-none">
+                                                            <label for="kodeJenisApi" class="form-label">kode Jenis Api</label>
+                                                            <input type="text" class="form-control border-primary"
+                                                                id="kodeJenisApi3" name="entitas[2][kodeJenisApi]"
+                                                                value="{{ old('kodeJenisApi',"2") }}" >
+                                            </div>
+                                            <div class="col-md-3 d-none">
+                                                <label for="kodeJenisIdentitas" class="form-label">Kode Jenis
+                                                    Identitas</label>
+                                                <input type="text" class="form-control border-primary"
+                                                    id="kodeJenisIdentitas3" name="entitas[2][kodeJenisIdentitas]"
+                                                    value="{{ old('kodeJenisIdentitas',"6") }}" >
+                                            </div>
+                                            <div class="col-md-3 d-none">
+                                                <label for="kodeStatus1" class="form-label">Kode Status</label>
+                                                <input type="text" class="form-control border-primary"
+                                                    id="kodeStatus3" name="entitas[2][kodeStatus]"
+                                                    value="{{ old('kodeStatus',"3") }}" >
+                                                </div>
+                                                <div class="col-md-3 d-none">
+                                                    <label for="niperEntitas" class="form-label">niper Entitas</label>
+                                                    <input type="text" class="form-control border-primary"
+                                                        id="niperEntitas2" name="entitas[2][niperEntitas]"
+                                                        value="{{ old('niperEntitas','yakul') }}" >
+                                                </div>
+                                                <div class="col-md-3 d-none">
+                                                    <label for="seriEntitas" class="form-label">seri Entitas</label>
+                                                    <input type="text" class="form-control border-primary"
+                                                        id="seriEntitas3" name="entitas[2][seriEntitas]"
+                                                        value="{{ old('seriEntitas', 8) }}" step="any">
                                                     </div>
                                                 </div>
                                             </div>
@@ -563,7 +775,8 @@
                                     </div>
 
                                     {{-- Dokumen --}}
-                                    <div class="tab-pane fade" id="dokumen" role="tabpanel" aria-labelledby="dokumen-tab">
+                                    <div class="tab-pane fade" id="dokumen" role="tabpanel"
+                                        aria-labelledby="dokumen-tab">
                                         <div class="row">
                                             <div class="container-fluid">
                                                 <div class="row">
@@ -572,7 +785,9 @@
                                                             <header>
                                                                 <div class="right_content">
                                                                     <div class="col-lg-12 text-start mb-6">
-                                                                        <button type="button" class="btn btn-primary mb-3" id="myBtn4" onclick="openModal()">
+                                                                        <button type="button"
+                                                                            class="btn btn-primary mb-3" id="myBtn4"
+                                                                            onclick="openModal()">
                                                                             <span data-feather="plus"></span>Tambah
                                                                         </button>
                                                                     </div>
@@ -597,19 +812,40 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-
                                                         <!-- Modal -->
                                                         <div id="myModal4" class="modal" data-backdrop="static" data-keyboard="false" style="display: none;">
                                                             <div class="modal-content">
                                                                 <span class="close" onclick="closeModal()">&times;</span>
                                                                 <div class="modal-form">
-                                                                    <div id="dokumenContainer"></div>
-                                                                    <button type="button" class="btn btn-primary" onclick="tambahDokumen()">Tambah</button>
+                                                                    <div class="col-md-12">
+                                                                        <label class="form-label">ID Dokumen</label>
+                                                                        <input type="text" class="form-control border-primary" value="${idCounter}" name="dokumen[${index}][idDokumen]" id="idDokumen" readonly>
+                                                                    </div>
+                                                                    <div class="col-md-12">
+                                                                        <label class="form-label">Kode Dokumen</label>
+                                                                        <input type="text" class="form-control border-primary" name="dokumen[${index}][kodeDokumen]" id="kodeDokumen">
+                                                                    </div>
+                                                                    <div class="col-md-12">
+                                                                        <label class="form-label">Nomor Dokumen</label>
+                                                                        <input type="text" class="form-control border-primary" name="dokumen[${index}][nomorDokumen]" id="nomorDokumen">
+                                                                    </div>
+                                                                    <div class="col-md-12">
+                                                                        <label class="form-label">Seri Dokumen</label>
+                                                                        <input type="text" class="form-control border-primary" name="dokumen[${index}][seriDokumen]" id="seriDokumen">
+                                                                    </div>
+                                                                    <div class="col-md-12">
+                                                                        <label class="form-label">Tanggal Dokumen</label>
+                                                                        <input type="date" class="form-control border-primary" name="dokumen[${index}][tanggalDokumen]" id="tanggalDokumen">
+                                                                    </div>
+
+                                                                    <!-- Tombol Simpan dan Batal -->
                                                                     <button type="button" class="btn btn-primary" onclick="simpanDokumen()">Simpan</button>
                                                                     <button type="button" class="btn btn-cancel" onclick="closeModal()">Batal</button>
                                                                 </div>
                                                             </div>
                                                         </div>
+
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -618,123 +854,145 @@
 
                                     <script>
                                         let dokumenList = [];
-                                        let idCounter = 1; // Auto-increment counter
+                                        let idCounter = 1;
 
-                                        // Open modal and automatically add a form to it
+                                        document.addEventListener("DOMContentLoaded", function () {
+                                            loadSavedDokumen(); // Load saved data from localStorage
+                                        });
+
                                         function openModal() {
-                                            document.getElementById('myModal4').style.display = 'block';
-                                            tambahDokumen();  // Automatically load the form when the modal is opened
+                                            document.getElementById('myModal4').style.display = 'block'; // Open the modal
+                                            document.getElementById('idDokumen').value = idCounter; // Show the next ID
                                         }
 
-                                        // Add new document form
-                                        function tambahDokumen() {
-                                            let index = dokumenList.length;
-                                            let dokumenContainer = document.getElementById('dokumenContainer');
-                                            let dokumenForm = document.createElement('div');
-                                            dokumenForm.classList.add('dokumen-form');
-                                            dokumenForm.innerHTML = `
-                                                <div class="col-md-12">
-                                                    <label for="dokumen[${index}][idDokumen]" class="form-label">ID Dokumen</label>
-                                                    <input type="text" class="form-control border-primary" value="${idCounter}" name="dokumen[${index}][idDokumen]" id="idDokumen${index}" readonly>
-                                                </div>
-                                                <div class="col-md-12">
-                                                    <label for="dokumen[${index}][kodeDokumen]" class="form-label">Kode Dokumen</label>
-                                                    <input type="text" class="form-control border-primary" name="dokumen[${index}][kodeDokumen]" id="kodeDokumen${index}">
-                                                </div>
-                                                <div class="col-md-12">
-                                                    <label for="dokumen[${index}][nomorDokumen]" class="form-label">Nomor Dokumen</label>
-                                                    <input type="text" class="form-control border-primary" name="dokumen[${index}][nomorDokumen]" id="nomorDokumen${index}">
-                                                </div>
-                                                <div class="col-md-12">
-                                                    <label for="dokumen[${index}][seriDokumen]" class="form-label">Seri Dokumen</label>
-                                                    <input type="text" class="form-control border-primary" name="dokumen[${index}][seriDokumen]" id="seriDokumen${index}">
-                                                </div>
-                                                <div class="col-md-12">
-                                                    <label for="dokumen[${index}][tanggalDokumen]" class="form-label">Tanggal Dokumen</label>
-                                                    <input type="date" class="form-control border-primary" name="dokumen[${index}][tanggalDokumen]" id="tanggalDokumen${index}">
-                                                </div>
-                                                <button type="button" class="btn btn-danger" onclick="hapusDokumen(this, ${index})">Hapus</button>
-                                                <hr>
-                                            `;
-                                            dokumenContainer.appendChild(dokumenForm);
-                                            dokumenList.push(index);
-                                            idCounter++; // Naikkan ID Dokumen
-                                        }
-
-                                        // Delete a document form
-                                        function hapusDokumen(button, index) {
-                                            let dokumenContainer = document.getElementById('dokumenContainer');
-                                            dokumenContainer.removeChild(button.parentElement);
-                                            dokumenList = dokumenList.filter(i => i !== index);
-                                        }
-
-                                        // Save documents to the table
                                         function simpanDokumen() {
-                                            let dokumenTableBody = document.getElementById("dokumenTableBody");
-                                            dokumenList.forEach(index => {
-                                                let idDokumen = document.getElementById(`idDokumen${index}`).value;
-                                                let kodeDokumen = document.getElementById(`kodeDokumen${index}`).value;
-                                                let nomorDokumen = document.getElementById(`nomorDokumen${index}`).value;
-                                                let seriDokumen = document.getElementById(`seriDokumen${index}`).value;
-                                                let tanggalDokumen = document.getElementById(`tanggalDokumen${index}`).value;
+                                            let idDokumen = idCounter; // Use the auto-incremented ID
+                                            let kodeDokumen = document.getElementById("kodeDokumen").value;
+                                            let nomorDokumen = document.getElementById("nomorDokumen").value;
+                                            let seriDokumen = document.getElementById("seriDokumen").value;
+                                            let tanggalDokumen = document.getElementById("tanggalDokumen").value;
 
-                                                if (!idDokumen || !kodeDokumen || !nomorDokumen || !seriDokumen || !tanggalDokumen) {
-                                                    alert("Semua field harus diisi!");
-                                                    return;
-                                                }
+                                            if (!kodeDokumen || !nomorDokumen || !seriDokumen || !tanggalDokumen) {
+                                                alert("Semua field harus diisi!");
+                                                return;
+                                            }
 
-                                                // Create a new row in the table
-                                                let newRow = `<tr>
-                                                    <td>${idDokumen}</td>
-                                                    <td>${kodeDokumen}</td>
-                                                    <td>${nomorDokumen}</td>
-                                                    <td>${seriDokumen}</td>
-                                                    <td>${tanggalDokumen}</td>
-                                                    <td><button class='btn btn-danger' onclick='hapusBaris(this)'>Hapus</button></td>
-                                                </tr>`;
+                                            let dokumenData = {
+                                                idDokumen,
+                                                kodeDokumen,
+                                                nomorDokumen,
+                                                seriDokumen,
+                                                tanggalDokumen
+                                            };
 
-                                                dokumenTableBody.innerHTML += newRow;
-                                            });
-                                            dokumenList = [];
-                                            // Close the modal after saving
+                                            dokumenList.push(dokumenData); // Add the document to the list
+                                            localStorage.setItem("dokumenData", JSON.stringify(dokumenList)); // Save the list to localStorage
+
+                                            tambahDataKeTabel(dokumenData); // Add data to the table
+                                            idCounter++; // Increment the counter for the next ID
+
                                             closeModal();
                                         }
 
-                                        // Delete a row from the table
-                                        function hapusBaris(button) {
-                                            let row = button.parentElement.parentElement;
-                                            row.parentElement.removeChild(row);
+                                        function tambahDataKeTabel(data) {
+                                            let dokumenTableBody = document.getElementById("dokumenTableBody");
+
+                                            let newRow = document.createElement("tr");
+                                            newRow.innerHTML = `
+                                                <td>${data.idDokumen}</td>
+                                                <td>${data.kodeDokumen}</td>
+                                                <td>${data.nomorDokumen}</td>
+                                                <td>${data.seriDokumen}</td>
+                                                <td>${data.tanggalDokumen}</td>
+                                                <td><button class='btn btn-danger' onclick='hapusBaris(this, "${data.idDokumen}")'>Hapus</button></td>
+                                            `;
+                                            dokumenTableBody.appendChild(newRow);
                                         }
 
-                                        // Close the modal
+                                        function hapusBaris(button, idDokumen) {
+                                            let row = button.parentElement.parentElement;
+                                            row.parentElement.removeChild(row); // Remove row from the table
+
+                                            // Remove the deleted document from the list and update localStorage
+                                            dokumenList = dokumenList.filter(dokumen => dokumen.idDokumen !== idDokumen);
+                                            localStorage.setItem("dokumenData", JSON.stringify(dokumenList)); // Update localStorage
+                                        }
+
                                         function closeModal() {
-                                            document.getElementById('myModal4').style.display = 'none';
+                                            document.getElementById('myModal4').style.display = 'none'; // Hide modal
+                                        }
+
+                                        function loadSavedDokumen() {
+                                            let savedDokumen = JSON.parse(localStorage.getItem("dokumenData")) || []; // Get saved documents from localStorage
+                                            dokumenList = savedDokumen;
+
+                                            let dokumenTableBody = document.getElementById("dokumenTableBody");
+                                            dokumenTableBody.innerHTML = ''; // Clear the table
+
+                                            if (savedDokumen.length > 0) {
+                                                // Set the ID counter to the last document's ID + 1
+                                                idCounter = savedDokumen[savedDokumen.length - 1].idDokumen + 1;
+                                            }
+
+                                            savedDokumen.forEach(data => tambahDataKeTabel(data)); // Populate the table with saved data
                                         }
                                     </script>
 
-                                        <script>
-                                            // Function to close the modal
-                                            function closeModal() {
-                                                document.getElementById("myModal4").style.display = "none";
-                                            }
+                                    <script>
+                                        // Function to close the modal
+                                        function closeModal() {
+                                            document.getElementById("myModal4").style.display = "none";
+                                        }
 
-                                            // Optionally, you can show the modal like this:
-                                            // function openModal() {
-                                            //     document.getElementById("myModal4").style.display = "block";
-                                            // }
-                                        </script>
+                                        // Optionally, you can show the modal like this:
+                                        // function openModal() {
+                                        //     document.getElementById("myModal4").style.display = "block";
+                                        // }
+                                    </script>
 
 
                                     {{-- Pengangkut --}}
                                     <div class="tab-pane fade" id="pengangkut" role="tabpanel"
                                         aria-labelledby="pengangkut-tab">
                                         <div class="row">
-                                            <div class="col-md-12 ">
+                                            {{-- <div class="col-md-12 ">
                                                 <label for="kodeCaraAngkut" class="form-label">Cara Pengangkutan</label>
                                                 <input type="text" class="form-control" id="kodeCaraAngkut"
                                                     name="kodeCaraAngkut"
                                                     value="{{ old('kodeCaraAngkut', '3 - Darat') }}"
                                                     style="border: 1px solid #313131;">
+                                            </div> --}}
+                                            <div class="col-md-12">
+                                                <label for="kodeJenisTpb" class="form-label">Cara Pengangkutan</label>
+                                                <select class="form-control" id="select-field20"
+                                                    name="pengangkut[0][kodeCaraAngkut]">
+                                                    <option value="3 - DARAT" selected>3 - DARAT</option>
+                                                    <option value="1 - LAUT" selected>1 - LAUT</option>
+                                                    <option value="4 - UDARA">4 - UDARA</option>
+                                                    <option value="5 - POS">5 - POS</option>
+                                                    <option value="6 - MULTIMODA">6 - MULTIMODA</option>
+                                                    <option value="7 - INSTALASI / PIPA">7 - INSTALASI / PIPA</option>
+                                                    <option value="8 - PERAIRAN">8 - PERAIRAN</option>
+                                                    <option value="9 - LAINNYA">9 - LAINNYA</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-3 d-none">
+                                                <label for="namaPengangkut" class="form-label">nama Pengangkut</label>
+                                                <input type="text" class="form-control" id="namaPengangkut"
+                                                    name="pengangkut[0][namaPengangkut]"
+                                                    value="{{ old('namaPengangkut', 'apaaja') }}">
+                                            </div>
+                                            <div class="col-md-3 d-none">
+                                                <label for="nomorPengangkut" class="form-label">nomor Pengangkut</label>
+                                                <input type="text" class="form-control" id="nomorPengangkut"
+                                                    name="pengangkut[0][nomorPengangkut]"
+                                                    value="{{ old('nomorPengangkut', '1') }}">
+                                            </div>
+                                            <div class="col-md-3 d-none">
+                                                <label for="seriPengangkut" class="form-label">seri Pengangkut</label>
+                                                <input type="text" class="form-control" id="seriPengangkut"
+                                                    name="pengangkut[0][seriPengangkut]"
+                                                    value="{{ old('seriPengangkut', 1) }}" step="any">
                                             </div>
                                         </div>
                                     </div>
@@ -985,32 +1243,32 @@
                     <div class="col-md-6">
                         <label for="Valuta" class="form-label">Valuta</label>
                         <input type="text" class="form-control" id="nomorIdentitas"
-                            value="{{ old('nilai_cif', 'USD - US DOLLAR') }}" readonly
+                           name="kodeValuta" value="{{ old('kodeValuta', 'USD - US DOLLAR') }}" readonly
                             style="border: 1px solid #313131;">
                     </div>
                     <div class="col-md-6">
                         <label for="ndpbm" class="form-label">NDPBM</label>
                         <input type="number" class="form-control" id="ndpbm" name="ndpbm"
-                            value="{{ old('ndpbm') }}" style="border: 1px solid #313131;"
+                        value="{{ old('ndpbm') }}" style="border: 1px solid #313131;"
                             oninput="hitungNilaiPabean()">
                     </div>
+
                     <div class="col-md-6 mt-3">
                         <label for="cif" class="form-label">CIF</label>
-                        <input type="text" class="form-control" id="cif" name="cif"
-                            value="{{ old('cif') }}" style="border: 1px solid #313131;"
+                        <input type="text" class="form-control" id="cif" name="cif" value="{{ old('cif') }}" step="any" style="border: 1px solid #313131;"
                             oninput="hitungNilaiPabean()">
                     </div>
                     <div class="col-md-6 mt-3">
                         <label for="nilai_pabean" class="form-label">Nilai Pabean</label>
-                        <input type="text" class="form-control" id="nilai_pabean" name="nilai_pabean" readonly
+                        <input type="text" class="form-control" id="nilai_pabean"  readonly
                             style="border: 1px solid #313131;">
                     </div>
 
                     <div class="col-md-6 mt-3">
-                        <label for="harga_penyerahan" class="form-label">Harga
+                        <label for="hargaPenyerahan" class="form-label">Harga
                             Penyerahan/Harga Jual/Harga Barang</label>
-                        <input type="text" class="form-control" id="harga_penyerahan" name="harga_penyerahan"
-                            value="{{ old('harga_penyerahan') }}" style="border: 1px solid #313131;">
+                        <input type="text" class="form-control" id="harga_penyerahan" name="hargaPenyerahan" value="{{ old('hargaPenyerahan') }}" step="any"
+                            value="{{ old('hargaPenyerahan') }}" style="border: 1px solid #313131;">
                     </div>
                 </div>
             </div>
@@ -1025,31 +1283,31 @@
                 <div class="row">
                     <div class="col-md-6">
                         <label for="nomorIdentitas" class="form-label">Uang Muka</label>
-                        <input type="text" class="form-control" id="uang_maku" name="uang_maku"
-                            value="{{ old('uang_maku', '0.00') }}" style="border: 1px solid #313131;">
+                        <input type="text" class="form-control" id="uang_maku"
+                           style="border: 1px solid #313131;">
                     </div>
                     <div class="col-md-6">
                         <label for="nomorNpwp" class="form-label">Diskon</label>
-                        <input type="text" class="form-control" id="diskon" name="diskon"
+                        <input type="text" class="form-control" id="diskon" name="barang[0][diskon]"
                             value="{{ old('diskon', '0.00') }}" style="border: 1px solid #313131;">
                     </div>
                     <div class="col-md-12 mt-3">
                         <label for="pengenaan_pajak" class="form-label">Dasar Pengenaan
                             Pajak</label>
-                        <input type="text" class="form-control" id="pengenaan_pajak" name="pengenaan_pajak"
+                        <input type="text" class="form-control" id="pengenaan_pajak" name="dasarPengenaanPajak"
                             style="border: 1px solid #313131;" oninput="hitungPPNBM(); hitungPPN();">
                     </div>
                     <div class="col-md-6 mt-3">
                         <label for="namaEntitas2" class="form-label">PPN Yang Dipungut
                             (Tarif & Nilai)</label>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <input type="text" class="form-control" id="ppn_tarif" name="ppn_tarif"
-                                    value="11.00%" style="border: 1px solid #313131;" oninput="hitungPPN()">
-                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <input type="text" class="form-control" id="ppn_tarif" name="tarifPpnPajak" placeholder="11.00%"
+                                    value="{{ old('diskon', '11.00%') }}"  style="border: 1px solid #313131;" oninput="hitungPPN()">
+                                </div>
 
                             <div class="col-md-8">
-                                <input type="text" class="form-control" id="ppn_hasil" name="ppn_hasil" readonly
+                                <input type="text" class="form-control" id="ppn_hasil" name="ppnPajak" readonly
                                     style="border: 1px solid #313131;">
                             </div>
                         </div>
@@ -1059,12 +1317,12 @@
                             (Tarif & Nilai)</label>
                         <div class="row">
                             <div class="col-md-4">
-                                <input type="text" class="form-control" id="ppnb_tarif" name="ppnb_tarif"
+                                <input type="text" class="form-control" id="ppnb_tarif" name="tarifPpnbmPajak"
                                     value="00.00%" style="border: 1px solid #313131;" oninput="hitungPPNBM()">
                             </div>
 
                             <div class="col-md-8">
-                                <input type="text" class="form-control" id="ppnb_hasil" name="ppnb_hasil" readonly
+                                <input type="text" class="form-control" id="ppnb_hasil" name="ppnbmPajak" readonly
                                     style="border: 1px solid #313131;">
                             </div>
                         </div>
@@ -1082,14 +1340,14 @@
                     <div class="col-md-6">
                         <label for="nomorIdentitas" class="form-label">Berat Kotor
                             (KGM)</label>
-                        <input type="text" class="form-control" id="berat_kotor" name="berat_kotor"
-                            value="{{ old('berat_kotor') }}" style="border: 1px solid #313131;">
+                        <input type="text" class="form-control" id="berat_kotor" name="bruto"
+                            value="{{ old('bruto') }}" style="border: 1px solid #313131;">
                     </div>
                     <div class="col-md-6">
                         <label for="nomorNpwp" class="form-label">Berat Bersih
                             (KGM)</label>
-                        <input type="text" class="form-control" id="berat_bersih" name="berat_bersih"
-                            value="{{ old('berat_bersih') }}" style="border: 1px solid #313131;">
+                        <input type="text" class="form-control" id="berat_bersih" name="jumlahSatuan"
+                            value="{{ old('jumlahSatuan') }}" style="border: 1px solid #313131;">
                     </div>
                 </div>
             </div>
@@ -1537,13 +1795,13 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <label for="ndpbm" class="form-label">Tempat</label>
-                                <input type="text" class="form-control" name="tempat"
-                                    value="{{ old('tempat') }}" style="border: 1px solid #313131;">
+                                <input type="text" class="form-control" name="kotaTtd"
+                                    value="{{ old('kotaTtd') }}" style="border: 1px solid #313131;">
                             </div>
                             <div class="col-md-6">
                                 <label for="cif" class="form-label">Tanggal</label>
-                                <input type="date" class="form-control" name="tanggal"
-                                    value="{{ old('tanggal') }}" style="border: 1px solid #313131;">
+                                <input type="date" class="form-control" name="tanggalTtd"
+                                    value="{{ old('tanggalTtd') }}" style="border: 1px solid #313131;">
                             </div>
                         </div>
                     </div>
@@ -1553,13 +1811,13 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <label for="uang_muka" class="form-label">Nama</label>
-                                <input type="text" class="form-control" name="uang_muka"
-                                    value="{{ old('nama') }}" style="border: 1px solid #313131;">
+                                <input type="text" class="form-control" name="namaTtd"
+                                    value="{{ old('namaTtd') }}" style="border: 1px solid #313131;">
                             </div>
                             <div class="col-md-6">
                                 <label for="diskon" class="form-label">Jabatan</label>
-                                <input type="text" class="form-control" name="diskon"
-                                    value="{{ old('jabatan') }}" style="border: 1px solid #313131;">
+                                <input type="text" class="form-control" name="jabatanTtd"
+                                    value="{{ old('jabatanTtd') }}" style="border: 1px solid #313131;">
                             </div>
                         </div>
                     </div>
@@ -1571,38 +1829,38 @@
                 </div>
             </div>
         </div>
-    </form><!--end form-->
-</div><!--end card-body-->
-</div><!--end card-->
-</div><!--end col-->
-</div><!--end row-->
-</div><!-- container -->
+        </form><!--end form-->
+    </div><!--end card-body-->
+    </div><!--end card-->
+    </div><!--end col-->
+    </div><!--end row-->
+    </div><!-- container -->
 
-<script>
-    // Fungsi untuk memformat angka menjadi mata uang Indonesia tanpa titik dan koma
-    function formatRupiah(angka) {
-        return 'Rp ' + angka.toLocaleString('id-ID').replace(/[^0-9]/g, '');
-    }
+    <script>
+        // Fungsi untuk memformat angka menjadi mata uang Indonesia tanpa titik dan koma
+        function formatRupiah(angka) {
+            return 'Rp ' + angka.toLocaleString('id-ID').replace(/[^0-9]/g, '');
+        }
 
-    // Fungsi untuk menghitung total
-    function calculateTotal() {
-        // Mendapatkan nilai dari elemen-elemen
-        var pph = parseInt(document.getElementById("pph").innerText.replace('Rp ', '').replace('.', '').replace(',',
-            ''));
-        var bm = parseInt(document.getElementById("bm").innerText.replace('Rp ', '').replace('.', '').replace(',', ''));
-        var ppn = parseInt(document.getElementById("ppn").innerText.replace('Rp ', '').replace('.', '').replace(',',
-            ''));
+        // Fungsi untuk menghitung total
+        function calculateTotal() {
+            // Mendapatkan nilai dari elemen-elemen
+            var pph = parseInt(document.getElementById("pph").innerText.replace('Rp ', '').replace('.', '').replace(',',
+                ''));
+            var bm = parseInt(document.getElementById("bm").innerText.replace('Rp ', '').replace('.', '').replace(',', ''));
+            var ppn = parseInt(document.getElementById("ppn").innerText.replace('Rp ', '').replace('.', '').replace(',',
+                ''));
 
-        // Menghitung total
-        var total = pph + bm + ppn;
+            // Menghitung total
+            var total = pph + bm + ppn;
 
-        // Menampilkan total dengan format mata uang Indonesia tanpa titik dan koma
-        document.getElementById("total").innerText = formatRupiah(total);
-    }
+            // Menampilkan total dengan format mata uang Indonesia tanpa titik dan koma
+            document.getElementById("total").innerText = formatRupiah(total);
+        }
 
-    // Memanggil fungsi untuk menghitung total saat halaman dimuat
-    window.onload = calculateTotal;
-</script>
+        // Memanggil fungsi untuk menghitung total saat halaman dimuat
+        window.onload = calculateTotal;
+    </scrip>
 
 
     <script>
@@ -1690,17 +1948,21 @@
             theme: 'bootstrap-5'
         });
     </script>
-        <script>
-            $('#select-field18').select2({
-                theme: 'bootstrap-5'
-            });
-        </script>
-                <script>
-                    $('#select-field19').select2({
-                        theme: 'bootstrap-5'
-                    });
-                </script>
-
+    <script>
+        $('#select-field18').select2({
+            theme: 'bootstrap-5'
+        });
+    </script>
+    <script>
+        $('#select-field19').select2({
+            theme: 'bootstrap-5'
+        });
+    </script>
+    <script>
+        $('#select-field20').select2({
+            theme: 'bootstrap-5'
+        });
+    </script>
 
     <script>
         function updateNomorEntitas() {
@@ -1902,8 +2164,6 @@
     </script>
 
     <style>
-
-
         .btn i {
             font-size: 16px;
             color: #000;
@@ -2054,7 +2314,7 @@
 
     <script>
         $(document).ready(function() {
-            $('#dataTable1, #dataTable2, #dataTable3').DataTable();
+            $(' #dataTable2, #dataTable3').DataTable();
         });
     </script>
 
