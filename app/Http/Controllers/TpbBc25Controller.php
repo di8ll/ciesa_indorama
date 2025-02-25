@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log; // Add this import
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Auth; // Add this import to access the authenticated user
-use App\Models\Dokumen;
+use App\Models\DataPenerimaPajak;
 
 
 class TpbBc25Controller extends Controller
@@ -22,8 +22,8 @@ class TpbBc25Controller extends Controller
 
     public function create(Request $request)
     {
-        $dokumen = Dokumen::all();
-        return view('dashboard.admin.dokumen.create', compact('dokumen'));
+        $penerimaPajak = DataPenerimaPajak::all();
+        return view('dashboard.admin.dokumen.create', compact('penerimaPajak'));
     }
 
     public function store(Request $request)

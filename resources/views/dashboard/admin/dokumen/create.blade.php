@@ -131,30 +131,30 @@
                                             <div class="col-md-3 d-none">
                                                 <label for="validationCustom01" class="form-label">Seri</label>
                                                 <input type="text" class="form-control" id="seri" name="seri"
-                                                    value="{{ old('seri',1) }}"   step="any">
+                                                    value="{{ old('seri', 1) }}" step="any">
                                             </div>
                                             <div class="col-md-3 d-none">
                                                 <label for="validationCustom01" class="form-label">Identitas
                                                     Penggguna</label>
                                                 <input type="text" class="form-control" id="idPengguna"
-                                                    name="idPengguna" value="{{ old('idPengguna','010016') }}" >
+                                                    name="idPengguna" value="{{ old('idPengguna', '010016') }}">
                                             </div>
                                             <div class="col-md-3 d-none">
                                                 <label for="validationCustom01" class="form-label">Netto</label>
                                                 <input type="text" class="form-control" id="netto" name="netto"
-                                                    value="{{ old('netto', 3632.72) }}" step="any" >
+                                                    value="{{ old('netto', 3632.72) }}" step="any">
                                             </div>
 
                                             <div class="col-md-3 d-none">
                                                 <label for="validationCustom01" class="form-label">Tanggal Aju</label>
                                                 <input type="text" class="form-control" id="tanggalAju"
-                                                    name="tanggalAju" value="{{ old('tanggalAju','2025-02-09') }}" >
+                                                    name="tanggalAju" value="{{ old('tanggalAju', '2025-02-09') }}">
                                             </div>
 
                                             <div class="col-md-3 d-none">
                                                 <label for="validationCustom01" class="form-label">Volume</label>
                                                 <input type="text" class="form-control" id="volume" name="volume"
-                                                    value="{{ old('volume',0) }}" step="any" >
+                                                    value="{{ old('volume', 0) }}" step="any">
                                             </div>
 
 
@@ -305,38 +305,39 @@
                                                         <label for="kodeEntitas" class="form-label">Kode Entitas</label>
                                                         <input type="text" class="form-control border-primary"
                                                             id="kodeEntitas" name="entitas[0][kodeEntitas]"
-                                                            value="{{ old('kodeEntitas',"3") }}" >
-                                                        </div>
-                                                        <div class="col-md-3 d-none">
-                                                            <label for="kodeEntitas" class="form-label">Kode Entitas</label>
-                                                            <input type="text" class="form-control border-primary"
-                                                                id="kodeEntitas" name="entitas[0][kodeEntitas]"
-                                                                value="{{ old('kodeEntitas',"3") }}" >
-                                                            </div>
-                                                            <div class="col-md-3 d-none">
-                                                                <label for="kodeJenisApi" class="form-label">kode Jenis Api</label>
-                                                                <input type="text" class="form-control border-primary"
-                                                                    id="kodeJenisApi" name="entitas[0][kodeJenisApi]"
-                                                                    value="{{ old('kodeJenisApi',"2") }}">
+                                                            value="{{ old('kodeEntitas', '3') }}">
+                                                    </div>
+                                                    <div class="col-md-3 d-none">
+                                                        <label for="kodeEntitas" class="form-label">Kode Entitas</label>
+                                                        <input type="text" class="form-control border-primary"
+                                                            id="kodeEntitas" name="entitas[0][kodeEntitas]"
+                                                            value="{{ old('kodeEntitas', '3') }}">
+                                                    </div>
+                                                    <div class="col-md-3 d-none">
+                                                        <label for="kodeJenisApi" class="form-label">kode Jenis
+                                                            Api</label>
+                                                        <input type="text" class="form-control border-primary"
+                                                            id="kodeJenisApi" name="entitas[0][kodeJenisApi]"
+                                                            value="{{ old('kodeJenisApi', '2') }}">
                                                     </div>
                                                     <div class="col-md-3 d-none">
                                                         <label for="kodeJenisIdentitas" class="form-label">Kode Jenis
                                                             Identitas</label>
                                                         <input type="text" class="form-control border-primary"
-                                                            id="kodeJenisIdentitas"  name="entitas[0][kodeJenisIdentitas]"
-                                                            value="{{ old('kodeJenisIdentitas',"6") }}" >
-                                                        </div>
-                                                        <div class="col-md-3 d-none">
-                                                            <label for="kodeStatus" class="form-label">Kode Status</label>
-                                                            <input type="text" class="form-control border-primary"
-                                                                id="kodeStatus"  name="entitas[0][kodeStatus]"
-                                                                value="{{ old('kodeStatus',"3") }}" >
+                                                            id="kodeJenisIdentitas" name="entitas[0][kodeJenisIdentitas]"
+                                                            value="{{ old('kodeJenisIdentitas', '6') }}">
+                                                    </div>
+                                                    <div class="col-md-3 d-none">
+                                                        <label for="kodeStatus" class="form-label">Kode Status</label>
+                                                        <input type="text" class="form-control border-primary"
+                                                            id="kodeStatus" name="entitas[0][kodeStatus]"
+                                                            value="{{ old('kodeStatus', '3') }}">
                                                     </div>
                                                     <div class="col-md-3 d-none">
                                                         <label for="seriEntitas" class="form-label">seri Entitas</label>
                                                         <input type="text" class="form-control border-primary"
                                                             id="seriEntitas" name="entitas[0][seriEntitas]"
-                                                            value="{{ old('seriEntitas',3) }}" step="any" >
+                                                            value="{{ old('seriEntitas', 3) }}" step="any">
                                                     </div>
                                                 </div>
                                             </div>
@@ -437,7 +438,7 @@
                                                     <center>
                                                         <h5 class="modal-title">Data Referensi Pengusaha</h5>
                                                     </center>
-                                                    <span class="close">&times;</span>
+                                                    <span class="close" onclick="closeModal8()">&times;</span>
                                                     <form class="modal-form">
                                                         <table id="dataTable1" class="display">
                                                             <thead>
@@ -645,310 +646,274 @@
                                                         <label for="kodeEntitas" class="form-label">Kode Entitas</label>
                                                         <input type="text" class="form-control border-primary"
                                                             id="kodeEntitas3" name="entitas[2][kodeEntitas]"
-                                                            value="{{ old('kodeEntitas',"8") }}" >
-                                                        </div>
-                                                        <div class="col-md-3 d-none">
-                                                            <label for="kodeJenisApi" class="form-label">kode Jenis Api</label>
-                                                            <input type="text" class="form-control border-primary"
-                                                                id="kodeJenisApi3" name="entitas[2][kodeJenisApi]"
-                                                                value="{{ old('kodeJenisApi',"2") }}" >
-                                            </div>
-                                            <div class="col-md-3 d-none">
-                                                <label for="kodeJenisIdentitas" class="form-label">Kode Jenis
-                                                    Identitas</label>
-                                                <input type="text" class="form-control border-primary"
-                                                    id="kodeJenisIdentitas3" name="entitas[2][kodeJenisIdentitas]"
-                                                    value="{{ old('kodeJenisIdentitas',"6") }}" >
-                                            </div>
-                                            <div class="col-md-3 d-none">
-                                                <label for="kodeStatus1" class="form-label">Kode Status</label>
-                                                <input type="text" class="form-control border-primary"
-                                                    id="kodeStatus3" name="entitas[2][kodeStatus]"
-                                                    value="{{ old('kodeStatus',"3") }}" >
-                                                </div>
-                                                <div class="col-md-3 d-none">
-                                                    <label for="niperEntitas" class="form-label">niper Entitas</label>
-                                                    <input type="text" class="form-control border-primary"
-                                                        id="niperEntitas2" name="entitas[2][niperEntitas]"
-                                                        value="{{ old('niperEntitas','yakul') }}" >
-                                                </div>
-                                                <div class="col-md-3 d-none">
-                                                    <label for="seriEntitas" class="form-label">seri Entitas</label>
-                                                    <input type="text" class="form-control border-primary"
-                                                        id="seriEntitas3" name="entitas[2][seriEntitas]"
-                                                        value="{{ old('seriEntitas', 8) }}" step="any">
+                                                            value="{{ old('kodeEntitas', '8') }}">
+                                                    </div>
+                                                    <div class="col-md-3 d-none">
+                                                        <label for="kodeJenisApi" class="form-label">kode Jenis
+                                                            Api</label>
+                                                        <input type="text" class="form-control border-primary"
+                                                            id="kodeJenisApi3" name="entitas[2][kodeJenisApi]"
+                                                            value="{{ old('kodeJenisApi', '2') }}">
+                                                    </div>
+                                                    <div class="col-md-3 d-none">
+                                                        <label for="kodeJenisIdentitas" class="form-label">Kode Jenis
+                                                            Identitas</label>
+                                                        <input type="text" class="form-control border-primary"
+                                                            id="kodeJenisIdentitas3" name="entitas[2][kodeJenisIdentitas]"
+                                                            value="{{ old('kodeJenisIdentitas', '6') }}">
+                                                    </div>
+                                                    <div class="col-md-3 d-none">
+                                                        <label for="kodeStatus1" class="form-label">Kode Status</label>
+                                                        <input type="text" class="form-control border-primary"
+                                                            id="kodeStatus3" name="entitas[2][kodeStatus]"
+                                                            value="{{ old('kodeStatus', '3') }}">
+                                                    </div>
+                                                    <div class="col-md-3 d-none">
+                                                        <label for="niperEntitas" class="form-label">niper Entitas</label>
+                                                        <input type="text" class="form-control border-primary"
+                                                            id="niperEntitas2" name="entitas[2][niperEntitas]"
+                                                            value="{{ old('niperEntitas', 'yakul') }}">
+                                                    </div>
+                                                    <div class="col-md-3 d-none">
+                                                        <label for="seriEntitas" class="form-label">seri Entitas</label>
+                                                        <input type="text" class="form-control border-primary"
+                                                            id="seriEntitas3" name="entitas[2][seriEntitas]"
+                                                            value="{{ old('seriEntitas', 8) }}" step="any">
                                                     </div>
                                                 </div>
                                             </div>
 
-                                            <!-- Modal -->
-                                            <div id="myModal2" class="modal" data-backdrop="static"
-                                                data-keyboard="false" style="display: none;">
-                                                <div class="modal-content">
-                                                    <center>
-                                                        <h5 class="modal-title">Data Referensi Pengusaha</h5>
-                                                    </center>
-                                                    <span class="close">&times;</span>
-                                                    <form class="modal-form">
-                                                        <table id="dataTable2" class="display">
-                                                            <thead>
-                                                                <tr>
-                                                                    <th>NPWP</th>
-                                                                    <th>Nama</th>
-                                                                    <th>Alamat</th>
-                                                                    <th>Negara</th>
-                                                                    <th>Action</th>
-                                                                </tr>
-                                                            </thead>
-                                                            <tbody>
-                                                                <tr data-npwp="010020766057000"
-                                                                    data-nama="GOKAK INDONESIA"
-                                                                    data-nitku="010020766057000000000"
-                                                                    data-alamat="ATENG ILYAS KP MUHARA RT.002 RW.008 CITEUREUP CITEUREUP KAB. BOGOR INDONESIA ( PT. GOKAK INDONESIA )">
-                                                                    <td>010020766057000</td>
-                                                                    <td>GOKAK INDONESIA</td>
-                                                                    <td>ATENG ILYAS KP MUHARA RT.002 RW.008 CITEUREUP
-                                                                        CITEUREUP KAB. BOGOR INDONESIA ( PT. GOKAK INDONESIA
-                                                                        )</td>
-                                                                    <td>-</td>
-                                                                    <td><button type="button"
-                                                                            class="pilih-btn-2">Pilih</button></td>
-                                                                </tr>
-                                                                <tr data-npwp2="808248256041000"
-                                                                    data-nama2="TARA PETINDO BERDIKARI"
-                                                                    data-nitku2="808248256041000000000"
-                                                                    data-alamat2="JALAN RAYA UJUNG BERUNG KM 12,6 RT. 002 RW. 006 CIPADUNG KULON PANYILEUKAN KOTA BANDUNG INDONESIA (PT. LONGDI SEJAHTERA INDONESIA)">
-                                                                    <td>808248256041000</td>
-                                                                    <td>TARA PETINDO BERDIKARI</td>
-                                                                    <td>PERGUDANGAN LAKSANA BLOK RC. 21- RC.23 PAKUHAJI
-                                                                        TANGERANG INDONESIA ( PT. BUANIKA SYAHPUTRA )</td>
-                                                                    <td>-</td>
-                                                                    <td><button type="button"
-                                                                            class="pilih-btn-2">Pilih</button></td>
-                                                                </tr>
-                                                                </tr>
-                                                                <tr data-npwp3="020591459444000" data-nama3="SAMTEX"
-                                                                    data-nitku3="010016806054000000000"
-                                                                    data-alamat3="JL. RAYA CIJAPATI RT 02 RW. 06 KEL. CILULUK KEC. CIKANCUNG KAB. BANDUNG JAWA BARAT INDONESIA ( PT. SAMTEX )">
-                                                                    <td>010016806054000</td>
-                                                                    <td>SAMTEX</td>
-                                                                    <td>JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN
-                                                                        JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT
-                                                                        41101</td>
-                                                                    <td>-</td>
-                                                                    <td><button type="button"
-                                                                            class="pilih-btn-2">Pilih</button></td>
-                                                                </tr>
-                                                                <tr data-npwp4="716100979451000"
-                                                                    data-nama2="DUTA KARYA PERTIWI"
-                                                                    data-nitku4="716100979451000000000"
-                                                                    data-alamat4="JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101">
-                                                                    <td>716100979451000</td>
-                                                                    <td>DUTA KARYA PERTIWI</td>
-                                                                    <td>JL. RAYA SERANG KM. 14,5 KP. LAMPORAN RT.002 RW.001
-                                                                        DUKUH CIKUPA KAB. TANGERANG BANTEN INDONESIA ( PT.
-                                                                        DUTA KARYA PERTIWI )</td>
-                                                                    <td>-</td>
-                                                                    <td><button type="button"
-                                                                            class="pilih-btn-2">Pilih</button></td>
-                                                                </tr>
-                                                                <tr data-npwp5="010016806054000"
-                                                                    data-nama2="TARA PETINDO BERDIKARI"
-                                                                    data-nitku5="010016806054000000000"
-                                                                    data-alamat5="JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101">
-                                                                    <td>010016806054000</td>
-                                                                    <td>TARA PETINDO BERDIKARI</td>
-                                                                    <td>JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN
-                                                                        JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT
-                                                                        41101</td>
-                                                                    <td>-</td>
-                                                                    <td><button type="button"
-                                                                            class="pilih-btn-2">Pilih</button></td>
-                                                                </tr>
-                                                            </tbody>
-                                                        </table>
-                                                    </form>
-                                                </div>
+                                           <!-- Modal -->
+                                        <div id="myModal2" class="modal" data-backdrop="static" data-keyboard="false" style="display: none;">
+                                            <div class="modal-content">
+                                                <center>
+                                                    <h5 class="modal-title">Data Referensi Pengusaha</h5>
+                                                </center>
+                                                <span class="close" onclick="closeModal9()">&times;</span>
+                                                <form class="modal-form">
+                                                    <table id="dataTable2" class="display">
+                                                        <thead>
+                                                            <tr>
+                                                                <th>NPWP</th>
+                                                                <th>Nama</th>
+                                                                <th>Alamat</th>
+                                                                <th>Negara</th>
+                                                                <th>Action</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody>
+                                                            @foreach($penerimaPajak as $data)
+                                                            <tr data-npwp="{{ $data->npwp }}" data-nama="{{ $data->Nama }}" data-alamat="{{ $data->Alamat }}">
+                                                                <td>{{ $data->npwp }}</td>
+                                                                <td>{{ $data->Nama }}</td>
+                                                                <td>{{ $data->Alamat }}</td>
+                                                                <td>-</td>
+                                                                <td>
+                                                                    <button type="button" class="pilih-btn-2">Pilih</button>
+                                                                </td>
+                                                            </tr>
+                                                            @endforeach
+                                                        </tbody>
+                                                    </table>
+                                                </form>
                                             </div>
-
                                         </div>
-                                    </div>
-
-                                    {{-- Dokumen --}}
-                                    <div class="tab-pane fade" id="dokumen" role="tabpanel"
-                                        aria-labelledby="dokumen-tab">
-                                        <div class="row">
-                                            <div class="container-fluid">
-                                                <div class="row">
-                                                    <div class="col-12">
-                                                        <div class="card">
-                                                            <header>
-                                                                <div class="right_content">
-                                                                    <div class="col-lg-12 text-start mb-6">
-                                                                        <button type="button"
-                                                                            class="btn btn-primary mb-3" id="myBtn4"
-                                                                            onclick="openModal()">
-                                                                            <span data-feather="plus"></span>Tambah
-                                                                        </button>
-                                                                    </div>
-                                                                </div>
-                                                            </header>
-                                                            <div class="card-body" id="tableContainer">
-                                                                <div class="table-responsive">
-                                                                    <table class="table" id="dokumenTable">
-                                                                        <thead>
-                                                                            <tr>
-                                                                                <th>ID Dokumen</th>
-                                                                                <th>Kode Dokumen</th>
-                                                                                <th>Nomor Dokumen</th>
-                                                                                <th>Seri Dokumen</th>
-                                                                                <th>Tanggal Dokumen</th>
-                                                                                <th>Aksi</th>
-                                                                            </tr>
-                                                                        </thead>
-                                                                        <tbody id="dokumenTableBody">
-                                                                        </tbody>
-                                                                    </table>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <!-- Modal -->
-                                                        <div id="myModal4" class="modal" data-backdrop="static" data-keyboard="false" style="display: none;">
-                                                            <div class="modal-content">
-                                                                <span class="close" onclick="closeModal()">&times;</span>
-                                                                <div class="modal-form">
-                                                                    <div class="col-md-12">
-                                                                        <label class="form-label">ID Dokumen</label>
-                                                                        <input type="text" class="form-control border-primary" value="${idCounter}" name="dokumen[${index}][idDokumen]" id="idDokumen" readonly>
-                                                                    </div>
-                                                                    <div class="col-md-12">
-                                                                        <label class="form-label">Kode Dokumen</label>
-                                                                        <input type="text" class="form-control border-primary" name="dokumen[${index}][kodeDokumen]" id="kodeDokumen">
-                                                                    </div>
-                                                                    <div class="col-md-12">
-                                                                        <label class="form-label">Nomor Dokumen</label>
-                                                                        <input type="text" class="form-control border-primary" name="dokumen[${index}][nomorDokumen]" id="nomorDokumen">
-                                                                    </div>
-                                                                    <div class="col-md-12">
-                                                                        <label class="form-label">Seri Dokumen</label>
-                                                                        <input type="text" class="form-control border-primary" name="dokumen[${index}][seriDokumen]" id="seriDokumen">
-                                                                    </div>
-                                                                    <div class="col-md-12">
-                                                                        <label class="form-label">Tanggal Dokumen</label>
-                                                                        <input type="date" class="form-control border-primary" name="dokumen[${index}][tanggalDokumen]" id="tanggalDokumen">
-                                                                    </div>
-
-                                                                    <!-- Tombol Simpan dan Batal -->
-                                                                    <button type="button" class="btn btn-primary" onclick="simpanDokumen()">Simpan</button>
-                                                                    <button type="button" class="btn btn-cancel" onclick="closeModal()">Batal</button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-
-                                                    </div>
-                                                </div>
-                                            </div>
                                         </div>
                                     </div>
 
                                     <script>
-                                        let dokumenList = [];
-                                        let idCounter = 1;
+                                    function closeModal9() {
+                                        document.getElementById("myModal2").style.display = "none";
+                                    }</script>
+{{-- Dokumen --}}
+<div class="tab-pane fade" id="dokumen" role="tabpanel" aria-labelledby="dokumen-tab">
+    <div class="row">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <header>
+                            <div class="right_content">
+                                <div class="col-lg-12 text-start mb-6">
+                                    <button type="button" class="btn btn-primary mb-3" id="myBtn4" onclick="openModal()">
+                                        <span data-feather="plus"></span>Tambah
+                                    </button>
+                                </div>
+                            </div>
+                        </header>
+                        <div class="card-body" id="tableContainer">
+                            <div class="table-responsive">
+                                <table class="table" id="dokumenTable">
+                                    <thead>
+                                        <tr>
+                                            <th>ID Dokumen</th>
+                                            <th>Kode Dokumen</th>
+                                            <th>Nomor Dokumen</th>
+                                            <th>Seri Dokumen</th>
+                                            <th>Tanggal Dokumen</th>
+                                            <th>Aksi</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="dokumenTableBody">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
-                                        document.addEventListener("DOMContentLoaded", function () {
-                                            loadSavedDokumen(); // Load saved data from localStorage
-                                        });
+<div id="myModal4" class="modal" data-backdrop="static" data-keyboard="false" style="display: none;">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <div class="modal-form">
+            <div id="dokumenContainer"></div>
+            <div class="button-group">
+                <button type="button" class="btn btn-primary" onclick="tambahDokumen()">Tambah</button>
+                <button type="button" class="btn-cancel" onclick="closeModal()">Batal</button>
+            </div>
+        </div>
+    </div>
+</div>
 
-                                        function openModal() {
-                                            document.getElementById('myModal4').style.display = 'block'; // Open the modal
-                                            document.getElementById('idDokumen').value = idCounter; // Show the next ID
-                                        }
+<script>
+    let dokumenList = JSON.parse(localStorage.getItem('dokumenList')) || [];
 
-                                        function simpanDokumen() {
-                                            let idDokumen = idCounter; // Use the auto-incremented ID
-                                            let kodeDokumen = document.getElementById("kodeDokumen").value;
-                                            let nomorDokumen = document.getElementById("nomorDokumen").value;
-                                            let seriDokumen = document.getElementById("seriDokumen").value;
-                                            let tanggalDokumen = document.getElementById("tanggalDokumen").value;
+    // Initialize the table with saved data
+    function initializeTable() {
+        let dokumenTableBody = document.getElementById("dokumenTableBody");
+        dokumenTableBody.innerHTML = "";
+        dokumenList.forEach((dokumen, index) => {
+            let newRow = `<tr>
+                <td>${dokumen.idDokumen}</td>
+                <td>${dokumen.kodeDokumen}</td>
+                <td>${dokumen.nomorDokumen}</td>
+                <td>${dokumen.seriDokumen}</td>
+                <td>${dokumen.tanggalDokumen}</td>
+                <td><button class='btn btn-danger' onclick='hapusBaris(${index})'>Hapus</button></td>
+            </tr>`;
+            dokumenTableBody.innerHTML += newRow;
+        });
+    }
 
-                                            if (!kodeDokumen || !nomorDokumen || !seriDokumen || !tanggalDokumen) {
-                                                alert("Semua field harus diisi!");
-                                                return;
+    // Open modal and automatically add a form to it
+    function openModal() {
+        document.getElementById('myModal4').style.display = 'block';
+        tambahDokumen();  // Automatically load the form when the modal is opened
+    }
+
+    // Add new document form
+    function tambahDokumen() {
+        let index = dokumenList.length;
+        let dokumenContainer = document.getElementById('dokumenContainer');
+        let dokumenForm = document.createElement('div');
+        dokumenForm.classList.add('dokumen-form');
+        dokumenForm.setAttribute('id', 'dokumenForm' + index);  // Unique ID for the form
+        dokumenForm.innerHTML = `
+            <div class="col-md-12">
+                <label for="dokumen[${index}][idDokumen]" class="form-label">ID Dokumen</label>
+                <input type="text" class="form-control border-primary" value="${index + 1}" name="dokumen[${index}][idDokumen]" id="idDokumen${index}" readonly>
+            </div>
+            <div class="col-md-12">
+                <label for="dokumen[${index}][kodeDokumen]" class="form-label">Kode Dokumen</label>
+                <input type="text" class="form-control border-primary" name="dokumen[${index}][kodeDokumen]" id="kodeDokumen${index}">
+            </div>
+            <div class="col-md-12">
+                <label for="dokumen[${index}][nomorDokumen]" class="form-label">Nomor Dokumen</label>
+                <input type="text" class="form-control border-primary" name="dokumen[${index}][nomorDokumen]" id="nomorDokumen${index}">
+            </div>
+            <div class="col-md-12">
+                <label for="dokumen[${index}][seriDokumen]" class="form-label">Seri Dokumen</label>
+                <input type="text" class="form-control border-primary" name="dokumen[${index}][seriDokumen]" id="seriDokumen${index}">
+            </div>
+            <div class="col-md-12">
+                <label for="dokumen[${index}][tanggalDokumen]" class="form-label">Tanggal Dokumen</label>
+                <input type="date" class="form-control border-primary" name="dokumen[${index}][tanggalDokumen]" id="tanggalDokumen${index}">
+            </div>
+            <button type="button" class="btn btn-primary" onclick="simpanDokumenIndividual(${index})">Simpan</button>
+            <button type="button" class="btn btn-danger" onclick="hapusDokumen(this, ${index})">Hapus</button>
+            <hr>
+        `;
+        dokumenContainer.appendChild(dokumenForm);
+    }
+
+    // Save individual document data to the table
+    function simpanDokumenIndividual(index) {
+        let idDokumen = document.getElementById(`idDokumen${index}`).value;
+        let kodeDokumen = document.getElementById(`kodeDokumen${index}`).value;
+        let nomorDokumen = document.getElementById(`nomorDokumen${index}`).value;
+        let seriDokumen = document.getElementById(`seriDokumen${index}`).value;
+        let tanggalDokumen = document.getElementById(`tanggalDokumen${index}`).value;
+
+        if (!idDokumen || !kodeDokumen || !nomorDokumen || !seriDokumen || !tanggalDokumen) {
+            alert("Semua field harus diisi!");
+            return;
+        }
+
+        // Save document to dokumenList
+        dokumenList.push({ idDokumen: parseInt(idDokumen), kodeDokumen, nomorDokumen, seriDokumen, tanggalDokumen });
+        localStorage.setItem('dokumenList', JSON.stringify(dokumenList));  // Save to localStorage
+
+        initializeTable();  // Update table with the new data
+
+        // Hide the form after saving
+        document.getElementById('dokumenForm' + index).style.display = 'none';
+    }
+
+    // Delete a document form
+    function hapusDokumen(button, index) {
+        let dokumenContainer = document.getElementById('dokumenContainer');
+        dokumenContainer.removeChild(button.parentElement);
+        dokumenList.splice(index, 1);  // Remove from dokumenList
+        localStorage.setItem('dokumenList', JSON.stringify(dokumenList));  // Save to localStorage
+        initializeTable();  // Update table with the new data
+    }
+
+    // Delete a row from the table
+    function hapusBaris(index) {
+        dokumenList.splice(index, 1);  // Remove from dokumenList
+        localStorage.setItem('dokumenList', JSON.stringify(dokumenList));  // Save to localStorage
+        initializeTable();  // Update table with the new data
+    }
+
+    // Close the modal
+    function closeModal() {
+        document.getElementById('myModal4').style.display = 'none';
+    }
+
+    // Initialize table on page load
+    window.onload = function() {
+        initializeTable();
+    }
+</script>
+
+
+
+                                            <script>
+                                                // Function to close the modal
+                                                function closeModal() {
+                                                    document.getElementById("myModal4").style.display = "none";
+                                                }
+
+                                                // Optionally, you can show the modal like this:
+                                                // function openModal() {
+                                                //     document.getElementById("myModal4").style.display = "block";
+                                                // }
+                                            </script>
+                                        <script>
+                                            // Function to close the modal
+                                            function closeModal() {
+                                                document.getElementById("myModal4").style.display = "none";
                                             }
 
-                                            let dokumenData = {
-                                                idDokumen,
-                                                kodeDokumen,
-                                                nomorDokumen,
-                                                seriDokumen,
-                                                tanggalDokumen
-                                            };
-
-                                            dokumenList.push(dokumenData); // Add the document to the list
-                                            localStorage.setItem("dokumenData", JSON.stringify(dokumenList)); // Save the list to localStorage
-
-                                            tambahDataKeTabel(dokumenData); // Add data to the table
-                                            idCounter++; // Increment the counter for the next ID
-
-                                            closeModal();
-                                        }
-
-                                        function tambahDataKeTabel(data) {
-                                            let dokumenTableBody = document.getElementById("dokumenTableBody");
-
-                                            let newRow = document.createElement("tr");
-                                            newRow.innerHTML = `
-                                                <td>${data.idDokumen}</td>
-                                                <td>${data.kodeDokumen}</td>
-                                                <td>${data.nomorDokumen}</td>
-                                                <td>${data.seriDokumen}</td>
-                                                <td>${data.tanggalDokumen}</td>
-                                                <td><button class='btn btn-danger' onclick='hapusBaris(this, "${data.idDokumen}")'>Hapus</button></td>
-                                            `;
-                                            dokumenTableBody.appendChild(newRow);
-                                        }
-
-                                        function hapusBaris(button, idDokumen) {
-                                            let row = button.parentElement.parentElement;
-                                            row.parentElement.removeChild(row); // Remove row from the table
-
-                                            // Remove the deleted document from the list and update localStorage
-                                            dokumenList = dokumenList.filter(dokumen => dokumen.idDokumen !== idDokumen);
-                                            localStorage.setItem("dokumenData", JSON.stringify(dokumenList)); // Update localStorage
-                                        }
-
-                                        function closeModal() {
-                                            document.getElementById('myModal4').style.display = 'none'; // Hide modal
-                                        }
-
-                                        function loadSavedDokumen() {
-                                            let savedDokumen = JSON.parse(localStorage.getItem("dokumenData")) || []; // Get saved documents from localStorage
-                                            dokumenList = savedDokumen;
-
-                                            let dokumenTableBody = document.getElementById("dokumenTableBody");
-                                            dokumenTableBody.innerHTML = ''; // Clear the table
-
-                                            if (savedDokumen.length > 0) {
-                                                // Set the ID counter to the last document's ID + 1
-                                                idCounter = savedDokumen[savedDokumen.length - 1].idDokumen + 1;
-                                            }
-
-                                            savedDokumen.forEach(data => tambahDataKeTabel(data)); // Populate the table with saved data
-                                        }
-                                    </script>
-
-                                    <script>
-                                        // Function to close the modal
-                                        function closeModal() {
-                                            document.getElementById("myModal4").style.display = "none";
-                                        }
-
-                                        // Optionally, you can show the modal like this:
-                                        // function openModal() {
-                                        //     document.getElementById("myModal4").style.display = "block";
-                                        // }
-                                    </script>
+                                            // Optionally, you can show the modal like this:
+                                            // function openModal() {
+                                            //     document.getElementById("myModal4").style.display = "block";
+                                            // }
+                                        </script>
 
 
                                     {{-- Pengangkut --}}
@@ -1242,33 +1207,35 @@
                 <div class="row">
                     <div class="col-md-6">
                         <label for="Valuta" class="form-label">Valuta</label>
-                        <input type="text" class="form-control" id="nomorIdentitas"
-                           name="kodeValuta" value="{{ old('kodeValuta', 'USD - US DOLLAR') }}" readonly
+                        <input type="text" class="form-control" id="nomorIdentitas" name="kodeValuta"
+                            value="{{ old('kodeValuta', 'USD - US DOLLAR') }}" readonly
                             style="border: 1px solid #313131;">
                     </div>
                     <div class="col-md-6">
                         <label for="ndpbm" class="form-label">NDPBM</label>
                         <input type="number" class="form-control" id="ndpbm" name="ndpbm"
-                        value="{{ old('ndpbm') }}" style="border: 1px solid #313131;"
+                            value="{{ old('ndpbm') }}" style="border: 1px solid #313131;"
                             oninput="hitungNilaiPabean()">
                     </div>
 
                     <div class="col-md-6 mt-3">
                         <label for="cif" class="form-label">CIF</label>
-                        <input type="text" class="form-control" id="cif" name="cif" value="{{ old('cif') }}" step="any" style="border: 1px solid #313131;"
+                        <input type="text" class="form-control" id="cif" name="cif"
+                            value="{{ old('cif') }}" step="any" style="border: 1px solid #313131;"
                             oninput="hitungNilaiPabean()">
                     </div>
                     <div class="col-md-6 mt-3">
                         <label for="nilai_pabean" class="form-label">Nilai Pabean</label>
-                        <input type="text" class="form-control" id="nilai_pabean"  readonly
+                        <input type="text" class="form-control" id="nilai_pabean" readonly
                             style="border: 1px solid #313131;">
                     </div>
 
                     <div class="col-md-6 mt-3">
                         <label for="hargaPenyerahan" class="form-label">Harga
                             Penyerahan/Harga Jual/Harga Barang</label>
-                        <input type="text" class="form-control" id="harga_penyerahan" name="hargaPenyerahan" value="{{ old('hargaPenyerahan') }}" step="any"
-                            value="{{ old('hargaPenyerahan') }}" style="border: 1px solid #313131;">
+                        <input type="text" class="form-control" id="harga_penyerahan" name="hargaPenyerahan"
+                            value="{{ old('hargaPenyerahan') }}" step="any" value="{{ old('hargaPenyerahan') }}"
+                            style="border: 1px solid #313131;">
                     </div>
                 </div>
             </div>
@@ -1284,7 +1251,7 @@
                     <div class="col-md-6">
                         <label for="nomorIdentitas" class="form-label">Uang Muka</label>
                         <input type="text" class="form-control" id="uang_maku"
-                           style="border: 1px solid #313131;">
+                            style="border: 1px solid #313131;">
                     </div>
                     <div class="col-md-6">
                         <label for="nomorNpwp" class="form-label">Diskon</label>
@@ -1300,11 +1267,12 @@
                     <div class="col-md-6 mt-3">
                         <label for="namaEntitas2" class="form-label">PPN Yang Dipungut
                             (Tarif & Nilai)</label>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <input type="text" class="form-control" id="ppn_tarif" name="tarifPpnPajak" placeholder="11.00%"
-                                    value="{{ old('diskon', '11.00%') }}"  style="border: 1px solid #313131;" oninput="hitungPPN()">
-                                </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" id="ppn_tarif" name="tarifPpnPajak"
+                                    placeholder="11.00%" value="{{ old('diskon', '11.00%') }}"
+                                    style="border: 1px solid #313131;" oninput="hitungPPN()">
+                            </div>
 
                             <div class="col-md-8">
                                 <input type="text" class="form-control" id="ppn_hasil" name="ppnPajak" readonly
@@ -1322,8 +1290,8 @@
                             </div>
 
                             <div class="col-md-8">
-                                <input type="text" class="form-control" id="ppnb_hasil" name="ppnbmPajak" readonly
-                                    style="border: 1px solid #313131;">
+                                <input type="text" class="form-control" id="ppnb_hasil" name="ppnbmPajak"
+                                    readonly style="border: 1px solid #313131;">
                             </div>
                         </div>
                     </div>
@@ -1859,14 +1827,15 @@
         }
 
         // Memanggil fungsi untuk menghitung total saat halaman dimuat
-        window.onload = calculateTotal;
-    </scrip>
+        window.onload = calculateTotal; <
+        /scrip>
 
 
-    <script>
-        $('#select-field1').select2({
-            theme: 'bootstrap-5'
-        });
+        <
+        script >
+            $('#select-field1').select2({
+                theme: 'bootstrap-5'
+            });
     </script>
     <script>
         $('#select-field2').select2({
@@ -2078,7 +2047,28 @@
         };
     </script>
 
-    <script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    document.querySelectorAll('.pilih-btn-2').forEach(button => {
+        button.addEventListener('click', function() {
+            const row = this.closest('tr');
+            const npwp = row.getAttribute('data-npwp');
+            const nama = row.getAttribute('data-nama');
+            const alamat = row.getAttribute('data-alamat');
+
+            // Mengisi form dengan data yang dipilih
+            document.getElementById('nitku3').value = npwp;
+            document.getElementById('kodeJenisIdentitas3').value = npwp;
+            document.getElementById('namaEntitas3').value = nama;
+            document.getElementById('alamatEntitas3').value = alamat;
+
+            // Menutup modal setelah memilih data
+            document.getElementById("myModal2").style.display = "none";
+        });
+    });
+});
+</script>
+    {{-- <script>
         // Fungsi untuk mengisi form dengan data yang dipilih
         function populateForm1(kodeJenisIdentitas2, namaEntitas2, alamatEntitas2, nitku2) {
             document.getElementById('nitku2').value = nitku2;
@@ -2125,7 +2115,7 @@
                 document.getElementById("myModal").style.display = "none"; // Menutup modal setelah memilih
             });
         });
-    </script>
+    </script> --}}
 
 
     <script>
@@ -2641,177 +2631,57 @@
     </script>
 
     {{-- Fungsi MODAL DOKUMEN  --}}
-    {{-- <script>
-        // Function to open the modal when the "Tambah" button is clicked
-        document.getElementById("myBtn4").addEventListener("click", function() {
-            var nomorAju = document.getElementById("nomorAju").value;
-            var nextSeriDokumen = getNextSeriDokumen(nomorAju);
-            document.getElementById("seriDokumen").value = nextSeriDokumen;
-            document.getElementById("myModal4").style.display = "block";
-        });
+    <script>
+        let idCounter = 1; // Auto-increment ID Dokumen
+        let dokumenList = [0]; // Menyimpan index dokumen
 
-        function closeModal() {
-            document.getElementById("myModal4").style.display = "none";
-            document.getElementById("seriDokumen").value = "";
-            document.getElementById("select-field4").value = "";
-            document.getElementById("kodeDokumen").value = "";
-            document.getElementById("tanggalDokumen").value = "";
-            document.getElementById("editIndex").value = "";
+        // Buka modal tanpa perlu memanggil tambahDokumen() lagi
+        function openModal() {
+            document.getElementById('myModal4').style.display = 'block';
         }
 
-        // Function to get the next seriDokumen number
-        function getNextSeriDokumen(nomorAju) {
-            let storedData = JSON.parse(localStorage.getItem(nomorAju)) || [];
-            return storedData.length + 1;
-        }
+        // Simpan dokumen ke dalam tabel
+        function simpanDokumen() {
+            let dokumenTableBody = document.getElementById("dokumenTableBody");
+            dokumenList.forEach(index => {
+                let idDokumen = document.getElementById(idDokumen${index}).value;
+                let kodeDokumen = document.getElementById(kodeDokumen${index}).value;
+                let nomorDokumen = document.getElementById(nomorDokumen${index}).value;
+                let seriDokumen = document.getElementById(seriDokumen${index}).value;
+                let tanggalDokumen = document.getElementById(tanggalDokumen${index}).value;
 
-        // Function to save data to localStorage
-        function saveToLocalStorage(nomorAju, data) {
-            let storedData = JSON.parse(localStorage.getItem(nomorAju)) || [];
-            storedData.push(data);
-            localStorage.setItem(nomorAju, JSON.stringify(storedData));
-        }
-
-        // Function to render the table from stored data
-        function renderTable(nomorAju) {
-            let storedData = JSON.parse(localStorage.getItem(nomorAju)) || [];
-            let tableBody = document.querySelector("#Table tbody");
-            tableBody.innerHTML = "";
-
-            storedData.forEach((item, index) => {
-                let newRow = document.createElement("tr");
-                newRow.innerHTML = `
-                    <td>${item.seriDokumen}</td>
-                    <td>${item.jenisDokumen}</td>
-                    <td>${item.kodeDokumen}</td>
-                    <td>${item.tanggalDokumen}</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>-</td>
-                    <td>
-                        <button class="btn btn-edit" data-index="${index}">
-                            <i class="fa fa-edit"></i>
-                        </button>
-                        <button class="btn btn-delete" data-index="${index}">
-                            <i class="fa fa-trash"></i>
-                        </button>
-                    </td>
-                `;
-                tableBody.appendChild(newRow);
-            });
-
-            // Adding event listeners for edit and delete buttons
-            document.querySelectorAll(".btn-edit").forEach(button => {
-                button.addEventListener("click", function(event) {
-                    event.preventDefault(); // Prevent page refresh or default behavior
-                    editData(nomorAju, this.getAttribute("data-index"));
-                });
-            });
-
-            document.querySelectorAll(".btn-delete").forEach(button => {
-                button.addEventListener("click", function() {
-                    deleteData(nomorAju, this.getAttribute("data-index"));
-                });
-            });
-        }
-
-        // Function to open the edit modal and populate it with existing data
-        function editData(nomorAju, index) {
-            let storedData = JSON.parse(localStorage.getItem(nomorAju)) || [];
-            let dataToEdit = storedData[index];
-
-            if (dataToEdit) {
-                // Isi form modal dengan data yang akan diedit
-                document.getElementById("seriDokumen").value = dataToEdit.seriDokumen;
-                document.getElementById("select-field4").value = dataToEdit.jenisDokumen;
-                document.getElementById("kodeDokumen").value = dataToEdit.kodeDokumen;
-                document.getElementById("tanggalDokumen").value = dataToEdit.tanggalDokumen;
-
-                // Simpan indeks data yang sedang diedit
-                document.getElementById("editIndex").value = index;
-
-                // Tampilkan modal
-                document.getElementById("myModal4").style.display = "block";
-            } else {
-                alert("Data tidak ditemukan!");
-            }
-        }
-
-        // Function to delete data
-        function deleteData(nomorAju, index) {
-            let storedData = JSON.parse(localStorage.getItem(nomorAju)) || [];
-            storedData.splice(index, 1);
-
-            // Reassign seriDokumen to maintain sequential order
-            storedData.forEach((item, idx) => {
-                item.seriDokumen = idx + 1;
-            });
-
-            localStorage.setItem(nomorAju, JSON.stringify(storedData));
-            renderTable(nomorAju);
-        }
-
-        document.querySelector(".btn-save").addEventListener("click", function() {
-            var nomorAju = document.getElementById("nomorAju").value;
-            var seriDokumen = document.getElementById("seriDokumen").value;
-            var jenisDokumen = document.getElementById("select-field4").value;
-            var kodeDokumen = document.getElementById("kodeDokumen").value;
-            var tanggalDokumen = document.getElementById("tanggalDokumen").value;
-            var editIndex = document.getElementById("editIndex").value;
-
-            if (jenisDokumen && kodeDokumen && tanggalDokumen) {
-                let storedData = JSON.parse(localStorage.getItem(nomorAju)) || [];
-
-                if (editIndex) {
-                    // Mode edit: perbarui data yang ada
-                    storedData[editIndex] = {
-                        idDokumen: storedData[editIndex].idDokumen || null,  // Add this line if `idDokumen` is null
-                        nomorDokumen: nomorAju,  // Use nomorAju as the document number
-                        seriDokumen,
-                        jenisDokumen,
-                        kodeDokumen,
-                        tanggalDokumen
-                    };
-                } else {
-                    // Mode tambah: tambahkan data baru
-                    seriDokumen = getNextSeriDokumen(nomorAju);
-                    storedData.push({
-                        idDokumen: null,
-                        nomorDokumen: nomorAju,
-                        seriDokumen,
-                        jenisDokumen,
-                        kodeDokumen,
-                        tanggalDokumen
-                    });
+                if (!idDokumen || !kodeDokumen || !nomorDokumen || !seriDokumen || !tanggalDokumen) {
+                    alert("Semua field harus diisi!");
+                    return;
                 }
 
-                // Simpan data ke localStorage
-                localStorage.setItem(nomorAju, JSON.stringify(storedData));
+                let newRow = `<tr>
+                    <td>${idDokumen}</td>
+                    <td>${kodeDokumen}</td>
+                    <td>${nomorDokumen}</td>
+                    <td>${seriDokumen}</td>
+                    <td>${tanggalDokumen}</td>
+                    <td><button class='btn btn-danger' onclick='hapusBaris(this)'>Hapus</button></td>
+                </tr>`;
 
-                // Render ulang tabel
-                renderTable(nomorAju);
+                dokumenTableBody.innerHTML += newRow;
+            });
 
-                // Tutup modal
-                closeModal();
+            dokumenList = [];
+            closeModal();
+        }
 
-                // Reset form dan indeks edit
-                document.getElementById("seriDokumen").value = "";
-                document.getElementById("select-field4").value = "";
-                document.getElementById("kodeDokumen").value = "";
-                document.getElementById("tanggalDokumen").value = "";
-                document.getElementById("editIndex").value = "";
-            } else {
-                alert("Harap isi semua field!");
-            }
-        });
+        // Tutup modal
+        function closeModal() {
+            document.getElementById('myModal4').style.display = 'none';
+        }
 
-        // Load data and render table when the page loads
-        window.addEventListener("load", function() {
-            var nomorAju = document.getElementById("nomorAju").value;
-            renderTable(nomorAju);
-        });
-    </script> --}}
+        // Hapus baris dari tabel
+        function hapusBaris(button) {
+            let row = button.parentElement.parentElement;
+            row.parentElement.removeChild(row);
+        }
+    </script>
 
 
     {{-- Fungsi MODAL PETI --}}
