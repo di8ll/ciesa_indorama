@@ -173,8 +173,6 @@
                                                     name="hargaPenyerahan" value="{{ old('hargaPenyerahan',148358277.72) }}" step="any" >
                                             </div> --}}
 
-
-
                                             <div class="col-md-4 ">
                                                 <label for="nomorAju" class="form-label">Nomor Pengajuan</label>
                                                 <input type="text" class="form-control" id="nomorAju"
@@ -430,171 +428,40 @@
                                                 </div>
                                             </div>
 
-                                            <!-- Modal -->
-                                            <div id="myModal" class="modal" data-backdrop="static"
-                                                data-keyboard="false">
-                                                <!-- Konten Modal -->
+                                            <!-- Modal Penerima Barang -->
+                                            <div id="myModal2" class="modal" data-backdrop="static"
+                                                data-keyboard="false" style="display: none;">
                                                 <div class="modal-content">
                                                     <center>
                                                         <h5 class="modal-title">Data Referensi Pengusaha</h5>
                                                     </center>
-                                                    <span class="close" onclick="closeModal8()">&times;</span>
+                                                    <span class="close" onclick="closeModal9()">&times;</span>
                                                     <form class="modal-form">
-                                                        <table id="dataTable1" class="display">
+                                                        <table id="dataTable2" class="display">
                                                             <thead>
                                                                 <tr>
                                                                     <th>NPWP</th>
                                                                     <th>Nama</th>
                                                                     <th>Alamat</th>
+                                                                    <th>Negara</th>
                                                                     <th>Action</th>
                                                                 </tr>
                                                             </thead>
                                                             <tbody>
-                                                                <tr data-npwp="010016806054000"
-                                                                    data-nama="INDO-RAMA SYNTHETICS TBK"
-                                                                    data-nitku="0010016806054000000000"
-                                                                    data-alamat="JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101">
-                                                                    <td>010016806054000</td>
-                                                                    <td>INDO-RAMA SYNTHETICS TBK</td>
-                                                                    <td>JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN
-                                                                        JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT
-                                                                        41101</td>
-                                                                    <td><button type="button"
-                                                                            class="pilih-btn-1">Pilih</button></td>
-                                                                </tr>
-                                                                <tr data-npwp2="010016806054000"
-                                                                    data-nama2="INDO-RAMA SYNTHETICS TBK"
-                                                                    data-nitku2="0010016806054000000000"
-                                                                    data-alamat2="JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101">
-                                                                    <td>010016806054000</td>
-                                                                    <td>INDO-RAMA SYNTHETICS TBK</td>
-                                                                    <td>JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN
-                                                                        JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT
-                                                                        41101</td>
-                                                                    <td><button type="button"
-                                                                            class="pilih-btn-1">Pilih</button></td>
-                                                                </tr>
-                                                                </tr>
-                                                                <tr data-npwp3="010016806054000"
-                                                                    data-nama3="INDO-RAMA SYNTHETICS TBK"
-                                                                    data-nitku3="0010016806054000000000"
-                                                                    data-alamat3="JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101">
-                                                                    <td>010016806054000</td>
-                                                                    <td>INDO-RAMA SYNTHETICS TBK</td>
-                                                                    <td>JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN
-                                                                        JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT
-                                                                        41101</td>
-                                                                    <td><button type="button"
-                                                                            class="pilih-btn-1">Pilih</button></td>
-                                                                </tr>
-                                                                <tr data-npwp4="010016806054000"
-                                                                    data-nama2="INDO-RAMA SYNTHETICS TBK"
-                                                                    data-nitku4="0010016806054000000000"
-                                                                    data-alamat4="JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101">
-                                                                    <td>010016806054000</td>
-                                                                    <td>INDO-RAMA SYNTHETICS TBK</td>
-                                                                    <td>JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN
-                                                                        JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT
-                                                                        41101</td>
-                                                                    <td><button type="button"
-                                                                            class="pilih-btn-1">Pilih</button></td>
-                                                                </tr>
-                                                                <tr data-npwp5="010016806054000"
-                                                                    data-nama2="INDO-RAMA SYNTHETICS TBK"
-                                                                    data-nitku5="0010016806054000000000"
-                                                                    data-alamat5="JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101">
-                                                                    <td>010016806054000</td>
-                                                                    <td>INDO-RAMA SYNTHETICS TBK</td>
-                                                                    <td>JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN
-                                                                        JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT
-                                                                        41101</td>
-                                                                    <td><button type="button"
-                                                                            class="pilih-btn-1">Pilih</button></td>
-                                                                </tr>
-                                                                <tr data-npwp6="010016806054000"
-                                                                    data-nama6="INDO-RAMA SYNTHETICS TBK"
-                                                                    data-nitku6="0010016806054000000000"
-                                                                    data-alamat6="JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101">
-                                                                    <td>010016806054000</td>
-                                                                    <td>INDO-RAMA SYNTHETICS TBK</td>
-                                                                    <td>JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN
-                                                                        JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT
-                                                                        41101</td>
-                                                                    <td><button type="button"
-                                                                            class="pilih-btn-1">Pilih</button></td>
-                                                                </tr>
-                                                                <tr data-npwp7="010016806054000"
-                                                                    data-nama7="INDO-RAMA SYNTHETICS TBK"
-                                                                    data-nitku7="0010016806054000000000"
-                                                                    data-alamat7="JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101">
-                                                                    <td>010016806054000</td>
-                                                                    <td>INDO-RAMA SYNTHETICS TBK</td>
-                                                                    <td>JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN
-                                                                        JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT
-                                                                        41101</td>
-                                                                    <td><button type="button"
-                                                                            class="pilih-btn-1">Pilih</button></td>
-                                                                </tr>
-                                                                <tr data-npwp8="010016806054000"
-                                                                    data-nama2="INDO-RAMA SYNTHETICS TBK"
-                                                                    data-nitku8="0010016806054000000000"
-                                                                    data-alamat8="JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101">
-                                                                    <td>010016806054000</td>
-                                                                    <td>INDO-RAMA SYNTHETICS TBK</td>
-                                                                    <td>JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN
-                                                                        JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT
-                                                                        41101</td>
-                                                                    <td><button type="button"
-                                                                            class="pilih-btn-1">Pilih</button></td>
-                                                                </tr>
-                                                                <tr data-npwp9="010016806054000"
-                                                                    data-nama9="INDO-RAMA SYNTHETICS TBK"
-                                                                    data-nitku9="0010016806054000000000"
-                                                                    data-alamat9="JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101">
-                                                                    <td>010016806054000</td>
-                                                                    <td>INDO-RAMA SYNTHETICS TBK</td>
-                                                                    <td>JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN
-                                                                        JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT
-                                                                        41101</td>
-                                                                    <td><button type="button"
-                                                                            class="pilih-btn-1">Pilih</button></td>
-                                                                </tr>
-                                                                <tr data-npwp10="010016806054000"
-                                                                    data-nama10="INDO-RAMA SYNTHETICS TBK"
-                                                                    data-nitku10="0010016806054000000000"
-                                                                    data-alamat10="JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101">
-                                                                    <td>010016806054000</td>
-                                                                    <td>INDO-RAMA SYNTHETICS TBK</td>
-                                                                    <td>JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN
-                                                                        JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT
-                                                                        41101</td>
-                                                                    <td><button type="button"
-                                                                            class="pilih-btn-1">Pilih</button></td>
-                                                                </tr>
-                                                                <tr data-npwp11="010016806054000"
-                                                                    data-nama11="INDO-RAMA SYNTHETICS TBK"
-                                                                    data-nitku11="0010016806054000000000"
-                                                                    data-alamat11="JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101">
-                                                                    <td>010016806054000</td>
-                                                                    <td>INDO-RAMA SYNTHETICS TBK</td>
-                                                                    <td>JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN
-                                                                        JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT
-                                                                        41101</td>
-                                                                    <td><button type="button"
-                                                                            class="pilih-btn-1">Pilih</button></td>
-                                                                </tr>
-                                                                <tr data-npwp12="010016806054000"
-                                                                    data-nama12="INDO-RAMA SYNTHETICS TBK"
-                                                                    data-nitku12="0010016806054000000000"
-                                                                    data-alamat12="JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT 41101">
-                                                                    <td>010016806054000</td>
-                                                                    <td>INDO-RAMA SYNTHETICS TBK</td>
-                                                                    <td>JALAN RAYA UBRUG, DESA KEMBANG KUNING, KECAMATAN
-                                                                        JATILUHUR, PO BOX 2 & 7, PURWAKARTA, JAWA BARAT
-                                                                        41101</td>
-                                                                    <td><button type="button"
-                                                                            class="pilih-btn-1">Pilih</button></td>
-                                                                </tr>
+                                                                @foreach ($penerimaPajak as $data)
+                                                                    <tr data-npwp="{{ $data->npwp }}"
+                                                                        data-nama="{{ $data->Nama }}"
+                                                                        data-alamat="{{ $data->Alamat }}">
+                                                                        <td>{{ $data->npwp }}</td>
+                                                                        <td>{{ $data->Nama }}</td>
+                                                                        <td>{{ $data->Alamat }}</td>
+                                                                        <td>-</td>
+                                                                        <td>
+                                                                            <button type="button"
+                                                                                class="pilih-btn-2">Pilih</button>
+                                                                        </td>
+                                                                    </tr>
+                                                                @endforeach
                                                             </tbody>
                                                         </table>
                                                     </form>
@@ -683,256 +550,241 @@
                                                 </div>
                                             </div>
 
-                                           <!-- Modal -->
-                                        <div id="myModal2" class="modal" data-backdrop="static" data-keyboard="false" style="display: none;">
-                                            <div class="modal-content">
-                                                <center>
-                                                    <h5 class="modal-title">Data Referensi Pengusaha</h5>
-                                                </center>
-                                                <span class="close" onclick="closeModal9()">&times;</span>
-                                                <form class="modal-form">
-                                                    <table id="dataTable2" class="display">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>NPWP</th>
-                                                                <th>Nama</th>
-                                                                <th>Alamat</th>
-                                                                <th>Negara</th>
-                                                                <th>Action</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            @foreach($penerimaPajak as $data)
-                                                            <tr data-npwp="{{ $data->npwp }}" data-nama="{{ $data->Nama }}" data-alamat="{{ $data->Alamat }}">
-                                                                <td>{{ $data->npwp }}</td>
-                                                                <td>{{ $data->Nama }}</td>
-                                                                <td>{{ $data->Alamat }}</td>
-                                                                <td>-</td>
-                                                                <td>
-                                                                    <button type="button" class="pilih-btn-2">Pilih</button>
-                                                                </td>
-                                                            </tr>
-                                                            @endforeach
-                                                        </tbody>
-                                                    </table>
-                                                </form>
+                                            <!-- Modal Pemilik Barang -->
+                                            <div id="myModal" class="modal" data-backdrop="static"
+                                                data-keyboard="false">
+                                                <div class="modal-content">
+                                                    <center>
+                                                        <h5 class="modal-title">Data Referensi Pengusaha</h5>
+                                                    </center>
+                                                    <span class="close" onclick="closeModal8()">&times;</span>
+                                                    <form class="modal-form">
+                                                        <table id="dataTable1" class="display">
+                                                            <thead>
+                                                                <tr>
+                                                                    <th>NPWP</th>
+                                                                    <th>Nama</th>
+                                                                    <th>Alamat</th>
+                                                                    <th>Action</th>
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                @foreach ($pemilikbarang as $data)
+                                                                    <tr data-npwp="{{ $data->npwp }}"
+                                                                        data-nama="{{ $data->Nama }}"
+                                                                        data-alamat="{{ $data->Alamat }}">
+                                                                        <td>{{ $data->npwp }}</td>
+                                                                        <td>{{ $data->Nama }}</td>
+                                                                        <td>{{ $data->Alamat }}</td>
+                                                                        <td>
+                                                                            <button type="button"
+                                                                                class="pilih-btn-1">Pilih</button>
+                                                                        </td>
+                                                                    </tr>
+                                                                @endforeach
+                                                            </tbody>
+                                                        </table>
+                                                    </form>
+                                                </div>
                                             </div>
-                                        </div>
+
                                         </div>
                                     </div>
 
                                     <script>
-                                    function closeModal9() {
-                                        document.getElementById("myModal2").style.display = "none";
-                                    }</script>
-{{-- Dokumen --}}
-<div class="tab-pane fade" id="dokumen" role="tabpanel" aria-labelledby="dokumen-tab">
-    <div class="row">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <header>
-                            <div class="right_content">
-                                <div class="col-lg-12 text-start mb-6">
-                                    <button type="button" class="btn btn-primary mb-3" id="myBtn4" onclick="openModal()">
-                                        <span data-feather="plus"></span>Tambah
-                                    </button>
-                                </div>
-                            </div>
-                        </header>
-                        <div class="card-body" id="tableContainer">
-                            <div class="table-responsive">
-                                <table class="table" id="dokumenTable">
-                                    <thead>
-                                        <tr>
-                                            <th>ID Dokumen</th>
-                                            <th>Kode Dokumen</th>
-                                            <th>Nomor Dokumen</th>
-                                            <th>Seri Dokumen</th>
-                                            <th>Tanggal Dokumen</th>
-                                            <th>Aksi</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="dokumenTableBody">
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+                                        function closeModal9() {
+                                            document.getElementById("myModal2").style.display = "none";
+                                        }
+                                    </script>
 
-<div id="myModal4" class="modal" data-backdrop="static" data-keyboard="false" style="display: none;">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <div class="modal-form">
-            <div id="dokumenContainer"></div>
-            <div class="button-group">
-                <button type="button" class="btn btn-primary" onclick="tambahDokumen()">Tambah</button>
-                <button type="button" class="btn-cancel" onclick="closeModal()">Batal</button>
-            </div>
-        </div>
-    </div>
-</div>
+                                    {{-- Dokumen --}}
+                                    <div class="tab-pane fade" id="dokumen" role="tabpanel" aria-labelledby="dokumen-tab">
+                                        <div class="row">
+                                            <div class="container-fluid">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="card">
+                                                            <header>
+                                                                <div class="right_content">
+                                                                    <div class="col-lg-12 text-start mb-6">
+                                                                        <button type="button" class="btn btn-primary mb-3" id="myBtn4" onclick="openModal()">
+                                                                            <span data-feather="plus"></span>Tambah
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </header>
+                                                            <div class="card-body" id="tableContainer">
+                                                                <div class="table-responsive">
+                                                                    <table class="table" id="dokumenTable">
+                                                                        <thead>
+                                                                            <tr>
+                                                                                <th>ID Dokumen</th>
+                                                                                <th>Kode Dokumen</th>
+                                                                                <th>Nomor Dokumen</th>
+                                                                                <th>Seri Dokumen</th>
+                                                                                <th>Tanggal Dokumen</th>
+                                                                                <th>Aksi</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody id="dokumenTableBody">
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
-<script>
-    let dokumenList = JSON.parse(localStorage.getItem('dokumenList')) || [];
+                                    <div id="myModal4" class="modal" data-backdrop="static" data-keyboard="false" style="display: none;">
+                                        <div class="modal-content">
+                                            <span class="close" onclick="closeModal()">&times;</span>
+                                            <div class="modal-form">
+                                                <div id="dokumenContainer"></div>
+                                                <div class="button-group">
+                                                    <button type="button" class="btn btn-primary" onclick="tambahDokumen()">Tambah</button>
+                                                    <button type="button" class="btn-cancel" onclick="closeModal()">Batal</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
-    // Initialize the table with saved data
-    function initializeTable() {
-        let dokumenTableBody = document.getElementById("dokumenTableBody");
-        dokumenTableBody.innerHTML = "";
-        dokumenList.forEach((dokumen, index) => {
-            let newRow = `<tr>
-                <td>${dokumen.idDokumen}</td>
-                <td>${dokumen.kodeDokumen}</td>
-                <td>${dokumen.nomorDokumen}</td>
-                <td>${dokumen.seriDokumen}</td>
-                <td>${dokumen.tanggalDokumen}</td>
-                <td><button class='btn btn-danger' onclick='hapusBaris(${index})'>Hapus</button></td>
-            </tr>`;
-            dokumenTableBody.innerHTML += newRow;
-        });
-    }
+                                    <script>
+                                        let dokumenList = JSON.parse(localStorage.getItem('dokumenList')) || [];
 
-    // Open modal and automatically add a form to it
-    function openModal() {
-        document.getElementById('myModal4').style.display = 'block';
-        tambahDokumen();  // Automatically load the form when the modal is opened
-    }
+                                        // Initialize the table with saved data
+                                        function initializeTable() {
+                                            let dokumenTableBody = document.getElementById("dokumenTableBody");
+                                            dokumenTableBody.innerHTML = "";
+                                            dokumenList.forEach((dokumen, index) => {
+                                                let newRow = `<tr>
+                                                    <td>${dokumen.idDokumen}</td>
+                                                    <td>${dokumen.kodeDokumen}</td>
+                                                    <td>${dokumen.nomorDokumen}</td>
+                                                    <td>${dokumen.seriDokumen}</td>
+                                                    <td>${dokumen.tanggalDokumen}</td>
+                                                    <td><button class='btn btn-danger' onclick='hapusBaris(${index})'>Hapus</button></td>
+                                                </tr>`;
+                                                dokumenTableBody.innerHTML += newRow;
+                                            });
+                                        }
 
-    // Add new document form
-    function tambahDokumen() {
-        let index = dokumenList.length;
-        let dokumenContainer = document.getElementById('dokumenContainer');
-        let dokumenForm = document.createElement('div');
-        dokumenForm.classList.add('dokumen-form');
-        dokumenForm.setAttribute('id', 'dokumenForm' + index);  // Unique ID for the form
-        dokumenForm.innerHTML = `
-            <div class="col-md-12">
-                <label for="dokumen[${index}][idDokumen]" class="form-label">ID Dokumen</label>
-                <input type="text" class="form-control border-primary" value="${index + 1}" name="dokumen[${index}][idDokumen]" id="idDokumen${index}" readonly>
-            </div>
-            <div class="col-md-12">
-                <label for="dokumen[${index}][kodeDokumen]" class="form-label">Kode Dokumen</label>
-                <input type="text" class="form-control border-primary" name="dokumen[${index}][kodeDokumen]" id="kodeDokumen${index}">
-            </div>
-            <div class="col-md-12">
-                <label for="dokumen[${index}][nomorDokumen]" class="form-label">Nomor Dokumen</label>
-                <input type="text" class="form-control border-primary" name="dokumen[${index}][nomorDokumen]" id="nomorDokumen${index}">
-            </div>
-            <div class="col-md-12">
-                <label for="dokumen[${index}][seriDokumen]" class="form-label">Seri Dokumen</label>
-                <input type="text" class="form-control border-primary" name="dokumen[${index}][seriDokumen]" id="seriDokumen${index}">
-            </div>
-            <div class="col-md-12">
-                <label for="dokumen[${index}][tanggalDokumen]" class="form-label">Tanggal Dokumen</label>
-                <input type="date" class="form-control border-primary" name="dokumen[${index}][tanggalDokumen]" id="tanggalDokumen${index}">
-            </div>
-            <button type="button" class="btn btn-primary" onclick="simpanDokumenIndividual(${index})">Simpan</button>
-            <button type="button" class="btn btn-danger" onclick="hapusDokumen(this, ${index})">Hapus</button>
-            <hr>
-        `;
-        dokumenContainer.appendChild(dokumenForm);
-    }
+                                        // Open modal and automatically add a form to it
+                                        function openModal() {
+                                            document.getElementById('myModal4').style.display = 'block';
+                                            tambahDokumen(); // Automatically load the form when the modal is opened
+                                        }
 
-    // Save individual document data to the table
-    function simpanDokumenIndividual(index) {
-        let idDokumen = document.getElementById(`idDokumen${index}`).value;
-        let kodeDokumen = document.getElementById(`kodeDokumen${index}`).value;
-        let nomorDokumen = document.getElementById(`nomorDokumen${index}`).value;
-        let seriDokumen = document.getElementById(`seriDokumen${index}`).value;
-        let tanggalDokumen = document.getElementById(`tanggalDokumen${index}`).value;
+                                        // Add new document form
+                                        function tambahDokumen() {
+                                            let index = dokumenList.length;
+                                            let dokumenContainer = document.getElementById('dokumenContainer');
+                                            let dokumenForm = document.createElement('div');
+                                            dokumenForm.classList.add('dokumen-form');
+                                            dokumenForm.setAttribute('id', 'dokumenForm' + index); // Unique ID for the form
+                                            dokumenForm.innerHTML = `
+                                                <div class="col-md-12">
+                                                    <label for="dokumen[${index}][idDokumen]" class="form-label">ID Dokumen</label>
+                                                    <input type="text" class="form-control border-primary" value="${index + 1}" name="dokumen[${index}][idDokumen]" id="idDokumen${index}" readonly>
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <label for="dokumen[${index}][kodeDokumen]" class="form-label">Kode Dokumen</label>
+                                                    <input type="text" class="form-control border-primary" name="dokumen[${index}][kodeDokumen]" id="kodeDokumen${index}">
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <label for="dokumen[${index}][nomorDokumen]" class="form-label">Nomor Dokumen</label>
+                                                    <input type="text" class="form-control border-primary" name="dokumen[${index}][nomorDokumen]" id="nomorDokumen${index}">
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <label for="dokumen[${index}][seriDokumen]" class="form-label">Seri Dokumen</label>
+                                                    <input type="text" class="form-control border-primary" name="dokumen[${index}][seriDokumen]" id="seriDokumen${index}">
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <label for="dokumen[${index}][tanggalDokumen]" class="form-label">Tanggal Dokumen</label>
+                                                    <input type="date" class="form-control border-primary" name="dokumen[${index}][tanggalDokumen]" id="tanggalDokumen${index}">
+                                                </div>
+                                                <div class="col-md-12">
+                                                    <label for="dokumen[${index}][noAju]" class="form-label">No Aju</label>
+                                                    <input type="text" class="form-control border-primary" name="dokumen[${index}][noAju]" id="noAju${index}">
+                                                </div>
+                                                <button type="button" class="btn btn-primary" onclick="simpanDokumenIndividual(${index})">Simpan</button>
+                                                <button type="button" class="btn btn-danger" onclick="hapusDokumen(this, ${index})">Hapus</button>
+                                                <hr>
+                                            `;
+                                            dokumenContainer.appendChild(dokumenForm);
+                                        }
 
-        if (!idDokumen || !kodeDokumen || !nomorDokumen || !seriDokumen || !tanggalDokumen) {
-            alert("Semua field harus diisi!");
-            return;
-        }
+                                        // Save individual document data to the table
+                                        function simpanDokumenIndividual(index) {
+                                            let idDokumen = document.getElementById(`idDokumen${index}`).value;
+                                            let kodeDokumen = document.getElementById(`kodeDokumen${index}`).value;
+                                            let nomorDokumen = document.getElementById(`nomorDokumen${index}`).value;
+                                            let seriDokumen = document.getElementById(`seriDokumen${index}`).value;
+                                            let tanggalDokumen = document.getElementById(`tanggalDokumen${index}`).value;
+                                            let noAju = document.getElementById(`noAju${index}`).value;
 
-        // Save document to dokumenList
-        dokumenList.push({ idDokumen: parseInt(idDokumen), kodeDokumen, nomorDokumen, seriDokumen, tanggalDokumen });
-        localStorage.setItem('dokumenList', JSON.stringify(dokumenList));  // Save to localStorage
-
-        initializeTable();  // Update table with the new data
-
-        // Hide the form after saving
-        document.getElementById('dokumenForm' + index).style.display = 'none';
-    }
-
-    // Delete a document form
-    function hapusDokumen(button, index) {
-        let dokumenContainer = document.getElementById('dokumenContainer');
-        dokumenContainer.removeChild(button.parentElement);
-        dokumenList.splice(index, 1);  // Remove from dokumenList
-        localStorage.setItem('dokumenList', JSON.stringify(dokumenList));  // Save to localStorage
-        initializeTable();  // Update table with the new data
-    }
-
-    // Delete a row from the table
-    function hapusBaris(index) {
-        dokumenList.splice(index, 1);  // Remove from dokumenList
-        localStorage.setItem('dokumenList', JSON.stringify(dokumenList));  // Save to localStorage
-        initializeTable();  // Update table with the new data
-    }
-
-    // Close the modal
-    function closeModal() {
-        document.getElementById('myModal4').style.display = 'none';
-    }
-
-    // Initialize table on page load
-    window.onload = function() {
-        initializeTable();
-    }
-</script>
-
-
-
-                                            <script>
-                                                // Function to close the modal
-                                                function closeModal() {
-                                                    document.getElementById("myModal4").style.display = "none";
-                                                }
-
-                                                // Optionally, you can show the modal like this:
-                                                // function openModal() {
-                                                //     document.getElementById("myModal4").style.display = "block";
-                                                // }
-                                            </script>
-                                        <script>
-                                            // Function to close the modal
-                                            function closeModal() {
-                                                document.getElementById("myModal4").style.display = "none";
+                                            if (!idDokumen || !kodeDokumen || !nomorDokumen || !seriDokumen || !tanggalDokumen || !noAju) {
+                                                alert("Semua field harus diisi!");
+                                                return;
                                             }
 
-                                            // Optionally, you can show the modal like this:
-                                            // function openModal() {
-                                            //     document.getElementById("myModal4").style.display = "block";
-                                            // }
-                                        </script>
+                                            // Save document to dokumenList
+                                            dokumenList.push({
+                                                idDokumen: parseInt(idDokumen),
+                                                kodeDokumen,
+                                                nomorDokumen,
+                                                seriDokumen,
+                                                tanggalDokumen,
+                                                noAju // Store No Aju value
+                                            });
+                                            localStorage.setItem('dokumenList', JSON.stringify(dokumenList)); // Save to localStorage
 
+                                            initializeTable(); // Update table with the new data
+
+                                            // Hide the form after saving
+                                            document.getElementById('dokumenForm' + index).style.display = 'none';
+                                        }
+
+                                        // Delete a document form
+                                        function hapusDokumen(button, index) {
+                                            let dokumenContainer = document.getElementById('dokumenContainer');
+                                            dokumenContainer.removeChild(button.parentElement);
+                                            dokumenList.splice(index, 1); // Remove from dokumenList
+                                            localStorage.setItem('dokumenList', JSON.stringify(dokumenList)); // Save to localStorage
+                                            initializeTable(); // Update table with the new data
+                                        }
+
+                                        // Delete a row from the table
+                                        function hapusBaris(index) {
+                                            dokumenList.splice(index, 1); // Remove from dokumenList
+                                            localStorage.setItem('dokumenList', JSON.stringify(dokumenList)); // Save to localStorage
+                                            initializeTable(); // Update table with the new data
+                                        }
+
+                                        // Close the modal
+                                        function closeModal() {
+                                            document.getElementById('myModal4').style.display = 'none';
+                                        }
+
+                                        // Initialize table on page load
+                                        window.onload = function() {
+                                            initializeTable();
+                                        }
+                                    </script>
 
                                     {{-- Pengangkut --}}
                                     <div class="tab-pane fade" id="pengangkut" role="tabpanel"
                                         aria-labelledby="pengangkut-tab">
                                         <div class="row">
-                                            {{-- <div class="col-md-12 ">
-                                                <label for="kodeCaraAngkut" class="form-label">Cara Pengangkutan</label>
-                                                <input type="text" class="form-control" id="kodeCaraAngkut"
-                                                    name="kodeCaraAngkut"
-                                                    value="{{ old('kodeCaraAngkut', '3 - Darat') }}"
-                                                    style="border: 1px solid #313131;">
-                                            </div> --}}
                                             <div class="col-md-12">
                                                 <label for="kodeJenisTpb" class="form-label">Cara Pengangkutan</label>
                                                 <select class="form-control" id="select-field20"
                                                     name="pengangkut[0][kodeCaraAngkut]">
-                                                    <option value="3 - DARAT" selected>3 - DARAT</option>
                                                     <option value="1 - LAUT" selected>1 - LAUT</option>
+                                                    <option value="2 - KERETA API" selected>2 - KERETA API</option>
+                                                    <option value="3 - DARAT" selected>3 - DARAT</option>
                                                     <option value="4 - UDARA">4 - UDARA</option>
                                                     <option value="5 - POS">5 - POS</option>
                                                     <option value="6 - MULTIMODA">6 - MULTIMODA</option>
@@ -974,14 +826,9 @@
                                                                 <div class="right_content">
                                                                     <div class="col-lg-12 text-start mb-6">
                                                                         <button type="button"
-                                                                            class="btn btn-primary mb-3"
-                                                                            id="myBtn5"><span
+                                                                            class="btn btn-primary mb-3" id="myBtn5"><span
                                                                                 data-feather="plus"></span>Tambah
                                                                             Kemasan</button>
-                                                                        {{-- <button class="btn btn-primary mb-3" id="myBtn4">
-                                                                        <span data-feather="plus"></span>
-                                                                        Tambah
-                                                                    </button> --}}
                                                                     </div>
                                                                 </div>
                                                             </header>
@@ -1007,83 +854,30 @@
                                                                                     Action</th>
                                                                             </tr>
                                                                         </thead>
-                                                                        <tbody>
-                                                                            <!-- Isi tabel akan ditambahkan di sini -->
+                                                                        <tbody id="dokumenTableBody2">
                                                                         </tbody>
                                                                     </table>
                                                                 </div>
                                                             </div>
                                                         </div>
 
-                                                        <!-- Modal -->
-                                                        <div id="myModal5" class="modal" data-backdrop="static"
-                                                            data-keyboard="false" style="display: none;">
-                                                            <div class="modal-content">
-                                                                <span class="close">&times;</span>
-                                                                <div class="modal-form">
-                                                                    <input type="hidden" id="editIndex2" value="">
-                                                                    <label for="nama">Seri</label>
-                                                                    <input type="text" class="form-control"
-                                                                        id="seriDokumen2" name="seriDokumen2"
-                                                                        value="{{ old('seriDokumen2') }}" readonly>
+                                                <!-- Modal -->
+                                            <div id="myModal5" class="modal" data-backdrop="static" data-keyboard="false" style="display: none;">
+                                                <div class="modal-content">
+                                                    <span class="close" onclick="closeModal5()">&times;</span>
+                                                    <div class="modal-form">
+                                                        <div id="dokumenContainer"></div>
+                                                        <!-- Button Group -->
+                                                        <div class="button-group">
+                                                            <button type="button" class="btn btn-primary" onclick="tambahDokumen()">Tambah</button>
+                                                            <button type="button" class="btn btn-cancel" onclick="closeModal5()">Batal</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
 
-                                                                    <label for="usaha">Jumlah</label>
-                                                                    <input type="text" class="form-control"
-                                                                        id="jumlah" name="jumlah"
-                                                                        value="{{ old('jumlah') }}">
 
-                                                                    <div class="form-group">
-                                                                        <label for="alamat">Jenis Dokumen</label>
-                                                                        <select class="form-control" name="jenisDokumen2"
-                                                                            id="select-field5" required
-                                                                            style="border: 1px solid #313131;">
-                                                                            <option selected disabled>Pilih Jenis
-                                                                            </option>
-                                                                            <option value="1A - DRUM, STEEL"
-                                                                                {{ old('jenisDokumen2') == '1' ? 'selected' : '' }}>
-                                                                                1A - DRUM, STEEL</option>
-                                                                            <option value="1B - DRUM, ALUMUNIUM"
-                                                                                {{ old('jenisDokumen2') == '2' ? 'selected' : '' }}>
-                                                                                1B - DRUM, ALUMUNIUM</option>
-                                                                            <option value="1D - DRUM, PLYWOOD"
-                                                                                {{ old('jenisDokumen2') == '2' ? 'selected' : '' }}>
-                                                                                1D - DRUM, PLYWOOD</option>
-                                                                            <option value="1F - CONTAINER, FLEXIBLE"
-                                                                                {{ old('jenisDokumen2') == '2' ? 'selected' : '' }}>
-                                                                                1F - CONTAINER, FLEXIBLE</option>
-                                                                            <option value="1G - DRUM, FIBRE"
-                                                                                {{ old('jenisDokumen2') == '2' ? 'selected' : '' }}>
-                                                                                1G - DRUM, FIBRE</option>
-                                                                            <option value="1W - DRUM, WOODEN"
-                                                                                {{ old('jenisDokumen2') == '2' ? 'selected' : '' }}>
-                                                                                1W - DRUM, WOODEN</option>
-                                                                            <option value="2C - BARREL, WOODEN"
-                                                                                {{ old('jenis_dokumen') == '2' ? 'selected' : '' }}>
-                                                                                2C - BARREL, WOODEN</option>
-                                                                            <option value=" 3A - JERICCAN, STELL"
-                                                                                {{ old('jenis_dokumen') == '2' ? 'selected' : '' }}>
-                                                                                3A - JERICCAN, STELL</option>
-                                                                        </select>
-                                                                    </div>
-                                                                    <BR>
-                                                                    <label for="usaha">Merk</label>
-                                                                    <input type="text" class="form-control"
-                                                                        id="merk" name="merk"
-                                                                        value="{{ old('merk') }}">
-                                                                    <br>
-                                                                    <!-- Tombol Simpan & Batal -->
-                                                                    <div class="button-group">
-                                                                        <button type="button" class="btn-save"
-                                                                            id="btn-save2">Simpan</button>
-                                                                        <button type="button" class="btn btn-cancel"
-                                                                            onclick="closeModal2()">Batal</button>
-                                                                    </div>
-                                                                </div>
-                        </form>
-                    </div>
-                </div>
-
-                <div class="row">
+                {{-- <div class="row">
                     <div class="col-12">
                         <div class="card">
                             <header>
@@ -1091,10 +885,6 @@
                                     <div class="col-lg-12 text-start mb-6">
                                         <button type="button" class="btn btn-primary mb-3" id="myBtn6"><span
                                                 data-feather="plus"></span>Tambah Peti Kemasan</button>
-                                        {{-- <button class="btn btn-primary mb-3" id="myBtn4">
-                                                                                    <span data-feather="plus"></span>
-                                                                                    Tambah Peti Kemas
-                                                                                </button> --}}
                                     </div>
                                 </div>
                             </header>
@@ -1190,7 +980,7 @@
                         </div>
                     </div>
 
-                </div>
+                </div> --}}
             </div>
         </div>
     </div>
@@ -1250,8 +1040,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <label for="nomorIdentitas" class="form-label">Uang Muka</label>
-                        <input type="text" class="form-control" id="uang_maku"
-                            style="border: 1px solid #313131;">
+                        <input type="text" class="form-control" id="uang_maku" style="border: 1px solid #313131;">
                     </div>
                     <div class="col-md-6">
                         <label for="nomorNpwp" class="form-label">Diskon</label>
@@ -1290,8 +1079,8 @@
                             </div>
 
                             <div class="col-md-8">
-                                <input type="text" class="form-control" id="ppnb_hasil" name="ppnbmPajak"
-                                    readonly style="border: 1px solid #313131;">
+                                <input type="text" class="form-control" id="ppnb_hasil" name="ppnbmPajak" readonly
+                                    style="border: 1px solid #313131;">
                             </div>
                         </div>
                     </div>
@@ -1763,8 +1552,8 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <label for="ndpbm" class="form-label">Tempat</label>
-                                <input type="text" class="form-control" name="kotaTtd"
-                                    value="{{ old('kotaTtd') }}" style="border: 1px solid #313131;">
+                                <input type="text" class="form-control" name="kotaTtd" value="{{ old('kotaTtd') }}"
+                                    style="border: 1px solid #313131;">
                             </div>
                             <div class="col-md-6">
                                 <label for="cif" class="form-label">Tanggal</label>
@@ -1779,8 +1568,8 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <label for="uang_muka" class="form-label">Nama</label>
-                                <input type="text" class="form-control" name="namaTtd"
-                                    value="{{ old('namaTtd') }}" style="border: 1px solid #313131;">
+                                <input type="text" class="form-control" name="namaTtd" value="{{ old('namaTtd') }}"
+                                    style="border: 1px solid #313131;">
                             </div>
                             <div class="col-md-6">
                                 <label for="diskon" class="form-label">Jabatan</label>
@@ -2047,27 +1836,104 @@
         };
     </script>
 
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    document.querySelectorAll('.pilih-btn-2').forEach(button => {
-        button.addEventListener('click', function() {
-            const row = this.closest('tr');
-            const npwp = row.getAttribute('data-npwp');
-            const nama = row.getAttribute('data-nama');
-            const alamat = row.getAttribute('data-alamat');
 
-            // Mengisi form dengan data yang dipilih
-            document.getElementById('nitku3').value = npwp;
-            document.getElementById('kodeJenisIdentitas3').value = npwp;
-            document.getElementById('namaEntitas3').value = nama;
-            document.getElementById('alamatEntitas3').value = alamat;
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Retrieve the Nomor Pengajuan value
+            const nomorAju = document.getElementById('nomorAju').value;
 
-            // Menutup modal setelah memilih data
-            document.getElementById("myModal2").style.display = "none";
+            // Function to handle loading saved data from localStorage for Pemilik Barang
+            function loadPemilikBarangData() {
+                if (localStorage.getItem(nomorAju + '_pemilik_npwp') && localStorage.getItem(nomorAju +
+                        '_pemilik_nama') && localStorage.getItem(nomorAju + '_pemilik_alamat')) {
+                    document.getElementById('nitku2').value = localStorage.getItem(nomorAju + '_pemilik_npwp');
+                    document.getElementById('kodeJenisIdentitas2').value = localStorage.getItem(nomorAju +
+                        '_pemilik_npwp');
+                    document.getElementById('namaEntitas2').value = localStorage.getItem(nomorAju +
+                        '_pemilik_nama');
+                    document.getElementById('alamatEntitas2').value = localStorage.getItem(nomorAju +
+                        '_pemilik_alamat');
+                }
+            }
+
+            // Function to handle loading saved data from localStorage for Penerima Barang
+            function loadPenerimaBarangData() {
+                if (localStorage.getItem(nomorAju + '_penerima_npwp') && localStorage.getItem(nomorAju +
+                        '_penerima_nama') && localStorage.getItem(nomorAju + '_penerima_alamat')) {
+                    document.getElementById('nitku3').value = localStorage.getItem(nomorAju + '_penerima_npwp');
+                    document.getElementById('kodeJenisIdentitas3').value = localStorage.getItem(nomorAju +
+                        '_penerima_npwp');
+                    document.getElementById('namaEntitas3').value = localStorage.getItem(nomorAju +
+                        '_penerima_nama');
+                    document.getElementById('alamatEntitas3').value = localStorage.getItem(nomorAju +
+                        '_penerima_alamat');
+                }
+            }
+
+            // Load data for both modals when the page is ready
+            loadPemilikBarangData();
+            loadPenerimaBarangData();
+
+            // Add event listener to each "Pilih" button for Pemilik Barang
+            document.querySelectorAll('.pilih-btn-1').forEach(button => {
+                button.addEventListener('click', function() {
+                    const row = this.closest('tr');
+                    const npwp = row.getAttribute('data-npwp');
+                    const nama = row.getAttribute('data-nama');
+                    const alamat = row.getAttribute('data-alamat');
+
+                    // Save selected data for Pemilik Barang to localStorage
+                    localStorage.setItem(nomorAju + '_pemilik_npwp', npwp);
+                    localStorage.setItem(nomorAju + '_pemilik_nama', nama);
+                    localStorage.setItem(nomorAju + '_pemilik_alamat', alamat);
+
+                    // Fill the form with the selected data for Pemilik Barang
+                    document.getElementById('nitku2').value = npwp;
+                    document.getElementById('kodeJenisIdentitas2').value = npwp;
+                    document.getElementById('namaEntitas2').value = nama;
+                    document.getElementById('alamatEntitas2').value = alamat;
+
+                    // Close the modal after selecting the data
+                    document.getElementById("myModal").style.display = "none";
+                });
+            });
+
+            // Add event listener to each "Pilih" button for Penerima Barang
+            document.querySelectorAll('.pilih-btn-2').forEach(button => {
+                button.addEventListener('click', function() {
+                    const row = this.closest('tr');
+                    const npwp = row.getAttribute('data-npwp');
+                    const nama = row.getAttribute('data-nama');
+                    const alamat = row.getAttribute('data-alamat');
+
+                    // Save selected data for Penerima Barang to localStorage
+                    localStorage.setItem(nomorAju + '_penerima_npwp', npwp);
+                    localStorage.setItem(nomorAju + '_penerima_nama', nama);
+                    localStorage.setItem(nomorAju + '_penerima_alamat', alamat);
+
+                    // Fill the form with the selected data for Penerima Barang
+                    document.getElementById('nitku3').value = npwp;
+                    document.getElementById('kodeJenisIdentitas3').value = npwp;
+                    document.getElementById('namaEntitas3').value = nama;
+                    document.getElementById('alamatEntitas3').value = alamat;
+
+                    // Close the modal after selecting the data
+                    document.getElementById("myModal2").style.display = "none";
+                });
+            });
         });
-    });
-});
-</script>
+
+        // Function to close the Pemilik Barang modal
+        function closeModal8() {
+            document.getElementById("myModal").style.display = "none";
+        }
+
+        // Function to close the Penerima Barang modal
+        function closeModal9() {
+            document.getElementById("myModal2").style.display = "none";
+        }
+    </script>
+    </script>
     {{-- <script>
         // Fungsi untuk mengisi form dengan data yang dipilih
         function populateForm1(kodeJenisIdentitas2, namaEntitas2, alamatEntitas2, nitku2) {
@@ -2117,7 +1983,7 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     </script> --}}
 
-
+    {{--
     <script>
         // Fungsi untuk mengisi form dengan data yang dipilih
         function populateForm2(kodeJenisIdentitas3, namaEntitas3, alamatEntitas3, nitku3) {
@@ -2151,7 +2017,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 document.getElementById("myModal2").style.display = "none"; // Menutup modal setelah memilih
             });
         });
-    </script>
+    </script> --}}
 
     <style>
         .btn i {
@@ -2304,7 +2170,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     <script>
         $(document).ready(function() {
-            $(' #dataTable2, #dataTable3').DataTable();
+            $(' #dataTable1, #dataTable2, #dataTable3').DataTable();
         });
     </script>
 
@@ -2644,11 +2510,21 @@ document.addEventListener("DOMContentLoaded", function() {
         function simpanDokumen() {
             let dokumenTableBody = document.getElementById("dokumenTableBody");
             dokumenList.forEach(index => {
-                let idDokumen = document.getElementById(idDokumen${index}).value;
-                let kodeDokumen = document.getElementById(kodeDokumen${index}).value;
-                let nomorDokumen = document.getElementById(nomorDokumen${index}).value;
-                let seriDokumen = document.getElementById(seriDokumen${index}).value;
-                let tanggalDokumen = document.getElementById(tanggalDokumen${index}).value;
+                let idDokumen = document.getElementById(idDokumen$ {
+                    index
+                }).value;
+                let kodeDokumen = document.getElementById(kodeDokumen$ {
+                    index
+                }).value;
+                let nomorDokumen = document.getElementById(nomorDokumen$ {
+                    index
+                }).value;
+                let seriDokumen = document.getElementById(seriDokumen$ {
+                    index
+                }).value;
+                let tanggalDokumen = document.getElementById(tanggalDokumen$ {
+                    index
+                }).value;
 
                 if (!idDokumen || !kodeDokumen || !nomorDokumen || !seriDokumen || !tanggalDokumen) {
                     alert("Semua field harus diisi!");
@@ -2685,7 +2561,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
     {{-- Fungsi MODAL PETI --}}
-    <script>
+    {{-- <script>
         // Fungsi untuk membuka modal saat tombol "Tambah" diklik
         document.getElementById("myBtn5").addEventListener("click", function() {
             var nomorAju = document.getElementById("nomorAju").value;
@@ -2841,10 +2717,10 @@ document.addEventListener("DOMContentLoaded", function() {
             var nomorAju = document.getElementById("nomorAju").value;
             renderTable2(nomorAju);
         });
-    </script>
+    </script> --}}
 
     {{-- Fungsi MODAL PETI KEMASAN --}}
-    <script>
+    {{-- <script>
         // Fungsi untuk membuka modal saat tombol "Tambah" diklik
         document.getElementById("myBtn6").addEventListener("click", function() {
             var nomorAju = document.getElementById("nomorAju").value;
@@ -3008,5 +2884,5 @@ document.addEventListener("DOMContentLoaded", function() {
             var nomorAju = document.getElementById("nomorAju").value;
             renderTable3(nomorAju);
         });
-    </script>
+    </script> --}}
 @endsection

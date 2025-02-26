@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\DataPemilik;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log; // Add this import
 use Illuminate\Support\Facades\Http;
@@ -23,7 +24,9 @@ class TpbBc25Controller extends Controller
     public function create(Request $request)
     {
         $penerimaPajak = DataPenerimaPajak::all();
-        return view('dashboard.admin.dokumen.create', compact('penerimaPajak'));
+        $pemilikbarang = DataPemilik::all();
+
+        return view('dashboard.admin.dokumen.create', compact('penerimaPajak','pemilikbarang'));
     }
 
     public function store(Request $request)
