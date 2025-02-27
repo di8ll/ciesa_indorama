@@ -598,7 +598,8 @@
                                     </script>
 
                                     {{-- Dokumen --}}
-                                    <div class="tab-pane fade" id="dokumen" role="tabpanel" aria-labelledby="dokumen-tab">
+                                    <div class="tab-pane fade" id="dokumen" role="tabpanel"
+                                        aria-labelledby="dokumen-tab">
                                         <div class="row">
                                             <div class="container-fluid">
                                                 <div class="row">
@@ -607,7 +608,9 @@
                                                             <header>
                                                                 <div class="right_content">
                                                                     <div class="col-lg-12 text-start mb-6">
-                                                                        <button type="button" class="btn btn-primary mb-3" id="myBtn4" onclick="openModal()">
+                                                                        <button type="button"
+                                                                            class="btn btn-primary mb-3" id="myBtn4"
+                                                                            onclick="openModal()">
                                                                             <span data-feather="plus"></span>Tambah
                                                                         </button>
                                                                     </div>
@@ -637,15 +640,17 @@
                                             </div>
                                         </div>
                                     </div>
-
-                                    <div id="myModal4" class="modal" data-backdrop="static" data-keyboard="false" style="display: none;">
+                                    <div id="myModal4" class="modal" data-backdrop="static" data-keyboard="false"
+                                        style="display: none;">
                                         <div class="modal-content">
                                             <span class="close" onclick="closeModal()">&times;</span>
                                             <div class="modal-form">
                                                 <div id="dokumenContainer"></div>
                                                 <div class="button-group">
-                                                    <button type="button" class="btn btn-primary" onclick="tambahDokumen()">Tambah</button>
-                                                    <button type="button" class="btn-cancel" onclick="closeModal()">Batal</button>
+                                                    <button type="button" class="btn btn-primary"
+                                                        onclick="tambahDokumen()">Tambah</button>
+                                                    <button type="button" class="btn-cancel"
+                                                        onclick="closeModal()">Batal</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -654,11 +659,37 @@
                                     <script>
                                         let dokumenList = JSON.parse(localStorage.getItem('dokumenList')) || [];
 
-                                        // Initialize the table with saved data
+                                        // Retrieve the Nomor Aju value from localStorage
+                                        const storedNomorAju = localStorage.getItem('nomorAju');
+
+                                        if (storedNomorAju) {
+                                            // If a value is found in localStorage, set it as the input's value
+                                            document.getElementById('nomorAju').value = storedNomorAju;
+                                        } else {
+                                            // If no value is found, set a default value (optional)
+                                            const defaultNomorAju = 'default-value'; // You can adjust this default value as needed
+                                            document.getElementById('nomorAju').value = defaultNomorAju;
+                                            localStorage.setItem('nomorAju', defaultNomorAju); // Save default value to localStorage
+                                        }
+
+                                        // Save the value to localStorage whenever the input field is modified
+                                        document.getElementById('nomorAju').addEventListener('input', function () {
+                                            const currentValue = this.value;
+                                            localStorage.setItem('nomorAju', currentValue);
+                                            initializeTable(); // Reinitialize the table on nomorAju change
+                                        });
+
                                         function initializeTable() {
                                             let dokumenTableBody = document.getElementById("dokumenTableBody");
                                             dokumenTableBody.innerHTML = "";
-                                            dokumenList.forEach((dokumen, index) => {
+
+                                            // Get the current nomorAju value from localStorage
+                                            const nomorAjuFilter = localStorage.getItem('nomorAju');
+
+                                            // Filter the dokumenList based on nomorAju
+                                            const filteredDokumenList = dokumenList.filter(dokumen => dokumen.nomorAju === nomorAjuFilter);
+
+                                            filteredDokumenList.forEach((dokumen, index) => {
                                                 let newRow = `<tr>
                                                     <td>${dokumen.idDokumen}</td>
                                                     <td>${dokumen.kodeDokumen}</td>
@@ -671,23 +702,27 @@
                                             });
                                         }
 
-                                        // Open modal and automatically add a form to it
                                         function openModal() {
                                             document.getElementById('myModal4').style.display = 'block';
                                             tambahDokumen(); // Automatically load the form when the modal is opened
                                         }
 
-                                        // Add new document form
                                         function tambahDokumen() {
                                             let index = dokumenList.length;
                                             let dokumenContainer = document.getElementById('dokumenContainer');
                                             let dokumenForm = document.createElement('div');
                                             dokumenForm.classList.add('dokumen-form');
-                                            dokumenForm.setAttribute('id', 'dokumenForm' + index); // Unique ID for the form
+                                            dokumenForm.setAttribute('id', 'dokumenForm' + index);
+
+                                            // Calculate the next idDokumen for the new document
+                                            const nomorAjuFilter = localStorage.getItem('nomorAju');
+                                            const filteredDokumenList = dokumenList.filter(dokumen => dokumen.nomorAju === nomorAjuFilter);
+                                            const nextIdDokumen = filteredDokumenList.length + 1;
+
                                             dokumenForm.innerHTML = `
                                                 <div class="col-md-12">
                                                     <label for="dokumen[${index}][idDokumen]" class="form-label">ID Dokumen</label>
-                                                    <input type="text" class="form-control border-primary" value="${index + 1}" name="dokumen[${index}][idDokumen]" id="idDokumen${index}" readonly>
+                                                    <input type="text" class="form-control border-primary" value="${nextIdDokumen}" name="dokumen[${index}][idDokumen]" id="idDokumen${index}" readonly>
                                                 </div>
                                                 <div class="col-md-12">
                                                     <label for="dokumen[${index}][kodeDokumen]" class="form-label">Kode Dokumen</label>
@@ -705,10 +740,6 @@
                                                     <label for="dokumen[${index}][tanggalDokumen]" class="form-label">Tanggal Dokumen</label>
                                                     <input type="date" class="form-control border-primary" name="dokumen[${index}][tanggalDokumen]" id="tanggalDokumen${index}">
                                                 </div>
-                                                <div class="col-md-12">
-                                                    <label for="dokumen[${index}][noAju]" class="form-label">No Aju</label>
-                                                    <input type="text" class="form-control border-primary" name="dokumen[${index}][noAju]" id="noAju${index}">
-                                                </div>
                                                 <button type="button" class="btn btn-primary" onclick="simpanDokumenIndividual(${index})">Simpan</button>
                                                 <button type="button" class="btn btn-danger" onclick="hapusDokumen(this, ${index})">Hapus</button>
                                                 <hr>
@@ -716,28 +747,32 @@
                                             dokumenContainer.appendChild(dokumenForm);
                                         }
 
-                                        // Save individual document data to the table
                                         function simpanDokumenIndividual(index) {
-                                            let idDokumen = document.getElementById(`idDokumen${index}`).value;
                                             let kodeDokumen = document.getElementById(`kodeDokumen${index}`).value;
                                             let nomorDokumen = document.getElementById(`nomorDokumen${index}`).value;
                                             let seriDokumen = document.getElementById(`seriDokumen${index}`).value;
                                             let tanggalDokumen = document.getElementById(`tanggalDokumen${index}`).value;
-                                            let noAju = document.getElementById(`noAju${index}`).value;
+                                            let nomorAju = document.getElementById('nomorAju').value; // Get Nomor Aju from input field
 
-                                            if (!idDokumen || !kodeDokumen || !nomorDokumen || !seriDokumen || !tanggalDokumen || !noAju) {
+                                            if (!kodeDokumen || !nomorDokumen || !seriDokumen || !tanggalDokumen) {
                                                 alert("Semua field harus diisi!");
                                                 return;
                                             }
 
-                                            // Save document to dokumenList
+                                            // Filter dokumenList by nomorAju
+                                            const filteredDokumenList = dokumenList.filter(dokumen => dokumen.nomorAju === nomorAju);
+
+                                            // Set ID Dokumen to be the next available number for this nomorAju
+                                            const idDokumen = filteredDokumenList.length + 1;
+
+                                            // Save document to dokumenList with nomorAju
                                             dokumenList.push({
-                                                idDokumen: parseInt(idDokumen),
+                                                idDokumen: idDokumen,
                                                 kodeDokumen,
                                                 nomorDokumen,
                                                 seriDokumen,
                                                 tanggalDokumen,
-                                                noAju // Store No Aju value
+                                                nomorAju
                                             });
                                             localStorage.setItem('dokumenList', JSON.stringify(dokumenList)); // Save to localStorage
 
@@ -747,19 +782,31 @@
                                             document.getElementById('dokumenForm' + index).style.display = 'none';
                                         }
 
-                                        // Delete a document form
                                         function hapusDokumen(button, index) {
                                             let dokumenContainer = document.getElementById('dokumenContainer');
                                             dokumenContainer.removeChild(button.parentElement);
                                             dokumenList.splice(index, 1); // Remove from dokumenList
                                             localStorage.setItem('dokumenList', JSON.stringify(dokumenList)); // Save to localStorage
+
+                                            // Reindex and update table
+                                            reindexDokumenList();
                                             initializeTable(); // Update table with the new data
                                         }
 
-                                        // Delete a row from the table
+                                        function reindexDokumenList() {
+                                            let nomorAjuFilter = localStorage.getItem('nomorAju');
+                                            dokumenList.filter(dokumen => dokumen.nomorAju === nomorAjuFilter).forEach((dokumen, index) => {
+                                                dokumen.idDokumen = index + 1; // Reindex ID Dokumen
+                                            });
+                                            localStorage.setItem('dokumenList', JSON.stringify(dokumenList)); // Save reindexed list
+                                        }
+
                                         function hapusBaris(index) {
                                             dokumenList.splice(index, 1); // Remove from dokumenList
                                             localStorage.setItem('dokumenList', JSON.stringify(dokumenList)); // Save to localStorage
+
+                                            // Reindex and update table
+                                            reindexDokumenList();
                                             initializeTable(); // Update table with the new data
                                         }
 
@@ -769,10 +816,12 @@
                                         }
 
                                         // Initialize table on page load
-                                        window.onload = function() {
+                                        window.onload = function () {
                                             initializeTable();
                                         }
                                     </script>
+
+
 
                                     {{-- Pengangkut --}}
                                     <div class="tab-pane fade" id="pengangkut" role="tabpanel"
@@ -814,6 +863,7 @@
                                         </div>
                                     </div>
 
+
                                     {{-- Kemasan  --}}
                                     <div class="tab-pane fade" id="kemaspetikemas" role="tabpanel"
                                         aria-labelledby="kemaspetikemas-tab">
@@ -826,7 +876,8 @@
                                                                 <div class="right_content">
                                                                     <div class="col-lg-12 text-start mb-6">
                                                                         <button type="button"
-                                                                            class="btn btn-primary mb-3" id="myBtn5"><span
+                                                                            class="btn btn-primary mb-3"
+                                                                            id="myBtn5"><span
                                                                                 data-feather="plus"></span>Tambah
                                                                             Kemasan</button>
                                                                     </div>
@@ -854,138 +905,88 @@
                                                                                     Action</th>
                                                                             </tr>
                                                                         </thead>
-                                                                        <tbody id="dokumenTableBody2">
+                                                                        <tbody>
+                                                                            <!-- Isi tabel akan ditambahkan di sini -->
+                                                                        <tbody>
                                                                         </tbody>
                                                                     </table>
                                                                 </div>
                                                             </div>
                                                         </div>
 
-                                                <!-- Modal -->
-                                            <div id="myModal5" class="modal" data-backdrop="static" data-keyboard="false" style="display: none;">
-                                                <div class="modal-content">
-                                                    <span class="close" onclick="closeModal5()">&times;</span>
-                                                    <div class="modal-form">
-                                                        <div id="dokumenContainer"></div>
-                                                        <!-- Button Group -->
-                                                        <div class="button-group">
-                                                            <button type="button" class="btn btn-primary" onclick="tambahDokumen()">Tambah</button>
-                                                            <button type="button" class="btn btn-cancel" onclick="closeModal5()">Batal</button>
+
+                                                        <!-- Modal -->
+                                                        <div id="myModal5" class="modal" data-backdrop="static"
+                                                            data-keyboard="false" style="display: none;">
+                                                            <div class="modal-content">
+                                                                <span class="close">&times;</span>
+                                                                <div class="modal-form">
+                                                                    <input type="hidden" id="editIndex2" value="">
+                                                                    <label for="nama">Seri</label>
+                                                                    <input type="text" class="form-control"
+                                                                        id="seriDokumen2" name="seriDokumen2"
+                                                                        value="{{ old('seriDokumen2') }}" readonly>
+
+                                                                    <label for="usaha">Jumlah</label>
+                                                                    <input type="text" class="form-control"
+                                                                        id="jumlah" name="jumlah"
+                                                                        value="{{ old('jumlah') }}">
+
+                                                                    <div class="form-group">
+                                                                        <label for="alamat">Jenis Dokumen</label>
+                                                                        <select class="form-control" name="jenisDokumen2"
+                                                                            id="select-field5" required
+                                                                            style="border: 1px solid #313131;">
+                                                                            <option selected disabled>Pilih Jenis
+                                                                            </option>
+                                                                            <option value="1A - DRUM, STEEL"
+                                                                                {{ old('jenisDokumen2') == '1' ? 'selected' : '' }}>
+                                                                                1A - DRUM, STEEL</option>
+                                                                            <option value="1B - DRUM, ALUMUNIUM"
+                                                                                {{ old('jenisDokumen2') == '2' ? 'selected' : '' }}>
+                                                                                1B - DRUM, ALUMUNIUM</option>
+                                                                            <option value="1D - DRUM, PLYWOOD"
+                                                                                {{ old('jenisDokumen2') == '2' ? 'selected' : '' }}>
+                                                                                1D - DRUM, PLYWOOD</option>
+                                                                            <option value="1F - CONTAINER, FLEXIBLE"
+                                                                                {{ old('jenisDokumen2') == '2' ? 'selected' : '' }}>
+                                                                                1F - CONTAINER, FLEXIBLE</option>
+                                                                            <option value="1G - DRUM, FIBRE"
+                                                                                {{ old('jenisDokumen2') == '2' ? 'selected' : '' }}>
+                                                                                1G - DRUM, FIBRE</option>
+                                                                            <option value="1W - DRUM, WOODEN"
+                                                                                {{ old('jenisDokumen2') == '2' ? 'selected' : '' }}>
+                                                                                1W - DRUM, WOODEN</option>
+                                                                            <option value="2C - BARREL, WOODEN"
+                                                                                {{ old('jenis_dokumen') == '2' ? 'selected' : '' }}>
+                                                                                2C - BARREL, WOODEN</option>
+                                                                            <option value=" 3A - JERICCAN, STELL"
+                                                                                {{ old('jenis_dokumen') == '2' ? 'selected' : '' }}>
+                                                                                3A - JERICCAN, STELL</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <BR>
+                                                                    <label for="usaha">Merk</label>
+                                                                    <input type="text" class="form-control"
+                                                                        id="merk" name="merk"
+                                                                        value="{{ old('merk') }}">
+                                                                    <br>
+                                                                    <!-- Tombol Simpan & Batal -->
+                                                                    <div class="button-group">
+                                                                        <button type="button" class="btn-save"
+                                                                            id="btn-save2">Simpan</button>
+                                                                        <button type="button" class="btn btn-cancel"
+                                                                            onclick="closeModal2()">Batal</button>
+                                                                    </div>
+                                                                </div>
+                                                                    </form>
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-
-
-                {{-- <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <header>
-                                <div class="right_content">
-                                    <div class="col-lg-12 text-start mb-6">
-                                        <button type="button" class="btn btn-primary mb-3" id="myBtn6"><span
-                                                data-feather="plus"></span>Tambah Peti Kemasan</button>
-                                    </div>
-                                </div>
-                            </header>
-                            <div class="card-body" id="tableContainer">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered" id="Table3">
-                                        <thead class="thead-light">
-                                            <tr>
-                                                <th style="margin-top: 19px;color:black;font-weight: bold;">
-                                                    Seri</th>
-                                                <th style="margin-top: 19px;color:black;font-weight: bold;">
-                                                    Nomor</th>
-                                                <th style="margin-top: 19px;color:black;font-weight: bold;">
-                                                    Ukuran</th>
-                                                <th style="margin-top: 19px;color:black;font-weight: bold;">
-                                                    Jenis</th>
-                                                <th style="margin-top: 19px;color:black;font-weight: bold;">
-                                                    Tipe</th>
-                                                <th style="margin-top: 19px;color:black;font-weight: bold;">
-                                                    Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <!-- Isi tabel akan ditambahkan di sini -->
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Modal -->
-                        <div id="myModal6" class="modal" data-backdrop="static" data-keyboard="false"
-                            style="display: none;">
-                            <div class="modal-content">
-                                <span class="close">&times;</span>
-                                <div class="modal-form">
-                                    <input type="hidden" id="editIndex3" value="">
-                                    <label for="nama">Seri</label>
-                                    <input type="text" class="form-control" id="seriDokumen3" name="seriDokumen3"
-                                        value="{{ old('seriDokumen3') }}" readonly>
-
-                                    <label for="usaha">Nomor</label>
-                                    <input type="text" class="form-control" id="nomor2" name="nomor2"
-                                        value="{{ old('nomor2') }}">
-
-                                    <div class="form-group">
-                                        <label for="alamat">Ukuran</label>
-                                        <select class="form-control" name="ukuran" id="select-field6" required
-                                            style="border: 1px solid #313131;">
-                                            <option selected disabled>Pilih
-                                                Ukuran</option>
-                                            <option value="1A - DRUM, STEEL" {{ old('ukuran') == '1' ? 'selected' : '' }}>
-                                                20 - 20 FEET</option>
-                                            <option value="1B - DRUM, ALUMUNIUM"
-                                                {{ old('ukuran') == '2' ? 'selected' : '' }}>
-                                                40 - 40 FEET</option>
-                                            <option value="1D - DRUM, PLYWOOD"
-                                                {{ old('ukuran') == '3' ? 'selected' : '' }}>
-                                                45 - 45 FEET</option>
-                                            <option value="1F - CONTAINER, FLEXIBLE"
-                                                {{ old('ukuran') == '4' ? 'selected' : '' }}>
-                                                60 - 60 FEET</option>
-                                        </select>
-                                    </div>
-                                    <br>
-                                    <div class="form-group">
-                                        <label for="alamat">Jenis</label>
-                                        <select class="form-control" name="jenis" id="select-field7" required
-                                            style="border: 1px solid #313131;">
-                                            <option selected disabled>Pilih
-                                                Ukuran</option>
-                                            <option value="4 - Empty" {{ old('jenis') == '1' ? 'selected' : '' }}>
-                                                4 - Empty</option>
-                                            <option value="7 - LCL" {{ old('jenis') == '2' ? 'selected' : '' }}>
-                                                7 - LCL </option>
-                                            <option value="8 - FCL" {{ old('jenis') == '2' ? 'selected' : '' }}>
-                                                8 - FCL</option>
-                                        </select>
-                                    </div>
-                                    <BR>
-                                    <label for="usaha">Tipe</label>
-                                    <input type="text" class="form-control" id="Tipe" name="Tipe"
-                                        value="{{ old('Tipe') }}">
-                                    <br>
-                                    <!-- Tombol Simpan & Batal -->
-                                    <div class="button-group">
-                                        <button type="button" class="btn-save" id="btn-save3">Simpan</button>
-                                        <button type="button" class="btn btn-cancel" id="cancelBtn">Batal</button>
-                                    </div>
-                                </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-
-                </div> --}}
-            </div>
-        </div>
-    </div>
-    </div>
-    </div>
+                                                </div>
+                                                </div>
 
     {{-- Transaksi --}}
     <div class="tab-pane fade" id="transaksi" role="tabpanel" aria-labelledby="transaksi-tab">
