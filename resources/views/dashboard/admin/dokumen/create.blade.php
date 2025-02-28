@@ -55,8 +55,8 @@
                                     </li>
                                     <li class="nav-item" role="presentation">
                                         <button class="nav-link" id="kemasan-tab" data-bs-toggle="tab"
-                                            data-bs-target="#kemasan" type="button" role="tab"
-                                            aria-controls="kemasan" aria-selected="false">Kemasan & Peti
+                                            data-bs-target="#kemasan" type="button" role="tab" aria-controls="kemasan"
+                                            aria-selected="false">Kemasan & Peti
                                             Kemas</button>
                                     </li>
                                     <li class="nav-item" role="presentation">
@@ -95,6 +95,7 @@
                                             <input type="text" class="form-control" id="kodeJenisTpb" name="kodeJenisTpb"
                                                 value="{{ old('kodeJenisTpb', 'TPB') }}" readonly>
                                         </div> --}}
+
                                             <div class="col-md-3 d-none">
                                                 <label for="asalData" class="form-label">Asal Data</label>
                                                 <input type="text" class="form-control" id="asalData"
@@ -618,8 +619,8 @@
                                                             </header>
                                                             <div class="card-body" id="tableContainer">
                                                                 <div class="table-responsive">
-                                                                    <table class="table" id="dokumenTable">
-                                                                        <thead>
+                                                                    <table class="table table-bordered" id="dataTable1">
+                                                                        <thead class="thead-light">
                                                                             <tr>
                                                                                 <th>ID Dokumen</th>
                                                                                 <th>Kode Dokumen</th>
@@ -656,46 +657,46 @@
                                         </div>
                                     </div>
 
-  <!-- Kode Modal Kemasan -->
-  <script>
-    (function() {
-      let kemasanList = JSON.parse(localStorage.getItem('kemasanList')) || [];
+                                    <!-- Kode Modal Kemasan -->
+                                    <script>
+                                        (function() {
+                                            let kemasanList = JSON.parse(localStorage.getItem('kemasanList')) || [];
 
-      window.initializeKemasanTable = function() {
-        let kemasanTableBody = document.getElementById("kemasanTableBody");
-        kemasanTableBody.innerHTML = "";
-        const nomorAjuFilter = localStorage.getItem('nomorAju');
-        const filteredKemasanList = kemasanList.filter(kemasan => kemasan.nomorAju === nomorAjuFilter);
-        filteredKemasanList.forEach((kemasan, index) => {
-          let newRow = `<tr>
+                                            window.initializeKemasanTable = function() {
+                                                let kemasanTableBody = document.getElementById("kemasanTableBody");
+                                                kemasanTableBody.innerHTML = "";
+                                                const nomorAjuFilter = localStorage.getItem('nomorAju');
+                                                const filteredKemasanList = kemasanList.filter(kemasan => kemasan.nomorAju === nomorAjuFilter);
+                                                filteredKemasanList.forEach((kemasan, index) => {
+                                                    let newRow = `<tr>
               <td>${kemasan.seriKemasan}</td>
               <td>${kemasan.kodeJenisKemasan}</td>
               <td>${kemasan.merkKemasan}</td>
               <td>${kemasan.jumlahKemasan}</td>
               <td><button class="btn btn-danger" onclick="hapusBarisKemasan(${index})">Hapus</button></td>
             </tr>`;
-          kemasanTableBody.innerHTML += newRow;
-        });
-      }
+                                                    kemasanTableBody.innerHTML += newRow;
+                                                });
+                                            }
 
-      window.openModalKemasan = function() {
-        document.getElementById('myModal5').style.display = 'block';
-        tambahKemasan();
-      }
+                                            window.openModalKemasan = function() {
+                                                document.getElementById('myModal5').style.display = 'block';
+                                                tambahKemasan();
+                                            }
 
-      window.tambahKemasan = function() {
-        let index = kemasanList.length;
-        let kemasanContainer = document.getElementById('kemasanContainer');
-        let kemasanForm = document.createElement('div');
-        kemasanForm.classList.add('kemasan-form');
-        kemasanForm.setAttribute('id', 'kemasanForm' + index);
+                                            window.tambahKemasan = function() {
+                                                let index = kemasanList.length;
+                                                let kemasanContainer = document.getElementById('kemasanContainer');
+                                                let kemasanForm = document.createElement('div');
+                                                kemasanForm.classList.add('kemasan-form');
+                                                kemasanForm.setAttribute('id', 'kemasanForm' + index);
 
-        // Hitung seriKemasan untuk nomorAju yang aktif
-        const nomorAjuFilter = localStorage.getItem('nomorAju');
-        const filteredKemasanList = kemasanList.filter(kemasan => kemasan.nomorAju === nomorAjuFilter);
-        const nextSeriKemasan = filteredKemasanList.length + 1;
+                                                // Hitung seriKemasan untuk nomorAju yang aktif
+                                                const nomorAjuFilter = localStorage.getItem('nomorAju');
+                                                const filteredKemasanList = kemasanList.filter(kemasan => kemasan.nomorAju === nomorAjuFilter);
+                                                const nextSeriKemasan = filteredKemasanList.length + 1;
 
-        kemasanForm.innerHTML = `
+                                                kemasanForm.innerHTML = `
           <div class="col-md-12">
             <label for="kemasan[${index}][seriKemasan]" class="form-label">Seri Kemasan</label>
             <input type="text" class="border-primary" value="${nextSeriKemasan}" name="kemasan[${index}][seriKemasan]" id="seriKemasan${index}" readonly>
@@ -716,80 +717,80 @@
           <button type="button" class="btn btn-danger" onclick="hapusKemasan(this, ${index})">Hapus</button>
           <hr>
         `;
-        kemasanContainer.appendChild(kemasanForm);
-      }
+                                                kemasanContainer.appendChild(kemasanForm);
+                                            }
 
-      window.simpanKemasanIndividual = function(index) {
-        let kodeJenisKemasan = document.getElementById(`kodeJenisKemasan${index}`).value;
-        let merkKemasan = document.getElementById(`merkKemasan${index}`).value;
-        let jumlahKemasan = document.getElementById(`jumlahKemasan${index}`).value;
-        let seriKemasan = document.getElementById(`seriKemasan${index}`).value;
-        let nomorAju = document.getElementById('nomorAju').value;
+                                            window.simpanKemasanIndividual = function(index) {
+                                                let kodeJenisKemasan = document.getElementById(`kodeJenisKemasan${index}`).value;
+                                                let merkKemasan = document.getElementById(`merkKemasan${index}`).value;
+                                                let jumlahKemasan = document.getElementById(`jumlahKemasan${index}`).value;
+                                                let seriKemasan = document.getElementById(`seriKemasan${index}`).value;
+                                                let nomorAju = document.getElementById('nomorAju').value;
 
-        if (!kodeJenisKemasan || !merkKemasan || !jumlahKemasan) {
-          alert("Semua field harus diisi!");
-          return;
-        }
+                                                if (!kodeJenisKemasan || !merkKemasan || !jumlahKemasan) {
+                                                    alert("Semua field harus diisi!");
+                                                    return;
+                                                }
 
-        const filteredKemasanList = kemasanList.filter(kemasan => kemasan.nomorAju === nomorAju);
-        const autoSeriKemasan = filteredKemasanList.length + 1;
+                                                const filteredKemasanList = kemasanList.filter(kemasan => kemasan.nomorAju === nomorAju);
+                                                const autoSeriKemasan = filteredKemasanList.length + 1;
 
-        kemasanList.push({
-          seriKemasan: autoSeriKemasan,
-          kodeJenisKemasan,
-          merkKemasan,
-          jumlahKemasan,
-          nomorAju
-        });
-        localStorage.setItem('kemasanList', JSON.stringify(kemasanList));
+                                                kemasanList.push({
+                                                    seriKemasan: autoSeriKemasan,
+                                                    kodeJenisKemasan,
+                                                    merkKemasan,
+                                                    jumlahKemasan,
+                                                    nomorAju
+                                                });
+                                                localStorage.setItem('kemasanList', JSON.stringify(kemasanList));
 
-        initializeKemasanTable();
-        document.getElementById('kemasanForm' + index).style.display = 'none';
-      }
+                                                initializeKemasanTable();
+                                                document.getElementById('kemasanForm' + index).style.display = 'none';
+                                            }
 
-      window.hapusKemasan = function(button, index) {
-        let kemasanContainer = document.getElementById('kemasanContainer');
-        kemasanContainer.removeChild(button.parentElement);
-        kemasanList.splice(index, 1);
-        localStorage.setItem('kemasanList', JSON.stringify(kemasanList));
+                                            window.hapusKemasan = function(button, index) {
+                                                let kemasanContainer = document.getElementById('kemasanContainer');
+                                                kemasanContainer.removeChild(button.parentElement);
+                                                kemasanList.splice(index, 1);
+                                                localStorage.setItem('kemasanList', JSON.stringify(kemasanList));
 
-        reindexKemasanList();
-        initializeKemasanTable();
-      }
+                                                reindexKemasanList();
+                                                initializeKemasanTable();
+                                            }
 
-      function reindexKemasanList() {
-        let nomorAjuFilter = localStorage.getItem('nomorAju');
-        kemasanList.filter(kemasan => kemasan.nomorAju === nomorAjuFilter).forEach((kemasan, index) => {
-          kemasan.seriKemasan = index + 1;
-        });
-        localStorage.setItem('kemasanList', JSON.stringify(kemasanList));
-      }
+                                            function reindexKemasanList() {
+                                                let nomorAjuFilter = localStorage.getItem('nomorAju');
+                                                kemasanList.filter(kemasan => kemasan.nomorAju === nomorAjuFilter).forEach((kemasan, index) => {
+                                                    kemasan.seriKemasan = index + 1;
+                                                });
+                                                localStorage.setItem('kemasanList', JSON.stringify(kemasanList));
+                                            }
 
-      window.hapusBarisKemasan = function(index) {
-        kemasanList.splice(index, 1);
-        localStorage.setItem('kemasanList', JSON.stringify(kemasanList));
-        reindexKemasanList();
-        initializeKemasanTable();
-      }
+                                            window.hapusBarisKemasan = function(index) {
+                                                kemasanList.splice(index, 1);
+                                                localStorage.setItem('kemasanList', JSON.stringify(kemasanList));
+                                                reindexKemasanList();
+                                                initializeKemasanTable();
+                                            }
 
-      window.closeModalKemasan = function() {
-        document.getElementById('myModal5').style.display = 'none';
-      }
-    })();
-  </script>
+                                            window.closeModalKemasan = function() {
+                                                document.getElementById('myModal5').style.display = 'none';
+                                            }
+                                        })();
+                                    </script>
 
-  <!-- Kode Modal Dokumen -->
-  <script>
-    (function() {
-      let dokumenList = JSON.parse(localStorage.getItem('dokumenList')) || [];
+                                    <!-- Kode Modal Dokumen -->
+                                    <script>
+                                        (function() {
+                                            let dokumenList = JSON.parse(localStorage.getItem('dokumenList')) || [];
 
-      window.initializeDokumenTable = function() {
-        let dokumenTableBody = document.getElementById("dokumenTableBody");
-        dokumenTableBody.innerHTML = "";
-        const nomorAjuFilter = localStorage.getItem('nomorAju');
-        const filteredDokumenList = dokumenList.filter(dokumen => dokumen.nomorAju === nomorAjuFilter);
-        filteredDokumenList.forEach((dokumen, index) => {
-          let newRow = `<tr>
+                                            window.initializeDokumenTable = function() {
+                                                let dokumenTableBody = document.getElementById("dokumenTableBody");
+                                                dokumenTableBody.innerHTML = "";
+                                                const nomorAjuFilter = localStorage.getItem('nomorAju');
+                                                const filteredDokumenList = dokumenList.filter(dokumen => dokumen.nomorAju === nomorAjuFilter);
+                                                filteredDokumenList.forEach((dokumen, index) => {
+                                                    let newRow = `<tr>
               <td>${dokumen.idDokumen}</td>
               <td>${dokumen.kodeDokumen}</td>
               <td>${dokumen.nomorDokumen}</td>
@@ -797,27 +798,27 @@
               <td>${dokumen.tanggalDokumen}</td>
               <td><button class="btn btn-danger" onclick="hapusBaris(${index})">Hapus</button></td>
             </tr>`;
-          dokumenTableBody.innerHTML += newRow;
-        });
-      }
+                                                    dokumenTableBody.innerHTML += newRow;
+                                                });
+                                            }
 
-      window.openModal = function() {
-        document.getElementById('myModal4').style.display = 'block';
-        tambahDokumen();
-      }
+                                            window.openModal = function() {
+                                                document.getElementById('myModal4').style.display = 'block';
+                                                tambahDokumen();
+                                            }
 
-      window.tambahDokumen = function() {
-        let index = dokumenList.length;
-        let dokumenContainer = document.getElementById('dokumenContainer');
-        let dokumenForm = document.createElement('div');
-        dokumenForm.classList.add('dokumen-form');
-        dokumenForm.setAttribute('id', 'dokumenForm' + index);
+                                            window.tambahDokumen = function() {
+                                                let index = dokumenList.length;
+                                                let dokumenContainer = document.getElementById('dokumenContainer');
+                                                let dokumenForm = document.createElement('div');
+                                                dokumenForm.classList.add('dokumen-form');
+                                                dokumenForm.setAttribute('id', 'dokumenForm' + index);
 
-        const nomorAjuFilter = localStorage.getItem('nomorAju');
-        const filteredDokumenList = dokumenList.filter(dokumen => dokumen.nomorAju === nomorAjuFilter);
-        const nextIdDokumen = filteredDokumenList.length + 1;
+                                                const nomorAjuFilter = localStorage.getItem('nomorAju');
+                                                const filteredDokumenList = dokumenList.filter(dokumen => dokumen.nomorAju === nomorAjuFilter);
+                                                const nextIdDokumen = filteredDokumenList.length + 1;
 
-        dokumenForm.innerHTML = `
+                                                dokumenForm.innerHTML = `
           <div class="col-md-12">
             <label for="dokumen[${index}][idDokumen]" class="form-label">ID Dokumen</label>
             <input type="text" class="form-control border-primary" value="${nextIdDokumen}" name="dokumen[${index}][idDokumen]" id="idDokumen${index}" readonly>
@@ -842,68 +843,68 @@
           <button type="button" class="btn btn-danger" onclick="hapusDokumen(this, ${index})">Hapus</button>
           <hr>
         `;
-        dokumenContainer.appendChild(dokumenForm);
-      }
+                                                dokumenContainer.appendChild(dokumenForm);
+                                            }
 
-      window.simpanDokumenIndividual = function(index) {
-        let kodeDokumen = document.getElementById(`kodeDokumen${index}`).value;
-        let nomorDokumen = document.getElementById(`nomorDokumen${index}`).value;
-        let seriDokumen = document.getElementById(`seriDokumen${index}`).value;
-        let tanggalDokumen = document.getElementById(`tanggalDokumen${index}`).value;
-        let nomorAju = document.getElementById('nomorAju').value;
+                                            window.simpanDokumenIndividual = function(index) {
+                                                let kodeDokumen = document.getElementById(`kodeDokumen${index}`).value;
+                                                let nomorDokumen = document.getElementById(`nomorDokumen${index}`).value;
+                                                let seriDokumen = document.getElementById(`seriDokumen${index}`).value;
+                                                let tanggalDokumen = document.getElementById(`tanggalDokumen${index}`).value;
+                                                let nomorAju = document.getElementById('nomorAju').value;
 
-        if (!kodeDokumen || !nomorDokumen || !seriDokumen || !tanggalDokumen) {
-          alert("Semua field harus diisi!");
-          return;
-        }
+                                                if (!kodeDokumen || !nomorDokumen || !seriDokumen || !tanggalDokumen) {
+                                                    alert("Semua field harus diisi!");
+                                                    return;
+                                                }
 
-        const filteredDokumenList = dokumenList.filter(dokumen => dokumen.nomorAju === nomorAju);
-        const idDokumen = filteredDokumenList.length + 1;
+                                                const filteredDokumenList = dokumenList.filter(dokumen => dokumen.nomorAju === nomorAju);
+                                                const idDokumen = filteredDokumenList.length + 1;
 
-        dokumenList.push({
-          idDokumen: idDokumen,
-          kodeDokumen,
-          nomorDokumen,
-          seriDokumen,
-          tanggalDokumen,
-          nomorAju
-        });
-        localStorage.setItem('dokumenList', JSON.stringify(dokumenList));
+                                                dokumenList.push({
+                                                    idDokumen: idDokumen,
+                                                    kodeDokumen,
+                                                    nomorDokumen,
+                                                    seriDokumen,
+                                                    tanggalDokumen,
+                                                    nomorAju
+                                                });
+                                                localStorage.setItem('dokumenList', JSON.stringify(dokumenList));
 
-        initializeDokumenTable();
-        document.getElementById('dokumenForm' + index).style.display = 'none';
-      }
+                                                initializeDokumenTable();
+                                                document.getElementById('dokumenForm' + index).style.display = 'none';
+                                            }
 
-      window.hapusDokumen = function(button, index) {
-        let dokumenContainer = document.getElementById('dokumenContainer');
-        dokumenContainer.removeChild(button.parentElement);
-        dokumenList.splice(index, 1);
-        localStorage.setItem('dokumenList', JSON.stringify(dokumenList));
+                                            window.hapusDokumen = function(button, index) {
+                                                let dokumenContainer = document.getElementById('dokumenContainer');
+                                                dokumenContainer.removeChild(button.parentElement);
+                                                dokumenList.splice(index, 1);
+                                                localStorage.setItem('dokumenList', JSON.stringify(dokumenList));
 
-        reindexDokumenList();
-        initializeDokumenTable();
-      }
+                                                reindexDokumenList();
+                                                initializeDokumenTable();
+                                            }
 
-      function reindexDokumenList() {
-        let nomorAjuFilter = localStorage.getItem('nomorAju');
-        dokumenList.filter(dokumen => dokumen.nomorAju === nomorAjuFilter).forEach((dokumen, index) => {
-          dokumen.idDokumen = index + 1;
-        });
-        localStorage.setItem('dokumenList', JSON.stringify(dokumenList));
-      }
+                                            function reindexDokumenList() {
+                                                let nomorAjuFilter = localStorage.getItem('nomorAju');
+                                                dokumenList.filter(dokumen => dokumen.nomorAju === nomorAjuFilter).forEach((dokumen, index) => {
+                                                    dokumen.idDokumen = index + 1;
+                                                });
+                                                localStorage.setItem('dokumenList', JSON.stringify(dokumenList));
+                                            }
 
-      window.hapusBaris = function(index) {
-        dokumenList.splice(index, 1);
-        localStorage.setItem('dokumenList', JSON.stringify(dokumenList));
-        reindexDokumenList();
-        initializeDokumenTable();
-      }
+                                            window.hapusBaris = function(index) {
+                                                dokumenList.splice(index, 1);
+                                                localStorage.setItem('dokumenList', JSON.stringify(dokumenList));
+                                                reindexDokumenList();
+                                                initializeDokumenTable();
+                                            }
 
-      window.closeModal = function() {
-        document.getElementById('myModal4').style.display = 'none';
-      }
-    })();
-  </script>
+                                            window.closeModal = function() {
+                                                document.getElementById('myModal4').style.display = 'none';
+                                            }
+                                        })();
+                                    </script>
 
 
 
@@ -948,341 +949,362 @@
                                     </div>
 
 
-<!-- Tab Kemasan -->
-<div class="tab-pane fade" id="kemasan" role="tabpanel" aria-labelledby="kemasan-tab">
-    <div class="row">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-12">
-            <div class="card">
-              <header>
-                <div class="right_content">
-                  <div class="col-lg-12 text-start mb-6">
-                    <button type="button" class="btn btn-primary mb-3" id="myBtn5" onclick="openModalKemasan()">
-                      <span data-feather="plus"></span>Tambah
-                    </button>
-                  </div>
-                </div>
-              </header>
-              <div class="card-body" id="tableContainer5">
-                <div class="table-responsive">
-                  <table class="table" id="kemasanTable">
-                    <thead>
-                      <tr>
-                        <th>Seri Kemasan</th>
-                        <th>Jumlah Kemasan</th>
-                        <th>Kode Jenis Kemasan</th>
-                        <th>Merk Kemasan</th>
-                        <th>Aksi</th>
-                      </tr>
-                    </thead>
-                    <tbody id="kemasanTableBody">
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+                                    <!-- Tab Kemasan -->
+                                    <div class="tab-pane fade" id="kemasan" role="tabpanel"
+                                        aria-labelledby="kemasan-tab">
+                                        <div class="row">
+                                            <div class="container-fluid">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="card">
+                                                            <header>
+                                                                <div class="right_content">
+                                                                    <div class="col-lg-12 text-start mb-6">
+                                                                        <button type="button"
+                                                                            class="btn btn-primary mb-3" id="myBtn5"
+                                                                            onclick="openModalKemasan()">
+                                                                            <span data-feather="plus"></span>Tambah
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </header>
+                                                            <div class="card-body" id="tableContainer">
+                                                                <div class="table-responsive">
+                                                                    <table class="table table-bordered" id="dataTable2">
+                                                                        <thead class="thead-light">
+                                                                            <tr>
+                                                                                <th>Seri Kemasan</th>
+                                                                                <th>Jumlah Kemasan</th>
+                                                                                <th>Kode Jenis Kemasan</th>
+                                                                                <th>Merk Kemasan</th>
+                                                                                <th>Aksi</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody id="kemasanTableBody">
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
-  <!-- Modal Kemasan (myModal5) -->
-  <div id="myModal5" class="modal" data-backdrop="static" data-keyboard="false">
-    <div class="modal-content">
-      <span class="close" onclick="closeModalKemasan()">&times;</span>
-      <div class="modal-form">
-        <div id="kemasanContainer"></div>
-        <div class="button-group">
-          <button type="button" class="btn btn-primary" onclick="tambahKemasan()">Tambah</button>
-          <button type="button" class="btn-cancel" onclick="closeModalKemasan()">Batal</button>
-        </div>
-      </div>
-    </div>
-  </div>
+                                    <!-- Modal Kemasan (myModal5) -->
+                                    <div id="myModal5" class="modal" data-backdrop="static" data-keyboard="false">
+                                        <div class="modal-content">
+                                            <span class="close" onclick="closeModalKemasan()">&times;</span>
+                                            <div class="modal-form">
+                                                <div id="kemasanContainer"></div>
+                                                <div class="button-group">
+                                                    <button type="button" class="btn btn-primary"
+                                                        onclick="tambahKemasan()">Tambah</button>
+                                                    <button type="button" class="btn-cancel"
+                                                        onclick="closeModalKemasan()">Batal</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
-  <script>
-    // Inisialisasi Nomor Aju dari localStorage (atau set default jika belum ada)
-    const storedNomorAju = localStorage.getItem('nomorAju');
-    if (storedNomorAju) {
-      document.getElementById('nomorAju').value = storedNomorAju;
-    } else {
-      const defaultNomorAju = 'default-value';
-      document.getElementById('nomorAju').value = defaultNomorAju;
-      localStorage.setItem('nomorAju', defaultNomorAju);
-    }
-    // Simpan perubahan Nomor Aju dan reinitialize tabel saat input diubah
-    document.getElementById('nomorAju').addEventListener('input', function () {
-      const currentValue = this.value;
-      localStorage.setItem('nomorAju', currentValue);
-      initializeKemasanTable();
-    });
+                                    <script>
+                                        // Inisialisasi Nomor Aju dari localStorage (atau set default jika belum ada)
+                                        const storedNomorAju = localStorage.getItem('nomorAju');
+                                        if (storedNomorAju) {
+                                            document.getElementById('nomorAju').value = storedNomorAju;
+                                        } else {
+                                            const defaultNomorAju = 'default-value';
+                                            document.getElementById('nomorAju').value = defaultNomorAju;
+                                            localStorage.setItem('nomorAju', defaultNomorAju);
+                                        }
+                                        // Simpan perubahan Nomor Aju dan reinitialize tabel saat input diubah
+                                        document.getElementById('nomorAju').addEventListener('input', function() {
+                                            const currentValue = this.value;
+                                            localStorage.setItem('nomorAju', currentValue);
+                                            initializeKemasanTable();
+                                        });
 
-    // Inisialisasi data kemasan dari localStorage
-    let kemasanList = JSON.parse(localStorage.getItem('kemasanList')) || [];
+                                        // Inisialisasi data kemasan dari localStorage
+                                        let kemasanList = JSON.parse(localStorage.getItem('kemasanList')) || [];
 
-    // Fungsi untuk menampilkan data kemasan ke dalam tabel
-    function initializeKemasanTable() {
-      let kemasanTableBody = document.getElementById("kemasanTableBody");
-      kemasanTableBody.innerHTML = "";
-      const nomorAjuFilter = localStorage.getItem('nomorAju');
-      const filteredKemasanList = kemasanList.filter(kemasan => kemasan.nomorAju === nomorAjuFilter);
-      filteredKemasanList.forEach((kemasan, index) => {
-        let newRow = `<tr>
-            <td>${kemasan.seriKemasan}</td>
-            <td>${kemasan.kodeJenisKemasan}</td>
-            <td>${kemasan.merkKemasan}</td>
-            <td>${kemasan.jumlahKemasan}</td>
-            <td><button class="btn btn-danger" onclick="hapusBarisKemasan(${index})">Hapus</button></td>
-          </tr>`;
-        kemasanTableBody.innerHTML += newRow;
-      });
-    }
+                                        // Fungsi untuk menampilkan data kemasan ke dalam tabel
+                                        function initializeKemasanTable() {
+                                            let kemasanTableBody = document.getElementById("kemasanTableBody");
+                                            kemasanTableBody.innerHTML = "";
+                                            const nomorAjuFilter = localStorage.getItem('nomorAju');
+                                            const filteredKemasanList = kemasanList.filter(kemasan => kemasan.nomorAju === nomorAjuFilter);
+                                            filteredKemasanList.forEach((kemasan, index) => {
+                                                let newRow = `<tr>
+                                                <td>${kemasan.seriKemasan}</td>
+                                                <td>${kemasan.kodeJenisKemasan}</td>
+                                                <td>${kemasan.merkKemasan}</td>
+                                                <td>${kemasan.jumlahKemasan}</td>
+                                                <td><button class="btn btn-danger" onclick="hapusBarisKemasan(${index})">Hapus</button></td>
+                                            </tr>`;
+                                                kemasanTableBody.innerHTML += newRow;
+                                            });
+                                        }
 
-    // Buka modal kemasan
-    function openModalKemasan() {
-      document.getElementById('myModal5').style.display = 'block';
-      tambahKemasan(); // Muat form input saat modal dibuka
-    }
+                                        // Buka modal kemasan
+                                        function openModalKemasan() {
+                                            document.getElementById('myModal5').style.display = 'block';
+                                            tambahKemasan(); // Muat form input saat modal dibuka
+                                        }
 
-    // Tambah form input data kemasan
-    function tambahKemasan() {
-      let index = kemasanList.length;
-      let kemasanContainer = document.getElementById('kemasanContainer');
-      let kemasanForm = document.createElement('div');
-      kemasanForm.classList.add('kemasan-form');
-      kemasanForm.setAttribute('id', 'kemasanForm' + index);
+                                        // Tambah form input data kemasan
+                                        function tambahKemasan() {
+                                            let index = kemasanList.length;
+                                            let kemasanContainer = document.getElementById('kemasanContainer');
+                                            let kemasanForm = document.createElement('div');
+                                            kemasanForm.classList.add('kemasan-form');
+                                            kemasanForm.setAttribute('id', 'kemasanForm' + index);
 
-      // Menghitung seriKemasan berikutnya untuk nomorAju yang sedang aktif
-      const nomorAjuFilter = localStorage.getItem('nomorAju');
-      const filteredKemasanList = kemasanList.filter(kemasan => kemasan.nomorAju === nomorAjuFilter);
-      const nextSeriKemasan = filteredKemasanList.length + 1;
+                                            // Menghitung seriKemasan berikutnya untuk nomorAju yang sedang aktif
+                                            const nomorAjuFilter = localStorage.getItem('nomorAju');
+                                            const filteredKemasanList = kemasanList.filter(kemasan => kemasan.nomorAju === nomorAjuFilter);
+                                            const nextSeriKemasan = filteredKemasanList.length + 1;
 
-      kemasanForm.innerHTML = `
-        <div class="col-md-12">
-          <label for="kemasan[${index}][seriKemasan]" class="form-label">Seri Kemasan</label>
-          <input type="text" class="form-control border-primary" value="${nextSeriKemasan}" name="kemasan[${index}][seriKemasan]" id="seriKemasan${index}" readonly>
-        </div>
-        <div class="col-md-12">
-          <label for="kemasan[${index}][kodeJenisKemasan]" class="form-label">Kode Jenis Kemasan</label>
-          <input type="text" class="form-control border-primary" name="kemasan[${index}][kodeJenisKemasan]" id="kodeJenisKemasan${index}">
-        </div>
-        <div class="col-md-12">
-          <label for="kemasan[${index}][merkKemasan]" class="form-label">Merk Kemasan</label>
-          <input type="text" class="form-control border-primary" name="kemasan[${index}][merkKemasan]" id="merkKemasan${index}">
-        </div>
-        <div class="col-md-12">
-          <label for="kemasan[${index}][jumlahKemasan]" class="form-label">Jumlah Kemasan</label>
-          <input type="number" class="form-control border-primary" name="kemasan[${index}][jumlahKemasan]" id="jumlahKemasan${index}">
-        </div>
-        <button type="button" class="btn btn-primary" onclick="simpanKemasanIndividual(${index})">Simpan</button>
-        <button type="button" class="btn btn-danger" onclick="hapusKemasan(this, ${index})">Hapus</button>
-        <hr>
-      `;
-      kemasanContainer.appendChild(kemasanForm);
-    }
+                                            kemasanForm.innerHTML = `
+                                            <div class="col-md-12">
+                                            <label for="kemasan[${index}][seriKemasan]" class="form-label">Seri Kemasan</label>
+                                            <input type="text" class="form-control border-primary" value="${nextSeriKemasan}" name="kemasan[${index}][seriKemasan]" id="seriKemasan${index}" readonly>
+                                            </div>
+                                            <div class="col-md-12">
+                                            <label for="kemasan[${index}][kodeJenisKemasan]" class="form-label">Kode Jenis Kemasan</label>
+                                            <input type="text" class="form-control border-primary" name="kemasan[${index}][kodeJenisKemasan]" id="kodeJenisKemasan${index}">
+                                            </div>
+                                            <div class="col-md-12">
+                                            <label for="kemasan[${index}][merkKemasan]" class="form-label">Merk Kemasan</label>
+                                            <input type="text" class="form-control border-primary" name="kemasan[${index}][merkKemasan]" id="merkKemasan${index}">
+                                            </div>
+                                            <div class="col-md-12">
+                                            <label for="kemasan[${index}][jumlahKemasan]" class="form-label">Jumlah Kemasan</label>
+                                            <input type="number" class="form-control border-primary" name="kemasan[${index}][jumlahKemasan]" id="jumlahKemasan${index}">
+                                            </div>
+                                            <button type="button" class="btn btn-primary" onclick="simpanKemasanIndividual(${index})">Simpan</button>
+                                            <button type="button" class="btn btn-danger" onclick="hapusKemasan(this, ${index})">Hapus</button>
+                                            <hr>
+                                        `;
+                                            kemasanContainer.appendChild(kemasanForm);
+                                        }
 
-    // Fungsi simpan data kemasan individual
-    function simpanKemasanIndividual(index) {
-      let kodeJenisKemasan = document.getElementById(`kodeJenisKemasan${index}`).value;
-      let merkKemasan = document.getElementById(`merkKemasan${index}`).value;
-      let jumlahKemasan = document.getElementById(`jumlahKemasan${index}`).value;
-      let seriKemasan = document.getElementById(`seriKemasan${index}`).value;
-      let nomorAju = document.getElementById('nomorAju').value;
+                                        // Fungsi simpan data kemasan individual
+                                        function simpanKemasanIndividual(index) {
+                                            let kodeJenisKemasan = document.getElementById(`kodeJenisKemasan${index}`).value;
+                                            let merkKemasan = document.getElementById(`merkKemasan${index}`).value;
+                                            let jumlahKemasan = document.getElementById(`jumlahKemasan${index}`).value;
+                                            let seriKemasan = document.getElementById(`seriKemasan${index}`).value;
+                                            let nomorAju = document.getElementById('nomorAju').value;
 
-      if (!kodeJenisKemasan || !merkKemasan || !jumlahKemasan) {
-        alert("Semua field harus diisi!");
-        return;
-      }
+                                            if (!kodeJenisKemasan || !merkKemasan || !jumlahKemasan) {
+                                                alert("Semua field harus diisi!");
+                                                return;
+                                            }
 
-      // Menghitung ulang seriKemasan berdasarkan nomorAju
-      const filteredKemasanList = kemasanList.filter(kemasan => kemasan.nomorAju === nomorAju);
-      const autoSeriKemasan = filteredKemasanList.length + 1;
+                                            // Menghitung ulang seriKemasan berdasarkan nomorAju
+                                            const filteredKemasanList = kemasanList.filter(kemasan => kemasan.nomorAju === nomorAju);
+                                            const autoSeriKemasan = filteredKemasanList.length + 1;
 
-      kemasanList.push({
-        seriKemasan: autoSeriKemasan,
-        kodeJenisKemasan,
-        merkKemasan,
-        jumlahKemasan,
-        nomorAju
-      });
-      localStorage.setItem('kemasanList', JSON.stringify(kemasanList));
+                                            kemasanList.push({
+                                                seriKemasan: autoSeriKemasan,
+                                                kodeJenisKemasan,
+                                                merkKemasan,
+                                                jumlahKemasan,
+                                                nomorAju
+                                            });
+                                            localStorage.setItem('kemasanList', JSON.stringify(kemasanList));
 
-      initializeKemasanTable();
+                                            initializeKemasanTable();
 
-      // Sembunyikan form input setelah data disimpan
-      document.getElementById('kemasanForm' + index).style.display = 'none';
-    }
+                                            // Sembunyikan form input setelah data disimpan
+                                            document.getElementById('kemasanForm' + index).style.display = 'none';
+                                        }
 
-    // Fungsi menghapus form input dari modal
-    function hapusKemasan(button, index) {
-      let kemasanContainer = document.getElementById('kemasanContainer');
-      kemasanContainer.removeChild(button.parentElement);
-      kemasanList.splice(index, 1);
-      localStorage.setItem('kemasanList', JSON.stringify(kemasanList));
+                                        // Fungsi menghapus form input dari modal
+                                        function hapusKemasan(button, index) {
+                                            let kemasanContainer = document.getElementById('kemasanContainer');
+                                            kemasanContainer.removeChild(button.parentElement);
+                                            kemasanList.splice(index, 1);
+                                            localStorage.setItem('kemasanList', JSON.stringify(kemasanList));
 
-      reindexKemasanList();
-      initializeKemasanTable();
-    }
+                                            reindexKemasanList();
+                                            initializeKemasanTable();
+                                        }
 
-    // Reindex seriKemasan agar selalu berurutan
-    function reindexKemasanList() {
-      let nomorAjuFilter = localStorage.getItem('nomorAju');
-      kemasanList.filter(kemasan => kemasan.nomorAju === nomorAjuFilter).forEach((kemasan, index) => {
-        kemasan.seriKemasan = index + 1;
-      });
-      localStorage.setItem('kemasanList', JSON.stringify(kemasanList));
-    }
+                                        // Reindex seriKemasan agar selalu berurutan
+                                        function reindexKemasanList() {
+                                            let nomorAjuFilter = localStorage.getItem('nomorAju');
+                                            kemasanList.filter(kemasan => kemasan.nomorAju === nomorAjuFilter).forEach((kemasan, index) => {
+                                                kemasan.seriKemasan = index + 1;
+                                            });
+                                            localStorage.setItem('kemasanList', JSON.stringify(kemasanList));
+                                        }
 
-    // Fungsi hapus baris tabel kemasan
-    function hapusBarisKemasan(index) {
-      kemasanList.splice(index, 1);
-      localStorage.setItem('kemasanList', JSON.stringify(kemasanList));
-      reindexKemasanList();
-      initializeKemasanTable();
-    }
+                                        // Fungsi hapus baris tabel kemasan
+                                        function hapusBarisKemasan(index) {
+                                            kemasanList.splice(index, 1);
+                                            localStorage.setItem('kemasanList', JSON.stringify(kemasanList));
+                                            reindexKemasanList();
+                                            initializeKemasanTable();
+                                        }
 
-    // Tutup modal kemasan
-    function closeModalKemasan() {
-      document.getElementById('myModal5').style.display = 'none';
-    }
+                                        // Tutup modal kemasan
+                                        function closeModalKemasan() {
+                                            document.getElementById('myModal5').style.display = 'none';
+                                        }
 
-    // Inisialisasi tabel saat halaman dimuat
-    window.onload = function () {
-      initializeKemasanTable();
-    }
-  </script>
-
-
+                                        // Inisialisasi tabel saat halaman dimuat
+                                        window.onload = function() {
+                                            initializeKemasanTable();
+                                        }
+                                    </script>
 
 
-    {{-- Transaksi --}}
-    <div class="tab-pane fade" id="transaksi" role="tabpanel" aria-labelledby="transaksi-tab">
-        <div class="container">
-            <!-- Harga -->
-            <div class="row mb-4 p-3 border rounded shadow-sm bg-light">
-                <h5 class="text-primary">Harga
-                </h5>
-                <div class="row">
-                    <div class="col-md-6">
-                        <label for="Valuta" class="form-label">Valuta</label>
-                        <input type="text" class="form-control" id="nomorIdentitas" name="kodeValuta"
-                            value="{{ old('kodeValuta', 'USD - US DOLLAR') }}" readonly
-                            style="border: 1px solid #313131;">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="ndpbm" class="form-label">NDPBM</label>
-                        <input type="number" class="form-control" id="ndpbm" name="ndpbm"
-                            value="{{ old('ndpbm') }}" style="border: 1px solid #313131;"
-                            oninput="hitungNilaiPabean()">
-                    </div>
 
-                    <div class="col-md-6 mt-3">
-                        <label for="cif" class="form-label">CIF</label>
-                        <input type="text" class="form-control" id="cif" name="cif"
-                            value="{{ old('cif') }}" step="any" style="border: 1px solid #313131;"
-                            oninput="hitungNilaiPabean()">
-                    </div>
-                    <div class="col-md-6 mt-3">
-                        <label for="nilai_pabean" class="form-label">Nilai Pabean</label>
-                        <input type="text" class="form-control" id="nilai_pabean" readonly
-                            style="border: 1px solid #313131;">
-                    </div>
 
-                    <div class="col-md-6 mt-3">
-                        <label for="hargaPenyerahan" class="form-label">Harga
-                            Penyerahan/Harga Jual/Harga Barang</label>
-                        <input type="text" class="form-control" id="harga_penyerahan" name="hargaPenyerahan"
-                            value="{{ old('hargaPenyerahan') }}" step="any" value="{{ old('hargaPenyerahan') }}"
-                            style="border: 1px solid #313131;">
-                    </div>
-                </div>
-            </div>
+                                    {{-- Transaksi --}}
+                                    <div class="tab-pane fade" id="transaksi" role="tabpanel"
+                                        aria-labelledby="transaksi-tab">
+                                        <div class="container">
+                                            <!-- Harga -->
+                                            <div class="row mb-4 p-3 border rounded shadow-sm bg-light">
+                                                <h5 class="text-primary">Harga
+                                                </h5>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label for="Valuta" class="form-label">Valuta</label>
+                                                        <input type="text" class="form-control" id="nomorIdentitas"
+                                                            name="kodeValuta"
+                                                            value="{{ old('kodeValuta', 'USD - US DOLLAR') }}" readonly
+                                                            style="border: 1px solid #313131;">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label for="ndpbm" class="form-label">NDPBM</label>
+                                                        <input type="number" class="form-control" id="ndpbm"
+                                                            name="ndpbm" value="{{ old('ndpbm') }}"
+                                                            style="border: 1px solid #313131;"
+                                                            oninput="hitungNilaiPabean()">
+                                                    </div>
 
-            <!-- Data Untuk Keperluan Pajak -->
-            <div class="row mb-4 p-3 border rounded shadow-sm bg-light">
-                <div class="d-flex justify-content-between align-items-center">
-                    <h5 class="text-primary" id="exampleModalCenterTitle">Data Untuk
-                        Keperluan Pajak
-                    </h5>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <label for="nomorIdentitas" class="form-label">Uang Muka</label>
-                        <input type="text" class="form-control" id="uang_maku" style="border: 1px solid #313131;">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="nomorNpwp" class="form-label">Diskon</label>
-                        <input type="text" class="form-control" id="diskon" name="barang[0][diskon]"
-                            value="{{ old('diskon', '0.00') }}" style="border: 1px solid #313131;">
-                    </div>
-                    <div class="col-md-12 mt-3">
-                        <label for="pengenaan_pajak" class="form-label">Dasar Pengenaan
-                            Pajak</label>
-                        <input type="text" class="form-control" id="pengenaan_pajak" name="dasarPengenaanPajak"
-                            style="border: 1px solid #313131;" oninput="hitungPPNBM(); hitungPPN();">
-                    </div>
-                    <div class="col-md-6 mt-3">
-                        <label for="namaEntitas2" class="form-label">PPN Yang Dipungut
-                            (Tarif & Nilai)</label>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <input type="text" class="form-control" id="ppn_tarif" name="tarifPpnPajak"
-                                    placeholder="11.00%" value="{{ old('diskon', '11.00%') }}"
-                                    style="border: 1px solid #313131;" oninput="hitungPPN()">
-                            </div>
+                                                    <div class="col-md-6 mt-3">
+                                                        <label for="cif" class="form-label">CIF</label>
+                                                        <input type="text" class="form-control" id="cif"
+                                                            name="cif" value="{{ old('cif') }}" step="any"
+                                                            style="border: 1px solid #313131;"
+                                                            oninput="hitungNilaiPabean()">
+                                                    </div>
+                                                    <div class="col-md-6 mt-3">
+                                                        <label for="nilai_pabean" class="form-label">Nilai Pabean</label>
+                                                        <input type="text" class="form-control" id="nilai_pabean"
+                                                            readonly style="border: 1px solid #313131;">
+                                                    </div>
 
-                            <div class="col-md-8">
-                                <input type="text" class="form-control" id="ppn_hasil" name="ppnPajak" readonly
-                                    style="border: 1px solid #313131;">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 mt-3">
-                        <label for="namaEntitas3" class="form-label">PPnBM Yang Dipungut
-                            (Tarif & Nilai)</label>
-                        <div class="row">
-                            <div class="col-md-4">
-                                <input type="text" class="form-control" id="ppnb_tarif" name="tarifPpnbmPajak"
-                                    value="00.00%" style="border: 1px solid #313131;" oninput="hitungPPNBM()">
-                            </div>
+                                                    <div class="col-md-6 mt-3">
+                                                        <label for="hargaPenyerahan" class="form-label">Harga
+                                                            Penyerahan/Harga Jual/Harga Barang</label>
+                                                        <input type="text" class="form-control" id="harga_penyerahan"
+                                                            name="hargaPenyerahan" value="{{ old('hargaPenyerahan') }}"
+                                                            step="any" value="{{ old('hargaPenyerahan') }}"
+                                                            style="border: 1px solid #313131;">
+                                                    </div>
+                                                </div>
+                                            </div>
 
-                            <div class="col-md-8">
-                                <input type="text" class="form-control" id="ppnb_hasil" name="ppnbmPajak" readonly
-                                    style="border: 1px solid #313131;">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                                            <!-- Data Untuk Keperluan Pajak -->
+                                            <div class="row mb-4 p-3 border rounded shadow-sm bg-light">
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <h5 class="text-primary" id="exampleModalCenterTitle">Data Untuk
+                                                        Keperluan Pajak
+                                                    </h5>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label for="nomorIdentitas" class="form-label">Uang Muka</label>
+                                                        <input type="text" class="form-control" id="uang_maku"
+                                                            style="border: 1px solid #313131;">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label for="nomorNpwp" class="form-label">Diskon</label>
+                                                        <input type="text" class="form-control" id="diskon"
+                                                            name="barang[0][diskon]" value="{{ old('diskon', '0.00') }}"
+                                                            style="border: 1px solid #313131;">
+                                                    </div>
+                                                    <div class="col-md-12 mt-3">
+                                                        <label for="pengenaan_pajak" class="form-label">Dasar Pengenaan
+                                                            Pajak</label>
+                                                        <input type="text" class="form-control" id="pengenaan_pajak"
+                                                            name="dasarPengenaanPajak" style="border: 1px solid #313131;"
+                                                            oninput="hitungPPNBM(); hitungPPN();">
+                                                    </div>
+                                                    <div class="col-md-6 mt-3">
+                                                        <label for="namaEntitas2" class="form-label">PPN Yang Dipungut
+                                                            (Tarif & Nilai)</label>
+                                                        <div class="row">
+                                                            <div class="col-md-4">
+                                                                <input type="text" class="form-control" id="ppn_tarif"
+                                                                    name="tarifPpnPajak" placeholder="11.00%"
+                                                                    value="{{ old('diskon', '11.00%') }}"
+                                                                    style="border: 1px solid #313131;"
+                                                                    oninput="hitungPPN()">
+                                                            </div>
 
-            <!-- Berat -->
-            <div class="row mb-4 p-3 border rounded shadow-sm bg-light">
-                <div class="d-flex justify-content-between align-items-center">
-                    <h5 class="text-primary" id="exampleModalCenterTitle">Berat
-                    </h5>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <label for="nomorIdentitas" class="form-label">Berat Kotor
-                            (KGM)</label>
-                        <input type="text" class="form-control" id="berat_kotor" name="bruto"
-                            value="{{ old('bruto') }}" style="border: 1px solid #313131;">
-                    </div>
-                    <div class="col-md-6">
-                        <label for="nomorNpwp" class="form-label">Berat Bersih
-                            (KGM)</label>
-                        <input type="text" class="form-control" id="berat_bersih" name="jumlahSatuan"
-                            value="{{ old('jumlahSatuan') }}" style="border: 1px solid #313131;">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+                                                            <div class="col-md-8">
+                                                                <input type="text" class="form-control" id="ppn_hasil"
+                                                                    name="ppnPajak" readonly
+                                                                    style="border: 1px solid #313131;">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 mt-3">
+                                                        <label for="namaEntitas3" class="form-label">PPnBM Yang Dipungut
+                                                            (Tarif & Nilai)</label>
+                                                        <div class="row">
+                                                            <div class="col-md-4">
+                                                                <input type="text" class="form-control"
+                                                                    id="ppnb_tarif" name="tarifPpnbmPajak" value="00.00%"
+                                                                    style="border: 1px solid #313131;"
+                                                                    oninput="hitungPPNBM()">
+                                                            </div>
 
-    {{-- Barang --}}
-    {{-- <div class="tab-pane fade" id="barang" role="tabpanel" aria-labelledby="barang-tab">
+                                                            <div class="col-md-8">
+                                                                <input type="text" class="form-control"
+                                                                    id="ppnb_hasil" name="ppnbmPajak" readonly
+                                                                    style="border: 1px solid #313131;">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Berat -->
+                                            <div class="row mb-4 p-3 border rounded shadow-sm bg-light">
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <h5 class="text-primary" id="exampleModalCenterTitle">Berat
+                                                    </h5>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <label for="nomorIdentitas" class="form-label">Berat Kotor
+                                                            (KGM)</label>
+                                                        <input type="text" class="form-control" id="berat_kotor"
+                                                            name="bruto" value="{{ old('bruto') }}"
+                                                            style="border: 1px solid #313131;">
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label for="nomorNpwp" class="form-label">Berat Bersih
+                                                            (KGM)</label>
+                                                        <input type="text" class="form-control" id="berat_bersih"
+                                                            name="jumlahSatuan" value="{{ old('jumlahSatuan') }}"
+                                                            style="border: 1px solid #313131;">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    {{-- Barang --}}
+                                    {{-- <div class="tab-pane fade" id="barang" role="tabpanel" aria-labelledby="barang-tab">
         <div class="row">
             <div class="container-fluid">
                 <div class="row">
@@ -1611,8 +1633,8 @@
         </div>
     </div> --}}
 
-    <!-- Pungutan -->
-    {{-- <div class="tab-pane fade" id="pungutan" role="tabpanel" aria-labelledby="pungutan-tab">
+                                    <!-- Pungutan -->
+                                    {{-- <div class="tab-pane fade" id="pungutan" role="tabpanel" aria-labelledby="pungutan-tab">
         <div class="container-fluid p-4">
             <div class="card shadow-sm">
                 <div class="card-body">
@@ -1711,56 +1733,99 @@
         </div>
     </div> --}}
 
-    <!-- Pernyataan -->
-    <div class="tab-pane fade" id="pernyataan" role="tabpanel" aria-labelledby="pernyataan-tab">
-        <div class="container-fluid p-4">
-            <div class="card shadow-sm">
-                <div class="card-body">
-                    <!-- Harga -->
-                    <div class="row mb-4 p-3 border rounded shadow-sm bg-light">
-                        <h5 class="text-primary">Tempat & Tinggal</h5>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label for="ndpbm" class="form-label">Tempat</label>
-                                <input type="text" class="form-control" name="kotaTtd" value="{{ old('kotaTtd') }}"
-                                    style="border: 1px solid #313131;">
-                            </div>
-                            <div class="col-md-6">
-                                <label for="cif" class="form-label">Tanggal</label>
-                                <input type="date" class="form-control" name="tanggalTtd"
-                                    value="{{ old('tanggalTtd') }}" style="border: 1px solid #313131;">
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Nama -->
-                    <div class="row mb-4 p-3 border rounded shadow-sm bg-light">
-                        <h5 class="text-primary">Nama</h5>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <label for="uang_muka" class="form-label">Nama</label>
-                                <input type="text" class="form-control" name="namaTtd" value="{{ old('namaTtd') }}"
-                                    style="border: 1px solid #313131;">
-                            </div>
-                            <div class="col-md-6">
-                                <label for="diskon" class="form-label">Jabatan</label>
-                                <input type="text" class="form-control" name="jabatanTtd"
-                                    value="{{ old('jabatanTtd') }}" style="border: 1px solid #313131;">
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Tombol Submit -->
-                    <div class="col-12 mt-3">
-                        <button class="btn btn-primary" type="submit">Submit</button>
-                        <a href="{{ route('dokumen_baru') }}" class="btn btn-danger">Cancel</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </form><!--end form-->
-    </div><!--end card-body-->
-    </div><!--end card-->
-    </div><!--end col-->
-    </div><!--end row-->
+                                    <!-- Pernyataan -->
+                                    <div class="tab-pane fade" id="pernyataan" role="tabpanel"
+                                        aria-labelledby="pernyataan-tab">
+                                        <div class="container-fluid p-4">
+                                            <div class="card shadow-sm">
+                                                <div class="card-body">
+                                                    <!-- Harga -->
+                                                    <div class="row mb-4 p-3 border rounded shadow-sm bg-light">
+                                                        <h5 class="text-primary">Tempat & Tinggal</h5>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <label for="ndpbm" class="form-label">Tempat</label>
+                                                                <input type="text" class="form-control" name="kotaTtd"
+                                                                    value="{{ old('kotaTtd') }}"
+                                                                    style="border: 1px solid #313131;">
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <label for="cif" class="form-label">Tanggal</label>
+                                                                <input type="date" class="form-control"
+                                                                    name="tanggalTtd" value="{{ old('tanggalTtd') }}"
+                                                                    style="border: 1px solid #313131;">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <!-- Nama -->
+                                                    <div class="row mb-4 p-3 border rounded shadow-sm bg-light">
+                                                        <h5 class="text-primary">Nama</h5>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <label for="uang_muka" class="form-label">Nama</label>
+                                                                <input type="text" class="form-control" name="namaTtd"
+                                                                    value="{{ old('namaTtd') }}"
+                                                                    style="border: 1px solid #313131;">
+                                                            </div>
+                                                            <div class="col-md-6">
+                                                                <label for="diskon" class="form-label">Jabatan</label>
+                                                                <input type="text" class="form-control"
+                                                                    name="jabatanTtd" value="{{ old('jabatanTtd') }}"
+                                                                    style="border: 1px solid #313131;">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-3 d-none">
+                                                        <label for="kodeJenisKontainer" class="form-label">kode Jenis
+                                                            Kontainer</label>
+                                                        <input type="text" class="form-control"
+                                                            id="kodeJenisKontainer"
+                                                            name="kontainer[0][kodeJenisKontainer]"
+                                                            value="{{ old('kodeJenisKontainer', '4') }}">
+                                                    </div>
+                                                    <div class="col-md-3 d-none">
+                                                        <label for="kodeTipeKontainer" class="form-label">kode Tipe
+                                                            Kontainer</label>
+                                                        <input type="text" class="form-control" id="kodeTipeKontainer"
+                                                            name="kontainer[0][kodeTipeKontainer]"
+                                                            value="{{ old('kodeTipeKontainer', '1') }}">
+                                                    </div>
+                                                    <div class="col-md-3 d-none">kodeJenisPungutan
+                                                        <label for="kodeUkuranKontainer" class="form-label">kode Ukuran
+                                                            Kontainer</label>
+                                                        <input type="text" class="form-control"
+                                                            id="kodeUkuranKontainer"
+                                                            name="kontainer[0][kodeUkuranKontainer]"
+                                                            value="{{ old('kodeUkuranKontainer', '40') }}">
+                                                    </div>
+                                                    <div class="col-md-3 d-none">
+                                                        <label for="nomorKontainer" class="form-label">nomor
+                                                            Kontainer</label>
+                                                        <input type="text" class="form-control" id="nomorKontainer"
+                                                            name="kontainer[0][nomorKontainer]"
+                                                            value="{{ old('nomorKontainer', 'CONTAINER123') }}">
+                                                    </div>
+                                                    <div class="col-md-3 d-none">
+                                                        <label for="seriKontainer" class="form-label">seri
+                                                            Kontainer</label>
+                                                        <input type="text" class="form-control" id="seriKontainer"
+                                                            name="kontainer[0][seriKontainer]"
+                                                            value="{{ old('seriKontainer', 1) }}">
+                                                    </div>
+                                                    <!-- Tombol Submit -->
+                                                    <div class="col-12 mt-3">
+                                                        <button class="btn btn-primary" type="submit">Submit</button>
+                                                        <a href="{{ route('dokumen_baru') }}"
+                                                            class="btn btn-danger">Cancel</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                        </form><!--end form-->
+                    </div><!--end card-body-->
+                </div><!--end card-->
+            </div><!--end col-->
+        </div><!--end row-->
     </div><!-- container -->
 
     <script>
@@ -1794,12 +1859,12 @@
         script >
             $('#select-field1').select2({
                 theme: 'bootstrap-5'
+            }); <
+        /> <
+        script >
+            $('#select-field2').select2({
+                theme: 'bootstrap-5'
             });
-    </>
-    <script>
-        $('#select-field2').select2({
-            theme: 'bootstrap-5'
-        });
     </script>
     <script>
         $('#select-field3').select2({
