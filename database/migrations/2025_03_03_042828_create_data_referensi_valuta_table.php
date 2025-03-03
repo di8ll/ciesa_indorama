@@ -11,11 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('data_pemilik', function (Blueprint $table) {
+        Schema::create('data_referensi_valuta', function (Blueprint $table) {
             $table->id();
-            $table->string('npwp');
-            $table->string('Nama');
-            $table->string('Alamat');
+            $table->string('kode_valuta');
+            $table->string('nama_valuta');
             $table->timestamps();
         });
     }
@@ -25,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('data_pemilik');
+        Schema::dropIfExists('data_referensi_valuta');
     }
 };

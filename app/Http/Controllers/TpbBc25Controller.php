@@ -9,12 +9,13 @@ use Illuminate\Support\Facades\Log; // Add this import
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Auth; // Add this import to access the authenticated user
 use App\Models\DataPenerimaPajak;
-
+use App\Models\ReferensiDokumen;
+use App\Models\ReferensiJenisKemasan;
+use App\Models\Referensivaluta;
+use App\Models\ReferensiHSCode;
+use App\Models\ReferensiKategoriBarang;
 
 class TpbBc25Controller extends Controller
-
-
-
 {
     public function index(Request $request)
     {
@@ -25,8 +26,15 @@ class TpbBc25Controller extends Controller
     {
         $penerimaPajak = DataPenerimaPajak::all();
         $pemilikbarang = DataPemilik::all();
+        $referensidokumen = ReferensiDokumen::all();
+        $referensikemasan = ReferensiJenisKemasan::all();
+        $referensivaluta = Referensivaluta::all();
+        $referensiHSCODE = ReferensiHSCode::all();
+        $referensikategoribarang = ReferensiKategoriBarang::all();
+        
+        $defaultValuta = Referensivaluta::where('kode_valuta', 'USD')->first();
 
-        return view('dashboard.admin.dokumen.create', compact('penerimaPajak','pemilikbarang'));
+        return view('dashboard.admin.dokumen.create', compact('penerimaPajak','pemilikbarang','referensidokumen','referensikemasan','referensivaluta','defaultValuta','referensiHSCODE','referensikategoribarang'));
     }
 
     public function store(Request $request)

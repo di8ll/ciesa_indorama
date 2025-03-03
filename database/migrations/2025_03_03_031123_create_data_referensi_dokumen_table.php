@@ -11,11 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('datadokumen', function (Blueprint $table) {
-            $table->increments('idDokumen'); // Menggunakan increments agar dapat dikelola secara manual
-            $table->string('kodeDokumen');
-            $table->string('nomorDokumen');
-            $table->string('tanggalDokumen');
+        Schema::create('data_referensi_dokumen', function (Blueprint $table) {
+            $table->id();
+            $table->integer('kode_dokumen');
+            $table->string('nama_dokumen');
             $table->timestamps();
         });
     }
@@ -25,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('datadokumen');
+        Schema::dropIfExists('data_referensi_dokumen');
     }
 };

@@ -69,11 +69,11 @@
                                             data-bs-target="#barang" type="button" role="tab" aria-controls="barang"
                                             aria-selected="false">Barang</button>
                                     </li>
-                                    <li class="nav-item" role="presentation">
+                                    {{-- <li class="nav-item" role="presentation">
                                         <button class="nav-link" id="pungutan-tab" data-bs-toggle="tab"
                                             data-bs-target="#pungutan" type="button" role="tab"
                                             aria-controls="pungutan" aria-selected="false">Pungutan</button>
-                                    </li>
+                                    </li> --}}
                                     <li class="nav-item" role="presentation">
                                         <button class="nav-link" id="pernyataan-tab" data-bs-toggle="tab"
                                             data-bs-target="#pernyataan" type="button" role="tab"
@@ -191,9 +191,14 @@
                                                 <label for="kodeJenisTpb" class="form-label">Jenis TPB</label>
                                                 <select class="form-control" id="select-field18"name="kodeJenisTpb">
                                                     <option value="1 - KAWASAN BERIKAT" selected>1 - KAWASAN BERIKAT
+                                                    <option value="2 - GUDANG BERIKAT" selected>2 - GUDANG BERIKAT
                                                     </option>
-                                                    <option value="10 - FTZ">10 - FTZ</option>
-                                                    <option value="11 - BUKEK">11 - BUKEK</option>
+                                                    <option value="3 - TPPB">3 - TPPB</option>
+                                                    <option value="4 - TBB">4 - TBB</option>
+                                                    <option value="5 - TLB">5 - TLB</option>
+                                                    <option value="6 - KDUB">6 - KDUB</option>
+                                                    <option value="7 - PLB">7 - PLB</option>
+                                                    <option value="8 - LAINNYA">8 - LAINNYA</option>
                                                 </select>
                                             </div>
 
@@ -209,6 +214,14 @@
                                                 <label for="kodeJenisTpb" class="form-label">Cara Bayar</label>
                                                 <select class="form-control" id="select-field19" name="kodeCaraBayar">
                                                     <option value="1 - BIASA / TUNAI" selected>1 - BIASA / TUNAI</option>
+                                                    <option value="2 - BERKALA" selected>2 - BERKALA</option>
+                                                    <option value="3 - DENGAN JAMINAN" selected>3 - DENGAN JAMINAN</option>
+                                                    <option value="4 - PERHITUNGAN KEMUDIAN" selected>4 - PERHITUNGAN KEMUDIAN</option>
+                                                    <option value="5 - KONSINYASI (CONSIGNMENT)" selected>5 - KONSINYASI (CONSIGNMENT)</option>
+                                                    <option value="6 - USANCE LETTER OF CREDIT" selected>6 - USANCE LETTER OF CREDIT</option>
+                                                    <option value="7 - RED CLAUSE LETTER OF CREDIT" selected>7 - RED CLAUSE LETTER OF CREDIT</option>
+                                                    <option value="8 - INTER-COMPANY ACCOUNT" selected>8 - INTER-COMPANY ACCOUNT</option>
+                                                    <option value="9 - GABUNGAN/LAINNYA" selected>9 - GABUNGAN/LAINNYA</option>
                                                     <option
                                                         value="10 - PEMBAYARAN KEMUDIAN  (OPEN ACCOUNT SECARA BERTAHAP)">10
                                                         - PEMBAYARAN KEMUDIAN (OPEN ACCOUNT SECARA BERTAHAP)</option>
@@ -622,11 +635,14 @@
                                                                     <table class="table table-bordered" id="dataTable1">
                                                                         <thead class="thead-light">
                                                                             <tr>
-                                                                                <th>ID Dokumen</th>
-                                                                                <th>Kode Dokumen</th>
-                                                                                <th>Nomor Dokumen</th>
-                                                                                <th>Seri Dokumen</th>
-                                                                                <th>Tanggal Dokumen</th>
+                                                                                <th>Seri</th>
+                                                                                <th>Jenis</th>
+                                                                                <th>Nomor</th>
+                                                                                <th>Tanggal</th>
+                                                                                <th>Fasilitas</th>
+                                                                                <th>Izin</th>
+                                                                                <th>Kantor</th>
+                                                                                <th>File</th>
                                                                                 <th>Aksi</th>
                                                                             </tr>
                                                                         </thead>
@@ -657,256 +673,149 @@
                                         </div>
                                     </div>
 
-                                    <!-- Kode Modal Kemasan -->
-                                    <script>
-                                        (function() {
-                                            let kemasanList = JSON.parse(localStorage.getItem('kemasanList')) || [];
-
-                                            window.initializeKemasanTable = function() {
-                                                let kemasanTableBody = document.getElementById("kemasanTableBody");
-                                                kemasanTableBody.innerHTML = "";
-                                                const nomorAjuFilter = localStorage.getItem('nomorAju');
-                                                const filteredKemasanList = kemasanList.filter(kemasan => kemasan.nomorAju === nomorAjuFilter);
-                                                filteredKemasanList.forEach((kemasan, index) => {
-                                                    let newRow = `<tr>
-              <td>${kemasan.seriKemasan}</td>
-              <td>${kemasan.kodeJenisKemasan}</td>
-              <td>${kemasan.merkKemasan}</td>
-              <td>${kemasan.jumlahKemasan}</td>
-              <td><button class="btn btn-danger" onclick="hapusBarisKemasan(${index})">Hapus</button></td>
-            </tr>`;
-                                                    kemasanTableBody.innerHTML += newRow;
-                                                });
-                                            }
-
-                                            window.openModalKemasan = function() {
-                                                document.getElementById('myModal5').style.display = 'block';
-                                                tambahKemasan();
-                                            }
-
-                                            window.tambahKemasan = function() {
-                                                let index = kemasanList.length;
-                                                let kemasanContainer = document.getElementById('kemasanContainer');
-                                                let kemasanForm = document.createElement('div');
-                                                kemasanForm.classList.add('kemasan-form');
-                                                kemasanForm.setAttribute('id', 'kemasanForm' + index);
-
-                                                // Hitung seriKemasan untuk nomorAju yang aktif
-                                                const nomorAjuFilter = localStorage.getItem('nomorAju');
-                                                const filteredKemasanList = kemasanList.filter(kemasan => kemasan.nomorAju === nomorAjuFilter);
-                                                const nextSeriKemasan = filteredKemasanList.length + 1;
-
-                                                kemasanForm.innerHTML = `
-          <div class="col-md-12">
-            <label for="kemasan[${index}][seriKemasan]" class="form-label">Seri Kemasan</label>
-            <input type="text" class="border-primary" value="${nextSeriKemasan}" name="kemasan[${index}][seriKemasan]" id="seriKemasan${index}" readonly>
-          </div>
-          <div class="col-md-12">
-            <label for="kemasan[${index}][kodeJenisKemasan]" class="form-label">Kode Jenis Kemasan</label>
-            <input type="text" class="border-primary" name="kemasan[${index}][kodeJenisKemasan]" id="kodeJenisKemasan${index}">
-          </div>
-          <div class="col-md-12">
-            <label for="kemasan[${index}][merkKemasan]" class="form-label">Merk Kemasan</label>
-            <input type="text" class="border-primary" name="kemasan[${index}][merkKemasan]" id="merkKemasan${index}">
-          </div>
-          <div class="col-md-12">
-            <label for="kemasan[${index}][jumlahKemasan]" class="form-label">Jumlah Kemasan</label>
-            <input type="number" class="border-primary" name="kemasan[${index}][jumlahKemasan]" id="jumlahKemasan${index}">
-          </div>
-          <button type="button" class="btn btn-primary" onclick="simpanKemasanIndividual(${index})">Simpan</button>
-          <button type="button" class="btn btn-danger" onclick="hapusKemasan(this, ${index})">Hapus</button>
-          <hr>
-        `;
-                                                kemasanContainer.appendChild(kemasanForm);
-                                            }
-
-                                            window.simpanKemasanIndividual = function(index) {
-                                                let kodeJenisKemasan = document.getElementById(`kodeJenisKemasan${index}`).value;
-                                                let merkKemasan = document.getElementById(`merkKemasan${index}`).value;
-                                                let jumlahKemasan = document.getElementById(`jumlahKemasan${index}`).value;
-                                                let seriKemasan = document.getElementById(`seriKemasan${index}`).value;
-                                                let nomorAju = document.getElementById('nomorAju').value;
-
-                                                if (!kodeJenisKemasan || !merkKemasan || !jumlahKemasan) {
-                                                    alert("Semua field harus diisi!");
-                                                    return;
-                                                }
-
-                                                const filteredKemasanList = kemasanList.filter(kemasan => kemasan.nomorAju === nomorAju);
-                                                const autoSeriKemasan = filteredKemasanList.length + 1;
-
-                                                kemasanList.push({
-                                                    seriKemasan: autoSeriKemasan,
-                                                    kodeJenisKemasan,
-                                                    merkKemasan,
-                                                    jumlahKemasan,
-                                                    nomorAju
-                                                });
-                                                localStorage.setItem('kemasanList', JSON.stringify(kemasanList));
-
-                                                initializeKemasanTable();
-                                                document.getElementById('kemasanForm' + index).style.display = 'none';
-                                            }
-
-                                            window.hapusKemasan = function(button, index) {
-                                                let kemasanContainer = document.getElementById('kemasanContainer');
-                                                kemasanContainer.removeChild(button.parentElement);
-                                                kemasanList.splice(index, 1);
-                                                localStorage.setItem('kemasanList', JSON.stringify(kemasanList));
-
-                                                reindexKemasanList();
-                                                initializeKemasanTable();
-                                            }
-
-                                            function reindexKemasanList() {
-                                                let nomorAjuFilter = localStorage.getItem('nomorAju');
-                                                kemasanList.filter(kemasan => kemasan.nomorAju === nomorAjuFilter).forEach((kemasan, index) => {
-                                                    kemasan.seriKemasan = index + 1;
-                                                });
-                                                localStorage.setItem('kemasanList', JSON.stringify(kemasanList));
-                                            }
-
-                                            window.hapusBarisKemasan = function(index) {
-                                                kemasanList.splice(index, 1);
-                                                localStorage.setItem('kemasanList', JSON.stringify(kemasanList));
-                                                reindexKemasanList();
-                                                initializeKemasanTable();
-                                            }
-
-                                            window.closeModalKemasan = function() {
-                                                document.getElementById('myModal5').style.display = 'none';
-                                            }
-                                        })();
-                                    </script>
-
                                     <!-- Kode Modal Dokumen -->
                                     <script>
-                                        (function() {
-                                            let dokumenList = JSON.parse(localStorage.getItem('dokumenList')) || [];
+                                    (function() {
+                                        let dokumenList = JSON.parse(localStorage.getItem('dokumenList')) || [];
 
-                                            window.initializeDokumenTable = function() {
-                                                let dokumenTableBody = document.getElementById("dokumenTableBody");
-                                                dokumenTableBody.innerHTML = "";
-                                                const nomorAjuFilter = localStorage.getItem('nomorAju');
-                                                const filteredDokumenList = dokumenList.filter(dokumen => dokumen.nomorAju === nomorAjuFilter);
-                                                filteredDokumenList.forEach((dokumen, index) => {
-                                                    let newRow = `<tr>
-              <td>${dokumen.idDokumen}</td>
-              <td>${dokumen.kodeDokumen}</td>
-              <td>${dokumen.nomorDokumen}</td>
-              <td>${dokumen.seriDokumen}</td>
-              <td>${dokumen.tanggalDokumen}</td>
-              <td><button class="btn btn-danger" onclick="hapusBaris(${index})">Hapus</button></td>
-            </tr>`;
-                                                    dokumenTableBody.innerHTML += newRow;
-                                                });
+                                        window.initializeDokumenTable = function() {
+                                            let dokumenTableBody = document.getElementById("dokumenTableBody");
+                                            dokumenTableBody.innerHTML = "";
+                                            const nomorAjuFilter = localStorage.getItem('nomorAju');
+                                            const filteredDokumenList = dokumenList.filter(dokumen => dokumen.nomorAju === nomorAjuFilter);
+                                            filteredDokumenList.forEach((dokumen, index) => {
+                                                let newRow = `<tr>
+                                                    <td>${dokumen.seriDokumen}</td>
+                                                    <td>${dokumen.kodeDokumen}</td>
+                                                    <td>${dokumen.nomorDokumen}</td>
+                                                    <td>${dokumen.tanggalDokumen}</td>
+                                                    <td>-</td>
+                                                    <td>-</td>
+                                                    <td>-</td>
+                                                    <td>-</td>
+                                                    <td><button class="btn btn-danger" onclick="hapusBaris(${index})">Hapus</button></td>
+                                                    </tr>`;
+                                                dokumenTableBody.innerHTML += newRow;
+                                            });
+                                        }
+
+                                        window.openModal = function() {
+                                            document.getElementById('myModal4').style.display = 'block';
+                                            tambahDokumen();
+                                        }
+
+                                        window.tambahDokumen = function() {
+                                            let index = dokumenList.length;
+                                            let dokumenContainer = document.getElementById('dokumenContainer');
+                                            let dokumenForm = document.createElement('div');
+                                            dokumenForm.classList.add('dokumen-form');
+                                            dokumenForm.setAttribute('id', 'dokumenForm' + index);
+
+                                            const nomorAjuFilter = localStorage.getItem('nomorAju');
+                                            const filteredDokumenList = dokumenList.filter(dokumen => dokumen.nomorAju === nomorAjuFilter);
+                                            const nextIdDokumen = filteredDokumenList.length + 1;
+                                            const nextSeriDokumen = filteredDokumenList.length + 1;
+
+                                            dokumenForm.innerHTML = `
+                                            <div class="col-md-12 d-none">
+                                                <label for="dokumen[${index}][idDokumen]" class="form-label">ID Dokumen</label>
+                                                <input type="text" class="form-control border-primary" value="${nextIdDokumen}" name="dokumen[${index}][idDokumen]" id="idDokumen${index}" readonly>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <label for="dokumen[${index}][seriDokumen]" class="form-label">Seri</label>
+                                                <input type="text" class="form-control border-primary" value="${nextSeriDokumen}" name="dokumen[${index}][seriDokumen]" id="seriDokumen${index}" readonly>
+                                            </div>
+                                            <div class="col-md-12">
+                                                <label for="dokumen[${index}][kodeDokumen]" class="form-label">Jenis Dokumen</label>
+                                                <input 
+                                                    type="search" 
+                                                    class="form-control border-primary select-field" 
+                                                    name="dokumen[${index}][kodeDokumen]" 
+                                                    id="kodeDokumen${index}" 
+                                                    placeholder="Cari Jenis Dokumen"
+                                                    list="dokumenList${index}">
+                                                <datalist id="dokumenList${index}">
+                                                    @foreach ($referensidokumen as $dokumen)
+                                                        <option value="{{ $dokumen->kode_dokumen }} - {{ $dokumen->nama_dokumen }}">
+                                                    @endforeach
+                                                </datalist>
+                                            </div>
+                                            <br>
+                                            <div class="col-md-12">
+                                                <label for="dokumen[${index}][nomorDokumen]" class="form-label">Nomor Dokumen</label>
+                                                <input type="text" class="form-control border-primary" name="dokumen[${index}][nomorDokumen]" id="nomorDokumen${index}">
+                                            </div>
+                                            <div class="col-md-12">
+                                                <label for="dokumen[${index}][tanggalDokumen]" class="form-label">Tanggal Dokumen</label>
+                                                <input type="date" class="form-control border-primary" name="dokumen[${index}][tanggalDokumen]" id="tanggalDokumen${index}">
+                                            </div>
+                                            <button type="button" class="btn btn-primary" onclick="simpanDokumenIndividual(${index})">Simpan</button>
+                                            <button type="button" class="btn btn-danger" onclick="hapusDokumen(this, ${index})">Hapus</button>
+                                            <hr>
+                                            `;
+                                            dokumenContainer.appendChild(dokumenForm);
+                                        }
+
+                                        window.simpanDokumenIndividual = function(index) {
+                                            let kodeDokumen = document.getElementById(`kodeDokumen${index}`).value;
+                                            let nomorDokumen = document.getElementById(`nomorDokumen${index}`).value;
+                                            let tanggalDokumen = document.getElementById(`tanggalDokumen${index}`).value;
+                                            let nomorAju = localStorage.getItem('nomorAju');
+
+                                            if (!kodeDokumen || !nomorDokumen || !tanggalDokumen) {
+                                                alert("Semua field harus diisi!");
+                                                return;
                                             }
 
-                                            window.openModal = function() {
-                                                document.getElementById('myModal4').style.display = 'block';
-                                                tambahDokumen();
-                                            }
+                                            const filteredDokumenList = dokumenList.filter(dokumen => dokumen.nomorAju === nomorAju);
+                                            const idDokumen = filteredDokumenList.length + 1;
+                                            const seriDokumen = filteredDokumenList.length + 1;
 
-                                            window.tambahDokumen = function() {
-                                                let index = dokumenList.length;
-                                                let dokumenContainer = document.getElementById('dokumenContainer');
-                                                let dokumenForm = document.createElement('div');
-                                                dokumenForm.classList.add('dokumen-form');
-                                                dokumenForm.setAttribute('id', 'dokumenForm' + index);
+                                            dokumenList.push({
+                                                idDokumen: idDokumen,
+                                                kodeDokumen,
+                                                nomorDokumen,
+                                                seriDokumen,
+                                                tanggalDokumen,
+                                                nomorAju
+                                            });
+                                            localStorage.setItem('dokumenList', JSON.stringify(dokumenList));
 
-                                                const nomorAjuFilter = localStorage.getItem('nomorAju');
-                                                const filteredDokumenList = dokumenList.filter(dokumen => dokumen.nomorAju === nomorAjuFilter);
-                                                const nextIdDokumen = filteredDokumenList.length + 1;
+                                            initializeDokumenTable();
+                                            document.getElementById('dokumenForm' + index).style.display = 'none';
+                                        }
 
-                                                dokumenForm.innerHTML = `
-          <div class="col-md-12">
-            <label for="dokumen[${index}][idDokumen]" class="form-label">ID Dokumen</label>
-            <input type="text" class="form-control border-primary" value="${nextIdDokumen}" name="dokumen[${index}][idDokumen]" id="idDokumen${index}" readonly>
-          </div>
-          <div class="col-md-12">
-            <label for="dokumen[${index}][kodeDokumen]" class="form-label">Kode Dokumen</label>
-            <input type="text" class="form-control border-primary" name="dokumen[${index}][kodeDokumen]" id="kodeDokumen${index}">
-          </div>
-          <div class="col-md-12">
-            <label for="dokumen[${index}][nomorDokumen]" class="form-label">Nomor Dokumen</label>
-            <input type="text" class="form-control border-primary" name="dokumen[${index}][nomorDokumen]" id="nomorDokumen${index}">
-          </div>
-          <div class="col-md-12">
-            <label for="dokumen[${index}][seriDokumen]" class="form-label">Seri Dokumen</label>
-            <input type="text" class="form-control border-primary" name="dokumen[${index}][seriDokumen]" id="seriDokumen${index}">
-          </div>
-          <div class="col-md-12">
-            <label for="dokumen[${index}][tanggalDokumen]" class="form-label">Tanggal Dokumen</label>
-            <input type="date" class="form-control border-primary" name="dokumen[${index}][tanggalDokumen]" id="tanggalDokumen${index}">
-          </div>
-          <button type="button" class="btn btn-primary" onclick="simpanDokumenIndividual(${index})">Simpan</button>
-          <button type="button" class="btn btn-danger" onclick="hapusDokumen(this, ${index})">Hapus</button>
-          <hr>
-        `;
-                                                dokumenContainer.appendChild(dokumenForm);
-                                            }
+                                        window.hapusDokumen = function(button, index) {
+                                            let dokumenContainer = document.getElementById('dokumenContainer');
+                                            dokumenContainer.removeChild(button.parentElement);
+                                            dokumenList.splice(index, 1);
+                                            localStorage.setItem('dokumenList', JSON.stringify(dokumenList));
 
-                                            window.simpanDokumenIndividual = function(index) {
-                                                let kodeDokumen = document.getElementById(`kodeDokumen${index}`).value;
-                                                let nomorDokumen = document.getElementById(`nomorDokumen${index}`).value;
-                                                let seriDokumen = document.getElementById(`seriDokumen${index}`).value;
-                                                let tanggalDokumen = document.getElementById(`tanggalDokumen${index}`).value;
-                                                let nomorAju = document.getElementById('nomorAju').value;
+                                            reindexDokumenList();
+                                            initializeDokumenTable();
+                                        }
 
-                                                if (!kodeDokumen || !nomorDokumen || !seriDokumen || !tanggalDokumen) {
-                                                    alert("Semua field harus diisi!");
-                                                    return;
-                                                }
+                                        function reindexDokumenList() {
+                                            let nomorAjuFilter = localStorage.getItem('nomorAju');
+                                            dokumenList.filter(dokumen => dokumen.nomorAju === nomorAjuFilter).forEach((dokumen, index) => {
+                                                dokumen.idDokumen = index + 1;
+                                                dokumen.seriDokumen = index + 1;
+                                            });
+                                            localStorage.setItem('dokumenList', JSON.stringify(dokumenList));
+                                        }
 
-                                                const filteredDokumenList = dokumenList.filter(dokumen => dokumen.nomorAju === nomorAju);
-                                                const idDokumen = filteredDokumenList.length + 1;
+                                        window.hapusBaris = function(index) {
+                                            dokumenList.splice(index, 1);
+                                            localStorage.setItem('dokumenList', JSON.stringify(dokumenList));
+                                            reindexDokumenList();
+                                            initializeDokumenTable();
+                                        }
 
-                                                dokumenList.push({
-                                                    idDokumen: idDokumen,
-                                                    kodeDokumen,
-                                                    nomorDokumen,
-                                                    seriDokumen,
-                                                    tanggalDokumen,
-                                                    nomorAju
-                                                });
-                                                localStorage.setItem('dokumenList', JSON.stringify(dokumenList));
-
-                                                initializeDokumenTable();
-                                                document.getElementById('dokumenForm' + index).style.display = 'none';
-                                            }
-
-                                            window.hapusDokumen = function(button, index) {
-                                                let dokumenContainer = document.getElementById('dokumenContainer');
-                                                dokumenContainer.removeChild(button.parentElement);
-                                                dokumenList.splice(index, 1);
-                                                localStorage.setItem('dokumenList', JSON.stringify(dokumenList));
-
-                                                reindexDokumenList();
-                                                initializeDokumenTable();
-                                            }
-
-                                            function reindexDokumenList() {
-                                                let nomorAjuFilter = localStorage.getItem('nomorAju');
-                                                dokumenList.filter(dokumen => dokumen.nomorAju === nomorAjuFilter).forEach((dokumen, index) => {
-                                                    dokumen.idDokumen = index + 1;
-                                                });
-                                                localStorage.setItem('dokumenList', JSON.stringify(dokumenList));
-                                            }
-
-                                            window.hapusBaris = function(index) {
-                                                dokumenList.splice(index, 1);
-                                                localStorage.setItem('dokumenList', JSON.stringify(dokumenList));
-                                                reindexDokumenList();
-                                                initializeDokumenTable();
-                                            }
-
-                                            window.closeModal = function() {
-                                                document.getElementById('myModal4').style.display = 'none';
-                                            }
-                                        })();
+                                        window.closeModal = function() {
+                                            document.getElementById('myModal4').style.display = 'none';
+                                        }
+                                    })();
                                     </script>
-
-
 
                                     {{-- Pengangkut --}}
                                     <div class="tab-pane fade" id="pengangkut" role="tabpanel"
@@ -1071,17 +980,30 @@
                                             <input type="text" class="form-control border-primary" value="${nextSeriKemasan}" name="kemasan[${index}][seriKemasan]" id="seriKemasan${index}" readonly>
                                             </div>
                                             <div class="col-md-12">
-                                            <label for="kemasan[${index}][kodeJenisKemasan]" class="form-label">Kode Jenis Kemasan</label>
-                                            <input type="text" class="form-control border-primary" name="kemasan[${index}][kodeJenisKemasan]" id="kodeJenisKemasan${index}">
-                                            </div>
-                                            <div class="col-md-12">
-                                            <label for="kemasan[${index}][merkKemasan]" class="form-label">Merk Kemasan</label>
-                                            <input type="text" class="form-control border-primary" name="kemasan[${index}][merkKemasan]" id="merkKemasan${index}">
-                                            </div>
-                                            <div class="col-md-12">
-                                            <label for="kemasan[${index}][jumlahKemasan]" class="form-label">Jumlah Kemasan</label>
+                                            <label for="kemasan[${index}][jumlahKemasan]" class="form-label">Jumlah</label>
                                             <input type="number" class="form-control border-primary" name="kemasan[${index}][jumlahKemasan]" id="jumlahKemasan${index}">
                                             </div>
+                                                <div class="col-md-12">
+                                                <label for="kemasan[${index}][kodeJenisKemasan]" class="form-label">Jenis</label>
+                                                <input 
+                                                    type="search" 
+                                                    class="form-control border-primary select-field" 
+                                                    name="kemasan[${index}][kodeJenisKemasan]" 
+                                                    id="kodeJenisKemasan${index}" 
+                                                    placeholder="Cari Jenis Kemasan"
+                                                    list="kemasanList${index}">
+                                                <datalist id="kemasanList${index}">
+                                                    @foreach ($referensikemasan as $kemasan)
+                                                        <option value="{{ $kemasan->kode_kemasan }} - {{ $kemasan->nama_kemasan}}">
+                                                    @endforeach
+                                                </datalist>
+                                            </div>
+                                            <br>
+                                            <div class="col-md-12">
+                                            <label for="kemasan[${index}][merkKemasan]" class="form-label">Merk</label>
+                                            <input type="text" class="form-control border-primary" name="kemasan[${index}][merkKemasan]" id="merkKemasan${index}">
+                                            </div>
+
                                             <button type="button" class="btn btn-primary" onclick="simpanKemasanIndividual(${index})">Simpan</button>
                                             <button type="button" class="btn btn-danger" onclick="hapusKemasan(this, ${index})">Hapus</button>
                                             <hr>
@@ -1160,9 +1082,6 @@
                                         }
                                     </script>
 
-
-
-
                                     {{-- Transaksi --}}
                                     <div class="tab-pane fade" id="transaksi" role="tabpanel"
                                         aria-labelledby="transaksi-tab">
@@ -1172,13 +1091,18 @@
                                                 <h5 class="text-primary">Harga
                                                 </h5>
                                                 <div class="row">
-                                                    <div class="col-md-6">
-                                                        <label for="Valuta" class="form-label">Valuta</label>
-                                                        <input type="text" class="form-control" id="nomorIdentitas"
-                                                            name="kodeValuta"
-                                                            value="{{ old('kodeValuta', 'USD - US DOLLAR') }}" readonly
-                                                            style="border: 1px solid #313131;">
-                                                    </div>
+                                        <div class="col-md-6">
+                                        <label for="kodeValuta" class="form-label">Valuta</label>
+                                        <select class="form-control" id="select-field21" name="kodeValuta">
+                                            <!-- Loop through the referensivaluta data from the database -->
+                                            @foreach($referensivaluta as $valuta)
+                                                <option value="{{ $valuta->kode_valuta }}" 
+                                                        @if(old('kodeValuta', $defaultValuta->kode_valuta ?? '') == $valuta->kode_valuta) selected @endif>
+                                                    {{ $valuta->kode_valuta }} - {{ $valuta->nama_valuta }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                    </div>
                                                     <div class="col-md-6">
                                                         <label for="ndpbm" class="form-label">NDPBM</label>
                                                         <input type="number" class="form-control" id="ndpbm"
@@ -1303,117 +1227,271 @@
                                         </div>
                                     </div>
 
-                                    {{-- Barang --}}
-                                    {{-- <div class="tab-pane fade" id="barang" role="tabpanel" aria-labelledby="barang-tab">
-        <div class="row">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <header>
-                                <div class="right_content">
-                                    <div class="col-lg-12 text-start mb-6">
-                                        <button type="button" class="btn btn-primary mb-3" id="myBtn7"><span
-                                                data-feather="plus"></span>Tambah
-                                            Barang</button>
-                                    </div>
-                                </div>
-                            </header>
-                            <div class="card-body" id="tableContainer">
-                                <div class="table-responsive">
-                                    <table class="table table-bordered" id="dataTable3">
-                                        <thead class="thead-light">
-                                            <tr>
-                                                <th class="text-dark font-weight-bold text-center">
-                                                    Seri</th>
-                                                <th class="text-dark font-weight-bold text-center">
-                                                    Hs</th>
-                                                <th class="text-dark font-weight-bold text-center">
-                                                    Uraian</th>
-                                                <th class="text-dark font-weight-bold text-center">
-                                                    Nilai Barang</th>
-                                                <th class="text-dark font-weight-bold text-center">
-                                                    Jumlah Satuan</th>
-                                                <th class="text-dark font-weight-bold text-center">
-                                                    Jenis Satuan</th>
-                                                <th class="text-dark font-weight-bold text-center">
-                                                    Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <!-- Isi tabel akan ditambahkan di sini -->
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Modal -->
-                        <div id="myModal7" class="modal" data-backdrop="static" data-keyboard="false"
-                            style="display: none;">
-                            <div class="modal-content">
-                                <span class="close">&times;</span>
-                                <form id="modalForm" action="{{ route('dokumen.create') }}" method="GET">
-                                    <div class="modal-form">
-                                        <h5 class="text-primary" id="exampleModalCenterTitle">Jenis
-                                        </h5>
+                                    <!-- Barang -->
+                                    <div class="tab-pane fade" id="barang" role="tabpanel" aria-labelledby="barang-tab">
                                         <div class="row">
-                                            <div class="col-md-4">
-                                                <label for="nomorIdentitas" class="form-label">Seri</label>
-                                                <input type="text" class="form-control" id="seriDokumen4"
-                                                    name="seriDokumen4" value="{{ old('uang_maku', '0.00') }}">
+                                            <div class="container-fluid">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="card">
+                                                            <header>
+                                                                <div class="right_content">
+                                                                    <div class="col-lg-12 text-start mb-6">
+                                                                        <button type="button" class="btn btn-primary mb-3" id="myBtn7" onclick="openBarangModal()">
+                                                                            <span data-feather="plus"></span> Tambah Barang
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </header>
+                                                            <div class="card-body" id="tableContainer">
+                                                                <div class="table-responsive">
+                                                                    <table class="table table-bordered" id="dataTable3">
+                                                                        <thead class="thead-light">
+                                                                            <tr>
+                                                                                <th>Seri</th>
+                                                                                <th>Hs</th>
+                                                                                <th>Uraian</th>
+                                                                                <th>Nilai Barang</th>
+                                                                                <th>Jumlah Satuan</th>
+                                                                                <th>Jenis Satuan</th>
+                                                                                <th>Action</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody id="barangTbody">
+                                                                            <!-- Data barang akan ditambahkan di sini -->
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="col-md-4">
-                                                <label for="nomorIdentitas" class="form-label">Hs</label>
-                                                <select class="form-control" name="hs" id="select-field8" required
-                                                    style="border: 1px solid #313131;">
-                                                    <option selected disabled>Pilih
-                                                        Hs</option>
-                                                    <option value="01012100 --- BIBIT"
-                                                        {{ old('hs') == '1' ? 'selected' : '' }}>
-                                                        01012100 --- BIBIT</option>
-                                                    <option value="01012900 --- LAIN - LAIN"
-                                                        {{ old('hs') == '2' ? 'selected' : '' }}>
-                                                        01012900 --- LAIN - LAIN</option>
-                                                    <option value="01013010 --- BIBIT"
-                                                        {{ old('hs') == '3' ? 'selected' : '' }}>
-                                                        01013010 --- BIBIT</option>
-                                                    <option value="01013090 --- BIBIT"
-                                                        {{ old('hs') == '4' ? 'selected' : '' }}>
-                                                        01013090 --- BIBIT</option>
-                                                    <option value="01019000 --- LAIN - LAIN"
-                                                        {{ old('hs') == '5' ? 'selected' : '' }}>
-                                                        01019000 --- LAIN - LAIN</option>
-                                                    <option value="01022100 --- BIBIT"
-                                                        {{ old('hs') == '6' ? 'selected' : '' }}>
-                                                        01022100 --- BIBIT</option>
-                                                    <option value="01022910 --- SAPI JANTAN"
-                                                        {{ old('hs') == '6' ? 'selected' : '' }}>
-                                                        01022910 --- SAPI JANTAN</option>
-                                                    <option value="01022911 --- OXEN"
-                                                        {{ old('hs') == '6' ? 'selected' : '' }}>
-                                                        01022911 --- OXEN</option>
-                                                    <option value="01022919 --- LAIN - LAIN"
-                                                        {{ old('hs') == '6' ? 'selected' : '' }}>
-                                                        01022919 --- LAIN - LAIN</option>
+                                        </div>
+                                    </div>
 
-                                                </select>
+                                    <!-- Modal Barang -->
+                                    <div id="myModal7" class="modal" data-backdrop="static" data-keyboard="false" style="display: none;">
+                                        <div class="modal-content">
+                                            <span class="close" onclick="closeBarangModal()">&times;</span>
+                                            <div class="modal-form">
+                                                <div id="barangContainer"></div>
+                                                <div class="button-group">
+                                                    <button type="button" class="btn btn-primary" onclick="tambahBarang()">Tambah</button>
+                                                    <button type="button" class="btn-cancel" onclick="closeBarangModal()">Batal</button>
+                                                </div>
                                             </div>
-                                            <div class="col-md-4">
-                                                <label for="nomorNpwp" class="form-label">Kode</label>
-                                                <input type="text" class="form-control" id="kode" name="kode"
-                                                    value="{{ old('kode') }}">
-                                            </div>
-                                            <div class="col-md-4">
-                                                <label for="nomorNpwp" class="form-label">Uraian</label>
-                                                <input type="text" class="form-control" id="uraian" name="uraian"
-                                                    value="{{ old('uraian') }}">
-                                            </div>
-                                            <div class="col-md-4">
-                                                <label for="nomorNpwp" class="form-label">Merk</label>
-                                                <input type="text" class="form-control" id="merk" name="merk"
-                                                    value="{{ old('merk') }}">
-                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <script>
+                                    (function() {
+                                        let barangList = JSON.parse(localStorage.getItem('barangList')) || [];
+
+                                        window.initializeBarangTable = function() {
+                                            let barangTbody = document.getElementById("barangTbody");
+                                            barangTbody.innerHTML = "";
+                                            barangList.forEach((barang, index) => {
+                                                let newRow = `<tr>
+                                                    <td>${barang.seri}</td>
+                                                    <td>${barang.hs}</td>
+                                                    <td>${barang.uraian}</td>
+                                                    <td>-</td>
+                                                    <td>-</td>
+                                                    <td>-</td>
+                                                    <td><button class="btn btn-danger" onclick="hapusBarang(${index})">Hapus</button></td>
+                                                </tr>`;
+                                                barangTbody.innerHTML += newRow;
+                                            });
+                                        }
+
+                                        window.openBarangModal = function() {
+                                            document.getElementById('myModal7').style.display = 'block';
+                                            tambahBarang();
+                                        }
+
+                                        window.tambahBarang = function() {
+                                            let index = barangList.length;
+                                            let barangContainer = document.getElementById('barangContainer');
+                                            let barangForm = document.createElement('div');
+                                            barangForm.classList.add('barang-form');
+                                            barangForm.setAttribute('id', 'barangForm' + index);
+
+                                            let nextSeri = barangList.length + 1;
+
+                                            barangForm.innerHTML = `
+                                                <h5 class="text-primary" id="exampleModalCenterTitle">Tambah Barang</h5>
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <label for="seri${index}" class="form-label">Seri</label>
+                                                        <input type="text" class="form-control" value="${nextSeri}" id="seri${index}" name="barang[${index}][seriBarang]" readonly>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label for="barang[${index}][posTarif]" class="form-label">HS</label>
+                                                        <input 
+                                                            type="search" 
+                                                            class="form-control border-primary select-field" 
+                                                            name="barang[${index}][posTarif]" 
+                                                            id="hs${index}" 
+                                                            list="hsTarifList${index}">
+                                                        <datalist id="hsTarifList${index}">
+                                                            @foreach($referensiHSCODE as $hsCode)
+                                                                <option value="{{ $hsCode->hs_code }} - {{ $hsCode->uraian_barang_indonesia}}">
+                                                            @endforeach
+                                                        </datalist>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label for="kode${index}" class="form-label">Kode</label>
+                                                        <input type="text" class="form-control" id="kode${index}" name="barang[${index}][kodeJenisKemasan]">
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label for="uraian${index}" class="form-label">Uraian</label>
+                                                        <input type="text" class="form-control" id="uraian${index}" name="barang[${index}][uraian]">
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label for="merk${index}" class="form-label">Merk</label>
+                                                        <input type="text" class="form-control" id="merk${index}" name="barang[${index}][merk]">
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label for="tipe${index}" class="form-label">Tipe</label>
+                                                        <input type="text" class="form-control" id="tipe${index}" name="barang[${index}][tipe]">
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label for="ukuran${index}" class="form-label">Ukuran</label>
+                                                        <input type="text" class="form-control" id="ukuran${index}" name="barang[${index}][ukuran]">
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label for="spesifikasiLain${index}" class="form-label">Spesifikasi Lain</label>
+                                                        <input type="text" class="form-control" id="spesifikasiLain${index}" name="spesifikasiLain${index}">
+                                                    </div>
+                                                </div>
+
+                                                <!-- Keterangan Lainnya Section -->
+                                                <h5 class="text-primary" id="exampleModalCenterTitle">Keterangan Lainnya</h5>
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <label for="kodeGunaBarang${index}" class="form-label">Penggunaan</label>
+                                                        <input type="text" class="form-control" list="penggunaanList${index}" name="barang[${index}][kodeGunaBarang]" id="kodeGunaBarang${index}">
+                                                        <datalist id="penggunaanList${index}">
+                                                            <option value="0 - BARANG BERHUBUNGAN LANGSUNG">
+                                                            <option value="1 - TIDAK BERHUBUNGAN LANGSUNG">
+                                                            <option value="2 - BARANG KONSUMSI">
+                                                            <option value="3 - BARANG HASIL OLAHAN">
+                                                            <option value="4 - BARANG LAINNYA">
+                                                        </datalist>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <label for="kodeKategoriBarang${index}" class="form-label">Kategori Barang</label>
+                                                        <input type="text" class="form-control" id="kodeKategoriBarang${index}" name="barang[${index}][kodeKategoriBarang]" list="kategoriBarangList${index}">
+                                                        <datalist id="kategoriBarangList${index}">
+                                                            @foreach($referensikategoribarang  as $kategori )
+                                                                <option value="{{ $kategori->kode_kategori_barang }} - {{ $kategori->nama_kategori_barang}}">
+                                                            @endforeach
+                                                        </datalist>
+                                                    </div>
+
+                                                    <div class="col-md-4">
+                                                        <label for="kodeKondisiBarang${index}" class="form-label">Kondisi Barang</label>
+                                                        <input type="text" class="form-control" list="kondisiBarangList${index}" name="barang[${index}][kodeKondisiBarang]" id="kodeKondisiBarang${index}">
+                                                        <datalist id="kondisiBarangList${index}">
+                                                            <option value="1 - TIDAK RUSAK">
+                                                            <option value="2 - RUSAK">
+                                                        </datalist>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label for="flag4tahun${index}" class="form-label">Jangka Waktu</label>
+                                                        <div class="form-check d-flex align-items-center">
+                                                            <input class="form-check-input me-2" type="checkbox" id="flag4tahun${index}" name="barang[${index}][flag4tahun]">
+                                                            <span> > 4 Tahun</span>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label for="caraPerhitungan${index}" class="form-label">Cara Perhitungan</label>
+                                                        <input class="form-control" list="caraPerhitunganList" name="barang[${index}][kodeGunaBarang]" id="caraPerhitungan${index}">
+                                                        <datalist id="caraPerhitunganList">
+                                                            <option value="0 - HARGA PEMASUKAN">
+                                                            <option value="1 - HARGA PENYERAHAN">
+                                                        </datalist>
+                                                    </div>
+                                                </div>
+
+                                                <button type="button" class="btn btn-primary" onclick="simpanBarang(${index})">Simpan</button>
+                                                <button type="button" class="btn btn-danger" onclick="hapusBarang(${index})">Hapus</button>
+                                                <hr>
+                                            `;
+
+                                            barangContainer.appendChild(barangForm);
+                                        }
+
+                                        window.simpanBarang = function(index) {
+                                            let barang = {
+                                                seri: document.getElementById(`seri${index}`).value,
+                                                hs: document.getElementById(`hs${index}`).value,
+                                                kode: document.getElementById(`kode${index}`).value,
+                                                uraian: document.getElementById(`uraian${index}`).value,
+                                                merk: document.getElementById(`merk${index}`).value,
+                                                tipe: document.getElementById(`tipe${index}`).value,
+                                                ukuran: document.getElementById(`ukuran${index}`).value,
+                                                flag4tahun: document.getElementById(`flag4tahun${index}`).checked,
+                                                caraPerhitungan: document.getElementById(`caraPerhitungan${index}`).value,
+                                                spesifikasiLain: document.getElementById(`spesifikasiLain${index}`).value,
+                                                kodeGunaBarang: document.getElementById(`kodeGunaBarang${index}`).value, // Penggunaan value
+                                                kondisiBarang: document.getElementById(`kodeKondisiBarang${index}`).value // Kondisi Barang value
+                                            };
+
+                                            barangList.push(barang);
+                                            localStorage.setItem('barangList', JSON.stringify(barangList));
+                                            initializeBarangTable();
+                                            closeBarangModal();
+                                        }
+
+                                        window.hapusBarang = function(index) {
+                                            barangList.splice(index, 1);
+                                            localStorage.setItem('barangList', JSON.stringify(barangList));
+                                            initializeBarangTable();
+                                        }
+
+                                        window.closeBarangModal = function() {
+                                            document.getElementById('myModal7').style.display = 'none';
+                                        }
+                                    })();
+                                    </script>
+
+
+
+
+                    
+
+                    {{-- <!-- Modal -->
+                    <div id="myModal7" class="modal" data-backdrop="static" data-keyboard="false" style="display: none;">
+                        <div class="modal-content">
+                            <span class="close" id="closeModal7">&times;</span>
+                            <form id="modalForm" action="{{ route('dokumen.create') }}" method="POST">
+                                @csrf
+                                <div class="modal-form">
+                                    <h5 class="text-primary" id="exampleModalCenterTitle">Tambah Barang</h5>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label for="seriDokumen4" class="form-label">Seri</label>
+                                            <input type="text" class="form-control" id="seriDokumen4" name="seriDokumen4">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="hs" class="form-label">Hs</label>
+                                            <select class="form-control" name="hs" id="select-field8" required>
+                                                <option selected disabled>Pilih Hs</option>
+                                                <option value="01012100 --- BIBIT">01012100 --- BIBIT</option>
+                                                <option value="01012900 --- LAIN - LAIN">01012900 --- LAIN - LAIN</option>
+                                                <!-- Add more options as needed -->
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="uraian" class="form-label">Uraian</label>
+                                            <input type="text" class="form-control" id="uraian" name="uraian">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="merk" class="form-label">Merk</label>
+                                            <input type="text" class="form-control" id="merk" name="merk">
+                                        </div>
                                             <div class="col-md-4">
                                                 <label for="nomorNpwp" class="form-label">Tipe</label>
                                                 <input type="text" class="form-control" id="tipe" name="tipe"
@@ -1616,16 +1694,16 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> --}}
                                         <br>
-                                        <!-- Tombol Simpan & Batal -->
+                                        {{-- <!-- Tombol Simpan & Batal -->
                                         <div class="button-group">
                                             <button type="submit" class="btn-save">Simpan</button>
                                             <button type="button" class="btn-cancel"
                                                 onclick="closeModal()">Cancel</button>
                                         </div>
-                                    </div>
-                            </div>
+                                    </div> --}}
+                            {{-- </div>
                         </div>
                     </div>
                 </div>
@@ -1953,6 +2031,11 @@
     </script>
     <script>
         $('#select-field20').select2({
+            theme: 'bootstrap-5'
+        });
+    </script>
+        <script>
+        $('#select-field21').select2({
             theme: 'bootstrap-5'
         });
     </script>
@@ -2732,7 +2815,7 @@
     </script>
 
     {{-- Fungsi MODAL DOKUMEN  --}}
-    <script>
+    {{-- <script>
         let idCounter = 1; // Auto-increment ID Dokumen
         let dokumenList = [0]; // Menyimpan index dokumen
 
@@ -2792,7 +2875,7 @@
             let row = button.parentElement.parentElement;
             row.parentElement.removeChild(row);
         }
-    </script>
+    </script> --}}
 
 
     {{-- Fungsi MODAL PETI --}}
