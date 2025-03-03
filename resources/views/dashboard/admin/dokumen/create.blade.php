@@ -1285,176 +1285,188 @@
                                     </div>
 
                                     <script>
-                                    (function() {
-                                        let barangList = JSON.parse(localStorage.getItem('barangList')) || [];
+(function() {
+    // Initialize barang list from localStorage if available
+    let barangList = JSON.parse(localStorage.getItem('barangList')) || [];
 
-                                        window.initializeBarangTable = function() {
-                                            let barangTbody = document.getElementById("barangTbody");
-                                            barangTbody.innerHTML = "";
-                                            barangList.forEach((barang, index) => {
-                                                let newRow = `<tr>
-                                                    <td>${barang.seri}</td>
-                                                    <td>${barang.hs}</td>
-                                                    <td>${barang.uraian}</td>
-                                                    <td>-</td>
-                                                    <td>-</td>
-                                                    <td>-</td>
-                                                    <td><button class="btn btn-danger" onclick="hapusBarang(${index})">Hapus</button></td>
-                                                </tr>`;
-                                                barangTbody.innerHTML += newRow;
-                                            });
-                                        }
+    // Function to initialize the barang table
+    window.initializeBarangTable = function() {
+        let barangTbody = document.getElementById("barangTbody");
+        barangTbody.innerHTML = ""; // Clear the table body
 
-                                        window.openBarangModal = function() {
-                                            document.getElementById('myModal7').style.display = 'block';
-                                            tambahBarang();
-                                        }
+        // Populate the table rows from barangList
+        barangList.forEach((barang, index) => {
+            let newRow = `<tr>
+                <td>${barang.seri}</td>
+                <td>${barang.hs}</td>
+                <td>${barang.uraian}</td>
+                <td>-</td>
+                <td>-</td>
+                <td>-</td>
+                <td><button class="btn btn-danger" onclick="hapusBarang(${index})">Hapus</button></td>
+            </tr>`;
+            barangTbody.innerHTML += newRow;
+        });
+    };
 
-                                        window.tambahBarang = function() {
-                                            let index = barangList.length;
-                                            let barangContainer = document.getElementById('barangContainer');
-                                            let barangForm = document.createElement('div');
-                                            barangForm.classList.add('barang-form');
-                                            barangForm.setAttribute('id', 'barangForm' + index);
+    // Function to open the modal and add a new barang form
+    window.openBarangModal = function() {
+        document.getElementById('myModal7').style.display = 'block';
+        tambahBarang(); // Open with a new form
+    };
 
-                                            let nextSeri = barangList.length + 1;
+    // Function to add a new barang form
+    window.tambahBarang = function() {
+        let index = barangList.length;
+        let barangContainer = document.getElementById('barangContainer');
+        let barangForm = document.createElement('div');
+        barangForm.classList.add('barang-form');
+        barangForm.setAttribute('id', 'barangForm' + index);
 
-                                            barangForm.innerHTML = `
-                                                <h5 class="text-primary" id="exampleModalCenterTitle">Tambah Barang</h5>
-                                                <div class="row">
-                                                    <div class="col-md-4">
-                                                        <label for="seri${index}" class="form-label">Seri</label>
-                                                        <input type="text" class="form-control" value="${nextSeri}" id="seri${index}" name="barang[${index}][seriBarang]" readonly>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <label for="barang[${index}][posTarif]" class="form-label">HS</label>
-                                                        <input 
-                                                            type="search" 
-                                                            class="form-control border-primary select-field" 
-                                                            name="barang[${index}][posTarif]" 
-                                                            id="hs${index}" 
-                                                            list="hsTarifList${index}">
-                                                        <datalist id="hsTarifList${index}">
-                                                            @foreach($referensiHSCODE as $hsCode)
-                                                                <option value="{{ $hsCode->hs_code }} - {{ $hsCode->uraian_barang_indonesia}}">
-                                                            @endforeach
-                                                        </datalist>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <label for="kode${index}" class="form-label">Kode</label>
-                                                        <input type="text" class="form-control" id="kode${index}" name="barang[${index}][kodeJenisKemasan]">
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <label for="uraian${index}" class="form-label">Uraian</label>
-                                                        <input type="text" class="form-control" id="uraian${index}" name="barang[${index}][uraian]">
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <label for="merk${index}" class="form-label">Merk</label>
-                                                        <input type="text" class="form-control" id="merk${index}" name="barang[${index}][merk]">
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <label for="tipe${index}" class="form-label">Tipe</label>
-                                                        <input type="text" class="form-control" id="tipe${index}" name="barang[${index}][tipe]">
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <label for="ukuran${index}" class="form-label">Ukuran</label>
-                                                        <input type="text" class="form-control" id="ukuran${index}" name="barang[${index}][ukuran]">
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <label for="spesifikasiLain${index}" class="form-label">Spesifikasi Lain</label>
-                                                        <input type="text" class="form-control" id="spesifikasiLain${index}" name="spesifikasiLain${index}">
-                                                    </div>
-                                                </div>
+        let nextSeri = barangList.length + 1; // Next "seri" number
 
-                                                <!-- Keterangan Lainnya Section -->
-                                                <h5 class="text-primary" id="exampleModalCenterTitle">Keterangan Lainnya</h5>
-                                                <div class="row">
-                                                    <div class="col-md-4">
-                                                        <label for="kodeGunaBarang${index}" class="form-label">Penggunaan</label>
-                                                        <input type="text" class="form-control" list="penggunaanList${index}" name="barang[${index}][kodeGunaBarang]" id="kodeGunaBarang${index}">
-                                                        <datalist id="penggunaanList${index}">
-                                                            <option value="0 - BARANG BERHUBUNGAN LANGSUNG">
-                                                            <option value="1 - TIDAK BERHUBUNGAN LANGSUNG">
-                                                            <option value="2 - BARANG KONSUMSI">
-                                                            <option value="3 - BARANG HASIL OLAHAN">
-                                                            <option value="4 - BARANG LAINNYA">
-                                                        </datalist>
-                                                    </div>
-                                                    <div class="col-md-4">
-                                                        <label for="kodeKategoriBarang${index}" class="form-label">Kategori Barang</label>
-                                                        <input type="text" class="form-control" id="kodeKategoriBarang${index}" name="barang[${index}][kodeKategoriBarang]" list="kategoriBarangList${index}">
-                                                        <datalist id="kategoriBarangList${index}">
-                                                            @foreach($referensikategoribarang  as $kategori )
-                                                                <option value="{{ $kategori->kode_kategori_barang }} - {{ $kategori->nama_kategori_barang}}">
-                                                            @endforeach
-                                                        </datalist>
-                                                    </div>
+        // Create the new form for barang
+        barangForm.innerHTML = `
+            <h5 class="text-primary" id="exampleModalCenterTitle">Tambah Barang</h5>
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="seri${index}" class="form-label">Seri</label>
+                    <input type="text" class="form-control" value="${nextSeri}" id="seri${index}" name="barang[${index}][seriBarang]" readonly>
+                </div>
+                <div class="col-md-4">
+                    <label for="barang[${index}][posTarif]" class="form-label">HS</label>
+                    <input type="search" class="form-control border-primary select-field" name="barang[${index}][posTarif]" id="hs${index}" list="hsTarifList${index}">
+                    <datalist id="hsTarifList${index}">
+                        @foreach($referensiHSCODE as $hsCode)
+                            <option value="{{ $hsCode->hs_code }} - {{ $hsCode->uraian_barang_indonesia }}">
+                        @endforeach
+                    </datalist>
+                </div>
+                <div class="col-md-4">
+                    <label for="kode${index}" class="form-label">Kode</label>
+                    <input type="text" class="form-control" id="kode${index}" name="barang[${index}][kodeJenisKemasan]">
+                </div>
+                <div class="col-md-4">
+                    <label for="uraian${index}" class="form-label">Uraian</label>
+                    <input type="text" class="form-control" id="uraian${index}" name="barang[${index}][uraian]">
+                </div>
+                <div class="col-md-4">
+                    <label for="merk${index}" class="form-label">Merk</label>
+                    <input type="text" class="form-control" id="merk${index}" name="barang[${index}][merk]">
+                </div>
+                <div class="col-md-4">
+                    <label for="tipe${index}" class="form-label">Tipe</label>
+                    <input type="text" class="form-control" id="tipe${index}" name="barang[${index}][tipe]">
+                </div>
+                <div class="col-md-4">
+                    <label for="ukuran${index}" class="form-label">Ukuran</label>
+                    <input type="text" class="form-control" id="ukuran${index}" name="barang[${index}][ukuran]">
+                </div>
+                <div class="col-md-4">
+                    <label for="spesifikasiLain${index}" class="form-label">Spesifikasi Lain</label>
+                    <input type="text" class="form-control" id="spesifikasiLain${index}" name="barang[${index}][spesifikasiLain]">
+                </div>
+            </div>
 
-                                                    <div class="col-md-4">
-                                                        <label for="kodeKondisiBarang${index}" class="form-label">Kondisi Barang</label>
-                                                        <input type="text" class="form-control" list="kondisiBarangList${index}" name="barang[${index}][kodeKondisiBarang]" id="kodeKondisiBarang${index}">
-                                                        <datalist id="kondisiBarangList${index}">
-                                                            <option value="1 - TIDAK RUSAK">
-                                                            <option value="2 - RUSAK">
-                                                        </datalist>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <label for="flag4tahun${index}" class="form-label">Jangka Waktu</label>
-                                                        <div class="form-check d-flex align-items-center">
-                                                            <input class="form-check-input me-2" type="checkbox" id="flag4tahun${index}" name="barang[${index}][flag4tahun]">
-                                                            <span> > 4 Tahun</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <label for="caraPerhitungan${index}" class="form-label">Cara Perhitungan</label>
-                                                        <input class="form-control" list="caraPerhitunganList" name="barang[${index}][kodeGunaBarang]" id="caraPerhitungan${index}">
-                                                        <datalist id="caraPerhitunganList">
-                                                            <option value="0 - HARGA PEMASUKAN">
-                                                            <option value="1 - HARGA PENYERAHAN">
-                                                        </datalist>
-                                                    </div>
-                                                </div>
+            <!-- Keterangan Lainnya Section -->
+            <h5 class="text-primary" id="exampleModalCenterTitle">Keterangan Lainnya</h5>
+            <div class="row">
+                <div class="col-md-4">
+                    <label for="kodeGunaBarang${index}" class="form-label">Penggunaan</label>
+                    <input type="text" class="form-control" list="penggunaanList${index}" name="barang[${index}][kodeGunaBarang]" id="kodeGunaBarang${index}">
+                    <datalist id="penggunaanList${index}">
+                        <option value="0 - BARANG BERHUBUNGAN LANGSUNG">
+                        <option value="1 - TIDAK BERHUBUNGAN LANGSUNG">
+                        <option value="2 - BARANG KONSUMSI">
+                        <option value="3 - BARANG HASIL OLAHAN">
+                        <option value="4 - BARANG LAINNYA">
+                    </datalist>
+                </div>
+                <div class="col-md-4">
+                    <label for="kodeKategoriBarang${index}" class="form-label">Kategori Barang</label>
+                    <input type="text" class="form-control" id="kodeKategoriBarang${index}" name="barang[${index}][kodeKategoriBarang]" list="kategoriBarangList${index}">
+                    <datalist id="kategoriBarangList${index}">
+                        @foreach($referensikategoribarang  as $kategori )
+                            <option value="{{ $kategori->kode_kategori_barang }} - {{ $kategori->nama_kategori_barang }}">
+                        @endforeach
+                    </datalist>
+                </div>
 
-                                                <button type="button" class="btn btn-primary" onclick="simpanBarang(${index})">Simpan</button>
-                                                <button type="button" class="btn btn-danger" onclick="hapusBarang(${index})">Hapus</button>
-                                                <hr>
-                                            `;
+                <div class="col-md-4">
+                    <label for="kodeKondisiBarang${index}" class="form-label">Kondisi Barang</label>
+                    <input type="text" class="form-control" list="kondisiBarangList${index}" name="barang[${index}][kodeKondisiBarang]" id="kodeKondisiBarang${index}">
+                    <datalist id="kondisiBarangList${index}">
+                        <option value="1 - TIDAK RUSAK">
+                        <option value="2 - RUSAK">
+                    </datalist>
+                </div>
+                <div class="col-md-6">
+                    <label for="flag4tahun${index}" class="form-label">Jangka Waktu</label>
+                    <div class="form-check d-flex align-items-center">
+                        <input class="form-check-input me-2" type="checkbox" id="flag4tahun${index}" name="barang[${index}][flag4tahun]">
+                        <span> > 4 Tahun</span>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <label for="caraPerhitungan${index}" class="form-label">Cara Perhitungan</label>
+                    <input class="form-control" list="caraPerhitunganList" name="barang[${index}][kodePerhitungan]" id="caraPerhitungan${index}">
+                    <datalist id="caraPerhitunganList">
+                        <option value="0 - HARGA PEMASUKAN">
+                        <option value="1 - HARGA PENYERAHAN">
+                    </datalist>
+                </div>
+            </div>
 
-                                            barangContainer.appendChild(barangForm);
-                                        }
+            <button type="button" class="btn btn-primary" onclick="simpanBarang(${index})">Simpan</button>
+            <button type="button" class="btn btn-danger" onclick="hapusBarang(${index})">Hapus</button>
+            <hr>
+        `;
 
-                                        window.simpanBarang = function(index) {
-                                            let barang = {
-                                                seri: document.getElementById(`seri${index}`).value,
-                                                hs: document.getElementById(`hs${index}`).value,
-                                                kode: document.getElementById(`kode${index}`).value,
-                                                uraian: document.getElementById(`uraian${index}`).value,
-                                                merk: document.getElementById(`merk${index}`).value,
-                                                tipe: document.getElementById(`tipe${index}`).value,
-                                                ukuran: document.getElementById(`ukuran${index}`).value,
-                                                flag4tahun: document.getElementById(`flag4tahun${index}`).checked,
-                                                caraPerhitungan: document.getElementById(`caraPerhitungan${index}`).value,
-                                                spesifikasiLain: document.getElementById(`spesifikasiLain${index}`).value,
-                                                kodeGunaBarang: document.getElementById(`kodeGunaBarang${index}`).value, // Penggunaan value
-                                                kondisiBarang: document.getElementById(`kodeKondisiBarang${index}`).value // Kondisi Barang value
-                                            };
+        barangContainer.appendChild(barangForm);
+    };
 
-                                            barangList.push(barang);
-                                            localStorage.setItem('barangList', JSON.stringify(barangList));
-                                            initializeBarangTable();
-                                            closeBarangModal();
-                                        }
+    // Function to save barang data to localStorage and close modal
+    window.simpanBarang = function(index) {
+        let barang = {
+            seri: document.getElementById(`seri${index}`).value,
+            hs: document.getElementById(`hs${index}`).value,
+            kode: document.getElementById(`kode${index}`).value,
+            uraian: document.getElementById(`uraian${index}`).value,
+            merk: document.getElementById(`merk${index}`).value,
+            tipe: document.getElementById(`tipe${index}`).value,
+            ukuran: document.getElementById(`ukuran${index}`).value,
+            spesifikasiLain: document.getElementById(`spesifikasiLain${index}`).value,
+            kodeGunaBarang: document.getElementById(`kodeGunaBarang${index}`).value,
+            kodeKategoriBarang: document.getElementById(`kodeKategoriBarang${index}`).value,
+            kodeKondisiBarang: document.getElementById(`kodeKondisiBarang${index}`).value,
+            flag4tahun: document.getElementById(`flag4tahun${index}`).checked,
+            caraPerhitungan: document.getElementById(`caraPerhitungan${index}`).value
+        };
 
-                                        window.hapusBarang = function(index) {
-                                            barangList.splice(index, 1);
-                                            localStorage.setItem('barangList', JSON.stringify(barangList));
-                                            initializeBarangTable();
-                                        }
+        barangList.push(barang);
+        localStorage.setItem('barangList', JSON.stringify(barangList));
+        initializeBarangTable(); // Update the table after saving
+        closeBarangModal();
+    };
 
-                                        window.closeBarangModal = function() {
-                                            document.getElementById('myModal7').style.display = 'none';
-                                        }
-                                    })();
+    // Function to delete a barang from the list
+    window.hapusBarang = function(index) {
+        barangList.splice(index, 1);
+        localStorage.setItem('barangList', JSON.stringify(barangList));
+        initializeBarangTable(); // Update the table after deletion
+    };
+
+    // Function to close the modal
+    window.closeBarangModal = function() {
+        document.getElementById('myModal7').style.display = 'none';
+    };
+
+    // Initialize the barang table when the page loads
+    document.addEventListener('DOMContentLoaded', function() {
+        initializeBarangTable();
+    });
+})();
+
                                     </script>
 
 
