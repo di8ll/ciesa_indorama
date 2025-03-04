@@ -184,21 +184,21 @@
                                                 <label for="kodeKantor" class="form-label">Kantor Pabean</label>
                                                 <input type="text" class="form-control" id="kodeKantor"
                                                     name="kodeKantor"
-                                                    value="{{ old('kodeKantor', '050800 - KPPBC TMP A PURWAKARTA') }}"
+                                                    value="{{ old('kodeKantor', '050800') }}"
                                                     readonly style="border: 1px solid #313131;">
                                             </div>
                                             <div class="col-md-4">
                                                 <label for="kodeJenisTpb" class="form-label">Jenis TPB</label>
-                                                <select class="form-control" id="select-field18"name="kodeJenisTpb">
-                                                    <option value="1 - KAWASAN BERIKAT" selected>1 - KAWASAN BERIKAT
-                                                    <option value="2 - GUDANG BERIKAT" selected>2 - GUDANG BERIKAT
+                                                <select class="form-control" id="select-field18" name="kodeJenisTpb">
+                                                    <option value="1" selected>1 - KAWASAN BERIKAT
+                                                    <option value="2" selected>2 - GUDANG BERIKAT
                                                     </option>
-                                                    <option value="3 - TPPB">3 - TPPB</option>
-                                                    <option value="4 - TBB">4 - TBB</option>
-                                                    <option value="5 - TLB">5 - TLB</option>
-                                                    <option value="6 - KDUB">6 - KDUB</option>
-                                                    <option value="7 - PLB">7 - PLB</option>
-                                                    <option value="8 - LAINNYA">8 - LAINNYA</option>
+                                                    <option value="3">3 - TPPB</option>
+                                                    <option value="4">4 - TBB</option>
+                                                    <option value="5">5 - TLB</option>
+                                                    <option value="6">6 - KDUB</option>
+                                                    <option value="7">7 - PLB</option>
+                                                    <option value="8">8 - LAINNYA</option>
                                                 </select>
                                             </div>
 
@@ -207,48 +207,214 @@
                                                     Pengiriman</label>
                                                 <input type="text" class="form-control" id="kodeTujuanPengiriman"
                                                     name="kodeTujuanPengiriman"
-                                                    value="{{ old('kodeTujuanPengiriman', '1 - PENYERAHAN BKP') }}"
+                                                    value="{{ old('kodeTujuanPengiriman', '1') }}"
                                                     readonly style="border: 1px solid #313131;">
                                             </div>
                                             <div class="col-md-6 mt-3">
                                                 <label for="kodeJenisTpb" class="form-label">Cara Bayar</label>
                                                 <select class="form-control" id="select-field19" name="kodeCaraBayar">
-                                                    <option value="1 - BIASA / TUNAI" selected>1 - BIASA / TUNAI</option>
-                                                    <option value="2 - BERKALA" selected>2 - BERKALA</option>
-                                                    <option value="3 - DENGAN JAMINAN" selected>3 - DENGAN JAMINAN</option>
-                                                    <option value="4 - PERHITUNGAN KEMUDIAN" selected>4 - PERHITUNGAN KEMUDIAN</option>
-                                                    <option value="5 - KONSINYASI (CONSIGNMENT)" selected>5 - KONSINYASI (CONSIGNMENT)</option>
-                                                    <option value="6 - USANCE LETTER OF CREDIT" selected>6 - USANCE LETTER OF CREDIT</option>
-                                                    <option value="7 - RED CLAUSE LETTER OF CREDIT" selected>7 - RED CLAUSE LETTER OF CREDIT</option>
-                                                    <option value="8 - INTER-COMPANY ACCOUNT" selected>8 - INTER-COMPANY ACCOUNT</option>
-                                                    <option value="9 - GABUNGAN/LAINNYA" selected>9 - GABUNGAN/LAINNYA</option>
+                                                    <option value="1" selected>1 - BIASA / TUNAI</option>
+                                                    <option value="2" selected>2 - BERKALA</option>
+                                                    <option value="3" selected>3 - DENGAN JAMINAN</option>
+                                                    <option value="4" selected>4 - PERHITUNGAN KEMUDIAN</option>
+                                                    <option value="5" selected>5 - KONSINYASI (CONSIGNMENT)</option>
+                                                    <option value="6" selected>6 - USANCE LETTER OF CREDIT</option>
+                                                    <option value="7" selected>7 - RED CLAUSE LETTER OF CREDIT</option>
+                                                    <option value="8" selected>8 - INTER-COMPANY ACCOUNT</option>
+                                                    <option value="9" selected>9 - GABUNGAN/LAINNYA</option>
                                                     <option
-                                                        value="10 - PEMBAYARAN KEMUDIAN  (OPEN ACCOUNT SECARA BERTAHAP)">10
+                                                        value="10">10
                                                         - PEMBAYARAN KEMUDIAN (OPEN ACCOUNT SECARA BERTAHAP)</option>
-                                                    <option value="11 - PEMBAYARAN KEMUDIAN  (OPEN ACCOUNT SECARA TUNAI)">
+                                                    <option value="11">
                                                         11 - PEMBAYARAN KEMUDIAN (OPEN ACCOUNT SECARA TUNAI)</option>
-                                                    <option value="12 - DILAKUKAN DI DN DENGAN PEMBAYARAN UANG TUNAI">12 -
+                                                    <option value="12">12 -
                                                         DILAKUKAN DI DN DENGAN PEMBAYARAN UANG TUNAI </option>
                                                     <option
-                                                        value="13 - DILAKUKAN DI DN DENGAN PEMBAYARAN MELALUI TELEGRAPH TRANSFER (T/T)">
+                                                        value="13">
                                                         13 - DILAKUKAN DI DN DENGAN PEMBAYARAN MELALUI TELEGRAPH TRANSFER
                                                         (T/T)</option>
-                                                    <option value="14 TELEGRAPH TRANSFER (T/T)">14 TELEGRAPH TRANSFER (T/T)
+                                                    <option value="14">14 TELEGRAPH TRANSFER (T/T)
                                                     </option>
-                                                    <option value="15 PEMBAYARAN DIMUKA">15 PEMBAYARAN DIMUKA</option>
-                                                    <option value="16 SIGHT LETTER OF CREDIT">16 SIGHT LETTER OF CREDIT
+                                                    <option value="15">15 PEMBAYARAN DIMUKA</option>
+                                                    <option value="16">16 SIGHT LETTER OF CREDIT
                                                     </option>
-                                                    <option value="17 INKASO  (COLLECTION DRAFT)">17 INKASO (COLLECTION
+                                                    <option value="17">17 INKASO (COLLECTION
                                                         DRAFT)</option>
                                                 </select>
                                             </div>
                                         </div>
                                     </div>
 
- {{-- kode Jenis Pungutan --}}
-                                    <div class="tab-pane fade" id="JenisPungutan" role="tabpanel"
-                                        aria-labelledby="JenisPungutan-tab">
-                                        <div class="row">
+                                   {{-- Bahan Baku Tarif --}}
+                                            <div class="col-md-3 d-none">
+                                                <label for="kodeJenisTarif" class="form-label">kode Jenis Tarif</label>
+                                                <input type="text" class="form-control" id="kodeJenisTarif5"
+                                                name="bahanBakuTarif[0][kodeJenisTarif]" value="{{ old('kodeJenisTarif', "1") }}"
+                                                    >
+                                            </div>
+                                            <div class="col-md-3 d-none">
+                                                <label for="jumlahSatuan8" class="form-label">jumlah Satuan</label>
+                                                <input type="text" class="form-control" id="jumlahSatuan8"
+                                                name="bahanBakuTarif[0][jumlahSatuan]" value="{{ old('jumlahSatuan',7.9) }}" autofocus
+                                                    required>
+                                            </div>
+                                            <div class="col-md-3 d-none">
+                                                <label for="kodeFasilitasTarif" class="form-label">kode Fasilitas
+                                                    Tarif</label>
+                                                <input type="text" class="form-control" id="kodeFasilitasTarif6"
+                                                name="bahanBakuTarif[0][kodeFasilitasTarif]" value="{{ old('kodeFasilitasTarif','1') }}"
+                                                    >
+                                            </div>
+                                            <div class="col-md-3 d-none">
+                                                <label for="kodeJenisPungutan" class="form-label">kode Jenis
+                                                    Pungutan</label>
+                                                <input type="text" class="form-control" id="kodeJenisPungutan5"
+                                                name="bahanBakuTarif[0][kodeJenisPungutan]" value="{{ old('kodeJenisPungutan',"5") }}"
+                                                    >
+                                            </div>
+                                            <div class="col-md-3 d-none">
+                                                <label for="nilaiBayar" class="form-label">nilai Bayar</label>
+                                                <input type="text" class="form-control" id="nilaiBayar5"
+                                                name="bahanBakuTarif[0][nilaiBayar]" value="{{ old('nilaiBayar', 0) }}">
+                                            </div>
+                                            <div class="col-md-3 d-none">
+                                                <label for="nilaiFasilitas" class="form-label">nilai Fasilitas</label>
+                                                <input type="text" class="form-control" id="nilaiFasilitas5"
+                                                name="bahanBakuTarif[0][nilaiFasilitas]" value="{{ old('nilaiFasilitas',0) }}">
+
+                                            </div>
+                                            <div class="col-md-3 d-none">
+                                                <label for="nilaiSudahDilunasi" class="form-label">nilai Sudah
+                                                    Dilunasi</label>
+                                                <input type="text" class="form-control" id="nilaiSudahDilunasi5"
+                                                name="bahanBakuTarif[0][nilaiSudahDilunasi]" value="{{ old('nilaiSudahDilunasi',0) }}"
+                                                    >
+                                            </div>
+                                            <div class="col-md-3 d-none">
+                                                <label for="seriBahanBaku" class="form-label">seri Bahan Baku</label>
+                                                <input type="text" class="form-control" id="seriBahanBaku3"
+                                                name="bahanBakuTarif[0][seriBahanBaku]" value="{{ old('seriBahanBaku',2) }}">
+                                            </div>
+                                            <div class="col-md-3 d-none">
+                                                <label for="tarif" class="form-label">tarif</label>
+                                                <input type="text" class="form-control" id="tarif5"
+                                                name="bahanBakuTarif[0][tarif]"  value="{{ old('tarif',11) }}" >
+                                            </div>
+                                            <div class="col-md-3 d-none">
+                                                <label for="tarifFasilitas" class="form-label">tarif Fasilitas</label>
+                                                <input type="text" class="form-control" id="tarifFasilitas5"
+                                                name="bahanBakuTarif[0][tarifFasilitas]" value="{{ old('tarifFasilitas',100) }}"
+                                                    >
+                                            </div>
+      
+                                         {{--Barang Tarif 1--}}
+ 
+                                                    <div class="col-md-3 d-none">
+                                                        <label for="seriBarang" class="form-label">seri Barang</label>
+                                                        <input type="text" class="form-control" id="seriBarang3" name="barangTarif[0][seriBarang]" value="{{ old('seriBarang', 1) }}">
+                                                    </div>
+                                                    <div class="col-md-3  d-none">
+                                                        <label for="kodeJenisTarif" class="form-label">kode Jenis Tarif</label>
+                                                        <input type="text" class="form-control" id="kodeJenisTarif2" name="barangTarif[0][kodeJenisTarif]" value="{{ old('kodeJenisTarif', '1') }}">
+                                                    </div>
+                                                    <div class="col-md-3  d-none">
+                                                        <label for="jumlahSatuan" class="form-label">jumlah Satuan</label>
+                                                        <input type="text" class="form-control" id="jumlahSatuan4" name="barangTarif[0][jumlahSatuan]" value="{{ old('jumlahSatuan', 100) }}">
+                                                    </div>
+                                                    <div class="col-md-3  d-none">
+                                                        <label for="kodeFasilitasTarif" class="form-label">kode Fasilitas Tarif</label>
+                                                        <input type="text" class="form-control" id="kodeFasilitasTarif2" name="barangTarif[0][kodeFasilitasTarif]" value="{{ old('kodeFasilitasTarif', 'FT001') }}">
+                                                    </div>
+                                                    <div class="col-md-3  d-none">
+                                                        <label for="kodeSatuanBarang" class="form-label">kode Satuan Barang</label>
+                                                        <input type="text" class="form-control" id="kodeSatuanBarang3" name="barangTarif[0][kodeSatuanBarang]" value="{{ old('kodeSatuanBarang', 'PCS') }}">
+                                                    </div>
+                                                    <div class="col-md-3  d-none">
+                                                        <label for="kodeJenisPungutan" class="form-label">kode Jenis Pungutan</label>
+                                                        <input type="text" class="form-control" id="kodeJenisPungutan2" name="barangTarif[0][kodeJenisPungutan]" value="{{ old('kodeJenisPungutan', 'BM') }}">
+                                                    </div>
+                                                    <div class="col-md-3  d-none">
+                                                        <label for="nilaiBayar" class="form-label">nilai Bayar</label>
+                                                        <input type="text" class="form-control" id="nilaiBayar2" name="barangTarif[0][nilaiBayar]" value="{{ old('nilaiBayar', 5000.00) }}">
+                                                    </div>
+                                                    <div class="col-md-3  d-none">
+                                                        <label for="nilaiFasilitas" class="form-label">nilai Fasilitas</label>
+                                                        <input type="text" class="form-control" id="nilaiFasilitas2" name="barangTarif[0][nilaiFasilitas]" value="{{ old('nilaiFasilitas', 2000.00) }}">
+                                                    </div>
+                                                    <div class="col-md-3  d-none">
+                                                        <label for="nilaiSudahDilunasi" class="form-label">nilai Sudah Dilunasi</label>
+                                                        <input type="text" class="form-control" id="nilaiSudahDilunasi2" name="barangTarif[0][nilaiSudahDilunasi]" value="{{ old('nilaiSudahDilunasi', 3000) }}">
+                                                    </div>
+                                                    <div class="col-md-3  d-none">
+                                                        <label for="tarif" class="form-label">tarif</label>
+                                                        <input type="text" class="form-control" id="tarif2" name="barangTarif[0][tarif]" value="{{ old('tarif', 1) }}">
+                                                    </div>
+                                                    <div class="col-md-3  d-none">
+                                                        <label for="tarifFasilitas" class="form-label">tarif Fasilitas</label>
+                                                        <input type="text" class="form-control" id="tarifFasilitas2" name="barangTarif[0][tarifFasilitas]" value="{{ old('tarifFasilitas', 1) }}">
+                                                    </div>
+                                   
+                                                <div class="col-md-3 d-none">
+                                                    <label for="seriBarang" class="form-label">seri Barang</label>
+                                                    <input type="text" class="form-control" id="seriBarang4" name="barangTarif[1][seriBarang]" value="{{ old('seriBarang', 1) }}">
+                                                </div>
+                                                <div class="col-md-3  d-none">
+                                                    <label for="kodeJenisTarif" class="form-label">kode Jenis Tarif</label>
+                                                    <input type="text" class="form-control" id="kodeJenisTarif3" name="barangTarif[1][kodeJenisTarif]" value="{{ old('kodeJenisTarif', '1') }}">
+                                                </div>
+                                                <div class="col-md-3  d-none">
+                                                    <label for="jumlahSatuan" class="form-label">jumlah Satuan</label>
+                                                    <input type="text" class="form-control" id="jumlahSatuan5" name="barangTarif[1][jumlahSatuan]" value="{{ old('jumlahSatuan', 100) }}">
+                                                </div>
+                                                <div class="col-md-3  d-none">
+                                                    <label for="kodeFasilitasTarif" class="form-label">kode Fasilitas Tarif</label>
+                                                    <input type="text" class="form-control" id="kodeFasilitasTarif3" name="barangTarif[1][kodeFasilitasTarif]" value="{{ old('kodeFasilitasTarif', 'FT001') }}">
+                                                </div>
+                                                <div class="col-md-3  d-none">
+                                                    <label for="kodeSatuanBarang" class="form-label">kode Satuan Barang</label>
+                                                    <input type="text" class="form-control" id="kodeSatuanBarang4" name="barangTarif[1][kodeSatuanBarang]" value="{{ old('kodeSatuanBarang', 'PCS') }}">
+                                                </div>
+                                                <div class="col-md-3  d-none">
+                                                    <label for="kodeJenisPungutan" class="form-label">kode Jenis Pungutan</label>
+                                                    <input type="text" class="form-control" id="kodeJenisPungutan3" name="barangTarif[1][kodeJenisPungutan]" value="{{ old('kodeJenisPungutan', 'BM') }}">
+                                                </div>
+                                                <div class="col-md-3  d-none">
+                                                    <label for="nilaiBayar" class="form-label">nilai Bayar</label>
+                                                    <input type="text" class="form-control" id="nilaiBayar3" name="barangTarif[1][nilaiBayar]" value="{{ old('nilaiBayar', 5000.00) }}">
+                                                </div>
+                                                <div class="col-md-3  d-none">
+                                                    <label for="nilaiFasilitas" class="form-label">nilai Fasilitas</label>
+                                                    <input type="text" class="form-control" id="nilaiFasilitas3" name="barangTarif[1][nilaiFasilitas]" value="{{ old('nilaiFasilitas', 2000.00) }}">
+                                                </div>
+                                                <div class="col-md-3 d-none">
+                                                    <label for="nilaiSudahDilunasi" class="form-label">nilai Sudah Dilunasi</label>
+                                                    <input type="text" class="form-control" id="nilaiSudahDilunasi3" name="barangTarif[1][nilaiSudahDilunasi]" value="{{ old('nilaiSudahDilunasi', 3000) }}">
+                                                </div>
+                                                <div class="col-md-3  d-none">
+                                                    <label for="tarif" class="form-label">tarif</label>
+                                                    <input type="text" class="form-control" id="tarif3" name="barangTarif[1][tarif]" value="{{ old('tarif', 1) }}">
+                                                </div>
+                                                <div class="col-md-3  d-none">
+                                                    <label for="tarifFasilitas" class="form-label">tarif Fasilitas</label>
+                                                    <input type="text" class="form-control" id="tarifFasilitas3" name="barangTarif[1][tarifFasilitas]" value="{{ old('tarifFasilitas', 1) }}">
+                                                </div>
+                                                <div class="col-md-3 d-none">
+                                                 <label for="jumlahSatuan6" class="form-label">jumlah Satuan</label>
+                                                 <input type="text" class="form-control" id="jumlahSatuan6"
+                                                     name="jumlahSatuan" value="{{ old('jumlahSatuan',908.18) }}" autofocus
+                                                     required>
+                                             </div>
+                                             <div class="col-md-3  d-none">
+                                                 <label for="kodeFasilitasTarif" class="form-label">kode Fasilitas
+                                                     Tarif</label>
+                                                 <input type="text" class="form-control" id="kodeFasilitasTarif4"
+                                                     name="kodeFasilitasTarif" value="{{ old('kodeFasilitasTarif',"1") }}"
+                                                     >
+                                             </div>
+                          
+
+                                    {{-- kode Jenis Pungutan --}}
+                                   
                                             <div class="col-md-3 d-none">
                                                 <label for="jumlahSatuan7" class="form-label">jumlah Satuan</label>
                                                 <input type="text" class="form-control" id="jumlahSatuan7"
@@ -289,10 +455,9 @@
                                             <div class="col-md-3 d-none">
                                                 <label for="nilaiFasilitas" class="form-label">nilai Fasilitas</label>
                                                 <input type="text" class="form-control" id="nilaiFasilitas4"
-                                                name="kodeJenisPungutan[0][nilaiFasilitas]" value="{{ old('nilaiFasilitas',0) }}"
-                                                    >
+                                                name="kodeJenisPungutan[0][nilaiFasilitas]" value="{{ old('nilaiFasilitas', 0) }}">
                                             </div>
-                                            <div class="col-md-3">
+                                            <div class="col-md-3 d-none">
                                                 <label for="nilaiSudahDilunasi" class="form-label">nilai Sudah
                                                     Dilunasi</label>
                                                 <input type="text" class="form-control" id="nilaiSudahDilunasi4"
@@ -330,8 +495,72 @@
                                                 <input type="text" class="form-control" id="seriIjin3"
                                                 name="barangDokumen[1][seriIjin]"  value="{{ old('seriIjin', 0) }}" >
                                             </div>
-                                        </div>
-                                    </div>
+                            
+                                     {{-- Bahan Baku Tarif --}}
+                                    
+                                            <div class="col-md-3 d-none">
+                                                <label for="kodeJenisTarif" class="form-label">kode Jenis Tarif</label>
+                                                <input type="text" class="form-control" id="kodeJenisTarif5"
+                                                name="bahanBakuTarif[0][kodeJenisTarif]" value="{{ old('kodeJenisTarif', "1") }}"
+                                                    >
+                                            </div>
+                                            <div class="col-md-3 d-none">
+                                                <label for="jumlahSatuan8" class="form-label">jumlah Satuan</label>
+                                                <input type="text" class="form-control" id="jumlahSatuan8"
+                                                name="bahanBakuTarif[0][jumlahSatuan]" value="{{ old('jumlahSatuan',7.9) }}" autofocus
+                                                    required>
+                                            </div>
+                                            <div class="col-md-3 d-none">
+                                                <label for="kodeFasilitasTarif" class="form-label">kode Fasilitas
+                                                    Tarif</label>
+                                                <input type="text" class="form-control" id="kodeFasilitasTarif6"
+                                                name="bahanBakuTarif[0][kodeFasilitasTarif]" value="{{ old('kodeFasilitasTarif','1') }}"
+                                                    >
+                                            </div>
+                                            <div class="col-md-3 d-none">
+                                                <label for="kodeJenisPungutan" class="form-label">kode Jenis
+                                                    Pungutan</label>
+                                                <input type="text" class="form-control" id="kodeJenisPungutan5"
+                                                name="bahanBakuTarif[0][kodeJenisPungutan]" value="{{ old('kodeJenisPungutan',"5") }}"
+                                                    >
+                                            </div>
+                                            <div class="col-md-3 d-none">
+                                                <label for="nilaiBayar" class="form-label">nilai Bayar</label>
+                                                <input type="text" class="form-control" id="nilaiBayar5"
+                                                name="bahanBakuTarif[0][nilaiBayar]" value="{{ old('nilaiBayar', 0) }}">
+                                            </div>
+                                            <div class="col-md-3 d-none">
+                                                <label for="nilaiFasilitas" class="form-label">nilai Fasilitas</label>
+                                                <input type="text" class="form-control" id="nilaiFasilitas5"
+                                                name="bahanBakuTarif[0][nilaiFasilitas]" value="{{ old('nilaiFasilitas',0) }}"
+                                                    >
+
+                                            </div>
+                                            <div class="col-md-3 d-none">
+                                                <label for="nilaiSudahDilunasi" class="form-label">nilai Sudah
+                                                    Dilunasi</label>
+                                                <input type="text" class="form-control" id="nilaiSudahDilunasi5"
+                                                name="bahanBakuTarif[0][nilaiSudahDilunasi]" value="{{ old('nilaiSudahDilunasi',0) }}"
+                                                    >
+                                            </div>
+                                            <div class="col-md-3 d-none">
+                                                <label for="seriBahanBaku" class="form-label">seri Bahan Baku</label>
+                                                <input type="text" class="form-control" id="seriBahanBaku3"
+                                                name="bahanBakuTarif[0][seriBahanBaku]" value="{{ old('seriBahanBaku',2) }}">
+                                            </div>
+                                            <div class="col-md-3 d-none">
+                                                <label for="tarif" class="form-label">tarif</label>
+                                                <input type="text" class="form-control" id="tarif5"
+                                                name="bahanBakuTarif[0][tarif]"  value="{{ old('tarif',11) }}" >
+                                            </div>
+                                            <div class="col-md-3 d-none">
+                                                <label for="tarifFasilitas" class="form-label">tarif Fasilitas</label>
+                                                <input type="text" class="form-control" id="tarifFasilitas5"
+                                                name="bahanBakuTarif[0][tarifFasilitas]" value="{{ old('tarifFasilitas',100) }}"
+                                                    >
+                                            </div>
+                                  
+                                    {{-- ini belum beres --}}
 
                                     {{-- Entitas --}}
                                     <div class="tab-pane fade" id="entitas" role="tabpanel"
@@ -539,7 +768,7 @@
                                                     </center>
                                                     <span class="close" onclick="closeModal9()">&times;</span>
                                                     <form class="modal-form">
-                                                        <table id="dataTable2" class="display">
+                                                        <table id="dataTable" class="display">
                                                             <thead>
                                                                 <tr>
                                                                     <th>NPWP</th>
@@ -720,7 +949,7 @@
                                                             </header>
                                                             <div class="card-body" id="tableContainer">
                                                                 <div class="table-responsive">
-                                                                    <table class="table table-bordered" id="dataTable1">
+                                                                    <table class="table table-bordered" id="dataTable">
                                                                         <thead class="thead-light">
                                                                             <tr>
                                                                                 <th>Seri</th>
@@ -814,7 +1043,7 @@
                                                 <input type="text" class="form-control border-primary" value="${nextSeriDokumen}" name="dokumen[${index}][seriDokumen]" id="seriDokumen${index}" readonly>
                                             </div>
                                             <div class="col-md-12">
-                                                <label for="dokumen[${index}][kodeDokumen]" class="form-label">Jenis Dokumen</label>
+                                                <label for="kodeDokumen${index}" class="form-label">Jenis Dokumen</label>
                                                 <input 
                                                     type="search" 
                                                     class="form-control border-primary select-field" 
@@ -824,10 +1053,13 @@
                                                     list="dokumenList${index}">
                                                 <datalist id="dokumenList${index}">
                                                     @foreach ($referensidokumen as $dokumen)
-                                                        <option value="{{ $dokumen->kode_dokumen }} - {{ $dokumen->nama_dokumen }}">
+                                                        <option value="{{ $dokumen->kode_dokumen }}">
+                                                            {{ $dokumen->nama_dokumen }}
+                                                        </option>
                                                     @endforeach
                                                 </datalist>
                                             </div>
+
                                             <br>
                                             <div class="col-md-12">
                                                 <label for="dokumen[${index}][nomorDokumen]" class="form-label">Nomor Dokumen</label>
@@ -947,21 +1179,21 @@
                                     <div class="tab-pane fade" id="pengangkut" role="tabpanel"
                                         aria-labelledby="pengangkut-tab">
                                         <div class="row">
-                                            <div class="col-md-12">
-                                                <label for="kodeJenisTpb" class="form-label">Cara Pengangkutan</label>
-                                                <select class="form-control" id="select-field20"
-                                                    name="pengangkut[0][kodeCaraAngkut]">
-                                                    <option value="1 - LAUT" selected>1 - LAUT</option>
-                                                    <option value="2 - KERETA API" selected>2 - KERETA API</option>
-                                                    <option value="3 - DARAT" selected>3 - DARAT</option>
-                                                    <option value="4 - UDARA">4 - UDARA</option>
-                                                    <option value="5 - POS">5 - POS</option>
-                                                    <option value="6 - MULTIMODA">6 - MULTIMODA</option>
-                                                    <option value="7 - INSTALASI / PIPA">7 - INSTALASI / PIPA</option>
-                                                    <option value="8 - PERAIRAN">8 - PERAIRAN</option>
-                                                    <option value="9 - LAINNYA">9 - LAINNYA</option>
-                                                </select>
-                                            </div>
+                                        <div class="col-md-12">
+                                            <label for="kodeJenisTpb" class="form-label">Cara Pengangkutan</label>
+                                            <select class="form-control" id="select-field20" name="pengangkut[0][kodeCaraAngkut]">
+                                                <option value="1" selected>1 - LAUT</option>
+                                                <option value="2" selected>2 - KERETA API</option>
+                                                <option value="3" selected>3 - DARAT</option>
+                                                <option value="4">4 - UDARA</option>
+                                                <option value="5">5 - POS</option>
+                                                <option value="6">6 - MULTIMODA</option>
+                                                <option value="7">7 - INSTALASI / PIPA</option>
+                                                <option value="8">8 - PERAIRAN</option>
+                                                <option value="9">9 - LAINNYA</option>
+                                            </select>
+                                        </div>
+
                                             <div class="col-md-3 d-none">
                                                 <label for="namaPengangkut" class="form-label">nama Pengangkut</label>
                                                 <input type="text" class="form-control" id="namaPengangkut"
@@ -1005,7 +1237,7 @@
                                                             </header>
                                                             <div class="card-body" id="tableContainer">
                                                                 <div class="table-responsive">
-                                                                    <table class="table table-bordered" id="dataTable2">
+                                                                    <table class="table table-bordered" id="dataTable">
                                                                         <thead class="thead-light">
                                                                             <tr>
                                                                                 <th>Seri Kemasan</th>
@@ -1499,13 +1731,14 @@
                                                             <label for="kodeGunaBarang${index}" class="form-label">Penggunaan</label>
                                                             <input type="text" class="form-control" list="penggunaanList${index}" name="barang[${index}][kodeGunaBarang]" id="kodeGunaBarang${index}">
                                                             <datalist id="penggunaanList${index}">
-                                                                <option value="0 - BARANG BERHUBUNGAN LANGSUNG">
-                                                                <option value="1 - TIDAK BERHUBUNGAN LANGSUNG">
-                                                                <option value="2 - BARANG KONSUMSI">
-                                                                <option value="3 - BARANG HASIL OLAHAN">
-                                                                <option value="4 - BARANG LAINNYA">
+                                                                <option value="0">0 - BARANG BERHUBUNGAN LANGSUNG</option>
+                                                                <option value="1">1 - TIDAK BERHUBUNGAN LANGSUNG</option>
+                                                                <option value="2">2 - BARANG KONSUMSI</option>
+                                                                <option value="3">3 - BARANG HASIL OLAHAN</option>
+                                                                <option value="4">4 - BARANG LAINNYA</option>
                                                             </datalist>
                                                         </div>
+
                                                         <div class="col-md-4">
                                                             <label for="kodeKategoriBarang${index}" class="form-label">Kategori Barang</label>
                                                             <input type="text" class="form-control" id="kodeKategoriBarang${index}" name="barang[${index}][kodeKategoriBarang]" list="kategoriBarangList${index}">
@@ -1519,26 +1752,27 @@
                                                             <label for="kodeKondisiBarang${index}" class="form-label">Kondisi Barang</label>
                                                             <input type="text" class="form-control" list="kondisiBarangList${index}" name="barang[${index}][kodeKondisiBarang]" id="kodeKondisiBarang${index}">
                                                             <datalist id="kondisiBarangList${index}">
-                                                                <option value="1 - TIDAK RUSAK">
-                                                                <option value="2 - RUSAK">
+                                                              <option value="1" selected>1 - TIDAK RUSAK</option>
+                                                              <option value="2" selected>2 - RUSAK</option>
                                                             </datalist>
                                                         </div>
-                                                        <div class="col-md-6">
-                                                            <label for="flag4tahun${index}" class="form-label">Jangka Waktu</label>
-                                                            <div class="form-check d-flex align-items-center">
-                                                                <input class="form-check-input me-2" type="checkbox" id="flag4tahun${index}" name="barang[${index}][flag4tahun]">
-                                                                <span> > 4 Tahun</span>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <label for="caraPerhitungan${index}" class="form-label">Cara Perhitungan</label>
-                                                            <input class="form-control" list="caraPerhitunganList" name="barang[${index}][kodePerhitungan]" id="caraPerhitungan${index}">
-                                                            <datalist id="caraPerhitunganList">
-                                                                <option value="0 - HARGA PEMASUKAN">
-                                                                <option value="1 - HARGA PENYERAHAN">
-                                                            </datalist>
+                                                    <div class="col-md-6">
+                                                        <label for="flag4tahun${index}" class="form-label">Jangka Waktu</label>
+                                                        <div class="form-check d-flex align-items-center">
+                                                            <input class="form-check-input me-2" type="checkbox" id="flag4tahun${index}" name="barang[${index}][flag4tahun]" value="Y">
+                                                            <span> > 4 Tahun</span>
                                                         </div>
                                                     </div>
+
+                                                    <div class="col-md-6">
+                                                        <label for="caraPerhitungan${index}" class="form-label">Cara Perhitungan</label>
+                                                        <input class="form-control" list="caraPerhitunganList${index}" name="barang[${index}][kodePerhitungan]" id="caraPerhitungan${index}" placeholder="Pilih Cara Perhitungan">
+                                                        <datalist id="caraPerhitunganList${index}">
+                                                            <option value="0">0 - HARGA PEMASUKAN</option>
+                                                            <option value="1">1 - HARGA PENYERAHAN</option>
+                                                        </datalist>
+                                                    </div>
+
 
                                                     <!-- Jumlah & Berat Section -->
                                                     <h5 class="text-primary">Jumlah & Berat</h5>
@@ -1634,7 +1868,7 @@
                                                             <input type="text" class="form-control" id="kodeDokAsal" name="barang[${index}][kodeDokAsal]" value="{{ old('kodeDokAsal', 'a') }}">
                                                         </div>
                                                     </div>
-
+                                                       </div>
                                                     <button type="button" class="btn btn-primary" onclick="simpanBarang(${index})">Simpan</button>
                                                     <button type="button" class="btn btn-secondary" onclick="batalBarang(${index})">Batal</button>
                                                     <hr>

@@ -39,7 +39,7 @@ class TpbBc25Controller extends Controller
 
     public function store(Request $request)
     {
-        dd(request()->all());
+        // dd(request()->all());
 
         // Validasi input untuk jumlahKontainer
         $validated = $request->validate([
