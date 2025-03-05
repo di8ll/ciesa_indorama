@@ -13,6 +13,7 @@ use App\Models\ReferensiDokumen;
 use App\Models\ReferensiJenisKemasan;
 use App\Models\Referensivaluta;
 use App\Models\ReferensiHSCode;
+use App\Models\ReferensiKantor;
 use App\Models\ReferensiKategoriBarang;
 
 class TpbBc25Controller extends Controller
@@ -31,10 +32,11 @@ class TpbBc25Controller extends Controller
         $referensivaluta = Referensivaluta::all();
         $referensiHSCODE = ReferensiHSCode::all();
         $referensikategoribarang = ReferensiKategoriBarang::all();
-        
+        $referensikantor = ReferensiKantor::all();
+
         $defaultValuta = Referensivaluta::where('kode_valuta', 'USD')->first();
 
-        return view('dashboard.admin.dokumen.create', compact('penerimaPajak','pemilikbarang','referensidokumen','referensikemasan','referensivaluta','defaultValuta','referensiHSCODE','referensikategoribarang'));
+        return view('dashboard.admin.dokumen.create', compact('penerimaPajak','pemilikbarang','referensidokumen','referensikemasan','referensivaluta','defaultValuta','referensiHSCODE','referensikategoribarang','referensikantor'));
     }
 
     public function store(Request $request)
@@ -225,39 +227,42 @@ class TpbBc25Controller extends Controller
             // Kirim permintaan POST ke API eksternal menggunakan Http facade
             $response = Http::withToken($accessToken)->post($apiUrl, $payload);
 
-            // Cek respons dari API
+            // Periksa apakah request gagal
             if ($response->failed()) {
-                return response()->json([
-                    'status' => 'error',
-                    'message' => 'Gagal menghubungi API eksternal',
-                    'details' => [
-                        'status_code' => $response->status(),
-                        'body' => $response->json()
-                    ]
-                ], $response->status());
+                return redirect()->route('dokumen_baru')->with(
+                    'error',
+                    'Gagal menghubungi API eksternal. Status: ' . $response->status()
+                );
             }
 
+            // Ambil response body dan pastikan JSON valid
             $data = $response->json();
 
-            // Periksa apakah status respons adalah 'success'
-            if (isset($data['status']) && $data['status'] === 'success') {
-                return response()->json([
-                    'status' => 'success',
-                    'message' => 'Data berhasil dikirim',
-                    'data' => $payload
-                ]);
+            // Periksa apakah respons memiliki status yang benar
+            if (!empty($data) && isset($data['status']) && strtolower($data['status']) === 'success') {
+                // Simpan pesan ke dalam session flash
+                session()->flash('status', 'success');
+                session()->flash('message', $data['message'] ?? 'Data berhasil dikirim');
+                session()->flash('data', $data['data'] ?? $payload); // Gunakan data dari API jika ada
+
+                // Redirect ke halaman /dokumen_baru dengan pesan sukses
+                return redirect('/dokumen_baru')->with(
+                    'success',
+                    $data['message'] ?? 'Data berhasil dikirim'
+                );
             }
 
-            return response()->json([
-                'status' => 'error',
-                'message' => $data['message'] ?? 'Gagal menyimpan data'
-            ], 400);
-        } catch (\Exception $e) {
-            return response()->json([
-                'status' => 'error',
-                'message' => 'Terjadi kesalahan saat mengirim permintaan',
-                'details' => $e->getMessage()
-            ], 500);
+            // Jika status tidak success, tangani sebagai error
+            return redirect()->route('dokumen_baru')->with(
+                'error',
+                $data['message'] ?? 'Gagal menyimpan data'
+            );
+        } catch (\Throwable $th) {
+            // Tangani kesalahan
+            return redirect()->route('dokumen_baru')->with(
+                'error',
+                'Terjadi kesalahan saat mengirim permintaan: ' . $th->getMessage()
+            );
         }
     }
 }

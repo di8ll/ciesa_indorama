@@ -142,58 +142,55 @@
                         });
                     </script>
 
-                    <script>
-                        // Flag to check if the form is submitted
-                        let isFormSubmitted = false;
+<script>
+    // Flag to check if the form is submitted
+    let isFormSubmitted = false;
 
-                        // When the form is canceled or closed, set this flag to false
-                        document.getElementById('modalForm').addEventListener('reset', function() {
-                            isFormSubmitted = false;
-                        });
+    // Handle the form submission
+    document.getElementById('modalForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
 
-                        document.getElementById('modalForm').addEventListener('submit', function(event) {
-                            event.preventDefault(); // Prevent the default form submission
+        // Mendapatkan nilai divisi yang dipilih
+        const divisionSelect = document.getElementById('select-field');
+        const division = divisionSelect.value;
 
-                            // Mendapatkan nilai divisi yang dipilih
-                            const divisionSelect = document.getElementById('select-field');
-                            const division = divisionSelect.value;
+        // Menentukan prefix divisi
+        const divisionPrefix = division === 'Spinning' ? '5' : division === 'Polyester' ? '6' : '0';
 
-                            // Menentukan prefix divisi
-                            const divisionPrefix = division === 'Spinning' ? '5' : division === 'Polyester' ? '6' : '0';
+        // Mendapatkan tanggal saat ini
+        const currentDate = new Date();
+        const year = currentDate.getFullYear();
+        const month = String(currentDate.getMonth() + 1).padStart(2, '0');
+        const day = String(currentDate.getDate()).padStart(2, '0');
+        const formattedDate = `${year}${month}${day}`;
 
-                            // Mendapatkan tanggal saat ini
-                            const currentDate = new Date();
-                            const year = currentDate.getFullYear();
-                            const month = String(currentDate.getMonth() + 1).padStart(2, '0');
-                            const day = String(currentDate.getDate()).padStart(2, '0');
-                            const formattedDate = `${year}${month}${day}`;
+        // Mengambil nilai nomorUrut dari localStorage, jika tidak ada inisialisasi dengan 1
+        let nomorUrut = parseInt(localStorage.getItem('nomorUrut')) || 1;
 
-                            // Mengambil nilai nomorUrut dari localStorage, jika tidak ada inisialisasi dengan 1
-                            let nomorUrut = parseInt(localStorage.getItem('nomorUrut')) || 1;
+        // Memformat nomorUrut menjadi lima digit dengan nol di depan
+        const formattedNomorUrut = String(nomorUrut).padStart(5, '0');
 
-                            // Memformat nomorUrut menjadi lima digit dengan nol di depan
-                            const formattedNomorUrut = String(nomorUrut).padStart(5, '0');
+        // Membuat nomorAju
+        const nomorAju = `700025010016${formattedDate}${divisionPrefix}${formattedNomorUrut}`;
 
-                            // Membuat nomorAju
-                            const nomorAju = `700025010016${formattedDate}${divisionPrefix}${formattedNomorUrut}`;
+        // Menyimpan nomorAju di localStorage
+        localStorage.setItem('nomorAju', nomorAju);
 
-                            // Menyimpan nomorAju di localStorage
-                            localStorage.setItem('nomorAju', nomorAju);
+        // Meningkatkan nomorUrut dan menyimpannya kembali ke localStorage hanya jika form disubmit
+        localStorage.setItem('nomorUrut', nomorUrut + 1); // Increment nomorUrut by 1
 
-                            // Meningkatkan nomorUrut dan menyimpannya kembali ke localStorage hanya jika form disubmit
-                            if (isFormSubmitted) {
-                                localStorage.setItem('nomorUrut', nomorUrut + 1); // Increment nomorUrut by 1
-                            }
+        // Mengarahkan ke route Create (setelah berhasil submit)
+        window.location.href = "{{ route('dokumen.create') }}";
 
-                            // Mengarahkan ke route Create
-                            window.location.href = "{{ route('dokumen.create') }}";
-                        });
+        // Set flag to true when form is submitted (to trigger nomorUrut increment)
+        isFormSubmitted = true;
+    });
 
-                        // Set flag to true when form is submitted (to trigger nomorUrut increment)
-                        document.getElementById('modalForm').addEventListener('submit', function() {
-                            isFormSubmitted = true;
-                        });
-                    </script>
+    // When the form is canceled or closed, set this flag to false
+    document.getElementById('modalForm').addEventListener('reset', function() {
+        isFormSubmitted = false;
+    });
+</script>
 
                     <style>
                         body {
