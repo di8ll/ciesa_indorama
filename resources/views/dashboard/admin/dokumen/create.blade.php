@@ -1306,7 +1306,7 @@
                                         </div>
                                     </div>
 
-{{--
+{{-- 
                                 <!-- Tab Kemasan -->
                                 <div class="tab-pane fade" id="kemasan" role="tabpanel" aria-labelledby="kemasan-tab">
                                     <div id="kemasan-container">

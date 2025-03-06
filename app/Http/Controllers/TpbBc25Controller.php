@@ -41,7 +41,7 @@ class TpbBc25Controller extends Controller
 
     public function store(Request $request)
     {
-        // dd(request()->all());
+        dd(request()->all());
 
         // Validasi input untuk jumlahKontainer
         $validated = $request->validate([
@@ -227,42 +227,40 @@ class TpbBc25Controller extends Controller
             // Kirim permintaan POST ke API eksternal menggunakan Http facade
             $response = Http::withToken($accessToken)->post($apiUrl, $payload);
 
-            // Periksa apakah request gagal
+            // Cek respons dari API
             if ($response->failed()) {
-                return redirect()->route('dokumen_baru')->with(
-                    'error',
-                    'Gagal menghubungi API eksternal. Status: ' . $response->status()
-                );
+                return response()->json([
+                    'status' => 'error',
+                    'message' => 'Gagal menghubungi API eksternal',
+                    'details' => [
+                        'status_code' => $response->status(),
+                        'body' => $response->json()
+                    ]
+                ], $response->status());
             }
 
-            // Ambil response body dan pastikan JSON valid
             $data = $response->json();
 
-            // Periksa apakah respons memiliki status yang benar
-            if (!empty($data) && isset($data['status']) && strtolower($data['status']) === 'success') {
-                // Simpan pesan ke dalam session flash
-                session()->flash('status', 'success');
-                session()->flash('message', $data['message'] ?? 'Data berhasil dikirim');
-                session()->flash('data', $data['data'] ?? $payload); // Gunakan data dari API jika ada
-
-                // Redirect ke halaman /dokumen_baru dengan pesan sukses
-                return redirect('/dokumen_baru')->with(
-                    'success',
-                    $data['message'] ?? 'Data berhasil dikirim'
-                );
+            // Periksa apakah status respons adalah 'success'
+            if (isset($data['status']) && $data['status'] === 'success') {
+                return response()->json([
+                    'status' => 'success',
+                    'message' => 'Data berhasil dikirim',
+                    'data' => $payload
+                ]);
             }
 
-            // Jika status tidak success, tangani sebagai error
-            return redirect()->route('dokumen_baru')->with(
-                'error',
-                $data['message'] ?? 'Gagal menyimpan data'
-            );
-        } catch (\Throwable $th) {
-            // Tangani kesalahan
-            return redirect()->route('dokumen_baru')->with(
-                'error',
-                'Terjadi kesalahan saat mengirim permintaan: ' . $th->getMessage()
-            );
+            return response()->json([
+                'status' => 'error',
+                'message' => $data['message'] ?? 'Gagal menyimpan data'
+            ], 400);
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Terjadi kesalahan saat mengirim permintaan',
+                'details' => $e->getMessage()
+            ], 500);
         }
     }
 }
+

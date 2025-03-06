@@ -155,14 +155,10 @@
         const division = divisionSelect.value;
 
         // Menentukan prefix divisi
-        const divisionPrefix = division === 'Spinning' ? '5' : division === 'Polyester' ? '6' : '0';
+        const divisionPrefix = division === 'Spinning' ? '6' : division === 'Polyester' ? '7' : '0';
 
-        // Mendapatkan tanggal saat ini
-        const currentDate = new Date();
-        const year = currentDate.getFullYear();
-        const month = String(currentDate.getMonth() + 1).padStart(2, '0');
-        const day = String(currentDate.getDate()).padStart(2, '0');
-        const formattedDate = `${year}${month}${day}`;
+        // Menggunakan tanggal hardcoded 20250131
+        const formattedDate = '20250131';
 
         // Mengambil nilai nomorUrut dari localStorage, jika tidak ada inisialisasi dengan 1
         let nomorUrut = parseInt(localStorage.getItem('nomorUrut')) || 1;
@@ -171,13 +167,10 @@
         const formattedNomorUrut = String(nomorUrut).padStart(5, '0');
 
         // Membuat nomorAju
-        const nomorAju = `700025010016${formattedDate}${divisionPrefix}${formattedNomorUrut}`;
+        const nomorAju = `${divisionPrefix}00025010016${formattedDate}000001`;
 
         // Menyimpan nomorAju di localStorage
         localStorage.setItem('nomorAju', nomorAju);
-
-        // Meningkatkan nomorUrut dan menyimpannya kembali ke localStorage hanya jika form disubmit
-        localStorage.setItem('nomorUrut', nomorUrut + 1); // Increment nomorUrut by 1
 
         // Mengarahkan ke route Create (setelah berhasil submit)
         window.location.href = "{{ route('dokumen.create') }}";
@@ -191,6 +184,7 @@
         isFormSubmitted = false;
     });
 </script>
+
 
                     <style>
                         body {
