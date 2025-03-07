@@ -41,7 +41,7 @@ class TpbBc25Controller extends Controller
 
     public function store(Request $request)
     {
-        dd(request()->all());
+        // dd(request()->all());
 
         // Validasi input untuk jumlahKontainer
         $validated = $request->validate([
@@ -71,14 +71,19 @@ class TpbBc25Controller extends Controller
         // // Ambil semua data request tanpa filter
         $payload = $request->all();
 
-            // **Pastikan field wajib ada (default nilai kosong jika tidak ada)**
-    $payload['barang'][0]['bahanBaku'] = $payload['barang'][0]['bahanBaku'] ?? [];
+        // Ensure the 'barang' field exists and set defaults for missing values
+    $payload['barang'][0]['kodeDokAsal'] = $payload['barang'][0]['kodeDokAsal'] ??      '';
+    $payload['barang'][0]['kodeDokAsal'] = $payload['barang'][0]['kodeDokAsal'] ??      '';
+
+    //         // **Pastikan field wajib ada (default nilai kosong jika tidak ada)**
+    // $payload['barang'][0]['bahanBaku'] = $payload['barang'][0]['bahanBaku'] ?? [];
     $payload['barang'][0]['barangDokumen'] = $payload['barang'][0]['barangDokumen'] ?? [];
     $payload['barang'][0]['barangTarif'] = $payload['barang'][0]['barangTarif'] ?? [];
+    $payload['barang'][0]['bahanBakuTarif'] = $payload['barang'][0]['bahanBakuTarif'] ?? [];
+    $payload['barang'][0]['bahanBakuTarif'] = $payload['barang'][0]['bahanBakuTarif'] ?? [];
+    $payload['kontainer'] = $payload['kontainer'] ?? [];
 
-
-
-        // dd($validated); // This will dump the validated data to check what values are coming through.
+// Anda bisa menambahkan validasi lain di sini jika diperlukan, misalnya validasi lainnya
 
 
         if (isset($payload['barang'][0]['bruto'])) {
@@ -188,6 +193,8 @@ class TpbBc25Controller extends Controller
         if (isset($payload['pengangkut'][0]['seriPengangkut'])) {
             $payload['pengangkut'][0]['seriPengangkut'] = floatval($payload['pengangkut'][0]['seriPengangkut']);
         }
+
+        
         // Cast 'bruto' and 'bruto2' to float before sending to external API
         $payload['bruto'] = floatval($payload['bruto']);
 
@@ -220,6 +227,8 @@ class TpbBc25Controller extends Controller
 
 
         $payload['jumlahKontainer'] = floatval($payload['jumlahKontainer']);
+
+
         // Ensure this is inside the correct context, for example within an array or a function
         $apiUrl = 'https://apis-gw.beacukai.go.id/openapi/document';
 

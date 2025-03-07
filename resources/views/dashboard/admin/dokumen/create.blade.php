@@ -69,6 +69,16 @@
                                             data-bs-target="#barang" type="button" role="tab" aria-controls="barang"
                                             aria-selected="false">Barang</button>
                                     </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="bahanbakuimpor-tab" data-bs-toggle="tab"
+                                            data-bs-target="#bahanbakuimpor" type="button" role="tab" aria-controls="bahanbakuimpor"
+                                            aria-selected="false">Bahan Baku Impor</button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                        <button class="nav-link" id="bahanbakuekspor-tab" data-bs-toggle="tab"
+                                            data-bs-target="#bahanbakuekspor" type="button" role="tab" aria-controls="bahanbakuekspor"
+                                            aria-selected="false">Bahan Baku Ekspor</button>
+                                    </li>
                                     {{-- <li class="nav-item" role="presentation">
                                         <button class="nav-link" id="pungutan-tab" data-bs-toggle="tab"
                                             data-bs-target="#pungutan" type="button" role="tab"
@@ -246,7 +256,7 @@
                                     </div>
 
                                    {{-- Bahan Baku Tarif --}}
-                                            <div class="col-md-3 d-none">
+                                            {{-- <div class="col-md-3 d-none">
                                                 <label for="kodeJenisTarif" class="form-label">kode Jenis Tarif</label>
                                                 <input type="text" class="form-control" id="kodeJenisTarif5"
                                                 name="bahanBakuTarif[0][kodeJenisTarif]" value="{{ old('kodeJenisTarif', "1") }}"
@@ -305,10 +315,10 @@
                                                 <input type="text" class="form-control" id="tarifFasilitas5"
                                                 name="bahanBakuTarif[0][tarifFasilitas]" value="{{ old('tarifFasilitas',100) }}"
                                                     >
-                                            </div>
+                                            </div> --}}
 
                                          {{--Barang Tarif 1--}}
-
+{{-- 
                                                     <div class="col-md-3 d-none">
                                                         <label for="seriBarang" class="form-label">seri Barang</label>
                                                         <input type="text" class="form-control" id="seriBarang3" name="barangTarif[0][seriBarang]" value="{{ old('seriBarang', 1) }}">
@@ -410,12 +420,12 @@
                                                  <input type="text" class="form-control" id="kodeFasilitasTarif4"
                                                      name="kodeFasilitasTarif" value="{{ old('kodeFasilitasTarif',"1") }}"
                                                      >
-                                             </div>
+                                             </div> --}}
 
 
                                     {{-- kode Jenis Pungutan --}}
 
-                                            <div class="col-md-3 d-none">
+                                            {{-- <div class="col-md-3 d-none">
                                                 <label for="jumlahSatuan7" class="form-label">jumlah Satuan</label>
                                                 <input type="text" class="form-control" id="jumlahSatuan7"
                                                 name="kodeJenisPungutan[0][jumlahSatuan]" name="jumlahSatuan7" value="{{ old('jumlahSatuan',19455.4) }}">
@@ -474,7 +484,7 @@
                                                 <input type="text" class="form-control" id="tarifFasilitas4"
                                                 name="kodeJenisPungutan[0][tarifFasilitas]"  value="{{ old('tarifFasilitas',100) }}"
                                                     >
-                                            </div>
+                                            </div> --}}
                                             <div class="col-md-3 d-none">
                                                 <label for="seriDokumen" class="form-label">seri Dokumen</label>
                                                 <input type="text" class="form-control" id="seriDokumen2"
@@ -498,7 +508,7 @@
 
                                      {{-- Bahan Baku Tarif --}}
 
-                                            <div class="col-md-3 d-none">
+                                            {{-- <div class="col-md-3 d-none">
                                                 <label for="kodeJenisTarif" class="form-label">kode Jenis Tarif</label>
                                                 <input type="text" class="form-control" id="kodeJenisTarif5"
                                                 name="bahanBakuTarif[0][kodeJenisTarif]" value="{{ old('kodeJenisTarif', "1") }}"
@@ -558,7 +568,7 @@
                                                 <input type="text" class="form-control" id="tarifFasilitas5"
                                                 name="bahanBakuTarif[0][tarifFasilitas]" value="{{ old('tarifFasilitas',100) }}"
                                                     >
-                                            </div>
+                                            </div> --}}
 
                                     {{-- ini belum beres --}}
 
@@ -1228,7 +1238,7 @@
                                         </script>
 
 
-                                    <div class="col-md-3 d-none">
+                                    {{-- <div class="col-md-3 d-none">
                                                         <label for="kodeJenisKontainer" class="form-label">kode Jenis
                                                             Kontainer</label>
                                                         <input type="text" class="form-control"
@@ -1264,7 +1274,7 @@
                                                         <input type="text" class="form-control" id="seriKontainer"
                                                             name="kontainer[0][seriKontainer]"
                                                             value="{{ old('seriKontainer', 1) }}">
-                                                    </div>
+                                                    </div> --}}
 
                                     {{-- Pengangkut --}}
                                     <div class="tab-pane fade" id="pengangkut" role="tabpanel"
@@ -1779,7 +1789,7 @@
                                                             </header>
                                                             <div class="card-body" id="tableContainer">
                                                                 <div class="table-responsive">
-                                                                    <table class="table table-bordered" id="dataTable3">
+                                                                    <table class="table table-bordered" id="dataTable">
                                                                         <thead class="thead-light">
                                                                             <tr>
                                                                                 <th>Seri</th>
@@ -1861,20 +1871,6 @@
                                                    barangForm.innerHTML = `
                                                     <h5 class="text-primary" id="exampleModalCenterTitle">Tambah Barang</h5>
                                                     <br>
-                                                     <!-- Dokumen Asal Section -->
-                                                    <h5 class="text-primary">Dokumen Asal</h5>
-                                                    <div class="row">
-                                                        <div class="col-md-4">
-                                                            <label for="kodeKantor${index}" class="form-label">Kode Kantor</label>
-                                                            <input type="search" class="form-control border-primary select-field" name="bahanBaku[${index}][kodeKantor]" id="kodeKantor${index}" list="kodeKantorList${index}">
-                                                            <datalist id="kodeKantorList${index}">
-                                                                @foreach($referensikantor as $referensikantor)
-                                                                    <option value="{{ $referensikantor->kode_kantor }} - {{ $referensikantor->nama_kantor_pendek }}">
-                                                                @endforeach
-                                                            </datalist>
-                                                        </div>
-                                                    </div>
-
                                                     <!-- Jenis Section -->
                                                     <h5 class="text-primary">Jenis</h5>
                                                     <div class="row">
@@ -2060,7 +2056,7 @@
                                                         </div>
                                                         <div class="col-md-3 d-none">
                                                             <label for="kodeDokAsal" class="form-label">Kode Dok Asal</label>
-                                                            <input type="text" class="form-control border-primary select-field" id="kodeDokAsal" name="barang[${index}][kodeDokAsal]" value="{{ old('kodeDokAsal', 'a') }}">
+                                                            <input type="text" class="form-control border-primary select-field" id="kodeDokAsal" name="barang[${index}][kodeDokAsal]" value="" >
                                                         </div>
                                                     </div>
                                                        </div>
@@ -2096,7 +2092,6 @@
                                                     let cif = document.getElementById('cif' + index).value;
                                                     let cifRupiah = document.getElementById('cifRupiah' + index).value;
                                                     let hargaPenyerahan = document.getElementById('hargaPenyerahan' + index).value;
-                                                    let kodeKantor = document.getElementById('kodeKantor' + index).value;
                                                     // Create an object for the current barang
                                                     let barang = {
                                                         seri: seri,
@@ -2118,7 +2113,6 @@
                                                         cif: cif,
                                                         cifRupiah: cifRupiah,
                                                         hargaPenyerahan: hargaPenyerahan,
-                                                        kodeKantor: kodeKantor,
                                                     };
 
                                                     // Save the data to the barangList
@@ -2152,6 +2146,212 @@
                                                     window.initializeBarangTable();
                                                 })();
                                             </script>
+
+                                    {{-- bahan Baku Impor --}}
+                                       <div class="tab-pane fade" id="bahanbakuimpor" role="tabpanel" aria-labelledby="bahanbakuimpor-tab">
+                                        <div class="row">
+                                            <div class="container-fluid">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="card">
+                                                            <header>
+                                                                <div class="right_content">
+                                                                    <div class="col-lg-12 text-start mb-6">
+                                                                        <button type="button" class="btn btn-primary mb-3" id="myBtn8" onclick="openBahanBakuImporModal()">
+                                                                            <span data-feather="plus"></span> Tambah Barang Impor
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </header>
+                                                            <div class="card-body" id="tableContainer">
+                                                                <div class="table-responsive">
+                                                                    <table class="table table-bordered" id="dataTable">
+                                                                        <thead class="thead-light">
+                                                                            <tr>
+                                                                                <th>Seri</th>
+                                                                                <th>Hs</th>
+                                                                                <th>Uraian</th>
+                                                                                <th>Nilai Barang</th>
+                                                                                <th>Kode Satuan</th>
+                                                                                <th>Action</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody id="bahanbakuimporTbody">
+                                                                            <!-- Data barang akan ditambahkan di sini -->
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                        <!-- Modal Bahan Baku Impor -->
+                        <div id="myModal8" class="modal" data-backdrop="static" data-keyboard="false" style="display: none;">
+                            <div class="modal-content">
+                                <span class="close" onclick="closeBahanBakuImporModal()">&times;</span>
+                                <div class="modal-form">
+                                    <div id="bahanBakuContainer"></div>
+                                    <div class="button-group">
+                                        <button type="button" class="btn btn-primary" onclick="tambahBahanBakuImpor()">Tambah</button>
+                                        <button type="button" class="btn-cancel" onclick="closeBahanBakuImporModal()">Batal</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                      <script>
+                        (function() {
+                            let bahanBakuImporList = JSON.parse(localStorage.getItem('bahanBakuImporList')) || [];
+
+                            window.initializeBahanBakuImporTable = function() {
+                                let tbody = document.getElementById("bahanbakuimporTbody");
+                                if (!tbody) return;
+                                tbody.innerHTML = "";
+                                bahanBakuImporList.forEach((item, index) => {
+                                    let row = `<tr>
+                                        <td>${item.seri}</td>
+                                        <td>${item.hs}</td>
+                                        <td>${item.uraian}</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td>-</td>
+                                        <td><button class="btn btn-danger" onclick="hapusBahanBakuImpor(${index})">Hapus</button></td>
+                                    </tr>`;
+                                    tbody.innerHTML += row;
+                                });
+                            };
+
+                            window.openBahanBakuImporModal = function() {
+                                document.getElementById('myModal8').style.display = 'block';
+                                tambahBahanBakuImpor();
+                            };
+
+                            window.tambahBahanBakuImpor = function() {
+                                let index = bahanBakuImporList.length;
+                                let container = document.getElementById('bahanBakuContainer');
+                                let form = document.createElement('div');
+                                form.classList.add('bahanbakuimpor-form');
+                                form.id = 'bahanbakuimporForm' + index;
+                                
+                                let nextSeri = index + 1;
+                                form.innerHTML = `
+                                    <h5 class="text-primary">Tambah Bahan Baku Impor</h5>
+                                    <br>
+                                    <!-- Jenis Section -->
+                                    <h5 class="text-primary">Jenis</h5>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <label for="seri${index}" class="form-label">Seri</label>
+                                            <input type="text" class="form-control border-primary" value="${nextSeri}" id="seri${index}" name="bahanBaku[${index}][seriBarang]" readonly>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="hs${index}" class="form-label">HS</label>
+                                            <input type="search" class="form-control border-primary select-field" name="bahanBaku[${index}][posTarif]" id="hs${index}" list="hsTarifList${index}">
+                                            <datalist id="hsTarifList${index}">
+                                                @foreach($referensiHSCODE as $hsCode)
+                                                    <option value="{{ $hsCode->hs_code }} - {{ $hsCode->uraian_barang_indonesia }}">
+                                                @endforeach
+                                            </datalist>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="kode${index}" class="form-label">Kode</label>
+                                            <input type="text" class="form-control border-primary select-field" id="kode${index}" name="bahanBaku[${index}][kodeBarang]">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="uraian${index}" class="form-label">Uraian</label>
+                                            <input type="text" class="form-control border-primary select-field" id="uraian${index}" name="bahanBaku[${index}][uraian]">
+                                        </div>
+                                        <div class="col-md-4">
+                                            <label for="merk${index}" class="form-label">Merk</label>
+                                            <input type="text" class="form-control border-primary select-field" id="merk${index}" name="bahanBaku[${index}][merk]">
+                                        </div>
+                                    </div>
+
+                                    <!-- Jumlah & Berat Section -->
+                                    <h5 class="text-primary">Jumlah & Berat</h5>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="satuan${index}" class="form-label">Satuan</label>
+                                            <div class="input-group">
+                                                <input type="text" id="jumlahSatuan${index}" name="barang[${index}][jumlahSatuan]" class="form-control border-primary select-field">
+                                                <input type="text" class="form-control border-primary select-field" id="kodeSatuanBarang${index}" name="bahanBaku[${index}][kodeSatuanBarang]" list="kodeSatuanBarangList">
+                                                <datalist id="kodeSatuanBarangList">
+                                                    <option value="KGM - KILOGRAM">
+                                                    <option value="KPP - KGM OF PHOSPHORUS PENTOXIDE(PHOSPOHORIC ANHYDRIDE)">
+                                                </datalist>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Harga Section -->
+                                    <h5 class="text-primary">Harga</h5>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <label for="cif${index}" class="form-label">CIF</label>
+                                            <input type="text" class="form-control border-primary select-field" id="cif${index}" name="bahanBaku[${index}][cif]" step="any">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label for="cifRupiah${index}" class="form-label">Nilai Pabean</label>
+                                            <input type="text" class="form-control border-primary select-field" id="cifRupiah${index}" name="bahanBaku[${index}][cifRupiah]" step="any">
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <button type="button" class="btn btn-primary" onclick="simpanBahanBakuImpor(${index})">Simpan</button>
+                                    <button type="button" class="btn btn-secondary" onclick="batalBahanBakuImpor(${index})">Batal</button>
+                                    <hr>
+                                `;
+                                container.appendChild(form);
+                            };
+
+                            window.simpanBahanBakuImpor = function(index) {
+                                let seri = document.getElementById('seri' + index).value;
+                                let hs = document.getElementById('hs' + index).value;
+                                let uraian = document.getElementById('uraian' + index).value;
+                                let merk = document.getElementById('merk' + index).value;
+                                let jumlahSatuan = document.getElementById('jumlahSatuan' + index).value;
+                                let kodeSatuanBarang = document.getElementById('kodeSatuanBarang' + index).value;
+                                let cif = document.getElementById('cif' + index).value;
+                                let cifRupiah = document.getElementById('cifRupiah' + index).value;
+
+                                let bahanBaku = {
+                                    seri: seri,
+                                    hs: hs,
+                                    uraian: uraian,
+                                    merk: merk,
+                                    jumlahSatuan: jumlahSatuan,
+                                    kodeSatuanBarang: kodeSatuanBarang,
+                                    cif: cif,
+                                    cifRupiah: cifRupiah,
+                                };
+
+                                bahanBakuImporList.push(bahanBaku);
+                                localStorage.setItem('bahanBakuImporList', JSON.stringify(bahanBakuImporList));
+                                document.getElementById('bahanbakuimporForm' + index).style.display = 'none';
+                                initializeBahanBakuImporTable();
+                            };
+
+                            window.batalBahanBakuImpor = function(index) {
+                                document.getElementById('bahanbakuimporForm' + index).remove();
+                            };
+
+                            window.hapusBahanBakuImpor = function(index) {
+                                bahanBakuImporList.splice(index, 1);
+                                localStorage.setItem('bahanBakuImporList', JSON.stringify(bahanBakuImporList));
+                                initializeBahanBakuImporTable();
+                            };
+
+                            window.closeBahanBakuImporModal = function() {
+                                document.getElementById('myModal8').style.display = 'none';
+                            };
+
+                            window.initializeBahanBakuImporTable();
+                        })();
+                    </script>
+
 
                     {{-- <!-- Modal -->
                     <div id="myModal7" class="modal" data-backdrop="static" data-keyboard="false" style="display: none;">
@@ -2501,7 +2701,6 @@
             </div>
         </div>
     </div> --}}
-
                                     <!-- Pernyataan -->
                                     <div class="tab-pane fade" id="pernyataan" role="tabpanel"
                                         aria-labelledby="pernyataan-tab">
@@ -2755,6 +2954,9 @@
         };
         document.getElementById("myBtn7").onclick = function() {
             document.getElementById("myModal7").style.display = "block";
+        };
+        document.getElementById("myBtn8").onclick = function() {
+            document.getElementById("myModal8").style.display = "block";
         };
 
         // Close Modal
