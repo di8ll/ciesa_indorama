@@ -72,20 +72,63 @@ class TpbBc25Controller extends Controller
         $payload = $request->all();
 
         // Ensure the 'barang' field exists and set defaults for missing values
-    $payload['barang'][0]['kodeDokAsal'] = $payload['barang'][0]['kodeDokAsal'] ??      '';
-    $payload['barang'][0]['kodeDokAsal'] = $payload['barang'][0]['kodeDokAsal'] ??      '';
-
-    //         // **Pastikan field wajib ada (default nilai kosong jika tidak ada)**
+    $payload['barang'][0]['kodeDokAsal'] = $payload['barang'][0]['kodeDokAsal'] ?? '';
     // $payload['barang'][0]['bahanBaku'] = $payload['barang'][0]['bahanBaku'] ?? [];
     $payload['barang'][0]['barangDokumen'] = $payload['barang'][0]['barangDokumen'] ?? [];
     $payload['barang'][0]['barangTarif'] = $payload['barang'][0]['barangTarif'] ?? [];
-    $payload['barang'][0]['bahanBakuTarif'] = $payload['barang'][0]['bahanBakuTarif'] ?? [];
+    // Check if bahanBakuTarif is set, if not, set it to a default value (e.g., an empty array or 0.0)
+        $payload['barang'][0]['bahanBaku'][0]['bahanBakuTarif'] = $payload['barang'][0]['bahanBaku'][0]['bahanBakuTarif'] ?? [];
+
     $payload['barang'][0]['bahanBakuTarif'] = $payload['barang'][0]['bahanBakuTarif'] ?? [];
     $payload['kontainer'] = $payload['kontainer'] ?? [];
 
 // Anda bisa menambahkan validasi lain di sini jika diperlukan, misalnya validasi lainnya
 
+        // bahan baku
+        if (isset($payload['barang'][0]['bahanBaku'][0]['cif'])) {
+            // If 'cif' exists, convert it to a float
+            $payload['barang'][0]['bahanBaku'][0]['cif'] = floatval($payload['barang'][0]['bahanBaku'][0]['cif']);
+        }
+        if (isset($payload['barang'][0]['bahanBaku'][0]['cifRupiah'])) {
+            // If 'cif' exists, convert it to a float
+            $payload['barang'][0]['bahanBaku'][0]['cifRupiah'] = floatval($payload['barang'][0]['bahanBaku'][0]['cifRupiah']);
+        }
+        if (isset($payload['barang'][0]['bahanBaku'][0]['hargaPenyerahan'])) {
+            // If 'cif' exists, convert it to a float
+            $payload['barang'][0]['bahanBaku'][0]['hargaPenyerahan'] = floatval($payload['barang'][0]['bahanBaku'][0]['hargaPenyerahan']);
+        }
 
+        if (isset($payload['barang'][0]['bahanBaku'][0]['ndpbm'])) {
+            // If 'cif' exists, convert it to a float
+            $payload['barang'][0]['bahanBaku'][0]['ndpbm'] = floatval($payload['barang'][0]['bahanBaku'][0]['ndpbm']);
+        }
+
+        if (isset($payload['barang'][0]['bahanBaku'][0]['seriBahanBaku'])) {
+            // If 'cif' exists, convert it to a float
+            $payload['barang'][0]['bahanBaku'][0]['seriBahanBaku'] = floatval($payload['barang'][0]['bahanBaku'][0]['seriBahanBaku']);
+        }
+
+        if (isset($payload['barang'][0]['bahanBaku'][0]['seriBarangDokAsal'])) {
+            // If 'cif' exists, convert it to a float
+            $payload['barang'][0]['bahanBaku'][0]['seriBarangDokAsal'] = floatval($payload['barang'][0]['bahanBaku'][0]['seriBarangDokAsal']);
+        }
+
+        if (isset($payload['barang'][0]['bahanBaku'][0]['seriBarang'])) {
+            // If 'cif' exists, convert it to a float
+            $payload['barang'][0]['bahanBaku'][0]['seriBarang'] = floatval($payload['barang'][0]['bahanBaku'][0]['seriBarang']);
+        }
+
+        if (isset($payload['barang'][0]['bahanBaku'][0]['seriIjin'])) {
+            // If 'cif' exists, convert it to a float
+            $payload['barang'][0]['bahanBaku'][0]['seriIjin'] = floatval($payload['barang'][0]['bahanBaku'][0]['seriIjin']);
+        }
+        if (isset($payload['barang'][0]['bahanBaku'][0]['jumlahSatuan'])) {
+            // If 'cif' exists, convert it to a float
+            $payload['barang'][0]['bahanBaku'][0]['jumlahSatuan'] = floatval($payload['barang'][0]['bahanBaku'][0]['jumlahSatuan']);
+        }
+
+
+        // barang
         if (isset($payload['barang'][0]['bruto'])) {
             $payload['barang'][0]['bruto'] = floatval($payload['barang'][0]['bruto']);
         }
@@ -194,7 +237,7 @@ class TpbBc25Controller extends Controller
             $payload['pengangkut'][0]['seriPengangkut'] = floatval($payload['pengangkut'][0]['seriPengangkut']);
         }
 
-        
+
         // Cast 'bruto' and 'bruto2' to float before sending to external API
         $payload['bruto'] = floatval($payload['bruto']);
 
