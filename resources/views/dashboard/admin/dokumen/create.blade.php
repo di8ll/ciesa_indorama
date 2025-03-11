@@ -71,13 +71,14 @@
                                     </li>
                                     <li class="nav-item" role="presentation">
                                         <button class="nav-link" id="bahanbakuimpor-tab" data-bs-toggle="tab"
-                                            data-bs-target="#bahanbakuimpor" type="button" role="tab" aria-controls="bahanbakuimpor"
-                                            aria-selected="false">Bahan Baku Impor</button>
+                                            data-bs-target="#bahanbakuimpor" type="button" role="tab"
+                                            aria-controls="bahanbakuimpor" aria-selected="false">Bahan Baku Impor</button>
                                     </li>
                                     <li class="nav-item" role="presentation">
                                         <button class="nav-link" id="bahanbakuekspor-tab" data-bs-toggle="tab"
-                                            data-bs-target="#bahanbakuekspor" type="button" role="tab" aria-controls="bahanbakuekspor"
-                                            aria-selected="false">Bahan Baku Ekspor</button>
+                                            data-bs-target="#bahanbakuekspor" type="button" role="tab"
+                                            aria-controls="bahanbakuekspor" aria-selected="false">Bahan Baku
+                                            Ekspor</button>
                                     </li>
                                     {{-- <li class="nav-item" role="presentation">
                                         <button class="nav-link" id="pungutan-tab" data-bs-toggle="tab"
@@ -193,9 +194,8 @@
                                             <div class="col-md-4 ">
                                                 <label for="kodeKantor" class="form-label">Kantor Pabean</label>
                                                 <input type="text" class="form-control" id="kodeKantor"
-                                                    name="kodeKantor"
-                                                    value="{{ old('kodeKantor', '050800') }}"
-                                                    readonly style="border: 1px solid #313131;">
+                                                    name="kodeKantor" value="{{ old('kodeKantor', '050800') }}" readonly
+                                                    style="border: 1px solid #313131;">
                                             </div>
                                             <div class="col-md-4">
                                                 <label for="kodeJenisTpb" class="form-label">Jenis TPB</label>
@@ -217,8 +217,8 @@
                                                     Pengiriman</label>
                                                 <input type="text" class="form-control" id="kodeTujuanPengiriman"
                                                     name="kodeTujuanPengiriman"
-                                                    value="{{ old('kodeTujuanPengiriman', '1') }}"
-                                                    readonly style="border: 1px solid #313131;">
+                                                    value="{{ old('kodeTujuanPengiriman', '1') }}" readonly
+                                                    style="border: 1px solid #313131;">
                                             </div>
                                             <div class="col-md-6 mt-3">
                                                 <label for="kodeJenisTpb" class="form-label">Cara Bayar</label>
@@ -229,18 +229,17 @@
                                                     <option value="4" selected>4 - PERHITUNGAN KEMUDIAN</option>
                                                     <option value="5" selected>5 - KONSINYASI (CONSIGNMENT)</option>
                                                     <option value="6" selected>6 - USANCE LETTER OF CREDIT</option>
-                                                    <option value="7" selected>7 - RED CLAUSE LETTER OF CREDIT</option>
+                                                    <option value="7" selected>7 - RED CLAUSE LETTER OF CREDIT
+                                                    </option>
                                                     <option value="8" selected>8 - INTER-COMPANY ACCOUNT</option>
                                                     <option value="9" selected>9 - GABUNGAN/LAINNYA</option>
-                                                    <option
-                                                        value="10">10
+                                                    <option value="10">10
                                                         - PEMBAYARAN KEMUDIAN (OPEN ACCOUNT SECARA BERTAHAP)</option>
                                                     <option value="11">
                                                         11 - PEMBAYARAN KEMUDIAN (OPEN ACCOUNT SECARA TUNAI)</option>
                                                     <option value="12">12 -
                                                         DILAKUKAN DI DN DENGAN PEMBAYARAN UANG TUNAI </option>
-                                                    <option
-                                                        value="13">
+                                                    <option value="13">
                                                         13 - DILAKUKAN DI DN DENGAN PEMBAYARAN MELALUI TELEGRAPH TRANSFER
                                                         (T/T)</option>
                                                     <option value="14">14 TELEGRAPH TRANSFER (T/T)
@@ -255,8 +254,8 @@
                                         </div>
                                     </div>
 
-                                   {{-- Bahan Baku Tarif --}}
-                                            {{-- <div class="col-md-3 d-none">
+                                    {{-- Bahan Baku Tarif --}}
+                                    {{-- <div class="col-md-3 d-none">
                                                 <label for="kodeJenisTarif" class="form-label">kode Jenis Tarif</label>
                                                 <input type="text" class="form-control" id="kodeJenisTarif5"
                                                 name="bahanBakuTarif[0][kodeJenisTarif]" value="{{ old('kodeJenisTarif', "1") }}"
@@ -317,8 +316,8 @@
                                                     >
                                             </div> --}}
 
-                                         {{--Barang Tarif 1--}}
-{{--
+                                    {{-- Barang Tarif 1 --}}
+                                    {{--
                                                     <div class="col-md-3 d-none">
                                                         <label for="seriBarang" class="form-label">seri Barang</label>
                                                         <input type="text" class="form-control" id="seriBarang3" name="barangTarif[0][seriBarang]" value="{{ old('seriBarang', 1) }}">
@@ -425,7 +424,7 @@
 
                                     {{-- kode Jenis Pungutan --}}
 
-                                            {{-- <div class="col-md-3 d-none">
+                                    {{-- <div class="col-md-3 d-none">
                                                 <label for="jumlahSatuan7" class="form-label">jumlah Satuan</label>
                                                 <input type="text" class="form-control" id="jumlahSatuan7"
                                                 name="kodeJenisPungutan[0][jumlahSatuan]" name="jumlahSatuan7" value="{{ old('jumlahSatuan',19455.4) }}">
@@ -485,30 +484,30 @@
                                                 name="kodeJenisPungutan[0][tarifFasilitas]"  value="{{ old('tarifFasilitas',100) }}"
                                                     >
                                             </div> --}}
-                                            <div class="col-md-3 d-none">
-                                                <label for="seriDokumen" class="form-label">seri Dokumen</label>
-                                                <input type="text" class="form-control" id="seriDokumen2"
-                                                name="barangDokumen[0][seriDokumen]" value="{{ old('seriDokumen', 0) }}" >
-                                            </div>
-                                            <div class="col-md-3 d-none">
-                                                <label for="seriIjin" class="form-label">seri Ijin</label>
-                                                <input type="text" class="form-control" id="seriIjin3"
-                                                name="barangDokumen[0][seriIjin]"  value="{{ old('seriIjin', 0) }}" >
-                                            </div>
-                                                                                        <div class="col-md-3 d-none">
-                                                <label for="seriDokumen" class="form-label">seri Dokumen</label>
-                                                <input type="text" class="form-control" id="seriDokumen2"
-                                                name="barangDokumen[1][seriDokumen]" value="{{ old('seriDokumen', 0) }}" >
-                                            </div>
-                                            <div class="col-md-3 d-none">
-                                                <label for="seriIjin" class="form-label">seri Ijin</label>
-                                                <input type="text" class="form-control" id="seriIjin3"
-                                                name="barangDokumen[1][seriIjin]"  value="{{ old('seriIjin', 0) }}" >
-                                            </div>
+                                    <div class="col-md-3 d-none">
+                                        <label for="seriDokumen" class="form-label">seri Dokumen</label>
+                                        <input type="text" class="form-control" id="seriDokumen2"
+                                            name="barangDokumen[0][seriDokumen]" value="{{ old('seriDokumen', 0) }}">
+                                    </div>
+                                    <div class="col-md-3 d-none">
+                                        <label for="seriIjin" class="form-label">seri Ijin</label>
+                                        <input type="text" class="form-control" id="seriIjin3"
+                                            name="barangDokumen[0][seriIjin]" value="{{ old('seriIjin', 0) }}">
+                                    </div>
+                                    <div class="col-md-3 d-none">
+                                        <label for="seriDokumen" class="form-label">seri Dokumen</label>
+                                        <input type="text" class="form-control" id="seriDokumen2"
+                                            name="barangDokumen[1][seriDokumen]" value="{{ old('seriDokumen', 0) }}">
+                                    </div>
+                                    <div class="col-md-3 d-none">
+                                        <label for="seriIjin" class="form-label">seri Ijin</label>
+                                        <input type="text" class="form-control" id="seriIjin3"
+                                            name="barangDokumen[1][seriIjin]" value="{{ old('seriIjin', 0) }}">
+                                    </div>
 
-                                     {{-- Bahan Baku Tarif --}}
+                                    {{-- Bahan Baku Tarif --}}
 
-                                            {{-- <div class="col-md-3 d-none">
+                                    {{-- <div class="col-md-3 d-none">
                                                 <label for="kodeJenisTarif" class="form-label">kode Jenis Tarif</label>
                                                 <input type="text" class="form-control" id="kodeJenisTarif5"
                                                 name="bahanBakuTarif[0][kodeJenisTarif]" value="{{ old('kodeJenisTarif', "1") }}"
@@ -694,7 +693,7 @@
                                                         <label for="nomorIdentitas" class="form-label">Nomor
                                                             Identitas</label>
                                                         <input type="text" class="form-control" id="nomorIdentitas"
-                                                           placeholder="5 - NPWP 15 DIGIT"readonly
+                                                            placeholder="5 - NPWP 15 DIGIT"readonly
                                                             style="border: 1px solid #313131;">
                                                     </div>
                                                     <div class="col-md-6 d-none">
@@ -1069,7 +1068,7 @@
                                                 <div class="button-group">
                                                     <button type="button" class="btn btn-primary"
                                                         onclick="tambahDokumen()">Tambah</button>
-                                                        <button type="button" class="btn btn-primary"
+                                                    <button type="button" class="btn btn-primary"
                                                         onclick="editDokumen()">Edit</button>
                                                     <button type="button" class="btn-cancel"
                                                         onclick="closeModal()">Batal</button>
@@ -1086,7 +1085,7 @@
                                             // Fungsi untuk menginisialisasi tabel dokumen
                                             window.initializeDokumenTable = function() {
                                                 let dokumenTableBody = document.getElementById("dokumenTableBody");
-                                                dokumenTableBody.innerHTML = "";  // Clear tabel sebelumnya
+                                                dokumenTableBody.innerHTML = ""; // Clear tabel sebelumnya
                                                 const nomorAjuFilter = localStorage.getItem('nomorAju');
                                                 const filteredDokumenList = dokumenList.filter(dokumen => dokumen.nomorAju === nomorAjuFilter);
 
@@ -1206,7 +1205,7 @@
 
                                                 // Mencari dokumen berdasarkan seriDokumen
                                                 let seriDokumenEdit = prompt("Masukkan Seri Dokumen yang ingin diedit:");
-                                                if (!seriDokumenEdit) return;  // Jika tidak ada input, keluar dari fungsi
+                                                if (!seriDokumenEdit) return; // Jika tidak ada input, keluar dari fungsi
 
                                                 let dokumenToEdit = dokumenList.find(dokumen => dokumen.seriDokumen == seriDokumenEdit);
 
@@ -1247,6 +1246,15 @@
                                                     <div class="col-md-12">
                                                         <label for="dokumen[${index}][tanggalDokumen]" class="form-label">Tanggal Dokumen</label>
                                                         <input type="date" class="form-control border-primary" value="${dokumenToEdit.tanggalDokumen}" name="dokumen[${index}][tanggalDokumen]" id="tanggalDokumen${index}">
+                                                    </div>
+                                                    <div class="col-md-12">
+                                                        <label for="kodeDokumen${index}" class="form-label">Jenis Dokumen</label>
+                                                        <input type="search" class="form-control border-primary select-field" name="dokumen[${index}][kodeDokumen]" id="kodeDokumen${index}" placeholder="Cari Jenis Dokumen" list="dokumenList${index}">
+                                                        <datalist id="dokumenList${index}">
+                                                            @foreach ($referensidokumen as $dokumen)
+                                                                <option value="{{ $dokumen->kode_dokumen }}">{{ $dokumen->nama_dokumen }}</option>
+                                                            @endforeach
+                                                        </datalist>
                                                     </div>
                                                     <button type="button" class="btn btn-primary" onclick="simpanDokumenEdit(${index})">Simpan Perubahan</button>
                                                     <button type="button" class="btn btn-danger" onclick="hapusDokumen(this, ${index})">Hapus</button>
@@ -1321,7 +1329,7 @@
                                             initializeDokumenTable();
 
                                         })();
-                                        </script>
+                                    </script>
 
 
                                     {{-- <div class="col-md-3 d-none">
@@ -1366,20 +1374,21 @@
                                     <div class="tab-pane fade" id="pengangkut" role="tabpanel"
                                         aria-labelledby="pengangkut-tab">
                                         <div class="row">
-                                        <div class="col-md-12">
-                                            <label for="kodeJenisTpb" class="form-label">Cara Pengangkutan</label>
-                                            <select class="form-control" id="select-field20" name="pengangkut[0][kodeCaraAngkut]">
-                                                <option value="1" selected>1 - LAUT</option>
-                                                <option value="2" selected>2 - KERETA API</option>
-                                                <option value="3" selected>3 - DARAT</option>
-                                                <option value="4">4 - UDARA</option>
-                                                <option value="5">5 - POS</option>
-                                                <option value="6">6 - MULTIMODA</option>
-                                                <option value="7">7 - INSTALASI / PIPA</option>
-                                                <option value="8">8 - PERAIRAN</option>
-                                                <option value="9">9 - LAINNYA</option>
-                                            </select>
-                                        </div>
+                                            <div class="col-md-12">
+                                                <label for="kodeJenisTpb" class="form-label">Cara Pengangkutan</label>
+                                                <select class="form-control" id="select-field20"
+                                                    name="pengangkut[0][kodeCaraAngkut]">
+                                                    <option value="1" selected>1 - LAUT</option>
+                                                    <option value="2" selected>2 - KERETA API</option>
+                                                    <option value="3" selected>3 - DARAT</option>
+                                                    <option value="4">4 - UDARA</option>
+                                                    <option value="5">5 - POS</option>
+                                                    <option value="6">6 - MULTIMODA</option>
+                                                    <option value="7">7 - INSTALASI / PIPA</option>
+                                                    <option value="8">8 - PERAIRAN</option>
+                                                    <option value="9">9 - LAINNYA</option>
+                                                </select>
+                                            </div>
 
                                             <div class="col-md-3 d-none">
                                                 <label for="namaPengangkut" class="form-label">nama Pengangkut</label>
@@ -1402,7 +1411,7 @@
                                         </div>
                                     </div>
 
-{{--
+                                    {{--
                                 <!-- Tab Kemasan -->
                                 <div class="tab-pane fade" id="kemasan" role="tabpanel" aria-labelledby="kemasan-tab">
                                     <div id="kemasan-container">
@@ -1568,7 +1577,7 @@
                                         }
 
                                         // Simpan perubahan Nomor Aju dan reinitialize tabel saat input diubah
-                                        document.getElementById('nomorAju').addEventListener('input', function () {
+                                        document.getElementById('nomorAju').addEventListener('input', function() {
                                             const currentValue = this.value;
                                             localStorage.setItem('nomorAju', currentValue);
                                             initializeKemasanTable();
@@ -1629,7 +1638,7 @@
                                                     <input type="search" class="form-control border-primary select-field" name="kemasan[${index}][kodeJenisKemasan]" id="kodeJenisKemasan${index}" placeholder="Cari Jenis Kemasan" list="kemasanList${index}">
                                                     <datalist id="kemasanList${index}">
                                                         @foreach ($referensikemasan as $kemasan)
-                                                            <option value="{{ $kemasan->kode_kemasan }} - {{ $kemasan->nama_kemasan}}"></option>
+                                                            <option value="{{ $kemasan->kode_kemasan }} - {{ $kemasan->nama_kemasan }}"></option>
                                                         @endforeach
                                                     </datalist>
                                                 </div>
@@ -1707,7 +1716,7 @@
                                         }
 
                                         // Inisialisasi tabel saat halaman dimuat
-                                        window.onload = function () {
+                                        window.onload = function() {
                                             initializeKemasanTable();
                                         }
                                     </script>
@@ -1721,18 +1730,20 @@
                                                 <h5 class="text-primary">Harga
                                                 </h5>
                                                 <div class="row">
-                                        <div class="col-md-6">
-                                        <label for="kodeValuta" class="form-label">Valuta</label>
-                                        <select class="form-control" id="select-field21" name="kodeValuta">
-                                            <!-- Loop through the referensivaluta data from the database -->
-                                            @foreach($referensivaluta as $valuta)
-                                                <option value="{{ $valuta->kode_valuta }}"
-                                                        @if(old('kodeValuta', $defaultValuta->kode_valuta ?? '') == $valuta->kode_valuta) selected @endif>
-                                                    {{ $valuta->kode_valuta }} - {{ $valuta->nama_valuta }}
-                                                </option>
-                                            @endforeach
-                                        </select>
-                                    </div>
+                                                    <div class="col-md-6">
+                                                        <label for="kodeValuta" class="form-label">Valuta</label>
+                                                        <select class="form-control" id="select-field21"
+                                                            name="kodeValuta">
+                                                            <!-- Loop through the referensivaluta data from the database -->
+                                                            @foreach ($referensivaluta as $valuta)
+                                                                <option value="{{ $valuta->kode_valuta }}"
+                                                                    @if (old('kodeValuta', $defaultValuta->kode_valuta ?? '') == $valuta->kode_valuta) selected @endif>
+                                                                    {{ $valuta->kode_valuta }} -
+                                                                    {{ $valuta->nama_valuta }}
+                                                                </option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
                                                     <div class="col-md-6">
                                                         <label for="ndpbm" class="form-label">NDPBM</label>
                                                         <input type="number" class="form-control" id="ndpbm"
@@ -1781,7 +1792,7 @@
                                                     <div class="col-md-6">
                                                         <label for="nomorNpwp" class="form-label">Diskon</label>
                                                         <input type="text" class="form-control" id="diskon"
-                                                           value="{{ old('diskon', '0.00') }}"
+                                                            value="{{ old('diskon', '0.00') }}"
                                                             style="border: 1px solid #313131;">
                                                     </div>
                                                     <div class="col-md-12 mt-3">
@@ -1796,12 +1807,15 @@
                                                             (Tarif & Nilai)</label>
                                                         <div class="row">
                                                             <div class="col-md-4">
-                                                                <input type="text" class="form-control" id="ppn_tarif"
-                                                                    name="tarifPpnPajak" placeholder="11.00%"
-                                                                    value="{{ old('diskon', '11.00%') }}"
-                                                                    style="border: 1px solid #313131;"
-                                                                    oninput="hitungPPN()">
+                                                                <div class="input-group">
+                                                                    <input type="number" class="form-control border-primary" id="ppn_tarif"
+                                                                        name="tarifPpnPajak"
+                                                                        value="{{ old('diskon', 11) }}" min="0" step="any"
+                                                                        style="border: 1px solid #313131;" oninput="hitungPPN()">
+                                                                    <span class="input-group-text">%</span>
+                                                                </div>
                                                             </div>
+
 
                                                             <div class="col-md-8">
                                                                 <input type="text" class="form-control" id="ppn_hasil"
@@ -1813,13 +1827,15 @@
                                                     <div class="col-md-6 mt-3">
                                                         <label for="namaEntitas3" class="form-label">PPnBM Yang Dipungut
                                                             (Tarif & Nilai)</label>
-                                                        <div class="row">
-                                                            <div class="col-md-4">
-                                                                <input type="text" class="form-control"
-                                                                    id="ppnb_tarif" name="tarifPpnbmPajak" value="00.00%"
-                                                                    style="border: 1px solid #313131;"
-                                                                    oninput="hitungPPNBM()">
-                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-4">
+                                                                    <div class="input-group">
+                                                                        <input type="number" class="form-control border-primary" id="ppnb_tarif"
+                                                                            name="tarifPpnbmPajak" value="{{ old('tarifPpnbmPajak', 11) }}" min="0" step="any"
+                                                                            style="border: 1px solid #313131;" oninput="hitungPPNBM()">
+                                                                        <span class="input-group-text">%</span>
+                                                                    </div>
+                                                                </div>
 
                                                             <div class="col-md-8">
                                                                 <input type="text" class="form-control"
@@ -1858,7 +1874,8 @@
                                     </div>
 
                                     <!-- Barang -->
-                                    <div class="tab-pane fade" id="barang" role="tabpanel" aria-labelledby="barang-tab">
+                                    <div class="tab-pane fade" id="barang" role="tabpanel"
+                                        aria-labelledby="barang-tab">
                                         <div class="row">
                                             <div class="container-fluid">
                                                 <div class="row">
@@ -1867,7 +1884,9 @@
                                                             <header>
                                                                 <div class="right_content">
                                                                     <div class="col-lg-12 text-start mb-6">
-                                                                        <button type="button" class="btn btn-primary mb-3" id="myBtn7" onclick="openBarangModal()">
+                                                                        <button type="button"
+                                                                            class="btn btn-primary mb-3" id="myBtn7"
+                                                                            onclick="openBarangModal()">
                                                                             <span data-feather="plus"></span> Tambah Barang
                                                                         </button>
                                                                     </div>
@@ -1901,31 +1920,34 @@
                                     </div>
 
                                     <!-- Modal Barang -->
-                                    <div id="myModal7" class="modal" data-backdrop="static" data-keyboard="false" style="display: none;">
+                                    <div id="myModal7" class="modal" data-backdrop="static" data-keyboard="false"
+                                        style="display: none;">
                                         <div class="modal-content">
                                             <span class="close" onclick="closeBarangModal()">&times;</span>
                                             <div class="modal-form">
                                                 <div id="barangContainer"></div>
                                                 <div class="button-group">
-                                                    <button type="button" class="btn btn-primary" onclick="tambahBarang()">Tambah</button>
-                                                    <button type="button" class="btn-cancel" onclick="closeBarangModal()">Batal</button>
+                                                    <button type="button" class="btn btn-primary"
+                                                        onclick="tambahBarang()">Tambah</button>
+                                                    <button type="button" class="btn-cancel"
+                                                        onclick="closeBarangModal()">Batal</button>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                        <script>
-                                            (function() {
-                                                // Initialize barang list from localStorage if available
-                                                let barangList = JSON.parse(localStorage.getItem('barangList')) || [];
+                                    <script>
+                                        (function() {
+                                            // Initialize barang list from localStorage if available
+                                            let barangList = JSON.parse(localStorage.getItem('barangList')) || [];
 
-                                                // Function to initialize the barang table
-                                                window.initializeBarangTable = function() {
-                                                    let barangTbody = document.getElementById("barangTbody");
-                                                    barangTbody.innerHTML = ""; // Clear the table body
+                                            // Function to initialize the barang table
+                                            window.initializeBarangTable = function() {
+                                                let barangTbody = document.getElementById("barangTbody");
+                                                barangTbody.innerHTML = ""; // Clear the table body
 
-                                                    // Populate the table rows from barangList
-                                                    barangList.forEach((barang, index) => {
-                                                        let newRow = `<tr>
+                                                // Populate the table rows from barangList
+                                                barangList.forEach((barang, index) => {
+                                                    let newRow = `<tr>
                                                             <td>${barang.seri}</td>
                                                             <td>${barang.hs}</td>
                                                             <td>${barang.uraian}</td>
@@ -1934,27 +1956,27 @@
                                                             <td>-</td>
                                                             <td><button class="btn btn-danger" onclick="hapusBarang(${index})">Hapus</button></td>
                                                         </tr>`;
-                                                        barangTbody.innerHTML += newRow;
-                                                    });
-                                                };
+                                                    barangTbody.innerHTML += newRow;
+                                                });
+                                            };
 
-                                                // Function to open the modal and add a new barang form
-                                                window.openBarangModal = function() {
-                                                    document.getElementById('myModal7').style.display = 'block';
-                                                    tambahBarang(); // Open with a new form
-                                                };
+                                            // Function to open the modal and add a new barang form
+                                            window.openBarangModal = function() {
+                                                document.getElementById('myModal7').style.display = 'block';
+                                                tambahBarang(); // Open with a new form
+                                            };
 
-                                                // Function to add a new barang form
-                                                window.tambahBarang = function() {
-                                                    let index = barangList.length;
-                                                    let barangContainer = document.getElementById('barangContainer');
-                                                    let barangForm = document.createElement('div');
-                                                    barangForm.classList.add('barang-form');
-                                                    barangForm.setAttribute('id', 'barangForm' + index);
+                                            // Function to add a new barang form
+                                            window.tambahBarang = function() {
+                                                let index = barangList.length;
+                                                let barangContainer = document.getElementById('barangContainer');
+                                                let barangForm = document.createElement('div');
+                                                barangForm.classList.add('barang-form');
+                                                barangForm.setAttribute('id', 'barangForm' + index);
 
-                                                    let nextSeri = index + 1; // Next "seri" number
+                                                let nextSeri = index + 1; // Next "seri" number
 
-                                                   barangForm.innerHTML = `
+                                                barangForm.innerHTML = `
                                                     <h5 class="text-primary" id="exampleModalCenterTitle">Tambah Barang</h5>
                                                     <br>
                                                     <!-- Jenis Section -->
@@ -1968,7 +1990,7 @@
                                                             <label for="hs${index}" class="form-label">HS</label>
                                                             <input type="search" class="form-control border-primary select-field" name="barang[${index}][posTarif]" id="hs${index}" list="hsTarifList${index}">
                                                             <datalist id="hsTarifList${index}">
-                                                                @foreach($referensiHSCODE as $hsCode)
+                                                                @foreach ($referensiHSCODE as $hsCode)
                                                                     <option value="{{ $hsCode->hs_code }} - {{ $hsCode->uraian_barang_indonesia }}">
                                                                 @endforeach
                                                             </datalist>
@@ -2020,7 +2042,7 @@
                                                             <label for="kodeKategoriBarang${index}" class="form-label">Kategori Barang</label>
                                                             <input type="text" class="form-control border-primary select-field" id="kodeKategoriBarang${index}" name="barang[${index}][kodeKategoriBarang]" list="kategoriBarangList${index}">
                                                             <datalist id="kategoriBarangList${index}">
-                                                                @foreach($referensikategoribarang as $kategori)
+                                                                @foreach ($referensikategoribarang as $kategori)
                                                                     <option value="{{ $kategori->kode_kategori_barang }} - {{ $kategori->nama_kategori_barang }}">
                                                                 @endforeach
                                                             </datalist>
@@ -2072,7 +2094,7 @@
                                                                 <input type="text" id="jumlahKemasan${index}" name="barang[${index}][jumlahKemasan]" class="form-control border-primary select-field">
                                                                 <input type="text" class="form-control border-primary select-field" id="kodeJenisKemasan${index}" name="barang[${index}][kodeJenisKemasan]" list="kodeJenisKemasanList">
                                                                 <datalist id="kodeJenisKemasanList">
-                                                                    @foreach($referensikemasan as $kemasan)
+                                                                    @foreach ($referensikemasan as $kemasan)
                                                                         <option value="{{ $kemasan->kode_kemasan }} - {{ $kemasan->nama_kemasan }}">
                                                                     @endforeach
                                                                 </datalist>
@@ -2150,88 +2172,89 @@
                                                 `;
 
 
-                                                    // Append the form to the container
-                                                    barangContainer.appendChild(barangForm);
+                                                // Append the form to the container
+                                                barangContainer.appendChild(barangForm);
+                                            };
+
+                                            // Function to save the barang data and hide the current form
+                                            window.simpanBarang = function(index) {
+                                                let seri = document.getElementById('seri' + index).value;
+                                                let hs = document.getElementById('hs' + index).value;
+                                                let uraian = document.getElementById('uraian' + index).value;
+                                                let merk = document.getElementById('merk' + index).value;
+                                                let tipe = document.getElementById('tipe' + index).value;
+                                                let ukuran = document.getElementById('ukuran' + index).value;
+                                                let spesifikasiLain = document.getElementById('spesifikasiLain' + index).value;
+                                                let kodeGunaBarang = document.getElementById('kodeGunaBarang' + index).value;
+                                                let kodeKategoriBarang = document.getElementById('kodeKategoriBarang' + index).value;
+                                                let kodeKondisiBarang = document.getElementById('kodeKondisiBarang' + index).value;
+                                                let flag4tahun = document.getElementById('flag4tahun' + index).checked;
+                                                let caraPerhitungan = document.getElementById('caraPerhitungan' + index).value;
+                                                let jumlahSatuan = document.getElementById('jumlahSatuan' + index).value;
+                                                let kodeSatuanBarang = document.getElementById('kodeSatuanBarang' + index).value;
+                                                let jumlahKemasan = document.getElementById('jumlahKemasan' + index).value;
+                                                let kodeJenisKemasan = document.getElementById('kodeJenisKemasan' + index).value;
+                                                let cif = document.getElementById('cif' + index).value;
+                                                let cifRupiah = document.getElementById('cifRupiah' + index).value;
+                                                let hargaPenyerahan = document.getElementById('hargaPenyerahan' + index).value;
+                                                // Create an object for the current barang
+                                                let barang = {
+                                                    seri: seri,
+                                                    hs: hs,
+                                                    uraian: uraian,
+                                                    merk: merk,
+                                                    tipe: tipe,
+                                                    ukuran: ukuran,
+                                                    spesifikasiLain: spesifikasiLain,
+                                                    kodeGunaBarang: kodeGunaBarang,
+                                                    kodeKategoriBarang: kodeKategoriBarang,
+                                                    kodeKondisiBarang: kodeKondisiBarang,
+                                                    flag4tahun: flag4tahun,
+                                                    caraPerhitungan: caraPerhitungan,
+                                                    jumlahSatuan: jumlahSatuan,
+                                                    kodeSatuanBarang: kodeSatuanBarang,
+                                                    jumlahKemasan: jumlahKemasan,
+                                                    kodeJenisKemasan: kodeJenisKemasan,
+                                                    cif: cif,
+                                                    cifRupiah: cifRupiah,
+                                                    hargaPenyerahan: hargaPenyerahan,
                                                 };
 
-                                                // Function to save the barang data and hide the current form
-                                                window.simpanBarang = function(index) {
-                                                    let seri = document.getElementById('seri' + index).value;
-                                                    let hs = document.getElementById('hs' + index).value;
-                                                    let uraian = document.getElementById('uraian' + index).value;
-                                                    let merk = document.getElementById('merk' + index).value;
-                                                    let tipe = document.getElementById('tipe' + index).value;
-                                                    let ukuran = document.getElementById('ukuran' + index).value;
-                                                    let spesifikasiLain = document.getElementById('spesifikasiLain' + index).value;
-                                                    let kodeGunaBarang = document.getElementById('kodeGunaBarang' + index).value;
-                                                    let kodeKategoriBarang = document.getElementById('kodeKategoriBarang' + index).value;
-                                                    let kodeKondisiBarang = document.getElementById('kodeKondisiBarang' + index).value;
-                                                    let flag4tahun = document.getElementById('flag4tahun' + index).checked;
-                                                    let caraPerhitungan = document.getElementById('caraPerhitungan' + index).value;
-                                                    let jumlahSatuan = document.getElementById('jumlahSatuan' + index).value;
-                                                    let kodeSatuanBarang = document.getElementById('kodeSatuanBarang' + index).value;
-                                                    let jumlahKemasan = document.getElementById('jumlahKemasan' + index).value;
-                                                    let kodeJenisKemasan = document.getElementById('kodeJenisKemasan' + index).value;
-                                                    let cif = document.getElementById('cif' + index).value;
-                                                    let cifRupiah = document.getElementById('cifRupiah' + index).value;
-                                                    let hargaPenyerahan = document.getElementById('hargaPenyerahan' + index).value;
-                                                    // Create an object for the current barang
-                                                    let barang = {
-                                                        seri: seri,
-                                                        hs: hs,
-                                                        uraian: uraian,
-                                                        merk: merk,
-                                                        tipe: tipe,
-                                                        ukuran: ukuran,
-                                                        spesifikasiLain: spesifikasiLain,
-                                                        kodeGunaBarang: kodeGunaBarang,
-                                                        kodeKategoriBarang: kodeKategoriBarang,
-                                                        kodeKondisiBarang: kodeKondisiBarang,
-                                                        flag4tahun: flag4tahun,
-                                                        caraPerhitungan: caraPerhitungan,
-                                                        jumlahSatuan: jumlahSatuan,
-                                                        kodeSatuanBarang: kodeSatuanBarang,
-                                                        jumlahKemasan: jumlahKemasan,
-                                                        kodeJenisKemasan: kodeJenisKemasan,
-                                                        cif: cif,
-                                                        cifRupiah: cifRupiah,
-                                                        hargaPenyerahan: hargaPenyerahan,
-                                                    };
+                                                // Save the data to the barangList
+                                                barangList.push(barang);
+                                                localStorage.setItem('barangList', JSON.stringify(barangList));
 
-                                                    // Save the data to the barangList
-                                                    barangList.push(barang);
-                                                    localStorage.setItem('barangList', JSON.stringify(barangList));
+                                                // Hide the form and show the next form
+                                                document.getElementById('barangForm' + index).style.display = 'none';
 
-                                                    // Hide the form and show the next form
-                                                    document.getElementById('barangForm' + index).style.display = 'none';
+                                                // Initialize the table with the updated list
+                                                initializeBarangTable();
+                                            };
 
-                                                    // Initialize the table with the updated list
-                                                    initializeBarangTable();
-                                                };
+                                            // Function to cancel the current form
+                                            window.batalBarang = function(index) {
+                                                document.getElementById('barangForm' + index).style.display = 'none';
+                                            };
 
-                                                // Function to cancel the current form
-                                                window.batalBarang = function(index) {
-                                                    document.getElementById('barangForm' + index).style.display = 'none';
-                                                };
+                                            // Function to remove barang from the list
+                                            window.hapusBarang = function(index) {
+                                                barangList.splice(index, 1);
+                                                localStorage.setItem('barangList', JSON.stringify(barangList));
+                                                initializeBarangTable();
+                                            };
 
-                                                // Function to remove barang from the list
-                                                window.hapusBarang = function(index) {
-                                                    barangList.splice(index, 1);
-                                                    localStorage.setItem('barangList', JSON.stringify(barangList));
-                                                    initializeBarangTable();
-                                                };
-
-                                                window.closeBarangModal = function() {
+                                            window.closeBarangModal = function() {
                                                 document.getElementById('myModal7').style.display = 'none';
-                                                    };
+                                            };
 
-                                                // Initialize the table when the page is ready
-                                                    window.initializeBarangTable();
-                                                })();
-                                            </script>
+                                            // Initialize the table when the page is ready
+                                            window.initializeBarangTable();
+                                        })();
+                                    </script>
 
                                     {{-- bahan Baku Impor --}}
-                                       <div class="tab-pane fade" id="bahanbakuimpor" role="tabpanel" aria-labelledby="bahanbakuimpor-tab">
+                                    <div class="tab-pane fade" id="bahanbakuimpor" role="tabpanel"
+                                        aria-labelledby="bahanbakuimpor-tab">
                                         <div class="row">
                                             <div class="container-fluid">
                                                 <div class="row">
@@ -2240,8 +2263,11 @@
                                                             <header>
                                                                 <div class="right_content">
                                                                     <div class="col-lg-12 text-start mb-6">
-                                                                        <button type="button" class="btn btn-primary mb-3" id="myBtn8" onclick="openBahanBakuImporModal()">
-                                                                            <span data-feather="plus"></span> Tambah Barang Impor
+                                                                        <button type="button"
+                                                                            class="btn btn-primary mb-3" id="myBtn8"
+                                                                            onclick="openBahanBakuImporModal()">
+                                                                            <span data-feather="plus"></span> Tambah Barang
+                                                                            Impor
                                                                         </button>
                                                                     </div>
                                                                 </div>
@@ -2272,30 +2298,33 @@
                                         </div>
                                     </div>
 
-                        <!-- Modal Bahan Baku Impor -->
-                        <div id="myModal8" class="modal" data-backdrop="static" data-keyboard="false" style="display: none;">
-                            <div class="modal-content">
-                                <span class="close" onclick="closeBahanBakuImporModal()">&times;</span>
-                                <div class="modal-form">
-                                    <div id="bahanBakuContainer"></div>
-                                    <div class="button-group">
-                                        <button type="button" class="btn btn-primary" onclick="tambahBahanBakuImpor()">Tambah</button>
-                                        <button type="button" class="btn-cancel" onclick="closeBahanBakuImporModal()">Batal</button>
+                                    <!-- Modal Bahan Baku Impor -->
+                                    <div id="myModal8" class="modal" data-backdrop="static" data-keyboard="false"
+                                        style="display: none;">
+                                        <div class="modal-content">
+                                            <span class="close" onclick="closeBahanBakuImporModal()">&times;</span>
+                                            <div class="modal-form">
+                                                <div id="bahanBakuContainer"></div>
+                                                <div class="button-group">
+                                                    <button type="button" class="btn btn-primary"
+                                                        onclick="tambahBahanBakuImpor()">Tambah</button>
+                                                    <button type="button" class="btn-cancel"
+                                                        onclick="closeBahanBakuImporModal()">Batal</button>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
 
-                      <script>
-                        (function() {
-                            let bahanBakuImporList = JSON.parse(localStorage.getItem('bahanBakuImporList')) || [];
+                                    <script>
+                                        (function() {
+                                            let bahanBakuImporList = JSON.parse(localStorage.getItem('bahanBakuImporList')) || [];
 
-                            window.initializeBahanBakuImporTable = function() {
-                                let tbody = document.getElementById("bahanbakuimporTbody");
-                                if (!tbody) return;
-                                tbody.innerHTML = "";
-                                bahanBakuImporList.forEach((item, index) => {
-                                    let row = `<tr>
+                                            window.initializeBahanBakuImporTable = function() {
+                                                let tbody = document.getElementById("bahanbakuimporTbody");
+                                                if (!tbody) return;
+                                                tbody.innerHTML = "";
+                                                bahanBakuImporList.forEach((item, index) => {
+                                                    let row = `<tr>
                                         <td>${item.seri}</td>
                                         <td>${item.hs}</td>
                                         <td>${item.uraian}</td>
@@ -2304,24 +2333,24 @@
                                         <td>-</td>
                                         <td><button class="btn btn-danger" onclick="hapusBahanBakuImpor(${index})">Hapus</button></td>
                                     </tr>`;
-                                    tbody.innerHTML += row;
-                                });
-                            };
+                                                    tbody.innerHTML += row;
+                                                });
+                                            };
 
-                            window.openBahanBakuImporModal = function() {
-                                document.getElementById('myModal8').style.display = 'block';
-                                tambahBahanBakuImpor();
-                            };
+                                            window.openBahanBakuImporModal = function() {
+                                                document.getElementById('myModal8').style.display = 'block';
+                                                tambahBahanBakuImpor();
+                                            };
 
-                            window.tambahBahanBakuImpor = function() {
-                                let index = bahanBakuImporList.length;
-                                let container = document.getElementById('bahanBakuContainer');
-                                let form = document.createElement('div');
-                                form.classList.add('bahanbakuimpor-form');
-                                form.id = 'bahanbakuimporForm' + index;
+                                            window.tambahBahanBakuImpor = function() {
+                                                let index = bahanBakuImporList.length;
+                                                let container = document.getElementById('bahanBakuContainer');
+                                                let form = document.createElement('div');
+                                                form.classList.add('bahanbakuimpor-form');
+                                                form.id = 'bahanbakuimporForm' + index;
 
-                                let nextSeri = index + 1;
-                                form.innerHTML = `
+                                                let nextSeri = index + 1;
+                                                form.innerHTML = `
                                     <h5 class="text-primary">Tambah Bahan Baku Impor</h5>
                                     <br>
                                     <!-- Dokumen Asal Section -->
@@ -2348,7 +2377,7 @@
                                             <label for="hs${index}" class="form-label">HS</label>
                                             <input type="search" class="form-control border-primary select-field" name="barang[${index}][bahanBaku][${index}][posTarif]" id="hs${index}" list="hsTarifList${index}">
                                             <datalist id="hsTarifList${index}">
-                                                @foreach($referensiHSCODE as $hsCode)
+                                                @foreach ($referensiHSCODE as $hsCode)
                                                     <option value="{{ $hsCode->hs_code }} - {{ $hsCode->uraian_barang_indonesia }}">
                                                 @endforeach
                                             </datalist>
@@ -2443,410 +2472,177 @@
                                                 <label for="jumlahSatuan" class="form-label">ukuran Barang</label>
                                                 <input type="text" class="form-control border-primary select-field" id="jumlahSatuan" name="barang[${index}][bahanBaku][${index}][jumlahSatuan]" value="{{ old('jumlahSatuan', 0.36) }}">
                                         </div>
+                                         </div>
+                                        <h5 class="text-primary">Pungutan</h5>
+                                         <div class="row">
+                                            <div class="col-md-2">
+                                                <span class="input-group-text">PPN</span>
+                                            </div>
+                                        <div class="col-md-3">
+                                            <div class="input-group">
+                                                <input type="number" class="form-control border-primary"
+                                                    id="tarif${index}"
+                                                    name="barang[${index}][bahanBaku][${index}][bahanBakuTarif][${index}][tarif]"
+                                                    value="11"
+                                                    min="0"
+                                                    step="any">
+                                                <span class="input-group-text">%</span>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-md-3">
+                                            <input type="text" class="form-control border-primary select-field" id="kodeJenisTarif${index}" name="barang[${index}][bahanBaku][${index}][bahanBakuTarif][${index}][kodeJenisTarif]" list="kodeJenisTarifList">
+                                            <datalist id="kodeJenisTarifList">
+                                                <option value="1">1 - BYR - DIBAYAR</option>
+                                                <option value="2">2 - DITANGGUNG PEMERINTAH</option>
+                                                <option value="5">5 - BBS - DIBEBASKAN</option>
+                                                <option value="6">6 - TIDAK DIPUNGUT</option>
+                                                <option value="7">7 - SUDAH DILUNASI</option>
+                                            </datalist>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="input-group">
+                                                <input type="number" class="form-control border-primary"
+                                                    id="tarifFasilitas${index}"
+                                                    name="barang[${index}][bahanBaku][${index}][bahanBakuTarif][${index}][tarifFasilitas]"
+                                                    value="100"
+                                                    min="0"
+                                                    step="any">
+                                                <span class="input-group-text">%</span>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 d-none">
+                                                <label for="jumlahSatuan" class="form-label">jumlah Satuan</label>
+                                                <input type="text" class="form-control border-primary select-field" id="jumlahSatuan"  name="barang[${index}][bahanBaku][${index}][bahanBakuTarif][${index}][jumlahSatuan]" value="{{ old('jumlahSatuan', 7.9) }}" step="any">
+                                        </div>
+                                         <div class="col-md-3 d-none">
+                                                <label for="kodeFasilitasTarif" class="form-label">kode Fasilitas Tarif</label>
+                                                <input type="text" class="form-control border-primary select-field" id="kodeFasilitasTarif"  name="barang[${index}][bahanBaku][${index}][bahanBakuTarif][${index}][kodeFasilitasTarif]" value="{{ old('kodeFasilitasTarif', '5') }}" step="any">
+                                        </div>
+                                        <div class="col-md-3 d-none">
+                                                <label for="kodeJenisPungutan" class="form-label">kode Jenis Pungutan</label>
+                                                <input type="text" class="form-control border-primary select-field" id="kodeJenisPungutan"  name="barang[${index}][bahanBaku][${index}][bahanBakuTarif][${index}][kodeJenisPungutan]" value="{{ old('kodeJenisPungutan', 'PPNLOKAL') }}">
+                                        </div>
+                                        <div class="col-md-3 d-none">
+                                                <label for="nilaiBayar" class="form-label">nilai Bayar</label>
+                                                <input type="text" class="form-control border-primary select-field" id="nilaiBayar"  name="barang[${index}][bahanBaku][${index}][bahanBakuTarif][${index}][nilaiBayar]" value="{{ old('nilaiBayar', 0) }}" step="any">
+                                        </div>
+                                        <div class="col-md-3 d-none">
+                                                <label for="nilaiFasilitas" class="form-label">nilai Fasilitas</label>
+                                                <input type="text" class="form-control border-primary select-field" id="nilaiFasilitas"  name="barang[${index}][bahanBaku][${index}][bahanBakuTarif][${index}][nilaiFasilitas]" value="{{ old('nilaiFasilitas', 0) }}" step="any">
+                                        </div>
+                                        <div class="col-md-3 d-none">
+                                                <label for="nilaiSudahDilunasi" class="form-label">nilai Sudah Dilunasi</label>
+                                                <input type="text" class="form-control border-primary select-field" id="nilaiSudahDilunasi"  name="barang[${index}][bahanBaku][${index}][bahanBakuTarif][${index}][nilaiSudahDilunasi]" value="{{ old('nilaiSudahDilunasi', 0) }}" step="any">
+                                        </div>
+                                         <div class="col-md-3 d-none">
+                                                <label for="seriBahanBaku" class="form-label">seri Bahan Baku</label>
+                                                <input type="text" class="form-control border-primary select-field" id="seriBahanBaku"  name="barang[${index}][bahanBaku][${index}][bahanBakuTarif][${index}][seriBahanBaku]" value="{{ old('seriBahanBaku', 2) }}" step="any">
+                                        </div>
                                     </div>
 
                                     <button type="button" class="btn btn-primary" onclick="simpanBahanBakuImpor(${index})">Simpan</button>
                                     <button type="button" class="btn btn-secondary" onclick="batalBahanBakuImpor(${index})">Batal</button>
                                      <hr>
                                     `;
-                                container.appendChild(form);
-                            };
+                                                container.appendChild(form);
+                                            };
 
 
-                            window.simpanBahanBakuImpor = function(index) {
-                                let seri = document.getElementById('seri' + index).value;
-                                let hs = document.getElementById('hs' + index).value;
-                                let uraian = document.getElementById('uraian' + index).value;
-                                let jumlahSatuan = document.getElementById('jumlahSatuan' + index).value;
-                                let kodeSatuanBarang = document.getElementById('kodeSatuanBarang' + index).value;
-                                let nomorDaftarDokAsal = document.getElementById('nomorDaftarDokAsal' + index).value;
-                                let tanggalDaftarDokAsal = document.getElementById('tanggalDaftarDokAsal' + index).value;
+                                            window.simpanBahanBakuImpor = function(index) {
+                                                let seri = document.getElementById('seri' + index).value;
+                                                let hs = document.getElementById('hs' + index).value;
+                                                let uraian = document.getElementById('uraian' + index).value;
+                                                let jumlahSatuan = document.getElementById('jumlahSatuan' + index).value;
+                                                let kodeSatuanBarang = document.getElementById('kodeSatuanBarang' + index).value;
+                                                let nomorDaftarDokAsal = document.getElementById('nomorDaftarDokAsal' + index).value;
+                                                let tanggalDaftarDokAsal = document.getElementById('tanggalDaftarDokAsal' + index).value;
+                                                let tarif = document.getElementById('tarif' + index).value;
+                                                let kodeJenisTarif = document.getElementById('kodeJenisTarif' + index).value;
+                                                let tarifFasilitas = document.getElementById('tarifFasilitas' + index).value;
 
+                                                let bahanBaku = {
+                                                    seri: seri,
+                                                    hs: hs,
+                                                    uraian: uraian,
+                                                    jumlahSatuan: jumlahSatuan,
+                                                    kodeSatuanBarang: kodeSatuanBarang,
+                                                    nomorDaftarDokAsal: nomorDaftarDokAsal,
+                                                    tanggalDaftarDokAsal: tanggalDaftarDokAsal,
+                                                    tarif: tarif,
+                                                    kodeJenisTarif: kodeJenisTarif,
+                                                    tarifFasilitas: tarifFasilitas,
+                                                };
 
-                                let bahanBaku = {
-                                    seri: seri,
-                                    hs: hs,
-                                    uraian: uraian,
-                                    jumlahSatuan: jumlahSatuan,
-                                    kodeSatuanBarang: kodeSatuanBarang,
-                                    nomorDaftarDokAsal: nomorDaftarDokAsal,
-                                    tanggalDaftarDokAsal: tanggalDaftarDokAsal,
+                                                bahanBakuImporList.push(bahanBaku);
+                                                localStorage.setItem('bahanBakuImporList', JSON.stringify(bahanBakuImporList));
+                                                document.getElementById('bahanbakuimporForm' + index).style.display = 'none';
+                                                initializeBahanBakuImporTable();
+                                            };
 
-                                };
+                                            window.batalBahanBakuImpor = function(index) {
+                                                document.getElementById('bahanbakuimporForm' + index).remove();
+                                            };
 
-                                bahanBakuImporList.push(bahanBaku);
-                                localStorage.setItem('bahanBakuImporList', JSON.stringify(bahanBakuImporList));
-                                document.getElementById('bahanbakuimporForm' + index).style.display = 'none';
-                                initializeBahanBakuImporTable();
-                            };
+                                            window.hapusBahanBakuImpor = function(index) {
+                                                bahanBakuImporList.splice(index, 1);
+                                                localStorage.setItem('bahanBakuImporList', JSON.stringify(bahanBakuImporList));
+                                                initializeBahanBakuImporTable();
+                                            };
 
-                            window.batalBahanBakuImpor = function(index) {
-                                document.getElementById('bahanbakuimporForm' + index).remove();
-                            };
+                                            window.closeBahanBakuImporModal = function() {
+                                                document.getElementById('myModal8').style.display = 'none';
+                                            };
 
-                            window.hapusBahanBakuImpor = function(index) {
-                                bahanBakuImporList.splice(index, 1);
-                                localStorage.setItem('bahanBakuImporList', JSON.stringify(bahanBakuImporList));
-                                initializeBahanBakuImporTable();
-                            };
+                                            window.initializeBahanBakuImporTable();
+                                        })();
+                                    </script>
 
-                            window.closeBahanBakuImporModal = function() {
-                                document.getElementById('myModal8').style.display = 'none';
-                            };
-
-                            window.initializeBahanBakuImporTable();
-                        })();
-                    </script>
-
-
-                    {{-- <!-- Modal -->
-                    <div id="myModal7" class="modal" data-backdrop="static" data-keyboard="false" style="display: none;">
-                        <div class="modal-content">
-                            <span class="close" id="closeModal7">&times;</span>
-                            <form id="modalForm" action="{{ route('dokumen.create') }}" method="POST">
-                                @csrf
-                                <div class="modal-form">
-                                    <h5 class="text-primary" id="exampleModalCenterTitle">Tambah Barang</h5>
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <label for="seriDokumen4" class="form-label">Seri</label>
-                                            <input type="text" class="form-control" id="seriDokumen4" name="seriDokumen4">
-                                        </div>
-                                        <div class="col-md-4">
-                                            <label for="hs" class="form-label">Hs</label>
-                                            <select class="form-control" name="hs" id="select-field8" required>
-                                                <option selected disabled>Pilih Hs</option>
-                                                <option value="01012100 --- BIBIT">01012100 --- BIBIT</option>
-                                                <option value="01012900 --- LAIN - LAIN">01012900 --- LAIN - LAIN</option>
-                                                <!-- Add more options as needed -->
-                                            </select>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <label for="uraian" class="form-label">Uraian</label>
-                                            <input type="text" class="form-control" id="uraian" name="uraian">
-                                        </div>
-                                        <div class="col-md-4">
-                                            <label for="merk" class="form-label">Merk</label>
-                                            <input type="text" class="form-control" id="merk" name="merk">
-                                        </div>
-                                            <div class="col-md-4">
-                                                <label for="nomorNpwp" class="form-label">Tipe</label>
-                                                <input type="text" class="form-control" id="tipe" name="tipe"
-                                                    value="{{ old('tipe') }}">
-                                            </div>
-                                            <div class="col-md-6">
-                                                <label for="nomorNpwp" class="form-label">Ukuran</label>
-                                                <input type="text" class="form-control" id="merk" name="merk"
-                                                    value="{{ old('merk') }}">
-                                            </div>
-                                            <div class="col-md-6 mb-3">
-                                                <label for="nomorNpwp" class="form-label">Spesifikasi
-                                                    Lain</label>
-                                                <input type="text" class="form-control" id="tipe" name="tipe"
-                                                    value="{{ old('tipe') }}">
-                                            </div>
-
-                                            <h5 class="text-primary" id="exampleModalCenterTitle">Keterangan
-                                                Lainnya
-                                            </h5>
-                                            <div class="row">
-                                                <div class="col-md-4">
-                                                    <label for="alamat"class="form-label">Penggunaan</label>
-                                                    <select class="form-control" name="hs" id="select-field9"
-                                                        required style="border: 1px solid #313131;">
-                                                        <option selected disabled>Pilih
-                                                            Penggunaan</option>
-                                                        <option value="0 - BARANG BERHUBUNGAN LANGSUNG"
-                                                            {{ old('Penggunaan') == '1' ? 'selected' : '' }}>
-                                                            0 - BARANG BERHUBUNGAN LANGSUNG
-                                                        </option>
-                                                        <option value="1 - TIDAK BERHUBUNGAN LANGSUNG"
-                                                            {{ old('hs') == '2' ? 'selected' : '' }}>
-                                                            1 - TIDAK BERHUBUNGAN LANGSUNG
-                                                        </option>
-                                                        <option value="2 - BARANG KONSUMSI"
-                                                            {{ old('hs') == '3' ? 'selected' : '' }}>
-                                                            2 - BARANG KONSUMSI</option>
-                                                        <option value="3 - BARANG HASIL OLAHAN<"
-                                                            {{ old('hs') == '4' ? 'selected' : '' }}>
-                                                            3 - BARANG HASIL OLAHAN</option>
-                                                        <option value="4 - BARANG LAINNYA"
-                                                            {{ old('hs') == '5' ? 'selected' : '' }}>
-                                                            4 - BARANG LAINNYA</option>
-                                                    </select>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <label for="alamat" class="form-label">Kategori
-                                                        Barang</label>
-                                                    <select class="form-control" name="hs" id="select-field10"
-                                                        required style="border: 1px solid #313131;">
-                                                        <option selected disabled>Pilih
-                                                            Kategori Barang</option>
-                                                        <option value="0 - BARANG BERHUBUNGAN LANGSUNG"
-                                                            {{ old('Penggunaan') == '1' ? 'selected' : '' }}>
-                                                            1 - HASIL PRODUKSI</option>
-                                                        <option value="1 - TIDAK BERHUBUNGAN LANGSUNG"
-                                                            {{ old('hs') == '2' ? 'selected' : '' }}>
-                                                            2 - BAHAN BAKU</option>
-                                                        <option value="2 - BARANG KONSUMSI"
-                                                            {{ old('hs') == '3' ? 'selected' : '' }}>
-                                                            3 - BARANG MODAL</option>
-                                                        <option value="3 - BARANG HASIL OLAHAN<"
-                                                            {{ old('hs') == '4' ? 'selected' : '' }}>
-                                                            4 - PERALATAN KANTOR</option>
-                                                        <option value="4 - BARANG LAINNYA"
-                                                            {{ old('hs') == '5' ? 'selected' : '' }}>
-                                                            5 - SISA DARI PROSES PRODUKSI /
-                                                            LIMBAH (WASTE/SCRAP) DAN / ATAU
-                                                            SISA ATAU BEKAS KEMAS</option>
-                                                        <option value="4 - BARANG LAINNYA"
-                                                            {{ old('hs') == '5' ? 'selected' : '' }}>
-                                                            6 - BARANG YANG DI TIMBUN UNTUK
-                                                            DI JUAL</option>
-                                                        <option value="4 - BARANG LAINNYA"
-                                                            {{ old('hs') == '5' ? 'selected' : '' }}>
-                                                            7 - BARANG YANG DI PAMERKAN
-                                                            UNTUK DI JUAL</option>
-                                                        <option value="4 - BARANG LAINNYA"
-                                                            {{ old('hs') == '5' ? 'selected' : '' }}>
-                                                            8 - BARANG LAINNYA</option>
-                                                    </select>
-                                                </div>
-                                                <div class="col-md-4">
-                                                    <label for="alamat"class="form-label">Kondisi
-                                                        Barang</label>
-                                                    <select class="form-control" name="hs" id="select-field11"
-                                                        required style="border: 1px solid #313131;">
-                                                        <option selected disabled>Pilih
-                                                            Penggunaan</option>
-                                                        <option value="1 - BAIK"
-                                                            {{ old('Penggunaan') == '1' ? 'selected' : '' }}>
-                                                            1 - BAIK</option>
-                                                        <option value="2 - RUSAK"
-                                                            {{ old('hs') == '2' ? 'selected' : '' }}>
-                                                            2 - RUSAK</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <br>
+                                        {{-- bahan Baku Ekspor --}}
+                                        <div class="tab-pane fade" id="bahanbakuimpor" role="tabpanel"
+                                        aria-labelledby="bahanbakuimpor-tab">
                                         <div class="row">
-                                            <!-- Jangka Waktu -->
-                                            <div class="col-md-6">
-                                                <label for="nomorNpwp" class="form-label">Jangka
-                                                    Waktu</label>
-                                                <div class="form-check d-flex align-items-center">
-                                                    <input class="form-check-input me-2" type="checkbox"
-                                                        id="checkbox4tahun" name="tipe" value="4">
-                                                    <span> > 4 Tahun</span>
+                                            <div class="container-fluid">
+                                                <div class="row">
+                                                    <div class="col-12">
+                                                        <div class="card">
+                                                            <header>
+                                                                <div class="right_content">
+                                                                    <div class="col-lg-12 text-start mb-6">
+                                                                        <button type="button"
+                                                                            class="btn btn-primary mb-3" id="myBtn8"
+                                                                            onclick="openBahanBakuImporModal()">
+                                                                            <span data-feather="plus"></span> Tambah Barang
+                                                                            Impor
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </header>
+                                                            <div class="card-body" id="tableContainer">
+                                                                <div class="table-responsive">
+                                                                    <table class="table table-bordered" id="dataTable">
+                                                                        <thead class="thead-light">
+                                                                            <tr>
+                                                                                <th>Seri</th>
+                                                                                <th>Hs</th>
+                                                                                <th>Uraian</th>
+                                                                                <th>Nilai Barang</th>
+                                                                                <th>Kode Satuan</th>
+                                                                                <th>Action</th>
+                                                                            </tr>
+                                                                        </thead>
+                                                                        <tbody id="bahanbakuimporTbody">
+                                                                            <!-- Data barang akan ditambahkan di sini -->
+                                                                        </tbody>
+                                                                    </table>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-12  mb-3">
-                                                <label for="alamat" class="form-label">Cara
-                                                    Perhitungan</label>
-                                                <select class="form-control" name="hs" id="select-field12"
-                                                    required style="border: 1px solid #313131;">
-                                                    <option selected disabled>Pilih Cara
-                                                        Perhitungan</option>
-                                                    <option value="0 - HARGA PEMASUKAN"
-                                                        {{ old('Penggunaan') == '1' ? 'selected' : '' }}>
-                                                        0 - HARGA PEMASUKAN
-                                                    </option>
-                                                    <option value="1 - HARGA PENYERAHAN"
-                                                        {{ old('hs') == '2' ? 'selected' : '' }}>
-                                                        1 - HARGA PENYERAHAN
-                                                    </option>
-                                                </select>
-                                            </div>
-
-                                            <h5 class="text-primary" id="exampleModalCenterTitle">Jenis
-                                            </h5>
-                                            <style>
-                                                label {
-                                                    margin-bottom: 8px;
-                                                    font-size: 14px;
-                                                }
-
-                                                .input-group {
-                                                    display: flex;
-                                                    justify-content: space-between;
-                                                    align-items: center;
-                                                }
-
-                                                .input-group input[type="text"],
-                                                .input-group select {
-                                                    flex: 1;
-                                                    padding: 10px;
-                                                    border: 1px solid #ccc;
-                                                    border-radius: 4px;
-                                                }
-
-                                                .input-group input[type="text"] {
-                                                    margin-right: 20px;
-                                                    /* Jarak antara input dan select */
-                                                }
-                                            </style>
-
-                                            <div class="container">
-                                                <label for="satuan">Satuan</label>
-                                                <div class="input-group">
-                                                    <input type="text" id="harga" name="harga">
-                                                    <select name="satuan_harga" id="select-field16">
-                                                        <option value="KGM - KILOGRAM"
-                                                            {{ old('satuan_harga') == 'KGM - KILOGRAM' ? 'selected' : '' }}>
-                                                            KGM - KILOGRAM
-                                                        </option>
-                                                        <option
-                                                            value="KPP - KGM OF PHOSPHORUS PENTOXIDE(PHOSPOHORIC ANHYDRIDE)"
-                                                            {{ old('satuan_harga') == 'KPP - KGM OF PHOSPHORUS PENTOXIDE(PHOSPOHORIC ANHYDRIDE)' ? 'selected' : '' }}>
-                                                            KPP - KGM OF PHOSPHORUS PENTOXIDE(PHOSPOHORIC ANHYDRIDE)
-                                                        </option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="container">
-                                                <label for="satuan">Kemasan</label>
-                                                <div class="input-group">
-                                                    <input type="text" id="kemasan" name="kemasan">
-                                                    <select name="satuan_kemasan" id="select-field17">
-                                                        <option value="KGM - KILOGRAM"
-                                                            {{ old('satuan_kemasan') == 'KGM - KILOGRAM' ? 'selected' : '' }}>
-                                                            1F CONTAINER, FLEXIBLE
-                                                        </option>
-                                                        <option
-                                                            value="KPP - KGM OF PHOSPHORUS PENTOXIDE(PHOSPOHORIC ANHYDRIDE)"
-                                                            {{ old('satuan_kemasan') == 'KPP - KGM OF PHOSPHORUS PENTOXIDE(PHOSPOHORIC ANHYDRIDE)' ? 'selected' : '' }}>
-                                                            BL, BALE COMPRESSED
-                                                        </option>
-                                                        <option
-                                                            value="KPP - KGM OF PHOSPHORUS PENTOXIDE(PHOSPOHORIC ANHYDRIDE)"
-                                                            {{ old('satuan_kemasan') == 'KPP - KGM OF PHOSPHORUS PENTOXIDE(PHOSPOHORIC ANHYDRIDE)' ? 'selected' : '' }}>
-                                                            FX, BAG, FLEXIBLE CONTAINER
-                                                        </option>
-                                                        <option
-                                                            value="KPP - KGM OF PHOSPHORUS PENTOXIDE(PHOSPOHORIC ANHYDRIDE)"
-                                                            {{ old('satuan_kemasan') == 'KPP - KGM OF PHOSPHORUS PENTOXIDE(PHOSPOHORIC ANHYDRIDE)' ? 'selected' : '' }}>
-                                                            FX, BAG, FLEXIBLE CONTAINER
-                                                        </option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div> --}}
-                                        <br>
-                                        {{-- <!-- Tombol Simpan & Batal -->
-                                        <div class="button-group">
-                                            <button type="submit" class="btn-save">Simpan</button>
-                                            <button type="button" class="btn-cancel"
-                                                onclick="closeModal()">Cancel</button>
                                         </div>
-                                    </div> --}}
-                            {{-- </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> --}}
-
-                                    <!-- Pungutan -->
-                                    {{-- <div class="tab-pane fade" id="pungutan" role="tabpanel" aria-labelledby="pungutan-tab">
-        <div class="container-fluid p-4">
-            <div class="card shadow-sm">
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-bordered" id="dataTable3">
-                            <thead class="thead-light">
-                                <tr>
-                                    <th class="text-dark font-weight-bold text-center">
-                                        Pungutan</th>
-                                    <th class="text-dark font-weight-bold text-center">
-                                        Wajib Bayar</th>
-                                    <th class="text-dark font-weight-bold text-center">
-                                        Dibayar</th>
-                                    <th class="text-dark font-weight-bold text-center">
-                                        Dibebaskan</th>
-                                    <th class="text-dark font-weight-bold text-center">
-                                        Ditanggung Pemerintah</th>
-                                    <th class="text-dark font-weight-bold text-center">
-                                        Sudah Dilunasi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="text-center">PPh</td>
-                                    <td class="text-center">
-                                        <select class="form-control" name="hs" id="select-field13" required
-                                            style="width: 450px; border: 1px solid #313131; font-size: 12px; padding: 4px;">
-                                            <option selected disabled></option>
-                                            <option value="0 - HARGA PEMASUKAN">
-                                                0010016806054000000000 - PENGUSAHA / PEMILIK
-                                            </option>
-                                            <option value="1 - HARGA PENYERAHAN">
-                                                0011045861092000000000 - PENERIMA
-                                            </option>
-                                        </select>
-                                    </td>
-                                    <td class="text-center" id="pph">Rp 252000000
-                                    </td>
-                                    <td class="text-center">Rp 0,00</td>
-                                    <td class="text-center">Rp 0,00</td>
-                                    <td class="text-center">Rp 0,00</td>
-                                </tr>
-                                <tr>
-                                    <td class="text-center">BM</td>
-                                    <td class="text-center">
-                                        <select class="form-control" name="hs" id="select-field14" required
-                                            style="width: 450px; border: 1px solid #313131; font-size: 12px; padding: 4px;">
-                                            <option selected disabled></option>
-                                            <option value="0 - HARGA PEMASUKAN">
-                                                0010016806054000000000- PENGUSAHA / PEMILIK
-                                            </option>
-                                            <option value="1 - HARGA PENYERAHAN">
-                                                0011045861092000000000 - PENERIMA
-                                            </option>
-                                        </select>
-                                    </td>
-                                    <td class="text-center" id="bm">Rp 90900000
-                                    </td>
-                                    <td class="text-center">Rp 0,00</td>
-                                    <td class="text-center">Rp 0,00</td>
-                                    <td class="text-center">Rp 0,00</td>
-                                </tr>
-                                <tr>
-                                    <td class="text-center">PPN</td>
-                                    <td class="text-center">
-                                        <select class="form-control" name="hs" id="select-field15" required
-                                            style="width: 450px; border: 1px solid #313131; font-size: 12px; padding: 4px;">
-                                            <option selected disabled></option>
-                                            <option value="0 - HARGA PEMASUKAN">
-                                                0010016806054000000000- PENGUSAHA / PEMILIK
-                                            </option>
-                                            <option value="1 - HARGA PENYERAHAN">
-                                                0011045861092000000000 - PENERIMA
-                                            </option>
-                                        </select>
-                                    </td>
-                                    <td class="text-center" id="ppn">Rp 1108500000
-                                    </td>
-                                    <td class="text-center">Rp 0,00</td>
-                                    <td class="text-center">Rp 0,00</td>
-                                    <td class="text-center">Rp 0,00</td>
-                                </tr>
-                                <tr>
-                                    <td class="text-center">TOTAL</td>
-                                    <td class="text-center"></td>
-                                    <td class="text-center" id="total"></td>
-                                    <td class="text-center">Rp 0,00</td>
-                                    <td class="text-center">Rp 0,00</td>
-                                    <td class="text-center">Rp 0,00</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> --}}
+                                    </div>
                                     <!-- Pernyataan -->
                                     <div class="tab-pane fade" id="pernyataan" role="tabpanel"
                                         aria-labelledby="pernyataan-tab">
@@ -2859,8 +2655,8 @@
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <label for="kotaTtd" class="form-label">Tempat</label>
-                                                                <input type="text" class="form-control" name="kotaTtd"
-                                                                    value="{{ old('kotaTtd') }}"
+                                                                <input type="text" class="form-control"
+                                                                    name="kotaTtd" value="{{ old('kotaTtd') }}"
                                                                     style="border: 1px solid #313131;">
                                                             </div>
                                                             <div class="col-md-6">
@@ -2877,8 +2673,8 @@
                                                         <div class="row">
                                                             <div class="col-md-6">
                                                                 <label for="uang_muka" class="form-label">Nama</label>
-                                                                <input type="text" class="form-control" name="namaTtd"
-                                                                    value="{{ old('namaTtd') }}"
+                                                                <input type="text" class="form-control"
+                                                                    name="namaTtd" value="{{ old('namaTtd') }}"
                                                                     style="border: 1px solid #313131;">
                                                             </div>
                                                             <div class="col-md-6">
@@ -3033,7 +2829,7 @@
             theme: 'bootstrap-5'
         });
     </script>
-        <script>
+    <script>
         $('#select-field21').select2({
             theme: 'bootstrap-5'
         });

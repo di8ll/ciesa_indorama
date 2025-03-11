@@ -36,7 +36,7 @@ class TpbBc25Controller extends Controller
 
         $defaultValuta = Referensivaluta::where('kode_valuta', 'USD')->first();
 
-        return view('dashboard.admin.dokumen.create', compact('penerimaPajak','pemilikbarang','referensidokumen','referensikemasan','referensivaluta','defaultValuta','referensiHSCODE','referensikategoribarang','referensikantor'));
+        return view('dashboard.admin.dokumen.create', compact('penerimaPajak', 'pemilikbarang', 'referensidokumen', 'referensikemasan', 'referensivaluta', 'defaultValuta', 'referensiHSCODE', 'referensikategoribarang', 'referensikantor'));
     }
 
     public function store(Request $request)
@@ -72,17 +72,49 @@ class TpbBc25Controller extends Controller
         $payload = $request->all();
 
         // Ensure the 'barang' field exists and set defaults for missing values
-    $payload['barang'][0]['kodeDokAsal'] = $payload['barang'][0]['kodeDokAsal'] ?? '';
-    // $payload['barang'][0]['bahanBaku'] = $payload['barang'][0]['bahanBaku'] ?? [];
-    $payload['barang'][0]['barangDokumen'] = $payload['barang'][0]['barangDokumen'] ?? [];
-    $payload['barang'][0]['barangTarif'] = $payload['barang'][0]['barangTarif'] ?? [];
-    // Check if bahanBakuTarif is set, if not, set it to a default value (e.g., an empty array or 0.0)
-        $payload['barang'][0]['bahanBaku'][0]['bahanBakuTarif'] = $payload['barang'][0]['bahanBaku'][0]['bahanBakuTarif'] ?? [];
+        $payload['barang'][0]['kodeDokAsal'] = $payload['barang'][0]['kodeDokAsal'] ?? '';
+        // $payload['barang'][0]['bahanBaku'] = $payload['barang'][0]['bahanBaku'] ?? [];
+        $payload['barang'][0]['barangDokumen'] = $payload['barang'][0]['barangDokumen'] ?? [];
+        $payload['barang'][0]['barangTarif'] = $payload['barang'][0]['barangTarif'] ?? [];
 
-    $payload['barang'][0]['bahanBakuTarif'] = $payload['barang'][0]['bahanBakuTarif'] ?? [];
-    $payload['kontainer'] = $payload['kontainer'] ?? [];
+        $payload['barang'][0]['bahanBakuTarif'] = $payload['barang'][0]['bahanBakuTarif'] ?? [];
+        $payload['kontainer'] = $payload['kontainer'] ?? [];
 
-// Anda bisa menambahkan validasi lain di sini jika diperlukan, misalnya validasi lainnya
+        // Anda bisa menambahkan validasi lain di sini jika diperlukan, misalnya validasi lainnya
+
+        // bahan baku Tarif
+        if (isset($payload['barang'][0]['bahanBaku'][0]['bahanBakuTarif'][0]['tarif'])) {
+            // If 'cif' exists, convert it to a float
+            $payload['barang'][0]['bahanBaku'][0]['bahanBakuTarif'][0]['tarif'] = floatval($payload['barang'][0]['bahanBaku'][0]['bahanBakuTarif'][0]['tarif']);
+        }
+        if (isset($payload['barang'][0]['bahanBaku'][0]['bahanBakuTarif'][0]['tarifFasilitas'])) {
+            // If 'cif' exists, convert it to a float
+            $payload['barang'][0]['bahanBaku'][0]['bahanBakuTarif'][0]['tarifFasilitas'] = floatval($payload['barang'][0]['bahanBaku'][0]['bahanBakuTarif'][0]['tarifFasilitas']);
+        }
+        if (isset($payload['barang'][0]['bahanBaku'][0]['bahanBakuTarif'][0]['jumlahSatuan'])) {
+            // If 'cif' exists, convert it to a float
+            $payload['barang'][0]['bahanBaku'][0]['bahanBakuTarif'][0]['jumlahSatuan'] = floatval($payload['barang'][0]['bahanBaku'][0]['bahanBakuTarif'][0]['jumlahSatuan']);
+        }
+        if (isset($payload['barang'][0]['bahanBaku'][0]['bahanBakuTarif'][0]['nilaiBayar'])) {
+            // If 'cif' exists, convert it to a float
+            $payload['barang'][0]['bahanBaku'][0]['bahanBakuTarif'][0]['nilaiBayar'] = floatval($payload['barang'][0]['bahanBaku'][0]['bahanBakuTarif'][0]['nilaiBayar']);
+        }
+        if (isset($payload['barang'][0]['bahanBaku'][0]['bahanBakuTarif'][0]['nilaiBayar'])) {
+            // If 'cif' exists, convert it to a float
+            $payload['barang'][0]['bahanBaku'][0]['bahanBakuTarif'][0]['nilaiBayar'] = floatval($payload['barang'][0]['bahanBaku'][0]['bahanBakuTarif'][0]['nilaiBayar']);
+        }
+        if (isset($payload['barang'][0]['bahanBaku'][0]['bahanBakuTarif'][0]['nilaiFasilitas'])) {
+            // If 'cif' exists, convert it to a float
+            $payload['barang'][0]['bahanBaku'][0]['bahanBakuTarif'][0]['nilaiFasilitas'] = floatval($payload['barang'][0]['bahanBaku'][0]['bahanBakuTarif'][0]['nilaiFasilitas']);
+        }
+        if (isset($payload['barang'][0]['bahanBaku'][0]['bahanBakuTarif'][0]['nilaiSudahDilunasi'])) {
+            // If 'cif' exists, convert it to a float
+            $payload['barang'][0]['bahanBaku'][0]['bahanBakuTarif'][0]['nilaiSudahDilunasi'] = floatval($payload['barang'][0]['bahanBaku'][0]['bahanBakuTarif'][0]['nilaiSudahDilunasi']);
+        }
+        if (isset($payload['barang'][0]['bahanBaku'][0]['bahanBakuTarif'][0]['seriBahanBaku'])) {
+            // If 'cif' exists, convert it to a float
+            $payload['barang'][0]['bahanBaku'][0]['bahanBakuTarif'][0]['seriBahanBaku'] = floatval($payload['barang'][0]['bahanBaku'][0]['bahanBakuTarif']  [0]['seriBahanBaku']);
+        }
 
         // bahan baku
         if (isset($payload['barang'][0]['bahanBaku'][0]['cif'])) {
@@ -315,4 +347,3 @@ class TpbBc25Controller extends Controller
         }
     }
 }
-
