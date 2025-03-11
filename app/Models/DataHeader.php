@@ -10,7 +10,8 @@ class DataHeader extends Model
     use HasFactory;
 
     protected $table = 'data_header';
-
+    // Disable timestamps
+    public $timestamps = false;
     protected $fillable = [
         'nomorAju',
         'kodeKantor',

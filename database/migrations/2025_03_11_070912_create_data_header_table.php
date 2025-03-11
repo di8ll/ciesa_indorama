@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('kodeJenisTpb');
             $table->string('kodeTujuanPengiriman');
             $table->string('kodeCaraBayar');
-            $table->timestamps();
+            $table->dropTimestamps(); // This will remove the columns if the migration is roll
         });
     }
 
@@ -28,5 +28,6 @@ return new class extends Migration
     public function down(): void
     {
         Schema::dropIfExists('data_header');
+
     }
 };

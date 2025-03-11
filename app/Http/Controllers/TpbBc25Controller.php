@@ -15,6 +15,8 @@ use App\Models\Referensivaluta;
 use App\Models\ReferensiHSCode;
 use App\Models\ReferensiKantor;
 use App\Models\ReferensiKategoriBarang;
+use App\Models\DataHeader;
+
 
 class TpbBc25Controller extends Controller
 {
@@ -42,11 +44,6 @@ class TpbBc25Controller extends Controller
     public function store(Request $request)
     {
         // dd(request()->all());
-
-        // Validasi input untuk jumlahKontainer
-        $validated = $request->validate([
-            'jumlahKontainer' => 'required|integer|min:0',
-        ]);
 
         // Ambil user yang sedang autentikasi
         $user = Auth::user();
@@ -307,43 +304,53 @@ class TpbBc25Controller extends Controller
         // Ensure this is inside the correct context, for example within an array or a function
         $apiUrl = 'https://apis-gw.beacukai.go.id/openapi/document';
 
-        try {
-            // Kirim permintaan POST ke API eksternal menggunakan Http facade
-            $response = Http::withToken($accessToken)->post($apiUrl, $payload);
+       // Simpan data ke database terlebih dahulu (data_header table)
+       try {
+        // Asumsikan Anda memiliki model DataHeader untuk tabel data_header
+        $dataHeader = new DataHeader();
+        $dataHeader->fill($payload); // Pastikan field di request sesuai dengan yang ada di database
+        $dataHeader->save();
 
-            // Cek respons dari API
-            if ($response->failed()) {
-                return response()->json([
-                    'status' => 'error',
-                    'message' => 'Gagal menghubungi API eksternal',
-                    'details' => [
-                        'status_code' => $response->status(),
-                        'body' => $response->json()
-                    ]
-                ], $response->status());
-            }
+        // Jika data berhasil disimpan, lanjutkan dengan API request
+        $apiUrl = 'https://apis-gw.beacukai.go.id/openapi/document';
 
-            $data = $response->json();
+        // Kirim permintaan POST ke API eksternal menggunakan Http facade
+        $response = Http::withToken($accessToken)->post($apiUrl, $payload);
 
-            // Periksa apakah status respons adalah 'success'
-            if (isset($data['status']) && $data['status'] === 'success') {
-                return response()->json([
-                    'status' => 'success',
-                    'message' => 'Data berhasil dikirim',
-                    'data' => $payload
-                ]);
-            }
-
+        // Cek respons dari API
+        if ($response->failed()) {
             return response()->json([
                 'status' => 'error',
-                'message' => $data['message'] ?? 'Gagal menyimpan data'
-            ], 400);
-        } catch (\Exception $e) {
-            return response()->json([
-                'status' => 'error',
-                'message' => 'Terjadi kesalahan saat mengirim permintaan',
-                'details' => $e->getMessage()
-            ], 500);
+                'message' => 'Gagal menghubungi API eksternal',
+                'details' => [
+                    'status_code' => $response->status(),
+                    'body' => $response->json()
+                ]
+            ], $response->status());
         }
+
+        $data = $response->json();
+
+        // Periksa apakah status respons adalah 'success'
+        if (isset($data['status']) && $data['status'] === 'success') {
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Data berhasil dikirim',
+                'data' => $payload
+            ]);
+        }
+
+        return response()->json([
+            'status' => 'error',
+            'message' => $data['message'] ?? 'Gagal menyimpan data'
+        ], 400);
+
+    } catch (\Exception $e) {
+        return response()->json([
+            'status' => 'error',
+            'message' => 'Terjadi kesalahan saat menyimpan data atau mengirim permintaan',
+            'details' => $e->getMessage()
+        ], 500);
     }
+}
 }
