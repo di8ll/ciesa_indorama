@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\DataPemilik;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Log; // Add this import
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Auth; // Add this import to access the authenticated user
 use App\Models\DataPenerimaPajak;
@@ -16,7 +15,9 @@ use App\Models\ReferensiHSCode;
 use App\Models\ReferensiKantor;
 use App\Models\ReferensiKategoriBarang;
 use App\Models\DataHeader;
-
+use Illuminate\Support\Facades\DB;
+use App\Models\DataEntitasPenyelenggara;
+use App\Models\DataEntitasPemilikBarang;
 
 class TpbBc25Controller extends Controller
 {
@@ -304,53 +305,54 @@ class TpbBc25Controller extends Controller
         // Ensure this is inside the correct context, for example within an array or a function
         $apiUrl = 'https://apis-gw.beacukai.go.id/openapi/document';
 
-       // Simpan data ke database terlebih dahulu (data_header table)
-       try {
-        // Asumsikan Anda memiliki model DataHeader untuk tabel data_header
-        $dataHeader = new DataHeader();
-        $dataHeader->fill($payload); // Pastikan field di request sesuai dengan yang ada di database
-        $dataHeader->save();
+        try {
+            // Start transaction
+            DB::beginTransaction();
 
-        // Jika data berhasil disimpan, lanjutkan dengan API request
-        $apiUrl = 'https://apis-gw.beacukai.go.id/openapi/document';
+            // Save data to data_header table
+            $dataHeader = new DataHeader();
+            $dataHeader->fill($payload);
+            $dataHeader->save();
 
-        // Kirim permintaan POST ke API eksternal menggunakan Http facade
-        $response = Http::withToken($accessToken)->post($apiUrl, $payload);
+            // Get entitas[1] data from the request
+            $entitasData = $request->input('entitas')[1]; // Get data from entitas[1]
 
-        // Cek respons dari API
-        if ($response->failed()) {
-            return response()->json([
-                'status' => 'error',
-                'message' => 'Gagal menghubungi API eksternal',
-                'details' => [
-                    'status_code' => $response->status(),
-                    'body' => $response->json()
-                ]
-            ], $response->status());
+            // Create DataEntitasPemilikBarang instance
+            $dataPemilik = new DataEntitasPemilikBarang();
+            $dataPemilik->fill($entitasData);
+
+            // Save data to database
+            $dataPemilik->save();
+
+            // Commit the transaction if both saves are successful
+            DB::commit();
+
+            // Proceed with the external API request
+            $apiUrl = 'https://apis-gw.beacukai.go.id/openapi/document';
+            $response = Http::withToken($accessToken)->post($apiUrl, $payload);
+
+            // Check if the API request failed
+            if ($response->failed()) {
+                // If failed, handle the failure but continue redirecting to /dokumen_baru
+                return redirect('/dokumen_baru')->with('error', 'Failed to contact external API');
+            }
+
+            // If API response is successful
+            $data = $response->json();
+
+            // Check if the API response status is 'success'
+            if ($response->successful() && $data['status'] === 'success') {
+                // Redirect to /dokumen_baru if data is successfully saved and API returns success
+                return redirect('/dokumen_baru')->with('success', 'Data berhasil Dibuat');
+            } else {
+                // If the API returns an error status, still redirect but show an error message
+                return redirect('/dokumen_baru')->with('error', $data['message'] ?? 'Failed to save data');
+            }
+
+        } catch (\Exception $e) {
+            // In case of exception, redirect to /dokumen_baru with error message
+            return redirect('/dokumen_baru')->with('error', 'An error occurred while saving data or making the request');
         }
 
-        $data = $response->json();
-
-        // Periksa apakah status respons adalah 'success'
-        if (isset($data['status']) && $data['status'] === 'success') {
-            return response()->json([
-                'status' => 'success',
-                'message' => 'Data berhasil dikirim',
-                'data' => $payload
-            ]);
-        }
-
-        return response()->json([
-            'status' => 'error',
-            'message' => $data['message'] ?? 'Gagal menyimpan data'
-        ], 400);
-
-    } catch (\Exception $e) {
-        return response()->json([
-            'status' => 'error',
-            'message' => 'Terjadi kesalahan saat menyimpan data atau mengirim permintaan',
-            'details' => $e->getMessage()
-        ], 500);
     }
-}
 }

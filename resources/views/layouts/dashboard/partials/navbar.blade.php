@@ -13,18 +13,11 @@
                         style="border: 1px solid rgb(196, 196, 196); border-radius: 4px;">
                 <div>
 
-                            {{-- <small class="d-none d-md-block font-11">
-                                @foreach (Auth::user()->getRoleNames() as $role)
-                                    {{ $role }}
-                                    @if (!$loop->last)
-                                        <!-- Tambahkan pemisah jika bukan peran terakhir -->
-                                        ,
-                                    @endif
-                                @endforeach
-                            </small> --}}
+
                             <span class="text-white d-none d-md-block fw-semibold font-12">
-                                {{-- {{ auth()->user()->username }} --}}
+                                {{ auth()->user()->username }}
                                 <i class="mdi mdi-chevron-down"></i></span>
+
                         </div>
                     </div>
                 </a>

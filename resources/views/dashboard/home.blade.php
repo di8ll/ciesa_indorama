@@ -6,7 +6,7 @@
 
 @section('content')
 
-   
+
     <style>
         .dropdown-menu {
             display: none;

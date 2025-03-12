@@ -38,23 +38,17 @@ class LoginController extends Controller
         if ($response->successful()) {
             $data = $response->json();
 
-        // Periksa apakah status respons adalah 'success'
-        if (isset($data['status']) && $data['status'] === 'success') {
-            if (isset($data['item']['access_token'])) {
-                // Tambah data pengguna baru dengan access token yang baru
-                $user = User::create([
-                    'username' => $request->username,
-                    'password' => bcrypt($request->password), // Simpan password yang di-hash
-                    'access_token' => $data['item']['access_token'], // Simpan access_token
-                ]);
-
-                return response()->json([
-                    'status' => 'success',
-                    'message' => 'Pengguna baru berhasil ditambahkan',
-                    'data' => $user,
-                ]);
-
-
+            // Periksa apakah status respons adalah 'success'
+            if (isset($data['status']) && $data['status'] === 'success') {
+                if (isset($data['item']['access_token'])) {
+                    // Simpan atau perbarui data pengguna di database termasuk access token
+                    $user = User::updateOrCreate(
+                        ['username' => $request->username],
+                        [
+                            'password' => bcrypt($request->password), // Simpan password yang di-hash
+                            'access_token' => $data['item']['access_token'], // Simpan access_token
+                        ]
+                    );
 
                     // Login pengguna
                     Auth::login($user);
@@ -71,7 +65,5 @@ class LoginController extends Controller
         // Jika login gagal
         return redirect()->back()->withErrors(['username' => 'Invalid credentials']);
     }
-
-
 
 }

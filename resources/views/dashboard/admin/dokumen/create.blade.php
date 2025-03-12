@@ -646,12 +646,6 @@
                                                             value="{{ old('kodeEntitas', '3') }}">
                                                     </div>
                                                     <div class="col-md-3 d-none">
-                                                        <label for="kodeEntitas" class="form-label">Kode Entitas</label>
-                                                        <input type="text" class="form-control border-primary"
-                                                            id="kodeEntitas" name="entitas[0][kodeEntitas]"
-                                                            value="{{ old('kodeEntitas', '3') }}">
-                                                    </div>
-                                                    <div class="col-md-3 d-none">
                                                         <label for="kodeJenisApi" class="form-label">kode Jenis
                                                             Api</label>
                                                         <input type="text" class="form-control border-primary"
@@ -725,13 +719,6 @@
                                                         <input type="text" class="form-control border-success"
                                                             id="kodeEntitas2" name="entitas[1][kodeEntitas]"
                                                             value="{{ old('kodeEntitas', '7') }}">
-                                                    </div>
-                                                    <div class="col-md-3 d-none">
-                                                        <label for="kodeJenisApi" class="form-label">kode Jenis
-                                                            Api</label>
-                                                        <input type="text" class="form-control border-primary"
-                                                            id="kodeJenisApi2" name="entitas[1][kodeJenisApi]"
-                                                            value="{{ old('kodeJenisApi', '2') }}">
                                                     </div>
                                                     <div class="col-md-3 d-none">
                                                         <label for="kodeJenisApi" class="form-label">kode Jenis
